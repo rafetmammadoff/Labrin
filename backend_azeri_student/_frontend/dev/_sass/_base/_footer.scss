@@ -1,0 +1,89 @@
+footer{
+  background-color: #000;
+  color: $white;
+  .footer-title{
+    position: relative;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+    &:before{
+      content:'';
+      width: 43px;
+      height: 1px;
+      background: white;
+      position: absolute;
+      bottom: -8px;
+      left: 0px;
+    }
+  }
+  .social-icons{
+    p{
+      font-size: 15px;
+    }
+    ul{
+      margin-top: 25px;
+      display: flex;
+      li{
+        margin-right: 25px;
+        a{
+          font-size: 20px;
+          &:hover{
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-items{
+    .contact-item{
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      i{
+        margin-right: 10px;
+      }
+      .phone-numbers  {
+        li{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  .footer-menu{
+    li{
+      margin-bottom: 3px;
+      a{
+        font-size: 15px;
+        &:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  .footer-partners{
+    display: flex;
+    flex-wrap: wrap;
+    @include breakpoint(visible-xs){
+      //flex-direction: column;
+      justify-content: space-between;
+    }
+    li{
+      margin-bottom:20px;
+      &:first-child{
+        margin-right: 35px;
+        @include breakpoint(visible-xs){
+          margin-right:0;
+        }
+      }
+      &:nth-child(2){
+        margin-right: 30px;
+        @include breakpoint(visible-xs){
+          margin-right:0;
+        }
+      }
+    }
+  }
+}

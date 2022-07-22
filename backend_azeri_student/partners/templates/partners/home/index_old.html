@@ -1,0 +1,312 @@
+{% extends 'partners/base/index.html' %}
+{% load static %}
+{% load partner_filter i18n %}
+
+{% block meta_tags %}
+    <meta name="keywords" content="{{ object.meta_keywords }}">
+    <meta name="description" content="{{ object.meta_description }}">
+{% endblock meta_tags %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.facebook_social_title }}">
+    <meta property="og:description" content="{{ object.facebook_social_description }}">
+    {% if object.social_image %}
+        <meta property="og:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.social_image %}
+        <meta name="twitter:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.twitter_social_image_alt }}">
+    <meta name="twitter:creator" content="{{ object.twitter_social_creator }}"/>
+    <meta name="twitter:site" content="{{ object.twitter_social_site }}">
+{% endblock social_headers %}
+
+{% block title %}
+    <title>{{ object.website_title }}</title>
+{% endblock title %}
+
+{% block content %}
+    <section {% if object.page_url == '/' %}id="homepage"{% elif object.page_url == '/about/' %}id="about_pg"
+             {% elif object.page_url == '/contact/' %}id="contact_pg"
+             {% elif object.page_url == '/fall-fair/' or object.page_url == '/fall-fair-2019/' %}id="fallfair_pg"{% endif %}id="fallfair_pg">
+        <div class="container">
+            <div id="videoHolder" class="row">
+                <div class="col-md-8 col-lg-7 d-flex align-items-center">
+                    {% for slider in object.mainpageslider_set.all %}
+                        {% if slider.status %}
+                            {% if slider.youtube_link %}
+                                <a id="video" data-fancybox=""
+                                   href="https://www.youtube.com/embed/{{ slider.youtube_link.get_youtube_id }}?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp;autoplay=1&mute=1">
+                                    <img src="{{ slider.youtube_link.get_background_image }}">
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-4 col-lg-5 justify-content-end align-items-end d-none d-md-flex">
+                    <img src="{% static 'partners/assets/human.svg' %}" class="img-fluid">
+                </div>
+            </div>
+
+            {# Starting Content type -> 2 (Event Videolar) and 0(Bir kontentli) condition => For only fall-fair page #}
+            {% if  object.page_url == '/fall-fair/' or object.page_url == '/fall-fair-2019/' or  object.page_url == '/spring-fair-2020/' %}
+                {% for content in object.homecontent_set.all %}
+
+                    {% if content.home_content_type == 0 %}
+                        <h5>{{ content.title }}</h5>
+                        {{ content.content|safe }}
+                    {% endif %}
+
+                    {% if content.home_content_type == 2 %}
+                        <article id="cities">
+                            <div class="row">
+                                {% for event in content.events.all %}
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="city">
+                                            {# <img src="{{ event.youtube_link.get_background_image }}">#}
+                                            <img src="{% if event.image %}{{ event.image.url }}{% endif %}">
+
+                                            <div class="city_name">{{ event.name }}</div>
+
+                                            <h6 class="date"
+                                                style="background-color: {% if forloop.counter == 1 %}#2c67ff{% elif forloop.counter == 2 %}#6c40a4{% elif forloop.counter == 3 %}#344a8a{% elif forloop.counter == 4 %}#249a96{% else %}#2c67ff{% endif %}">
+                                                {{ event.event_date|default_if_none:'' }}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </article>
+                    {% endif %}
+
+                    {# Starting Content type -> 3 (Contact form) condition #}
+                    {% if content.home_content_type == 3 %}
+                        <form class="register-submit-form" action="" method="post"
+                              data-action="{% url 'register_view' %}">
+                            {% csrf_token %}
+                            <h5 class="roboto-italic">{{ content.title }}</h5>
+                            <p class="my-4">{{ content.content|safe }}</p>
+
+                            <input type="hidden" name="reg_loc" value="{{ base_menu_object }}">
+                            <div class="row">
+                                {% for field in form %}
+                                    {% if field.name == 'first_name' or field.name == 'last_name' or field.name == 'email' or field.name == 'institution' %}
+                                        <div class="col-md-6">
+{#                                        <input type="{% if field.name == 'email' %}email{% else %}text{% endif %}"#}
+{#                                               placeholder="{{ field.label }}" required>#}
+                                            {{ field }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            {% for field in form %}
+                                {% if forloop.counter == 5 %}
+                                    <article class="checkHolder">
+                                        <div class="check_header">
+                                            <p>Select event (Cities)</p>
+                                            <p>How many tables each city</p>
+                                        </div>
+                                        {{ form_table.management_form }}
+                                        {% for form in form_table %}
+                                            {% with form_count=forloop.counter0 %}
+                                                {% for event_item in events %}
+                                                    {% if forloop.counter0 == form_count %}
+                                                        <div class="check_city">
+                                                            <div class="input_wrapper">
+                                                                <input class="nonform" type="checkbox"
+                                                                       id="id_table-{{ form_count }}-cities"
+                                                                       value="{{ event_item.id }}"
+                                                                       name="table-{{ form_count }}-cities">
+                                                                <label for="id_table-{{ form_count }}-cities">{{ event_item.name }}</label>
+                                                            </div>
+
+                                                            {% for field in form %}
+                                                                {% if field.name == 'table_count' %}
+                                                                    {{ field }}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            {#  <input disabled value="1" class="nonform" type="number" min="1">#}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endwith %}
+                                        {% endfor %}
+                                    </article>
+                                {% endif %}
+
+                            {% endfor %}
+
+                            {% for field in form %}
+                                {% if field.name == 'message' %}
+                                    <div class="row">
+                                {% endif %}
+
+                            <div class="col-12">
+                                {% if field.name == 'message' or field.name == 'billing_address' or field.name == 'signature' %}
+                                    {{ field }}
+                                {% endif %}
+                            </div>
+
+                            {% if field.name == 'signature' %}
+                                </div>
+                            {% endif %}
+                            {% endfor %}
+
+                            <div class="buttonHolder">
+                                <span id="today"></span>
+                                <input type="submit" id="submit-send">SEND</input>
+                            </div>
+                        </form>
+                    {% endif %}
+                    {# Ending Content type -> 3 (Contact form) condition #}
+                {% endfor %}
+            {% endif %}
+            {# Ending Content type -> 2 (Event Videolar) condition #}
+
+
+            {# Starting Open <div> for Contact page or <article> for other pages #}
+            {% if object.page_url == '/contact/' %}
+                <div class="row mb-5">
+            {% else %}
+                <article {% if object.page_url == '/' %}id="vector_n_text"
+                         {% elif object.page_url == '/about/' %}id="content"{% endif %}>
+            {% endif %}
+            {# Ending Open <div> for Contact page or <article> for other pages #}
+
+
+            {% for content in object.homecontent_set.all %}
+
+                {# Starting Content type -> 0 (Bir kontentli) condition #}
+                {% if content.home_content_type == 0 %}
+
+                    {% if object.page_url == '/about/' %}
+                        <h4 class="title">{{ content.title }}</h4>
+                        {{ content.content|safe }}
+                    {% endif %}
+
+                    {% if object.page_url == '/contact/' %}
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h5>{{ content.title }}</h5>
+                            {{ content.content|safe }}
+                        </div>
+                    {% endif %}
+
+
+                    {% if content.left_or_right == 0 %}
+                        <div class="row">
+                            <div class="col-md-6 imageHolder">
+                                <img src="{% if content.image %}{{ content.image.url }}{% endif %}" class="img-fluid">
+                            </div>
+                            <div class="col-md-6 textHolder">
+                                <h5 class="azeristudent">{{ content.title }}</h5>
+                                {{ content.content|safe }}
+                            </div>
+                        </div>
+                    {% elif content.left_or_right == 1 %}
+                        <div class="row">
+                            <div class="col-md-6 order-2 order-md-1 textHolder">
+                                <h5 class="whatwedo">{{ content.title }}</h5>
+                                {{ content.content|safe }}
+                            </div>
+
+                            <div class="col-md-6 imageHolder order-1 order-md-2">
+                                <img src="{% if content.image %}{{ content.image.url }}{% endif %}"
+                                     class="img-fluid">
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+                {# Ending Content type -> 0 (Bir kontentli) condition #}
+
+                {# Starting Content type -> 1 (Proqramlar) condition #}
+                {% if content.home_content_type == 1 %}
+                    <div class="row">
+                        <div class="col-md-6 imageHolder">
+                            <img src="{% if content.image %}{{ content.image.url }}{% else %}{% endif %}"
+                                 class="img-fluid">
+                        </div>
+                        <div class="col-md-6 textHolder">
+                            <h5 class="ourprograms">{{ content.title }}</h5>
+
+                            <ul>
+                                {% for program in content.programs.all %}
+                                    <li>
+                                        {{ program.name }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                {% endif %}
+                {# Ending Content type -> 1 (Proqramlar) condition #}
+
+            {% endfor %}
+
+
+            {# Starting Closing <div> for Contact page or <article> for other pages #}
+            {% if object.page_url == '/contact/' %}
+                </div>
+            {% else %}
+                </article>
+            {% endif %}
+            {# Ending Closing <div> for Contact page or <article> for other pages #}
+        </div>
+
+        {% for content in object.homecontent_set.all %}
+
+            {# Starting Content type -> 4 (Partners section) condition => For only fall-fairs page  #}
+            {% if object.page_url == '/fall-fair/' or object.page_url == '/fall-fair-2019/' %}
+                {% if content.home_content_type == 4 %}
+                    <article id="participants">
+                        <div class="container">
+                            <h5>{{ content.title }}</h5>
+                        </div>
+                        <div class="carouselHolder">
+                            <div class="container">
+                                <div class="owl-carousel">
+                                    {% for partner in content.partner_says.all %}
+                                        <div class="participant">
+                                            <img class="participant_pp" src="{{ partner.picture.url }}"
+                                                 alt="">
+
+                                            <h5 data-id="{{ forloop.counter }}"
+                                                class="participant_name">{{ partner.full_name }}</h5>
+                                            <small class="participant_position">{{ partner.specialty }}</small>
+
+                                            <p class="participant_quote">{{ partner.text }}</p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    {% if content.button_link %}
+                        <div class="container">
+                            <div id="videoHolder" class="row megaVideo">
+                                <div class="col-12">
+                                    <a id="video" data-fancybox="" href="{{ content.button_link }}">
+                                        {% get_youtube_image content.button_link as  img_url %}
+                                        <img src="{{ img_url }}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {# Ending Content type -> 4 (Partners section) condition #}
+
+        {% endfor %}
+
+        <div id="snackbar"></div>
+    </section>
+{% endblock content %}

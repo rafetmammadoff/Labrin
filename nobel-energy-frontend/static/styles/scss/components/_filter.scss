@@ -1,0 +1,125 @@
+html {
+  overflow: hidden;
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .datepicker {
+    width: rem(350);
+    margin-right: rem(26);
+    position: relative;
+
+    input {
+      width: 100%;
+      height: rem(50);
+      border: 1px solid #c7c8ca;
+      outline: none;
+      @include advancedRem(padding, (15 16));
+      font-weight: normal;
+      font-size: rem(16);
+      line-height: rem(20);
+
+      color: #2f2f30;
+    }
+  }
+
+  .g-btn {
+    height: rem(50);
+  }
+}
+
+.date-picker-wrapper {
+  background: #ffffff;
+  border: 1px solid #c7c8ca;
+  box-shadow: none;
+  @include advancedRem(padding, (20 34));
+  top: 100% !important;
+  left: 0 !important;
+  z-index: 999 !important;
+  width: auto !important;
+
+  .drp_top-bar {
+    position: static !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-right: 5px !important;
+
+    .apply-btn {
+      position: static !important;
+      width: auto;
+      height: auto !important;
+      padding: 4px 5px;
+    }
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+
+  .apply-btn {
+    @extend .g-btn;
+    background: $secondary-clr !important;
+    color: $white-clr !important;
+    border-radius: 0 !important;
+    border: none !important;
+    outline: none;
+  }
+
+  .month-wrapper {
+    border: none !important;
+    outline: none;
+  }
+
+  .month-name {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: normal;
+    color: #000000;
+  }
+
+  .prev,
+  .next {
+    color: $primary-clr;
+    font-size: rem(12);
+    @include transition();
+
+    &:hover {
+      color: $white-clr !important;
+      background-color: $primary-clr !important;
+    }
+  }
+
+  .gap-lines {
+    display: none;
+  }
+
+  .gap {
+    width: rem(4);
+    background: transparentize($color: $primary-clr, $amount: 0.7);
+  }
+
+  .week-name {
+    * {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: #000000;
+    }
+  }
+
+  .checked {
+    background: $primary-clr !important;
+    color: $white-clr !important;
+  }
+
+  .date-range-length-tip {
+    background: transparentize($color: $primary-clr, $amount: 0.3);
+    color: $white-clr;
+  }
+}

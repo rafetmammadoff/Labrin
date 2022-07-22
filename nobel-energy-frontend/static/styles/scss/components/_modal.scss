@@ -1,0 +1,139 @@
+.g-modal {
+  .modal-header,
+  .modal-body,
+  .modal-content,
+  .modal-footer {
+    border: none;
+  }
+
+  .modal-header {
+    padding: 0;
+  }
+
+  .modal-content {
+    border-radius: 0;
+  }
+}
+
+.search-modal {
+  $width: rem(100);
+  $width-sm: rem(30);
+  $top: rem(340);
+  $pos: rem(225);
+  background-color: transparentize($dark-gray, $amount: 0.3);
+
+  .modal-dialog {
+    max-width: calc(100% - #{$width} * 2);
+    display: flex;
+    align-items: stretch;
+    margin: 0 auto;
+    width: 100%;
+
+    @include breakpoint(0, rem(630)) {
+      max-width: calc(100% - #{$width-sm} * 2);
+    }
+  }
+
+  .modal-content {
+    background-color: transparent;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: rem(40);
+    right: 0;
+    color: $white-clr;
+    @include font-size(19, 700);
+    @include advancedRem(padding, (8));
+  }
+
+  .modal-body {
+    width: 100%;
+    margin-top: calc(min(30vh, #{$top}));
+  }
+
+  .modal-search {
+    max-width: calc(100% - #{$pos} * 2);
+    width: 100%;
+    margin: 0 auto;
+    @include flex-center();
+    border-bottom: 2px solid $white-clr;
+    @include advancedRem(padding, (0 20 0 20));
+    min-width: rem(400);
+
+    @include breakpoint(0, rem(630)) {
+      width: 100%;
+      min-width: 100%;
+    }
+
+    input {
+      flex-grow: 1;
+      background-color: transparent;
+      border: none;
+      color: $white-clr;
+      @include font-size(18, 500);
+      @include advancedRem(padding, (15 20 15 0));
+    }
+
+    .g-btn {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.apply-modal {
+  background-color: transparentize($dark-gray, 0.6);
+
+  .modal {
+    &-header {
+      @include justify-end();
+      @include advancedRem(padding, (54 92));
+
+      @include breakpoint($mobile-width, $tablet-width) {
+        @include advancedRem(padding, (30 52));
+      }
+
+      @include breakpoint(0, $mobile-width) {
+        @include advancedRem(padding, (30));
+      }
+    }
+
+    &-dialog {
+      max-width: rem(1122);
+      width: 90%;
+      margin: rem(100) auto;
+
+      @include breakpoint(0, $tablet-width) {
+        margin: rem(40) auto;
+      }
+    }
+
+    &-body {
+      @include advancedRem(padding, (64 92 117));
+
+      @include breakpoint($mobile-width, $tablet-width) {
+        @include advancedRem(padding, (40 52 70));
+      }
+
+      @include breakpoint(0, $mobile-width) {
+        @include advancedRem(padding, (30 30 40));
+      }
+    }
+  }
+
+  .apply-title {
+    text-align: center;
+    @include font-size(44, 400);
+
+    @include breakpoint($mobile-width, $tablet-width) {
+      @include font-size(36, 400);
+    }
+
+    @include breakpoint(0, $mobile-width) {
+      @include font-size(28, 400);
+    }
+  }
+}

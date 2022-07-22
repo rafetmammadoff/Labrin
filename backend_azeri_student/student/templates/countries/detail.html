@@ -1,0 +1,212 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block title %}
+    {{ object.title }} | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.title }}">
+    <meta property="og:description" content="{{ object.about|safe|cut:"<p>"|cut:"</p>" }}">
+    {% if object.background_image %}
+        <meta property="og:image"
+              content="{{ object.background_image.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.background_image %}
+        <meta name="twitter:image"
+              content="https://{{ request.get_host }}{{ object.background_image.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: '{{ object.title }}',
+        content_category: 'Countries',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+    <section class="study-page">
+        <div class="page-cover" style="background-image:url({{ object.background_image.url }})">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title ">{{ object.title }}</h1>
+                    <ol class="breadcrumb ">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> {{ object.title }}</li>
+                    </ol>
+                    <p class="cover-info "></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="study-wrap">
+            <div class="container">
+                <div class="study-section">
+                    <div class="heading">
+                        <h1>Ölkə haqqında</h1>
+                    </div>
+                    <div class="about-country study">
+                        <div class="country-left">
+                            {{ object.about|safe }}
+                        </div>
+                        <div class="country-right">
+                            <ul>
+                                {% if object.get_higher_education %}
+                                    <li>
+                                        <a href="{% url 'country-search-view' country_slug=object.get_higher_education.country.slug education_slug=object.get_higher_education.education_type.slug %}">{{ object.get_higher_education.education_type.title }}
+                                            <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></a>
+                                    </li>
+                                {% endif %}
+                                {% if object.get_secondary_education %}
+                                    <li>
+                                        <a href="{% url 'country-search-view' country_slug=object.get_secondary_education.country.slug education_slug=object.get_secondary_education.education_type.slug %}">{{ object.get_secondary_education.education_type.title }}
+                                            <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></a>
+                                    </li>
+                                {% endif %}
+                                {% if object.get_language_program %}
+                                    <li>
+                                        <a href="{% url 'country-search-view' country_slug=object.get_language_program.country.slug education_slug=object.get_language_program.education_type.slug %}">{{ object.get_language_program.education_type.title }}
+                                            <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prospects study">
+                        {{ object.prospect|safe }}
+                    </div>
+
+                </div>
+            </div>
+            <div class="expert study">
+                <div class="container">
+                    {{ object.expert|safe }}
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="studying-programs-wrap">
+                <div class="page-title"><h1>Təhsil proqramları</h1></div>
+                {% for program in object.education_set.all|slice:":2" %}
+                    <a href="{{ program.get_absolute_url }}">
+                        <div class="program-item">
+                            <div class="program-img" style="background-image:url({{ program.cover_img.url }})"></div>
+                            <div class="program-info">
+                                <h2 class="title">{{ program.title }}</h2>
+                                <p class="content">
+                                    {{ program.summary|safe }}
+                                </p>
+                                <div class="see-link">
+                                    <div>Daha ətraflı <img src="{% static 'azeristudent/img/right-arrow.png' %}"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <div>Təhsil programi yoxdur</div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {#        EDIT#}
+        <div id="country_study_type_icon">
+            <div class="container">
+                <div class="flex-row">
+                    {% if object.get_higher_education %}
+                        <div class="flex-item">
+                            <a href="{% url 'country-search-view' country_slug=object.get_higher_education.country.slug education_slug=object.get_higher_education.education_type.slug %}"
+                               class="content">
+                                <div class="imgHolder">
+                                    <img src="{% static 'azeristudent/img/Asset 4.svg' %}" alt="">
+                                    <img src="{% static 'azeristudent/img/Asset 4 hover.svg' %}" alt="">
+                                </div>
+
+                                <h5>Bütün {{ object.get_higher_education.education_type.title|lower }}</h5>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if object.get_secondary_education %}
+                        <div class="flex-item">
+                            <a href="{% url 'country-search-view' country_slug=object.get_secondary_education.country.slug education_slug=object.get_secondary_education.education_type.slug %}"
+                               class="content">
+                                <div class="imgHolder">
+                                    <img src="{% static 'azeristudent/img/Asset 3.svg' %}" alt="">
+                                    <img src="{% static 'azeristudent/img/Asset 3 hover.svg' %}" alt="">
+                                </div>
+
+                                <h5>Bütün {{ object.get_secondary_education.education_type.title |lower}}</h5>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if object.get_language_program %}
+                        <div class="flex-item">
+                            <a href="{% url 'country-search-view' country_slug=object.get_language_program.country.slug education_slug=object.get_language_program.education_type.slug %}"
+                               class="content">
+                                <div class="imgHolder">
+                                    <img src="{% static 'azeristudent/img/Asset 2.svg' %}" alt="">
+                                    <img src="{% static 'azeristudent/img/Asset 2 hover.svg' %}" alt="">
+                                </div>
+
+                                <h5>Bütün {{ object.get_language_program.education_type.title|lower }}</h5>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {#END OF EDIT#}
+
+
+        <div class="cost section">
+            <div class="container">
+                <div class="page-title">
+                    <h1>{{ object.title }} xərcləri</h1>
+                </div>
+                <div class="cost-heading data-custom-tab">
+                    {% for cost in object.costofeducation_set.all %}
+                        <h3 data-toggle="tab" data-href="#{{ cost.name|slugify }}"
+                            {% if forloop.first %}class="active"{% endif %}>{{ cost.name }}</h3>
+                    {% endfor %}
+                </div>
+                {% for cost in object.costofeducation_set.all %}
+                    <div id="{{ cost.name|slugify }}" class="data-tab-item"
+                         {% if not forloop.first %}style="display: none"{% endif %}>
+                        {{ cost.context|safe }}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        {% include "partials/social_media_buttons.html" %}
+        <div class="container">
+            {% include "partials/do_with_us.html" %}
+        </div>
+    </section>
+{% endblock %}

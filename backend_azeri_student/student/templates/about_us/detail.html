@@ -1,0 +1,149 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block title %}
+    {{ object.about_title }} | {{ block.super }}
+{% endblock %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.about_title }}">
+    <meta property="og:description" content="{{ object.services_text }}">
+    {% if object.get_cover %}
+        <meta property="og:image"
+              content="https://{{ request.get_host }}{{ object.get_cover }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.get_cover %}
+        <meta name="twitter:image"
+              content="https://{{ request.get_host }}{{ object.get_cover }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.about_title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: '{{ object.about_title }}',
+        content_category: 'About Us',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+<script>
+    
+</script>
+{% endblock %}
+
+
+{% block base_content %}
+    <section class="about-page">
+        <div class="page-cover" style="background-image:url({{ object.get_cover }})">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title ">{{ object.about_title }}</h1>
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ object.about_title }}</li>
+                    </ol>
+                    <p class="cover-info"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-wrap">
+                <h1 class="about-left-heading section-title">{{ object.services_title }}</h1>
+                <div class="about-wrap">
+                    <div class="about-left">
+                        <div class="left-paragraphs">
+                            {% for service in object.servicestitleaboutus_set.all %}
+                                <p class="about-left-paragraph"
+                                   data-wow-delay="0.{{ forloop.counter }}s">{{ service.title }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="about-right">
+                        <p class="about-right-paragraph">{{ object.services_text }}</p>
+                        <a href="{{ object.services_button_link }}">{{ object.services_button_text }} <img
+                                src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-wrap">
+            <div class="container">
+                <h1 class="section-title">{{ object.map_title }}</h1>
+            </div>
+            <div class="">
+                {% if object.get_map_location %}
+                    <!--The div element for the map -->
+                    <div id="map" style="height: 450px; width: 100%"></div>
+                    <script>
+                        // Initialize and add the map
+                        function initMap() {
+                            // The location of Uluru
+                            var loc = {{ object.get_map_location|safe }};
+                            // The map, centered at Uluru
+                            var map = new google.maps.Map(
+                                document.getElementById('map'), {zoom: 14, center: loc});
+                            // The marker, positioned at Uluru
+                            var marker = new google.maps.Marker({position: loc, map: map});
+                        }
+                    </script>
+                    <!--Load the API from the specified URL
+                    * The async attribute allows the browser to render the page while the API loads
+                    * The key parameter will contain your own API key (which is not needed for this tutorial)
+                    * The callback parameter executes the initMap() function
+                    -->
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMV7F7cJwukyVCjKrwaVNV119Us1dCJw&callback=initMap">
+      
+                    </script>
+                {% endif %}
+
+                {% comment %}<iframe src="{{ object.get_map_location }}"
+                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen>
+                </iframe>{% endcomment %}
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="section-wrap">
+                <h1 class="about-left-heading section-title">{{ object.experts_title }}</h1>
+                <div class="about-wrap">
+                    <div class="about-left">
+                        <div class="left-paragraphs">
+                            {% for expert in object.expertstitleaboutus_set.all %}
+                                <p class="about-left-paragraph "
+                                   data-wow-delay="0.{{ forloop.counter }}s">{{ expert.title }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="about-right">
+                        <p class="about-right-paragraph">{{ object.experts_content }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {% include "partials/do_with_us.html" %}
+        </div>
+    </section>
+{% endblock %}

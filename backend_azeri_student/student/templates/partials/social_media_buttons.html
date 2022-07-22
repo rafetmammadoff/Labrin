@@ -1,0 +1,24 @@
+{% load static %}
+<div class="social-media-icons">
+    <div class="container">
+        <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}', '_blank')"
+                type="button" class="social-media-buttons fb-button"><i
+                class="fa fa-facebook-f"></i><span>Facebook</span>
+        </button>
+        <button  onclick="window.open('fb-messenger://share?link={{ request.build_absolute_uri }};','_blank')"
+                type="button" class="visible-mobile social-media-buttons messenger-button"><img
+                src="{% static 'azeristudent/img/messenger.png' %}"/><span>Messenger</span></button>
+        <button onclick="window.open('https://twitter.com/home?status={{ request.build_absolute_uri }}', '_blank')"
+                type="button" class="social-media-buttons twitter-button"><i
+                class="fa fa-twitter"></i><span>Twitter</span>
+        </button>
+        <button onclick="window.open('whatsapp://send?text={{ request.build_absolute_uri }}', '_blank')"
+                type="button" class="visible-mobile social-media-buttons whatsapp-button"><i
+                class="fa fa-whatsapp"></i><span>WhatsApp</span>
+        </button>
+        <button onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}', '_blank')"
+                type="button" class="social-media-buttons linkedin-button"><i
+                class="fa fa-linkedin"></i><span>Linkedin</span>
+        </button>
+    </div>
+</div>

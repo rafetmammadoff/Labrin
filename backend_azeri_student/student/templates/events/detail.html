@@ -1,0 +1,153 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load i18n %}
+{% load base_filter %}
+{% block title %}
+    {{ object.title }} | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.title }}">
+    <meta property="og:description" content="{{ object.summary }}">
+    {% if object.background %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ object.background.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.background %}
+        <meta name="twitter:image"
+              content="https://{{ request.get_host }}{{ object.background.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: '{{ object.title }}',
+        content_category: 'Events',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+    <section class="events">
+        <div class="page-cover" style="background-image: url({{ object.background.url }}); background-size: cover;">
+            <div class="container">
+                <div class="cover-items">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 class="page-title">{{ object.title }}</h1>
+                        </div>
+                    </div>
+                    <ol class="breadcrumb">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'event-list' %}">Tədbirlər</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ object.title }}</li>
+                    </ol>
+                    {% if object.event_type == 0 %}
+                        <div class="cover-div">
+                            <p>{{ object.event_date|date:"d" }}</p>
+                            {% language 'az' %}
+                                <p>{{ object.event_date|date:"F" }}</p>
+                            {% endlanguage %}
+                            <ul>
+                                <li><strong>Tarix</strong>: {{ object.event_date|date:"d/m/Y H:i" }}
+                                    - {{ object.event_end_date|date:"d/m/Y H:i" }}</li>
+                                <li><strong>Məkan</strong>: {{ object.area|default:"" }}</li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="events-wrap">
+            <div class="container">
+                {% if object.event_type == 1 %}
+                    <div class="events-top">
+                        <div class="events-top-left">
+                            <p>{{ object.event_date|date:"d" }}</p>
+                            {% language 'az' %}
+                                <p>{{ object.event_date|date:"F" }}</p>
+                            {% endlanguage %}
+                        </div>
+                        <div class="events-top-right">
+                            <p>{{ object.summary }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="events-heading">
+                        <h2>{{ object.summary }}</h2>
+                    </div>
+                {% endif %}
+                <div class="events-middle">
+                    <div class="events-middle-left">
+                        {% if object.event_type == 1 %}
+                            <p><strong>Tarix</strong>: {{ object.event_date|date:"d/m/Y H:i" }}
+                                - {{ object.event_end_date|date:"d/m/Y H:i" }}</p>
+                            <p><strong>Məkan</strong>: {{ object.area|default:"" }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="events-middle-right">
+                        <button class="btn btn-primary register-button" data-toggle="modal" data-target="#myModal">
+                            Qeydiyyat
+                        </button>
+                    </div>
+                </div>
+                <div class="events-bottom">
+                    {{ object.context|safe }}
+                </div>
+            </div>
+        </div>
+
+        <div class="events-map">
+            {% if object.get_map_location %}
+                <!--The div element for the map -->
+                <div id="map" style="height: 450px; width: 100%"></div>
+                <script>
+                    // Initialize and add the map
+                    function initMap() {
+                        // The location of Uluru
+                        var loc = {{ object.get_map_location|safe }};
+                        // The map, centered at Uluru
+                        var map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 14, center: loc});
+                        // The marker, positioned at Uluru
+                        var marker = new google.maps.Marker({position: loc, map: map});
+                    }
+                </script>
+                <!--Load the API from the specified URL
+                * The async attribute allows the browser to render the page while the API loads
+                * The key parameter will contain your own API key (which is not needed for this tutorial)
+                * The callback parameter executes the initMap() function
+                -->
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMV7F7cJwukyVCjKrwaVNV119Us1dCJw&callback=initMap">
+                </script>
+            {% endif %}
+        </div>
+        {% include "partials/social_media_buttons.html" %}
+        {% include "partials/do_with_us.html" %}
+    </section>
+{% endblock %}

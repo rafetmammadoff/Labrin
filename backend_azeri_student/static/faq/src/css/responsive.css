@@ -1,0 +1,1301 @@
+:root{
+    --color-white: #fff;
+    --color-dark-gray: #3D3D3D;
+    --color-mid-gray: #7D828F;
+    --color-light-gray: #C8CCD8;
+    --color-very-light-gray: #f5f5fa;
+    --color-red: #BC2925;
+    --color-gray: rgb(156,156,156);
+    --color-black: #000;
+  
+    /* Font weights */
+    --weight-bold: 700;
+    --weight-mid: 500;
+  
+    /* Design elements */
+    --transition: 300ms ease-in-out;
+}
+
+@media (max-width: 500px){
+    #tabs{
+        margin-top: -10%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -340%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        font-size: 25px;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        cursor: pointer;
+        color: var(--color-red);
+        background-color: transparent;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        margin-left: 10%;
+        border-bottom: 4px solid !important;
+        border-color: transparent transparent var(--color-red);
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        cursor: pointer;
+        color: var(--color-red);
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        margin-left: 10%;
+        border-bottom: 4px solid !important;
+        border-color: transparent transparent var(--color-red);
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        cursor: pointer;
+        color: var(--color-red);
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        margin-left: 10%;
+        border-bottom: 4px solid !important;
+        border-color: transparent transparent var(--color-red);
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        cursor: pointer;
+        color: var(--color-red);
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        margin-left: 10%;
+        border-bottom: 4px solid !important;
+        border-color: transparent transparent var(--color-red);
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dt{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) and (min-width: 500px) {
+    #faq,#tabs{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding: 11% 5px 0 5px;
+        height: 40%;
+        width: 100%;
+        left: -0.5%;
+        top: -11%;
+    }
+    .group-center{
+        height: 50%;
+        width: 30%;
+        left: 35%;
+        top: 1%;
+    }
+    .ellipsis-left{
+        width: 10%;
+        height: 7%;
+        left: 10%;
+        top: 13%;
+    }
+    .group-left{
+        width: 9%;
+        height: 14%;
+        left: -1%;
+        top: 22%;
+    }
+    .ellipsis-right{
+        width: 9%;
+        height: 6%;
+        left: 58.09%;
+        top: 27.47%;
+    }
+    .ellipsis-right-inside{
+        width: 6%;
+        height: 1%;
+        left: 59.59%;
+        top: 29.17%;
+    }
+    .circle-right{
+        width: 9%;
+        height: 9%;
+        left: 78.09%;
+        top: 12.47%;
+    }
+    .circle-right-inside{
+        width: 3.9%;
+        height: 4%;
+        left: 80.49%;
+        top: 14.67%;
+    }
+    .vector-right{
+        width: 8%;
+        height: 13%;
+        left: 90%;
+        top: 23%;
+     }
+    .vector-right-inside{
+        width: 4%;
+        height: 7%; 
+        left: 92%;
+        top: 25%;
+    }
+    .text-1{
+        margin-left: 20%;
+        margin-top: 5%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 28px;
+        width: 140%;
+    }
+    .text-2{
+        margin-left: 8%;
+        margin-top: 10%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: -10%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -270%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        font-size: 25px;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dt{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 610px) and (min-width: 577px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding: 10% 20px 0 20px;
+        height: 40%;
+        width: 100%;
+        left: -1% ;
+        top: 2%;
+        margin-top: -12%;
+    }
+    .group-center{
+        height: 55%;
+        width: 35%;
+        left: 28%;
+        top: 0;
+    }
+    .ellipsis-left{
+        width: 11%;
+        height: 8%;
+        left: 9%;
+        top: 14%;
+    }
+    .group-left{
+        width: 11%;
+        height: 20%;
+        left: -0.5%;
+        top: 23%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 7%;
+        left: 53.5%;
+        top: 30.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 1%;
+        left: 55.7%;
+        top: 32.77%;
+    }
+    .circle-right{
+        width: 12%;
+        height: 12%;
+        left: 76.09%;
+        top: 10.47%;
+    }
+    .circle-right-inside{
+        width: 4.9%;
+        height: 5.2%;
+        left: 79.49%;
+        top: 13.47%;
+    }
+    .vector-right{
+        width: 9%;
+        height: 16%;
+        left: 86%;
+        top: 24%;
+     }
+    .vector-right-inside{
+        width: 5%;
+        height: 8%; 
+        left: 88%;
+        top: 27%;
+    }
+    .text-1{
+        margin-left: 25%;
+        margin-top: 5%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 140%;
+    }
+    .text-2{
+        margin-left: 8%;
+        margin-top: 10%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: -10%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -270%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dt{
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 621px) and (min-width: 611px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        /* padding-top: 15%; */
+        padding: 10% 10px 0 10px;
+        height: 50%;
+        width: 100%;
+        margin-left: -15% ;
+        margin-top: -10%;
+    }
+    .group-center{
+        height: 60%;
+        width: 40%;
+        left: 27%;
+        top: 6%;
+    }
+    .ellipsis-left{
+        width: 13%;
+        height: 8%;
+        left: 7%;
+        top: 20%;
+    }
+    .group-left{
+        width: 12%;
+        height: 20%;
+        left: -3%;
+        top: 29%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 7%;
+        left: 56.5%;
+        top: 38.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 1%;
+        left: 58.8%;
+        top: 40.47%;
+    }
+    .circle-right{
+        width: 12%;
+        height: 12%;
+        left: 76.09%;
+        top: 17.47%;
+    }
+    .circle-right-inside{
+        width: 4.9%;
+        height: 5.2%;
+        left: 79.69%;
+        top: 20.47%;
+    }
+    .vector-right{
+        width: 10%;
+        height: 18%;
+        left: 86%;
+        top: 31%;
+     }
+    .vector-right-inside{
+        width: 6%;
+        height: 9%; 
+        left: 88%;
+        top: 34.4%;
+    }
+    .text-1{
+        margin-left: 25%;
+        margin-top: 15%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 130%;
+    }
+    .text-2{
+        margin-left:10%;
+        margin-top: 20%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: -5%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -290%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dl{
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 690px) and (min-width: 622px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding: 19% 10px 0 10px;
+        height: 50%;
+        width: 100%;
+        margin-left: -14%;
+        margin-top: -18%;
+    }
+    .group-center{
+        height: 60%;
+        width: 40%;
+        left: 27%;
+        top: 3%;
+    }
+    .ellipsis-left{
+        width: 15%;
+        height: 10%;
+        left: 8%;
+        top: 16%;
+    }
+    .group-left{
+        width: 12%;
+        height: 23%;
+        left: -1%;
+        top: 25%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 7%;
+        left: 57.5%;
+        top: 35.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 1%;
+        left: 59.8%;
+        top: 37.47%;
+    }
+    .circle-right{
+        width: 12%;
+        height: 12%;
+        left: 77.09%;
+        top: 13.47%;
+    }
+    .circle-right-inside{
+        width: 4.9%;
+        height: 5.2%;
+        left: 80.49%;
+        top: 16.47%;
+    }
+    .vector-right{
+        width: 10%;
+        height: 20%;
+        left: 86%;
+        top: 25%;
+     }
+    .vector-right-inside{
+        width: 6%;
+        height: 9%; 
+        left: 88%;
+        top: 28.7%;
+    }
+    .text-1{
+        margin-left: 30%;
+        margin-top: 15%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 130%;
+    }
+    .text-2{
+        margin-left: 15%;
+        margin-top: 15%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: -5%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -295%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dl{
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 767px) and (min-width: 691px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding: 20% 10px 0 10px;
+        height: 50%;
+        width: 100%;
+        margin-left: -14%;
+        margin-top: -18%;
+    }
+    .group-center{
+        height: 60%;
+        width: 40%;
+        left: 27%;
+        top: 3%;
+    }
+    .ellipsis-left{
+        width: 15%;
+        height: 10%;
+        left: 7%;
+        top: 15%;
+    }
+    .group-left{
+        width: 12%;
+        height: 22%;
+        left: -1%;
+        top: 23%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 7%;
+        left: 56.5%;
+        top: 35.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 1%;
+        left: 58.8%;
+        top: 37.47%;
+    }
+    .circle-right{
+        width: 12%;
+        height: 13%;
+        left: 76.09%;
+        top: 11%;
+    }
+    .circle-right-inside{
+        width: 5.2%;
+        height: 6.2%;
+        left: 79.6%;
+        top: 13.77%;
+    }
+    .vector-right{
+        width: 10%;
+        height: 21%;
+        left: 87%;
+        top: 23%;
+     }
+    .vector-right-inside{
+        width: 6%;
+        height: 10%; 
+        left: 89.4%;
+        top: 26.4%;
+    }
+    .text-1{
+        margin-left: 30%;
+        margin-top: 15%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 130%;
+    }
+    .text-2{
+        margin-left: 15%;
+        margin-top: 15%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: -5%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -290%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        width: 100%;
+    }
+    #tabs .nav_tabs .nav-item i{
+        width: 8%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dl{
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 900px) and (min-width: 768px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding-top: 20%;
+        height: 58%;
+        width: 100%;
+        margin-left: -7%;
+        margin-top: -23%;
+    }
+    .group-center{
+        height: 60%;
+        width: 40%;
+        left: 25%;
+        top: 0;
+    }
+    .ellipsis-left{
+        width: 15%;
+        height: 10%;
+        left: 7%;
+        top: 12%;
+    }
+    .group-left{
+        width: 12%;
+        height: 21%;
+        left: -4%;
+        top: 20%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 7%;
+        left: 54.5%;
+        top: 32.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 1%;
+        left: 56.8%;
+        top: 34.47%;
+    }
+    .circle-right{
+        width: 14%;
+        height: 15%;
+        left: 79.09%;
+        top: 8%;
+    }
+    .circle-right-inside{
+        width: 6.2%;
+        height: 7.2%;
+        left: 83%;
+        top: 11.77%;
+    }
+    .vector-right{
+        width: 13%;
+        height: 24%;
+        left: 85%;
+        top: 25%;
+     }
+    .vector-right-inside{
+        width: 7%;
+        height: 12%; 
+        left: 88.4%;
+        top: 29.4%;
+    }
+    .text-1{
+        margin-left: 33%;
+        margin-top: 15%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 130%;
+    }
+    .text-2{
+        margin-left: 22%;
+        margin-top: 15%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: 2%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -290%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        width: 100%;
+    }
+    #tabs .nav_tabs .nav-item i{
+        width: 7%;
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dl{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 900px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding-top: 20%;
+        padding: 17% 15px 0 15px;
+        height: 60%;
+        width: 100%;
+        margin-left: -15%;
+        margin-top: -16%;
+    }
+    .group-center{
+        height: 69%;
+        width: 40%;
+        left: 25%;
+        top: 3%;
+    }
+    .ellipsis-left{
+        width: 14%;
+        height: 10%;
+        left: 7%;
+        top: 19%;
+    }
+    .group-left{
+        width: 9%;
+        height: 22%;
+        left: -1%;
+        top: 27%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 9%;
+        left: 54.5%;
+        top: 40.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 2%;
+        left: 56.8%;
+        top: 42.67%;
+    }
+    .circle-right{
+        width: 12%;
+        height: 15%;
+        left: 76.09%;
+        top: 12%;
+    }
+    .circle-right-inside{
+        width: 5.3%;
+        height: 8.2%;
+        left: 79.6%;
+        top: 14%;
+    }
+    .vector-right{
+        width: 9%;
+        height: 23%;
+        left: 86%;
+        top: 28%;
+     }
+    .vector-right-inside{
+        width: 5%;
+        height: 12%; 
+        left: 88.4%;
+        top: 31.4%;
+    }
+    .text-1{
+        margin-left: 30%;
+        margin-top: 15%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 130%;
+    }
+    .text-2{
+        margin-left: 20%;
+        margin-top: 17%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: 5%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -290%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        width: 100%;
+    }
+    #tabs .nav_tabs .nav-item i{
+        width: 7%;
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dl{
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px){
+    #faq{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    #tabs{
+        /* padding: 0 20px 0 20px; */
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+    .vector-background{
+        padding-top: 20%;
+        padding: 18% 20px 0 20px;
+        height: 70%;
+        width: 100%;
+        margin-left: -15%;
+        margin-top: -18%;
+    }
+    .group-center{
+        height: 80%;
+        width: 35%;
+        left: 27%;
+        top: 3%;
+    }
+    .ellipsis-left{
+        width: 11%;
+        height: 12%;
+        left: 9%;
+        top: 18%;
+    }
+    .group-left{
+        width: 9%;
+        height: 27%;
+        left: 0.1%;
+        top: 29%;
+    }
+    .ellipsis-right{
+        width: 12%;
+        height: 9%;
+        left: 53.5%;
+        top: 45.47%;
+    }
+    .ellipsis-right-inside{
+        width: 7%;
+        height: 2%;
+        left: 55.8%;
+        top: 47.47%;
+    }
+    .circle-right{
+        width: 11%;
+        height: 19%;
+        left: 76.09%;
+        top: 12%;
+    }
+    .circle-right-inside{
+        width: 5.5%;
+        height: 9%;
+        left: 79%;
+        top: 15.3%;
+    }
+    .vector-right{
+        width: 9%;
+        height: 25%;
+        left: 86.8%;
+        top: 28%;
+     }
+    .vector-right-inside{
+        width: 5%;
+        height: 14%; 
+        left: 88.9%;
+        top: 31%;
+    }
+    .text-1{
+        margin-left: 37%;
+        margin-top: 20%;
+        
+    }
+    .main-section .text-1 p{
+        font-size: 25px;
+        width: 130%;
+    }
+    .text-2{
+        margin-left: 27%;
+        margin-top: 20%;
+        text-align: center;
+    }
+    #tabs{
+        margin-top: 7%;
+    }
+    #tabs .nav_tabs{
+        display: flex;
+        margin-left: -290%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px 0 10px;
+    }
+    #tabs .nav_tabs .nav-item{
+        font-size: 25px;
+        width: 100%;
+    }
+    #tabs .nav_tabs .nav-item i {
+        width: 5%;
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ nav > ul > li:nth-child(3) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+        color: var(--color-red);
+        background-color: transparent;
+        border-color: transparent transparent var(--color-red);
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+    .faq-slider{
+        display: none;
+    }
+    .faq-accordion dl{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+

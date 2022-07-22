@@ -1,0 +1,241 @@
+.g-pages-component-director-image {
+  @include pseudo() {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: rem(160);
+    background: linear-gradient(360deg, rgba(50, 50, 51, 0.68) 0%, rgba(102, 102, 103, 0) 100%);
+  }
+}
+
+.language-dropdown {
+  margin-right: rem(41);
+
+  .btn {
+    @include font-size(12, 500);
+    color: $white-clr;
+    @include advancedRem(padding, (5 20));
+    box-shadow: none;
+    background: transparent url("../../assets/svgs/down-carret-white.svg") no-repeat 98% center;
+    text-transform: capitalize;
+  }
+
+  .dropdown-menu {
+    min-width: max-content;
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    a {
+      display: block;
+      @include advancedRem(padding, (5 20));
+      @include font-size(12, 400);
+      color: $dark-gray;
+      text-transform: capitalize;
+
+      @include pseudo(hover) {
+        background-color: transparentize($primary-clr, $amount: 0.92);
+        color: $primary-clr;
+      }
+
+      &.active {
+        background-color: transparentize($primary-clr, $amount: 0.92) !important;
+        color: $primary-clr;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.g-card__t1--title {
+  margin-bottom: rem(18);
+  font-weight: 500;
+}
+
+.intro-section__text {
+  max-width: rem(450);
+}
+
+.g-footer__right {
+  grid-template-rows: var(--top-distance) auto;
+
+  @include breakpoint($tablet-width, $desktop-width) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.news-section__swiper {
+  .swiper-slide {
+    height: auto !important;
+  }
+
+  .news-section__card {
+    height: 100%;
+  }
+}
+
+.intro-section {
+  $height: rem(740);
+  $height-md: rem(530);
+
+  &__swiper {
+    height: calc(100vh - #{rem(140)});
+    max-height: $height;
+    min-height: rem(380);
+    overflow: hidden;
+
+    @include breakpoint(0, $tablet-width) {
+      height: calc(100vh - #{rem(220)});
+      max-height: $height-md;
+      min-height: auto;
+    }
+  }
+}
+
+.g-nav__main {
+  &.fixed {
+    @include advancedRem(padding, (10 0));
+
+    .navbar-brand {
+      max-width: rem(70);
+    }
+  }
+}
+
+.mt-72 {
+  margin-top: rem(72);
+}
+
+.news-section__card--img {
+  height: rem(230);
+
+  @include breakpoint(0, $tablet-width) {
+    height: rem(180);
+  }
+}
+
+.news-section__card {
+  display: flex;
+  flex-direction: column;
+
+  &--body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--footer {
+    margin-top: auto;
+  }
+}
+
+html,
+body {
+  scroll-padding: var(--scroll-padding);
+  scroll-behavior: smooth;
+}
+
+.what-we-do-services-img.our-strategy-section {
+  .news-section__card--title-2 {
+   max-width: 280px;
+  }
+}
+
+.what-we-do-services-img {
+  .news-section__card--title,
+  .news-section__card--title-2 {
+    z-index: 2;
+  }
+
+  .news-section__card--layer {
+    z-index: 3;
+  }
+
+  .news-section__card {
+    position: relative;
+    
+    @include pseudo() {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: #{rem(190)};
+      z-index: 1;
+      background: linear-gradient(360deg, rgba(50, 50, 51, 0.68) 0%, rgba(102, 102, 103, 0) 100%);
+    }
+  }
+}
+
+.pagination-section__container {
+  width: auto;
+}
+
+.intro-section {
+  @media screen and (max-width: 768px) {
+    .scroll-to-section {
+      bottom: #{rem(70)};
+    }
+  }
+}
+
+.g-nav {
+  position: sticky;
+
+  &.fixed {
+    @include transition();
+
+    @include advancedRem(padding, (10 0));
+
+    .navbar-brand {
+      max-width: rem(70);
+    }
+  }
+}
+
+.g-nav {
+  &__main {
+    @include advancedRem(padding, (10 0));
+
+    .navbar-brand {
+      max-width: auto;
+      width: auto;
+      height: rem(50);
+      padding: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.g-nav__main {
+  display: flex;
+  align-items: center;
+  height: rem(64);
+}
+
+//remove code below in related css file
+//#sustainable .sustainable-content {
+//   max-width: 46.875rem;
+//   width: 100%;
+//   width: 100% !important;
+// }
+
+#sustainable .sustainable-info {
+  max-width: 46.875rem;
+  width: 100%;
+  width: 100% !important;
+}
+
+.intro-section__swiper {
+  height: calc(100vh - 9.85rem);
+}

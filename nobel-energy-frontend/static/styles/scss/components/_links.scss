@@ -1,0 +1,19 @@
+.g-link {
+  @include transition();
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &__sm {
+    @include font-size(12, 500);
+    @include advancedRem(padding, (5 8))
+  }
+
+  &__white {
+    color: $white-clr;
+
+    &:hover {
+      color: $dark-gray;
+    }
+  }
+}

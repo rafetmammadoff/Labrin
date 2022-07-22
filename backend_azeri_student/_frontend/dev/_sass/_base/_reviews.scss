@@ -1,0 +1,42 @@
+.reviews-page {
+  .reviews-left {
+    h2{
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    ul {
+      padding-bottom: 20px;
+
+      li {
+        margin-bottom: 15px;
+        a {
+          font-size: 20px;
+          font-weight: bold;
+          color:$red;
+          img{
+            width: 22px;
+            transition: .2s;
+            opacity: 0;
+            margin-left: 7px;
+          }
+          &:hover {
+            img{
+              opacity: 1;
+            }
+          }
+        }
+
+        &.active {
+          a {
+            color: #be271d;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination-wrap {
+    padding-bottom: 30px;
+  }
+}

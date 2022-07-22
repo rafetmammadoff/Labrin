@@ -1,0 +1,147 @@
+.g-footer {
+  background-color: $light-blue;
+
+  &__top {
+    @include advancedRem(padding, (48 0 75 0));
+    border-bottom: rem(1) solid rgba(47, 47, 48, 0.4);
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(padding, (48 0 20 0));
+    }
+  }
+
+  &__right {
+    display: grid;
+    grid-template-rows: var(--top-distance) auto;
+    height: 100%;
+
+    @include breakpoint(0, $tablet-width) {
+      @include flexbox(column);
+    }
+
+    .g-footer__grid--item {
+      grid-row: 2 / 3;
+      width: max-content;
+      margin-left: auto;
+
+      @include breakpoint(0, $tablet-width) {
+        margin: 0;
+        width: 100%;
+      }
+
+      .g-footer__links--item:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-column-gap: rem(20);
+    grid-row-gap: rem(80);
+    grid-template-columns: repeat(auto-fill, minmax(rem(230), 1fr));
+
+    @include breakpoint(rem(1200), rem(1490)) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include breakpoint(0, $tablet-width) {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      grid-row-gap: rem(60);
+      align-items: center;
+      text-align: center;
+    }
+
+    @include breakpoint(0, $mobile-width) {
+      grid-row-gap: rem(25);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    height: rem(63);
+    align-items: center;
+
+    .g-footer__links {
+      flex-direction: row;
+
+      .g-footer__links--item {
+        &:not(:last-child) {
+          margin-right: rem(48);
+        }
+      }
+    }
+  }
+
+  .additional-links {
+    width: 100%;
+    @include justify-between();
+    margin-top: auto;
+    padding: 0 rem(30);
+    margin-bottom: 0;
+    margin-top: rem(60);
+  }
+
+  .copyright {
+    @include font-size(12, 400);
+    margin-top: rem(7);
+  }
+
+  &__links {
+    @include flexbox(column);
+
+    &--title {
+      @include font-size(14, 500);
+      margin-bottom: rem(20);
+
+      * {
+        color: $dark-gray;
+      }
+    }
+
+    &--item {
+      a {
+        display: block;
+        color: $dark-gray;
+        width: 100%;
+        @include advancedRem(padding, (5 0));
+        @include font-size(12, 300);
+        @include transition(color);
+
+        @include action-css((hover, active)) {
+          color: $primary-clr;
+        }
+      }
+      margin-bottom: rem(4);
+
+      address {
+        @include font-size(12, 300);
+        margin-bottom: rem(34);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .social-links {
+    @include flexbox(column);
+
+    ul {
+      @include flexbox();
+
+      li {
+        margin-right: rem(40);
+
+        a {
+          display: block;
+          padding: rem(8);
+          @include transition();
+
+          @include action-css((hover)) {
+            @include toPrimary();
+          }
+        }
+      }
+    }
+  }
+}

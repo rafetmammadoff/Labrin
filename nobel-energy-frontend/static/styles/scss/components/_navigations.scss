@@ -1,0 +1,36 @@
+.g-navigation {
+  @include flex-center();
+
+  &__sm {
+    display: none;
+  }
+
+  &__subtitle {
+    margin-bottom: 0;
+    margin-right: rem(24);
+    color: $gray-clr;
+    @include font-size(16, 400);
+
+    @include breakpoint(0, $tablet-width) {
+      margin-right: 0;
+    }
+  }
+
+  &__prev {
+    @include toRem(margin-right, 15);
+  }
+
+  &__prev,
+  &__next {
+    @include advancedRem(padding, (4 8));
+    @include transition();
+
+    @include action-css((hover, active)) {
+      @include toPrimary();
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

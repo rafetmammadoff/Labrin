@@ -1,0 +1,57 @@
+.hidden {
+  @include visually-hidden();
+}
+
+// ::-webkit-scrollbar {
+//   width: 6px;
+//   height: 8px;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background: $white-clr;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: $primary-clr;
+// }
+
+.g-fade-relative {
+  position: relative;
+}
+
+.g-title__lg {
+  @include font-size(72, 700);
+}
+
+.g-title__md {
+  @include font-size(34, 500);
+
+  @include breakpoint(0, $tablet-width) {
+    @include font-size(20, 400);
+  }
+}
+
+.g-fluid {
+  width: 100%;
+}
+
+.g-text {
+  color: $dark-gray;
+  @include font-size(16, 400);
+}
+
+.visible-sm {
+  display: none;
+}
+
+@include breakpoint(0, $tablet-width) {
+  .visible-md {
+    display: none !important;
+  }
+
+  .visible-sm {
+    display: block;
+  }
+}
+
+

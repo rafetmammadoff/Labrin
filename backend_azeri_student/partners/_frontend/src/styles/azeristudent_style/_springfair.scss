@@ -1,0 +1,673 @@
+#springfair_section {
+    width: 100%;
+
+    // spring fair detalis
+    .spring-fair-text {
+
+        // padding-bottom: 25px;
+        span {
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.94;
+            letter-spacing: normal;
+            color: #000000;
+
+            @media (max-width:767.9px) {
+                font-size: 14px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2;
+            letter-spacing: normal;
+            color: #000000;
+
+            @media (max-width:767.9px) {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    // spring fair detalis //
+    // spring fair images section
+    .spring-fair-layer-image {
+        padding: 0 0 30px;
+
+        p {
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $red;
+            padding: 25px 0;
+
+            @media (max-width:767.9px) {
+                font-size: 16px;
+            }
+        }
+
+        .spring-fair-layer-img-child {
+            width: 100%;
+            height: 265px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .springfair-layer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #2b399083;
+                display: flex;
+                justify-content: center;
+
+                p {
+                    font-size: 25px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 2.32;
+                    letter-spacing: normal;
+                    color: #ffffff;
+                }
+            }
+
+        }
+
+        #spring-fair-image-text {
+            width: 100%;
+            // padding-top: 10px;
+            display: flex;
+            justify-content: center;
+
+            h6 {
+                font-size: 25px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 2.32;
+                letter-spacing: normal;
+                color: #2b3990;
+            }
+        }
+    }
+
+    // spring fair images section //
+    // spring fair register
+    .spring-register {
+        padding: 50px 50px;
+        background: #eee;
+
+        .spring-register-header {
+
+            .spring-register-h3 {
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 2.4;
+                letter-spacing: normal;
+                color: $red;
+                text-align: center;
+
+                @media (max-width:767.9px) {
+                    font-size: 18px;
+                    line-height: 1.4;
+                }
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 0.94;
+                letter-spacing: normal;
+                color: #000;
+                text-align: center;
+
+
+                @media (max-width:767.9px) {
+                    font-size: 16px;
+
+                }
+            }
+            h2 {
+                text-align: center;
+                margin-bottom: 15px;
+
+                span {
+                    padding: 0 20px 0 20px;
+                }
+
+                a {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .spring-form {
+            padding: 40px 0;
+
+            .form-section {
+                .form-inp {
+                    label {
+                        font-size: 16px;
+                        font-weight: 600;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 3;
+                        letter-spacing: normal;
+                        color: #2b3990;
+                        margin: 0;
+                    }
+
+                    .textarea-form {
+                        height: 300px;
+                        margin-bottom: 30px;
+
+                        @media (max-width:991.9px) {
+                            height: 200px;
+                            margin-bottom: 20px;
+
+                        }
+
+                        @media (max-width:767.9px) {
+                            height: 80px;
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .spring-form-input {
+                        width: 100%;
+                        border-radius: 15px;
+                        border: solid 1px #c4c4c4;
+                        padding: 17px 25px;
+                        outline: none;
+                        font-size: 14px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.07;
+                        letter-spacing: normal;
+
+                        @media (max-width:991.9px) {
+                            padding: 7px 10px;
+
+                        }
+                    }
+
+                    ::placeholder {
+                        font-size: 14px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.07;
+                        letter-spacing: normal;
+                        color: rgb(204, 202, 202);
+                    }
+
+                    .button-spring {
+                        padding: 29px;
+                        width: 100px;
+                        // margin: 10px 20px 10px 0;
+                        outline: none;
+                        border-radius: 9px;
+                        border: 1px solid transparent;
+
+                        @media (max-width:767.9px) {
+                            width: 0;
+                        }
+                    }
+
+
+                    .active {
+                        color: $red !important;
+                        border: solid 1px $red;
+                    }
+
+                    #button-spring-register {
+                        // width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap !important;
+                        height: 100px;
+
+                        @media (max-width:767.9px) {
+                            height: fit-content;
+
+                        }
+
+                        .dsd {
+                            position: relative;
+
+                            @media (max-width:767.9px) {
+                                margin-bottom: 20px;
+                                height: 46px;
+                                width: 80px;
+                            }
+
+
+                            input {
+                                opacity: 0;
+                                cursor: pointer;
+                            }
+
+                            .checkmark {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                background: #DDDDDD;
+                                outline: none;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 100px;
+                                margin: 10px 0;
+                                height: 84px;
+                                padding: 0;
+
+                                font-size: 14px;
+                                font-weight: normal;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: 1.07;
+                                letter-spacing: normal;
+                                color: #000;
+
+                                @media (max-width:767.9px) {
+                                    padding: 2px 15px;
+                                    width: fit-content;
+                                    font-size: 16px;
+                                    height: fit-content;
+                                    margin-bottom: 30px;
+
+                                }
+                            }
+                        }
+                    }
+
+                    .button-select {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+
+                        .selected-cart-item {
+                            width: 101px;
+                            height: 73px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 0 12px;
+                            background: #fff;
+                            border-radius: 9px;
+                            margin: 10px 0;
+
+                            @media (max-width:767.9px) {
+                                width: fit-content;
+                                height: 30px;
+                                padding: 0 3px;
+                            }
+                        }
+
+                        button {
+                            font-size: 30px;
+                            font-weight: bold;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: 0.5;
+                            letter-spacing: normal;
+                            color: #da3636;
+                            width: 20px;
+                            height: 20px;
+                            background: transparent;
+                            border: none;
+                            outline: none;
+
+                            &:disabled {
+                                color: gray;
+                            }
+
+                            &:enabled {
+                                color: $red;
+                            }
+                        }
+
+                        input {
+                            width: 30px;
+                            text-align: center;
+                            border: none;
+                            outline: none;
+                        }
+
+                        input[type=number]::-webkit-inner-spin-button,
+                        input[type=number]::-webkit-outer-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                #form-data-section {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    padding: 13px 0;
+
+                    .form-section-button {
+                        border: none;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // spring fair register //
+    // spring fair exhibitons
+    #previous-exhibitions {
+        width: 100%;
+        background: #fff;
+        padding: 70px 0;
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2.4;
+            letter-spacing: normal;
+            color: #2b3990;
+        }
+
+        .previous-exhibitions-image {
+            width: 100%;
+            padding: 40px 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .owl-carousel {
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        margin: 20px 0;
+                    }
+                }
+
+                .owl-nav {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // spring fair exhibitons //
+    // spring fair comment owl carousel
+    .spring-fair-comment {
+        width: 100%;
+        background: #eee;
+        padding: 30px 60px;
+
+        @media (max-width:576.9px) {
+            padding: 30px 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2.4;
+            letter-spacing: normal;
+            color: #2b3990;
+            margin-bottom: 30px;
+        }
+
+        .owl-carousel {
+            .owl-item-card {
+                width: 100%;
+                height: 300px;
+                border-radius: 30px;
+                background: #fff;
+                padding: 33px 158px 44px;
+                display: flex;
+                align-items: center;
+
+                @media (max-width:991.9px) {
+                    width: 100%;
+                    height: 400px;
+                    padding: 15px 30px 20px;
+                }
+
+                @media (max-width:576.9px) {
+                    padding: 10px 10px 10px;
+                }
+
+                .owl-items-card-img {
+                    width: 60px;
+                    height: 60px;
+                    object-fit: contain;
+                    margin-bottom: 20px;
+
+                    @media (max-width:1199.9px) {
+                        display: none !important;
+                    }
+                }
+
+                .owl-item-card-image {
+                    width: 155px;
+                    height: 155px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    @media (max-width:1199.9px) {
+                        width: 120px;
+                        height: 120px;
+                    }
+
+                    @media (max-width:991.9px) {
+                        margin-bottom: 30px;
+                    }
+
+                    @media (max-width:576.9px) {
+                        width: 70px;
+                        height: 70px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin-bottom: 20px;
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #000;
+
+                    @media (max-width:767.9px) {
+                        font-size: 12px;
+                    }
+
+                }
+
+                .owl-item-card-text-span {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    margin-top: 30px;
+
+                    @media (max-width:1199.9px) {
+                        margin-top: 20px;
+                    }
+
+                    @media (max-width:767.9px) {
+                        margin-top: 10px;
+                    }
+
+
+                    span {
+                        font-size: 16px;
+                        font-weight: 500;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 3;
+                        letter-spacing: normal;
+                        color: #2b3990;
+                    }
+                }
+
+            }
+
+            .owl-nav {
+                display: block;
+
+                @media (max-width:991.9px) {
+                    display: none !important;
+                }
+
+                .owl-prev {
+                    position: absolute;
+                    top: 45%;
+                    left: 30px;
+                }
+
+                .owl-next {
+                    position: absolute;
+                    top: 45%;
+                    right: 30px;
+                }
+            }
+        }
+    }
+
+    // spring fair comment owl carousel //
+    // spring fair gallery
+    .spring-fair-gallery {
+        width: 100%;
+        padding: 50px 0;
+        background: #fff;
+
+        .spring-fair-gallery-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                // line-height: 2.4;
+                letter-spacing: normal;
+                color: #2b3990;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                // line-height: 3;
+                letter-spacing: normal;
+                color: #9c9c9e;
+                border-bottom: solid 1px #979797;
+            }
+
+        }
+
+        .spring-fair-gallery-img {
+            width: 100%;
+            margin-bottom: 30px;
+            position: relative;
+            transition: .5s;
+            display: block;
+            transition: $tr;
+
+
+            @media (max-width:991.9px) {
+                height: 200px !important;
+
+                img {
+                    height: 200px !important;
+                }
+            }
+
+            &:hover {
+                .overlay-spring {
+                    background: rgba(0, 0, 0, 0.438);
+                    // transition: .4s;
+
+                    .sdsd {
+                        display: block;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+            }
+
+            .overlay-spring {
+                transition: $tr;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+
+                .sdsd {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: contain;
+                    display: none;
+                    transition: .4s;
+
+                }
+            }
+
+
+
+        }
+    }
+
+    // spring fair gallery //
+}

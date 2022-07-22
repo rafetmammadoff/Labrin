@@ -1,0 +1,63 @@
+{% load static %}
+<div class="container">
+    <h3 class="section-title">{{ config.search_title }}</h3>
+    <form id="main-page-search-form" action="/countries/{{ country.0.slug }}/{{ education_type.0.slug }}/" method="get">
+        <div class="catalog-form-wrap">
+
+            <div class="catalog-form-item">
+                <div class="form-label">Proqramlar</div>
+                <div class="form-select">
+                    <select required id="id_education_type">
+                        {% for education in education_type %}
+                            <option value="{{ education.pk }}"
+                                    {% if forloop.first %}selected{% endif %}>{{ education.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="catalog-form-item">
+                <div class="form-label">Ölkələr</div>
+                <div class="form-select">
+                    <select required id="id_country">
+                        {% for cont in country %}
+                            <option value="{{ cont.slug }}"
+                                    {% if forloop.first %}selected{% endif %}>{{ cont.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="catalog-form-item">
+                <div class="form-label">Dil</div>
+                <div class="form-select">
+                    <select name="language" id="id_language">
+                        {% for lang in language %}
+                            <option value="{{ lang.pk }}">{{ lang.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            {% comment %}<div class="catalog-form-item">
+                <div class="form-label">Kateqoriya</div>
+                <div class="form-select">
+                    <select name="program_language" id="id_program_language">
+
+                        <option value="" selected="">---------</option>
+
+                    </select>
+                </div>
+            </div>{% endcomment %}
+
+            <div class="catalog-form-item">
+                <button type="submit" class="btn find-btn">Axtar <img
+                        src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt=""></button>
+            </div>
+        </div>
+    </form>
+    <div class="ask-link">
+        Əlavə sualların var, <a data-toggle="modal" data-target="#myModal" href="#">müraciət et<i
+            class="fa fa-arrow-right"></i></a>
+    </div>
+</div>

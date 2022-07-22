@@ -1,0 +1,94 @@
+version: '3'
+
+services:
+
+  postgres:
+    container_name:  postgres-db
+    image:           postgres:11
+    restart: "always"
+    ports:
+      - 5432:5432 # Bind host port 5432 to PostgreSQL port 5432
+    volumes:
+      - ./pgdb:/var/lib/postgresql/data
+    env_file: .env
+    environment:
+      - LC_ALL=C.UTF-8
+
+
+  redis:
+    restart: "always"
+    build:
+      context: .
+      dockerfile: redis.dockerfile
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redisdb:/var/lib/redis
+    env_file: .env
+
+
+
+  celery:
+    restart: "always"
+    build:
+      context: .
+      dockerfile: celery.dockerfile
+    container_name: celery
+    env_file: .env
+    command: /venv/bin/celery --app=azeri.celery:app worker -B --loglevel=INFO
+    volumes:
+      - .:/src
+    links:
+      - redis
+      - postgres
+    depends_on:
+      - "redis"
+      - "postgres"
+
+  web:
+    container_name: azeri
+    build: .
+    restart: "always"
+    env_file: .env
+    environment:
+      - VIRTUAL_HOST=azeristudent.az,prod.azeristudent.az
+      - VIRTUAL_PORT=8030
+      - TIMEOUT=300
+      - HTTP_PORT=8030
+      - STATS_PORT=8031
+    volumes:
+      - .:/code
+    ports:
+      - "8030:8030"
+    links:
+      - postgres
+    depends_on:
+      - "postgres"
+
+  partners:
+    container_name: partner
+    build: .
+    restart: "always"
+    env_file: .env
+    environment:
+      - VIRTUAL_HOST=partnerportal.azeristudent.az
+      - VIRTUAL_PORT=8040
+      - TIMEOUT=300
+      - HTTP_PORT=8040
+      - STATS_PORT=8041
+      - PARTNER_PAGE=true
+    volumes:
+      - .:/code
+    ports:
+      - "8040:8040"
+    links:
+      - postgres
+    depends_on:
+      - "postgres"
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

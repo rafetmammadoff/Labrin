@@ -1,0 +1,65 @@
+.review-detail-wrap {
+  h1 {
+    color: $red;
+    font-weight: 500;
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
+  .from {
+    color: #5b5b5b;
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  .review-social-link {
+    margin-top: -30px;
+    margin-bottom: 30px;
+  }
+  p {
+    padding-left: 20px;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    @include breakpoint(visible-xs) {
+      font-size: 16px;
+      padding: 0;
+    }
+  }
+  .review-img {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    img {
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+    }
+  }
+
+  .socialNetwork {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 15px;
+    align-items: center;
+
+    span {
+      color: #be271d;
+      font-weight: bold;
+    }
+
+    a {
+      margin-left: 10px;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
+
+.myClassforPartial {
+  border-top: 2px solid #be271d;
+  margin-top: 30px;
+}

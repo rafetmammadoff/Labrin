@@ -1,0 +1,118 @@
+{% extends 'partners/base/index.html' %}
+{% load static %}
+{% load partner_filter i18n %}
+{% block meta_tags %}
+    <meta name="keywords" content="{{ object.meta_keywords }}">
+    <meta name="description" content="{{ object.meta_description }}">
+{% endblock meta_tags %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.facebook_social_title }}">
+    <meta property="og:description" content="{{ object.facebook_social_description }}">
+    {% if object.social_image %}
+        <meta property="og:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.social_image %}
+        <meta name="twitter:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.twitter_social_image_alt }}">
+    <meta name="twitter:creator" content="{{ object.twitter_social_creator }}"/>
+    <meta name="twitter:site" content="{{ object.twitter_social_site }}">
+{% endblock social_headers %}
+
+{% block title %}
+    <title>{{ object.website_title }}</title>
+{% endblock title %}
+
+{% block content %}
+<div id="about_section">
+        <div class="container">
+            {% for content in object.homecontent_set.all %}
+                {% if content.home_content_type == 0 %}
+                    <div class="title">
+                        {{ content.title }}
+                    </div>
+
+                    <div class="row">
+                        {{ content.content|safe }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+{#                <div class="col-lg-6">#}
+{#                    <div class="about-list-style">#}
+{#                        <div class="disk"></div>#}
+{#                        <div class="disk_p">#}
+{#                            <p>#}
+{#                                We, Azerbaijani’s leading educational counseling agency, were founded in 2008. Since#}
+{#                                2008, we’ve had more than 5.000 students whom we place at the universities (foundation,#}
+{#                                undergraduate and graduate), language schools, high schools and colleges. Our students#}
+{#                                studied in various countries such as United States of America, Canada, United Kingdom,#}
+{#                                Australia, Malta, New Zealand, Spain, Italy, Germany, Holland, Switzerland, China and#}
+{#                                France.#}
+{##}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="about-list-style sd">#}
+{#                        <div class="disk"></div>#}
+{#                        <div class="disk_p">#}
+{#                            <p>#}
+{#                                We’re running educational fairs in Azerbaijan, Ukraine and Georgia 2 times in a year.#}
+{##}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="about-list-style ">#}
+{#                        <div class="disk"></div>#}
+{#                        <div class="disk_p">#}
+{#                            <p>#}
+{#                                We’re the founder of the future of education counseling service, Azeri Student, which is#}
+{#                                the most unique educational web site (www.azeristudent.az)#}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-6">#}
+{#                    <div class="about-list-style sd">#}
+{#                        <div class="disk"></div>#}
+{#                        <div class="disk_p">#}
+{#                            <p>#}
+{#                                We’ve opened our 4th office. Now, Azeri Student has offices not only in Baku, but also#}
+{#                                in Ukraine, Georgia and Albania.#}
+{##}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="about-list-style">#}
+{#                        <div class="disk"></div>#}
+{#                        <div class="disk_p">#}
+{#                            <p>#}
+{##}
+{##}
+{#                                We’ve been working with prestigious institutions all around the world such as St.#}
+{#                                Andrews University, Brunel University London, Reading University, Lancaster University,#}
+{#                                Leicester University, Aberdeen University, Robert Gordon University, University of#}
+{#                                Surrey, Anglia Ruskin University, Royal Holloway University London, Exeter University,#}
+{#                                Aberystwyth University, Glion London, Les Roches institute of Hotel Management , EU#}
+{#                                business school, Glasgow University, Cambridge Education Group, Study Group, Navitas,#}
+{#                                Shorelight group universities … and more!#}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="about-list-style sd">#}
+{#                        <div class="disk"></div>#}
+{#                        <div class="disk_p">#}
+{#                            <p>#}
+{#                                We’ve had our own language schools in Azerbaijan and Educational Magazine.#}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+        </div>
+    </div>
+{% endblock content %}

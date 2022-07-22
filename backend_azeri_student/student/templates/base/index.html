@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="az"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="az"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="az"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="az"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="az" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
+<head>
+    {% load static %}
+    {% load base_filter %}
+    {% get_website_settings as settings %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="{{ settings.robots }}">
+    <meta name="keywords" content="{{ settings.keywords }}">
+    <meta name="description" content="{{ settings.description }}">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="1MfczyaD6yM2bx6r3XoZsPd9w91Uso3QwpFHb1yFW1A">
+    <meta name="facebook-domain-verification" content="frcn95br0oi4d60ohpmdgwrbry7dzy" />
+
+    {% block social_headers %}
+        <!-- Facebook share header -->
+        <meta property="og:locale" content="az_AZ" />
+        <meta property="og:title" content="{{ settings.facebook_social_title }}">
+        <meta property="og:description" content="{{ settings.facebook_social_description }}">
+        {% if settings.social_image %}
+            <meta property="og:image"
+                  content="{{ request.build_absolute_uri|slice:":-1" }}{{ settings.social_image.url }}">
+        {% endif %}
+        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+        <!--Twitter header-->
+        <meta name="twitter:card" content="summary_large_image">
+        {% if settings.social_image %}
+            <meta name="twitter:image"
+                  content="{{ request.build_absolute_uri|slice:":-1" }}{{ settings.social_image.url }}">
+        {% endif %}
+        <meta name="twitter:image:alt" content="{{ settings.twitter_social_image_alt }}">
+        <meta name="twitter:creator" content="{{ settings.twitter_social_creator }}"/>
+        <meta name="twitter:site" content="{{ settings.twitter_social_site }}">
+    {% endblock %}
+
+    <title> {% block title %}{{ settings.website_title }}{% endblock %} </title>
+
+    {% if is_paginated %}{% if page_obj.has_previous %}
+    <link rel="prev" href="{{ request.scheme }}://
+            {{ request.META.HTTP_HOST }}{{ request.path }}?page={{ page_obj.previous_page_number }}">{% endif %}
+    {% if page_obj.has_next %}
+        <link rel="next" href="{{ request.scheme }}://
+                {{ request.META.HTTP_HOST }}{{ request.path }}?page={{ page_obj.next_page_number }}">
+    {% endif %}{% endif %}
+
+    <!-- Favicon -->
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- / Favicon -->
+    <!-- injector:css -->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Roboto:400,500,700,900" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'azeristudent/css/design.min.css' %}">
+    <link rel="stylesheet" href="{% static 'azeristudent/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'azeristudent/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'azeristudent/css/high.css' %}">
+    <!-- endinjector -->
+
+    <!-- injector:js -->
+    <script src="{% static 'azeristudent/js/min/assets/jquery.min.js' %}"></script>
+    <script src="{% static 'azeristudent/js/min/assets/bootstrap.min.js' %}"></script>
+    <script src="{% static 'azeristudent/js/min/assets/moment.min.js' %}"></script>
+    <script src="{% static 'azeristudent/js/min/assets/bootstrap-datetimepicker.min.js' %}"></script>
+    <script src="{% static 'azeristudent/js/min/assets/owl.min.js' %}"></script>
+    <script src="{% static 'azeristudent/js/wow.js' %}"></script>
+    <script src="{% static 'azeristudent/js/rangeslider.js'  %}" defer></script>
+    <!-- inputmap js -->
+    <script src="{% static 'inputmask/jquery.inputmask.bundle.js' %}"></script>
+    {% comment %}<script src="{% static 'inputmask/inputmask.js' %}"></script>
+    <script src="{% static 'inputmask/inputmask.extensions.js' %}"></script>
+    <script src="{% static 'inputmask/inputmask.numeric.extensions.js' %}"></script>
+    <script src="{% static 'inputmask/inputmask.date.extensions.js' %}"></script>
+    <script src="{% static 'inputmask/jquery.inputmask.js' %}"></script>{% endcomment %}
+    <!-- endinjector -->
+    <script src="{% static 'azeristudent/js/dhtmlxcalendar.js' %}"></script>
+    <script src="{% static 'azeristudent/js/min/app.min.js' %}"></script>
+    {% block extra_script %}
+    <!-- Marquiz script start -->
+<script>
+  (function(w, d, s, o){
+    var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.io/v2.js';j.onload = function() {
+      if (document.readyState !== 'loading') Marquiz.init(o);
+      else document.addEventListener("DOMContentLoaded", function() {
+        Marquiz.init(o);
+      });
+    };
+    d.head.insertBefore(j, d.head.firstElementChild);
+  })(window, document, 'script', {
+      host: '//quiz.marquiz.io',
+      region: 'eu',
+      id: '60bdf708e99351003e7751e7',
+      autoOpen: false,
+      autoOpenFreq: 'once',
+      openOnExit: false,
+      disableOnMobile: false
+    }
+  );
+  </script>
+  <!-- Marquiz script end -->
+    <!-- GetReview.io Widget BEGIN -->
+<script type="text/javascript">
+(function(g, e, t) {
+  e.GetReviewWidgetID = 'cbL8d0ctLWFT1eik';
+  var s = g.createElement('script');
+  e[t] = e[t] || function() {
+    (e[t].queue = e[t].queue || []).push(arguments);
+  };
+  s.async = true;
+  s.charset = 'UTF-8';
+  s.src = 'https://app.getreview.io/static/bundle.js';
+  if (g.head) { g.head.appendChild(s); }
+})(document, window, 'GetReview');
+</script>
+<!-- GetReview.io Widget END -->
+    <!-- Facebook Pixel Code -->
+<script> 
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3029457137373275');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+    {% endblock %}
+    
+</head>
+<body>
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNX7JS3"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% block content %}
+{% endblock %}
+
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-MNX7JS3');</script>
+<!-- End Google Tag Manager -->
+
+
+<script>
+  $(document).ready(function() {
+      //facebook pixel buttons
+      setTimeout(function(){
+          var facebookPixelWpButton = $("[id*='gb-widget']");
+          facebookPixelWpButton.bind("mouseenter click",function(){
+              setTimeout(function(){
+                  facebookPixelWpButton[0].children[0].childrSen[0].onclick = function(){
+                      fbq('trackCustom', 'Messenger');
+                  };
+                  facebookPixelWpButton[0].children[0].children[1].onclick = function(){
+                      fbq('trackCustom', 'WhatsApp');
+                  };
+                  facebookPixelWpButton[0].children[0].children[2].onclick = function(){
+                      fbq('trackCustom', 'Telegram');
+                  };
+              },2000);
+          });
+    },4000);
+  });
+</script>
+</body>
+</html>

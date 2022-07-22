@@ -1,0 +1,1370 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    Proqramlar | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Proqramlar">
+    <meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta name="twitter:image:alt" content="Proqramlar">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block base_content %}
+
+    <!-- Top hdr -->
+    <section id="top-hdr">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="index.html" class="logo">
+                        <img class="img-responsive" src="{% static 'img/logo.png' %}" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6 right-top-hdr">
+                    <img src="{% static 'img/ion-android-call - Ionicons Copy 2.png' %}" alt="">
+                    <p>
+                        +994(50) 512 28 28
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <header class="relative-header">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="header-right">
+                    <ul class="header-menu">
+                        <li class="dropdown"><a>Proqramlar</a></li>
+                        <li><a href="">Xidmətlər</a></li>
+                        <li><a href="">Rəylər</a></li>
+                        <li><a href="">Tədbirlər</a></li>
+                        <li><a href="">Dil kursları</a></li>
+                        <li><a href="/reserve/">Görüş təyin et</a></li>
+                    </ul>
+
+                    <button data-toggle="modal" data-target="#myModal" class="contact-btn">Müraciət et</button>
+                    <button type="button" class="mobile-menu-btn">
+                        <img class="menu-img" src="{% static 'img/menu.png' %}" alt="">
+                        <img class="close-img" src="{% static 'img/close.png' %}" alt="">
+                    </button>
+
+                    <ul class="header-menu-mobile">
+                        <li class="dropdown">
+                            <a>Proqramlar<span class="caret"></span></a>
+                        </li>
+                        <li><a href="">Xidmetler</a></li>
+                        <li><a href="">Reyler</a></li>
+                        <li><a href="">Tedbirler</a></li>
+                        <li><a href="news.html">Yenilikler</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="overlay"></div>
+        <div class="programs-menu">
+            <div class="container">
+                <div class="programs-menu-wrap">
+                    <div class="countries">
+                        <h2>Countries</h2>
+                        <ul class="countries-items">
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="{% static 'img/australia.svg' %}" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="{% static 'img/austria.svg' %}" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="{% static 'img/belgium.svg' %}" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="{% static 'img/australia.svg' %}" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/austria.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/belgium.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/australia.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/austria.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/belgium.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/australia.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/austria.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/belgium.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/australia.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/austria.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/belgium.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/australia.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/austria.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/belgium.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/australia.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Australia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/austria.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Austria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="country-flag">
+                                        <img src="img/belgium.svg" alt="">
+                                    </span>
+                                    <span class="country-title">Belgium</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="programs">
+                        <h2>Programs</h2>
+                        <ul class="programs-items">
+                            <li>
+                                <a href="language-program.html">Language Programs <img src="img/right-arrow.png"
+                                        alt=""></a>
+                            </li>
+                            <li>
+                                <a href="secondary-education.html">Secondary education <img src="img/right-arrow.png"
+                                        alt=""></a>
+                            </li>
+                            <li>
+                                <a href="higher-education.html">Higher education <img src="img/right-arrow.png"
+                                        alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="btn-wrap">
+                        <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+                            <img src="img/close.png" alt="">
+                        </button>
+                    </div>
+                    <div class="content-wrap">
+                        <h1 class="title">Нужна консультация?</h1>
+
+                        <form>
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <input type="text" class="form-control" id="phone" placeholder="Phone">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <textarea class="form-control" name="message" rows="8" cols="80"
+                                placeholder="Message"></textarea>
+                            <button data-dismiss="modal" class="btn contact-btn">To get a consultation <img
+                                    src="img/right-arrow-white.png" alt=""></button>
+                        </form>
+
+                        <small>Нажимая на кнопку, вы даете согласие на обработку своих персональных данных. Гарантируем
+                            <a href="">конфиденциальность</a>.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="apply-page">
+
+        <!-- Page cover -->
+        <section class="page-cover" style="background-image:url('img/photo-1571260899304-425eee4c7efc.jpg')">
+            <div class="page-cover-overlay"></div>
+            <div class="container">
+                <div class="cover-items">
+                    <p>
+                        25.01.2020 - 26.01.2020
+                    </p>
+                    <p class="txt-cover-items">
+                        Lorem Ipsum is simply dummy text of the printing!
+                    </p>
+                    <div class="cover-bottom-items">
+                        <div class="date-items">
+                            <a href="">
+                                başlayın:
+                            </a>
+                            <a href=""><span>9</span> gun</a>
+                            <a href=""><span>22</span>saat</a>
+                            <a href=""><span>04</span>dəqiqə</a>
+                            <a href=""><span>01</span>saniyə</a>
+                        </div>
+                        <div class="register-btn">
+                            <a href="">
+                                Qeydiyyat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apply register section -->
+        <section id="apply-register-section">
+            <div class="container">
+                <div class="apply-inner">
+                    <div class="left-sect-apply-register"
+                        style="background-image:url('img/photo-1531545514256-b1400bc00f31.png')">
+                        <div class="date-btn">
+                            <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>calendar (1)</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-275.000000, -2179.000000)"
+                                        fill="#F6F6F6" fill-rule="nonzero">
+                                        <g id="calendar-(1)" transform="translate(275.000000, 2179.000000)">
+                                            <path
+                                                d="M32.6808766,3.26811064 L27.7787489,3.26811064 L27.7787489,0.817046809 C27.7787489,0.365438298 27.4133106,0 26.9617021,0 C26.5100936,0 26.1446553,0.365438298 26.1446553,0.817046809 L26.1446553,3.26811064 L11.4382723,3.26811064 L11.4382723,0.817046809 C11.4382723,0.365438298 11.072834,0 10.6213021,0 C10.1697702,0 9.80425532,0.365438298 9.80425532,0.817046809 L9.80425532,3.26811064 L3.26811064,3.26811064 C1.46650213,3.26811064 0,4.73377021 0,6.53614468 L0,32.6808 C0,34.4831745 1.46650213,35.9489106 3.26811064,35.9489106 L26.9601702,35.9489106 L26.9601702,35.9489106 L26.9617787,35.9489106 C27.1740255,35.9489106 27.3830553,35.8659574 27.5394638,35.7095489 L35.7097021,27.5393106 C35.8654979,27.3829021 35.9171234,27.1741787 35.9173532,26.9616255 L35.9490638,26.9616255 L35.9490638,6.53614468 C35.9490638,4.73377021 34.4824851,3.26811064 32.6808766,3.26811064 Z M27.7787489,33.1596 L27.7787489,29.412766 C27.7787489,28.512 28.511234,27.7787489 29.412766,27.7787489 L33.1596,27.7787489 L27.7787489,33.1596 Z M34.3148936,26.1446553 L29.412766,26.1446553 C27.6111574,26.1446553 26.1446553,27.6103149 26.1446553,29.412766 L26.1446553,34.3148936 L3.26811064,34.3148936 C2.36650213,34.3148936 1.63409362,33.5816426 1.63409362,32.6808766 L1.63409362,13.072366 L34.3148936,13.072366 L34.3148936,26.1446553 Z M34.3148936,11.4382723 L1.63401702,11.4382723 L1.63401702,6.53614468 C1.63401702,5.63537872 2.36650213,4.90212766 3.26811064,4.90212766 L9.80425532,4.90212766 L9.80425532,6.53614468 C8.90264681,6.53614468 8.1702383,7.26939574 8.1702383,8.1701617 C8.1702383,9.07092766 8.90264681,9.80425532 9.80425532,9.80425532 C10.7058638,9.80425532 11.4382723,9.07100426 11.4382723,8.1702383 L11.4382723,4.90212766 L26.1446553,4.90212766 L26.1446553,6.53614468 C25.2430468,6.53614468 24.5106383,7.26939574 24.5106383,8.1701617 C24.5106383,9.07092766 25.2431234,9.80425532 26.1446553,9.80425532 C27.0461872,9.80425532 27.7786723,9.07100426 27.7786723,8.1702383 L27.7786723,4.90212766 L32.6808,4.90212766 C33.5824851,4.90212766 34.3148936,5.63537872 34.3148936,6.53614468 L34.3148936,11.4382723 Z"
+                                                id="Shape"></path>
+                                            <path
+                                                d="M14.706383,27.7787489 C13.8047745,27.7787489 13.072366,27.0454979 13.072366,26.1447319 C13.072366,25.6931234 12.7069277,25.3276851 12.2553191,25.3276851 C11.8037106,25.3276851 11.4382723,25.6931234 11.4382723,26.1447319 C11.4382723,27.9471064 12.9047745,29.412766 14.706383,29.412766 C16.5079915,29.412766 17.9744936,27.9471064 17.9744936,26.1446553 C17.9744936,25.1696681 17.5452511,24.2928 16.8654638,23.6935915 C17.5452511,23.094383 17.9744936,22.2175149 17.9744936,21.2425277 C17.9744936,19.4401532 16.5079915,17.974417 14.706383,17.974417 C12.9047745,17.974417 11.4382723,19.4400766 11.4382723,21.2425277 C11.4382723,21.6941362 11.8037106,22.0595745 12.2553191,22.0595745 C12.7069277,22.0595745 13.072366,21.6941362 13.072366,21.2425277 C13.072366,20.3417617 13.8048511,19.6085106 14.706383,19.6085106 C15.6079915,19.6085106 16.3404,20.3417617 16.3404,21.2425277 C16.3404,22.1432936 15.6079149,22.8765447 14.706383,22.8765447 C14.2547745,22.8765447 13.8893362,23.241983 13.8893362,23.6935915 C13.8893362,24.1452 14.2547745,24.5106383 14.706383,24.5106383 C15.6079915,24.5106383 16.3404,25.2438894 16.3404,26.1446553 C16.3404,27.0454213 15.6079915,27.7787489 14.706383,27.7787489 Z"
+                                                id="Path"></path>
+                                            <path
+                                                d="M20.4270894,19.6101191 C20.4270894,19.6101191 20.4270894,19.6101191 20.4286979,19.6101191 L21.2425277,19.6093532 L21.2425277,28.5957957 C21.2425277,29.0474043 21.607966,29.4128426 22.0595745,29.4128426 C22.511183,29.4128426 22.8766213,29.0474043 22.8766213,28.5957957 L22.8766213,18.7915404 C22.8766213,18.5745447 22.7904511,18.3670468 22.6372596,18.2138553 C22.4840681,18.0606638 22.2766468,17.9744936 22.0595745,17.9744936 C22.0595745,17.9744936 22.0595745,17.9744936 22.057966,17.9744936 L20.4270894,17.9761021 C19.9754809,17.9768681 19.6100426,18.3423064 19.6100426,18.7939149 C19.6101191,19.2446809 19.9755574,19.6101191 20.4270894,19.6101191 Z"
+                                                id="Path"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            25.01.2020–26.01.2020
+                        </div>
+                    </div>
+                    <div class="right-sect-apply-register">
+                        <div class="header-right-sect">
+                            <p>Lorem</p>
+                            <span>
+                                \
+                            </span>
+                            <p>Ipsum</p>
+                        </div>
+                        <div class="body-right-sect">
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            </p>
+                            <ul>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                            </ul>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
+                                has survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged.
+                            </p>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley.
+                            </p>
+                            <h4>
+                                Lorem Ipsum has been the industry's
+                            </h4>
+                            <ul>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                            </ul>
+                            <h4>
+                                Lorem Ipsum has been the industry's
+                            </h4>
+                            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book. It
+                                has survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. </p>
+                            <h4>
+                                Lorem Ipsum has been the industry's
+                            </h4>
+                            <ul>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                                <li>
+                                    <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                        <title>Path</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)"
+                                                fill="#000000" fill-rule="nonzero">
+                                                <path
+                                                    d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    There are many variations of passages of Lorem Ipsum
+                                </li>
+                            </ul>
+                            <p><span>Tarix:</span>25–26 yanvar, 11:00–17:00</p>
+                            <p><span>Unvan:</span>Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                            <p>Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                            <div class="register-btn">
+                                <a href="">
+                                    Qeydiyyat
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More section -->
+        <section id="more-section">
+            <div class="left-sect-more">
+                <div class="more-sect-header">
+                    <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>Group 29</title>
+                        <desc>Created with Sketch.</desc>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="AzeriStudent-" transform="translate(-203.000000, -2320.000000)" fill-rule="nonzero">
+                                <g id="Group-29" transform="translate(203.000000, 2320.000000)">
+                                    <path
+                                        d="M20,0 C8.95442708,0 -5.68434189e-14,8.95442708 -5.68434189e-14,20 C-5.68434189e-14,31.0455729 8.95442708,40 20,40 C20.6025391,40 21.2027995,39.9729818 21.8001302,39.9192708 C22.3554687,39.8694662 22.9059245,39.7932943 23.4521484,39.6979167 L23.6621093,39.6608073 C33.8173828,37.765625 40.858724,28.4482422 39.9088542,18.1611328 C38.9589843,7.87402342 30.3307292,0.00325520833 20,0 Z M18.3932292,38.5960287 L18.3460287,38.5960287 C17.827474,38.5501302 17.3128255,38.4807943 16.8027343,38.3919271 C16.7734375,38.3867188 16.7441407,38.3834635 16.7154948,38.3779297 C16.2167968,38.288737 15.7233073,38.1780599 15.2347005,38.0488282 L15.1165365,38.0185547 C14.639974,37.8893229 14.1686198,37.7392578 13.7041016,37.5725912 C13.6559245,37.5553385 13.6074218,37.5400391 13.5592448,37.5221354 C13.1038412,37.3548177 12.6565755,37.1673177 12.2161458,36.9645182 C12.1614583,36.9401042 12.1067708,36.9166667 12.0520833,36.890625 C11.6201172,36.6907552 11.1966146,36.4654948 10.78125,36.2285157 C10.7226562,36.1953125 10.6634115,36.1621093 10.6048177,36.1292317 C10.1959635,35.890625 9.7965495,35.6347657 9.40462242,35.3645833 C9.34537758,35.3232422 9.28548175,35.2832032 9.2265625,35.241862 C8.84147133,34.96875 8.46614583,34.6787109 8.10058592,34.3753255 L8,34.2874349 L8,28.6666667 C8.00488283,24.6184896 11.2851562,21.3382162 15.3333333,21.3333333 L24.6666667,21.3333333 C28.7148437,21.3382162 31.9951172,24.6184896 32,28.6666667 L32,34.2880859 L31.9114583,34.3619792 C31.538737,34.6731771 31.15625,34.9674479 30.7633463,35.2454427 C30.711263,35.281901 30.6585287,35.3167318 30.6067708,35.3525391 C30.2102865,35.6279297 29.8040365,35.8870443 29.3880208,36.1305338 C29.3359375,36.1608073 29.2825521,36.1894532 29.2307942,36.219401 C28.8092448,36.4593099 28.3805338,36.6858724 27.9433593,36.889974 C27.8932292,36.9134115 27.8427734,36.9352213 27.7919922,36.9567057 C27.3479817,37.1614583 26.8968099,37.3499349 26.438151,37.5185547 C26.3925782,37.5354817 26.3466797,37.5501302 26.3046875,37.5660807 C25.8378907,37.7333984 25.3645833,37.8847657 24.8854167,38.0146484 L24.7705078,38.0432942 C24.28125,38.172526 23.7874349,38.2838542 23.2880859,38.3733724 C23.2594401,38.3785807 23.2307942,38.3821615 23.2021484,38.3867187 C22.6914062,38.4759115 22.1761067,38.5452474 21.6572266,38.5914713 L21.610026,38.5914713 C21.0768229,38.6373698 20.5432942,38.6621093 20.0032552,38.6621093 C19.4632162,38.6621093 18.9254557,38.6419271 18.3932292,38.5960287 L18.3932292,38.5960287 Z M33.3333333,33.0520833 L33.3333333,28.6666667 C33.3277995,23.882487 29.4508463,20.0055338 24.6666667,20 L15.3333333,20 C10.5491537,20.0055338 6.6722005,23.882487 6.66666667,28.6666667 L6.66666667,33.0514323 C-0.513671833,25.7229818 -0.43359375,13.9733073 6.84570317,6.74316408 C14.125,-0.486653667 25.875,-0.486653667 33.1542968,6.74316408 C40.4335937,13.9733073 40.5136718,25.7229818 33.3333333,33.0514323 L33.3333333,33.0520833 Z"
+                                        id="Shape" fill="#000000"></path>
+                                    <path
+                                        d="M20,5.33333333 C16.3180338,5.33333333 13.3333333,8.31803383 13.3333333,12 C13.3333333,15.6819662 16.3180338,18.6666667 20,18.6666667 C23.6819662,18.6666667 26.6666667,15.6819662 26.6666667,12 C26.6627604,8.3196615 23.6803385,5.33723958 20,5.33333333 Z M20,17.3333333 C17.054362,17.3333333 14.6666667,14.945638 14.6666667,12 C14.6666667,9.054362 17.054362,6.66666667 20,6.66666667 C22.945638,6.66666667 25.3333333,9.054362 25.3333333,12 C25.3300782,14.9440104 22.9440104,17.3300782 20,17.3333333 Z"
+                                        id="Shape" fill="#DC3546"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <p>
+                        Ətraflı
+                    </p>
+                </div>
+                <div class="more-sect-body">
+                    <p>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type.
+                    </p>
+                    <h4>
+                        Lorem Ipsum has been the industry's
+                    </h4>
+                    <ul>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                    </ul>
+                    <h4>
+                        Lorem Ipsum has been the industry's
+                    </h4>
+                    <ul>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                        <li>
+                            <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="AzeriStudent-" transform="translate(-757.000000, -858.000000)" fill="#000000"
+                                        fill-rule="nonzero">
+                                        <path
+                                            d="M764.109751,872.2 C763.768324,872.2 763.427223,872.072477 763.167491,871.815187 L757.390574,866.128228 C756.869809,865.615252 756.869809,864.784108 757.390574,864.271451 C757.91134,863.758795 758.755631,863.758795 759.276722,864.271451 L764.111379,869.031144 L774.723604,858.584492 C775.244369,858.071836 776.08866,858.071836 776.609426,858.584492 C777.130191,859.097148 777.130191,859.928292 776.609426,860.440948 L765.055266,871.815187 C764.79228,872.072477 764.451178,872.2 764.109751,872.2 Z"
+                                            id="Path"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            There are many variations of passages of Lorem Ipsum
+                        </li>
+                    </ul>
+                    <p>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        unknown printer took a galley.
+                    </p>
+                </div>
+            </div>
+            <div class="right-sect-more">
+                <div class="more-sect-header">
+                    <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>Group 29</title>
+                        <desc>Created with Sketch.</desc>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="AzeriStudent-" transform="translate(-203.000000, -2320.000000)" fill-rule="nonzero">
+                                <g id="Group-29" transform="translate(203.000000, 2320.000000)">
+                                    <path
+                                        d="M20,0 C8.95442708,0 -5.68434189e-14,8.95442708 -5.68434189e-14,20 C-5.68434189e-14,31.0455729 8.95442708,40 20,40 C20.6025391,40 21.2027995,39.9729818 21.8001302,39.9192708 C22.3554687,39.8694662 22.9059245,39.7932943 23.4521484,39.6979167 L23.6621093,39.6608073 C33.8173828,37.765625 40.858724,28.4482422 39.9088542,18.1611328 C38.9589843,7.87402342 30.3307292,0.00325520833 20,0 Z M18.3932292,38.5960287 L18.3460287,38.5960287 C17.827474,38.5501302 17.3128255,38.4807943 16.8027343,38.3919271 C16.7734375,38.3867188 16.7441407,38.3834635 16.7154948,38.3779297 C16.2167968,38.288737 15.7233073,38.1780599 15.2347005,38.0488282 L15.1165365,38.0185547 C14.639974,37.8893229 14.1686198,37.7392578 13.7041016,37.5725912 C13.6559245,37.5553385 13.6074218,37.5400391 13.5592448,37.5221354 C13.1038412,37.3548177 12.6565755,37.1673177 12.2161458,36.9645182 C12.1614583,36.9401042 12.1067708,36.9166667 12.0520833,36.890625 C11.6201172,36.6907552 11.1966146,36.4654948 10.78125,36.2285157 C10.7226562,36.1953125 10.6634115,36.1621093 10.6048177,36.1292317 C10.1959635,35.890625 9.7965495,35.6347657 9.40462242,35.3645833 C9.34537758,35.3232422 9.28548175,35.2832032 9.2265625,35.241862 C8.84147133,34.96875 8.46614583,34.6787109 8.10058592,34.3753255 L8,34.2874349 L8,28.6666667 C8.00488283,24.6184896 11.2851562,21.3382162 15.3333333,21.3333333 L24.6666667,21.3333333 C28.7148437,21.3382162 31.9951172,24.6184896 32,28.6666667 L32,34.2880859 L31.9114583,34.3619792 C31.538737,34.6731771 31.15625,34.9674479 30.7633463,35.2454427 C30.711263,35.281901 30.6585287,35.3167318 30.6067708,35.3525391 C30.2102865,35.6279297 29.8040365,35.8870443 29.3880208,36.1305338 C29.3359375,36.1608073 29.2825521,36.1894532 29.2307942,36.219401 C28.8092448,36.4593099 28.3805338,36.6858724 27.9433593,36.889974 C27.8932292,36.9134115 27.8427734,36.9352213 27.7919922,36.9567057 C27.3479817,37.1614583 26.8968099,37.3499349 26.438151,37.5185547 C26.3925782,37.5354817 26.3466797,37.5501302 26.3046875,37.5660807 C25.8378907,37.7333984 25.3645833,37.8847657 24.8854167,38.0146484 L24.7705078,38.0432942 C24.28125,38.172526 23.7874349,38.2838542 23.2880859,38.3733724 C23.2594401,38.3785807 23.2307942,38.3821615 23.2021484,38.3867187 C22.6914062,38.4759115 22.1761067,38.5452474 21.6572266,38.5914713 L21.610026,38.5914713 C21.0768229,38.6373698 20.5432942,38.6621093 20.0032552,38.6621093 C19.4632162,38.6621093 18.9254557,38.6419271 18.3932292,38.5960287 L18.3932292,38.5960287 Z M33.3333333,33.0520833 L33.3333333,28.6666667 C33.3277995,23.882487 29.4508463,20.0055338 24.6666667,20 L15.3333333,20 C10.5491537,20.0055338 6.6722005,23.882487 6.66666667,28.6666667 L6.66666667,33.0514323 C-0.513671833,25.7229818 -0.43359375,13.9733073 6.84570317,6.74316408 C14.125,-0.486653667 25.875,-0.486653667 33.1542968,6.74316408 C40.4335937,13.9733073 40.5136718,25.7229818 33.3333333,33.0514323 L33.3333333,33.0520833 Z"
+                                        id="Shape" fill="#000000"></path>
+                                    <path
+                                        d="M20,5.33333333 C16.3180338,5.33333333 13.3333333,8.31803383 13.3333333,12 C13.3333333,15.6819662 16.3180338,18.6666667 20,18.6666667 C23.6819662,18.6666667 26.6666667,15.6819662 26.6666667,12 C26.6627604,8.3196615 23.6803385,5.33723958 20,5.33333333 Z M20,17.3333333 C17.054362,17.3333333 14.6666667,14.945638 14.6666667,12 C14.6666667,9.054362 17.054362,6.66666667 20,6.66666667 C22.945638,6.66666667 25.3333333,9.054362 25.3333333,12 C25.3300782,14.9440104 22.9440104,17.3300782 20,17.3333333 Z"
+                                        id="Shape" fill="#DC3546"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <p>
+                        Ünvan
+                    </p>
+                </div>
+                <div class="more-sect-body">
+                    <p>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type.
+                    </p>
+                    <h4>Hilton Baku, 1B Azadlig Avenue, Baku 1000</h4>
+                </div>
+                <div class="more-sect-bottom">
+                    <iframe height="574" frameborder="0" style="border:0"
+                        src=https://www.google.com/maps/place/Hilton+Hotel/@40.4092617,49.8649037,17z/data=!3m1!4b1!4m5!3m4!1s0x40307d3f8dce940f:0xf9883c790fdd0888!8m2!3d40.4092617!4d49.8670924"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members section -->
+        <section id="members-section">
+            <div class="container">
+                <div class="members-header">
+                    <svg width="50px" height="37px" viewBox="0 0 50 37" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>team</title>
+                        <desc>Created with Sketch.</desc>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="AzeriStudent-" transform="translate(-146.000000, -4120.000000)" fill="#000000"
+                                fill-rule="nonzero">
+                                <g id="team" transform="translate(146.000000, 4120.000000)">
+                                    <path
+                                        d="M44.1132813,16.5292969 C42.4119141,15.6787109 39.2219727,15.6688477 39.0870117,15.6688477 C38.6825195,15.6688477 38.3545898,15.9967773 38.3545898,16.4012695 C38.3545898,16.8057617 38.6825195,17.1336914 39.0870117,17.1336914 C39.9101563,17.1337891 42.3000977,17.2605469 43.4582031,17.8395508 C43.5633789,17.8921875 43.6750977,17.9169922 43.7851563,17.9169922 C44.0538086,17.9169922 44.3125,17.7685547 44.4408203,17.5120117 C44.6217773,17.1501953 44.4750977,16.7102539 44.1132813,16.5292969 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M47.7648438,26.9571289 L44.7399414,26.0928711 C44.609375,26.0555664 44.5181641,25.934668 44.5181641,25.7988281 L44.5181641,24.7891602 C44.7642578,24.6186523 44.9990234,24.427832 45.218457,24.2148437 C46.2819336,23.1828125 46.8675781,21.7985352 46.8675781,20.3168945 L46.8675781,18.9236328 L47.1600586,18.3387695 C47.4810547,17.6966797 47.6506836,16.977832 47.6506836,16.2600586 L47.6506836,12.4856445 C47.6506836,12.0811523 47.3227539,11.7532227 46.9182617,11.7532227 L39.8701172,11.7532227 C37.3072266,11.7532227 35.2220703,13.8383789 35.2220703,16.4012695 L35.2220703,16.4449219 C35.2220703,17.0417969 35.3631836,17.6395508 35.6300781,18.1733398 L36.0051758,18.9235352 L36.0051758,20.1198242 C36.0051758,22.0157227 36.9394531,23.7167969 38.3545898,24.7404297 L38.3547852,25.7986328 C38.3547852,25.9618164 38.3547852,26.0293945 37.75,26.2022461 L36.2740234,26.6239258 L32.0043945,25.0713867 C32.0197266,24.8699219 31.9517578,24.6650391 31.8047852,24.5106445 L30.4404297,23.0772461 L30.4404297,20.6709961 C30.584668,20.5521484 30.7268555,20.4300781 30.8646484,20.3009766 C32.5858398,18.6876953 33.5729492,16.4099609 33.5729492,14.0518555 L33.5729492,12.1301758 C34.0926758,10.9992187 34.3560547,9.80244141 34.3560547,8.56992187 L34.3560547,0.738867187 C34.3560547,0.334375 34.028125,0.0064453125 33.6236328,0.0064453125 L22.6598633,0.0064453125 C18.8014648,0.0064453125 15.6625,3.14550781 15.6625,7.00380859 L15.6625,8.57011719 C15.6625,9.80263672 15.9258789,10.9994141 16.4456055,12.1303711 L16.4456055,13.7837891 C16.4456055,16.5216797 17.6629883,18.9882812 19.578125,20.6144531 L19.578125,23.0773437 L18.2137695,24.5107422 C18.0667969,24.6651367 17.9988281,24.8700195 18.0141602,25.0714844 L13.5078125,26.7100586 C13.18125,26.8288086 12.877832,26.9896484 12.6023437,27.1844727 L11.8947266,26.8306641 C14.0011719,25.9137695 14.668457,24.6242187 14.7004883,24.5601562 C14.8036133,24.3540039 14.8036133,24.1112305 14.7004883,23.9050781 C14.1724609,22.8490234 14.1084961,20.9133789 14.0571289,19.3581055 C14.0400391,18.840332 14.0238281,18.3511719 13.9928711,17.915625 C13.7431641,14.4025391 11.0724609,11.7532227 7.78046875,11.7532227 C4.48847656,11.7532227 1.81767578,14.4024414 1.56806641,17.915625 C1.53710938,18.3512695 1.52089844,18.8404297 1.50380859,19.3583008 C1.45244141,20.9134766 1.38837891,22.8489258 0.860449219,23.9049805 C0.757324219,24.1111328 0.757324219,24.3539062 0.860449219,24.5600586 C0.892480469,24.6241211 1.55839844,25.9110352 3.66904297,26.8290039 L1.70351563,27.8117187 C0.652734375,28.3375 0,29.3936523 0,30.5683594 L0,35.9793945 C0,36.3838867 0.327929688,36.7118164 0.732421875,36.7118164 C1.13691406,36.7118164 1.46484375,36.3838867 1.46484375,35.9793945 L1.46484375,30.5683594 C1.46484375,29.9519531 1.80732422,29.3977539 2.35859375,29.1220703 L4.80615234,27.8983398 L5.65751953,28.7074219 C6.25283203,29.2731445 7.01650391,29.5558594 7.78046875,29.5558594 C8.54423828,29.5558594 9.30830078,29.2729492 9.90341797,28.7074219 L10.7546875,27.8984375 L11.5527344,28.2974609 C11.1769531,28.8987305 10.9636719,29.6038086 10.9636719,30.3423828 L10.9636719,35.9795898 C10.9636719,36.384082 11.2916016,36.712207 11.6960938,36.712207 C12.1005859,36.712207 12.4285156,36.384082 12.4285156,35.9795898 L12.4285156,30.3423828 C12.4285156,29.3369141 13.0633789,28.4304688 14.0083984,28.0868164 L18.7595703,26.3591797 L20.7374023,29.3260742 C20.9902344,29.7053711 21.3954102,29.9486328 21.8490234,29.9935547 C21.8996094,29.9985352 21.9499023,30.0009766 22.0000977,30.0009766 C22.400293,30.0009766 22.7835938,29.843457 23.0701172,29.5570313 L24.2767578,28.3503906 L24.2767578,35.9796875 C24.2767578,36.3841797 24.6046875,36.712207 25.0091797,36.712207 C25.4136719,36.712207 25.7416016,36.3841797 25.7416016,35.9796875 L25.7416016,28.3503906 L26.9482422,29.5570313 C27.234668,29.8435547 27.6179687,30.0010742 28.0182617,30.0010742 C28.0683594,30.0010742 28.11875,29.9986328 28.1692383,29.9936523 C28.6229492,29.9487305 29.028125,29.7054688 29.280957,29.3261719 L31.2588867,26.359375 L36.0099609,28.0870117 C36.9548828,28.4306641 37.5898438,29.3371094 37.5898438,30.3425781 L37.5898438,35.9797852 C37.5898438,36.3842773 37.9177734,36.712207 38.3222656,36.712207 C38.7267578,36.712207 39.0546875,36.3842773 39.0546875,35.9797852 L39.0546875,30.3425781 C39.0546875,29.3242188 38.6500977,28.3691406 37.9713867,27.662793 L38.1523438,27.6111328 C38.3348633,27.5589844 38.5838867,27.4875977 38.8338867,27.3650391 L40.7039063,29.2350586 L40.7039063,35.9797852 C40.7039063,36.3842773 41.0318359,36.712207 41.4363281,36.712207 C41.8408203,36.712207 42.16875,36.3842773 42.16875,35.9797852 L42.16875,29.2350586 L44.0257813,27.3780273 C44.1245117,27.4282227 44.2282227,27.4706055 44.3374023,27.5017578 L47.3624023,28.3660156 C48.052832,28.5632813 48.5351562,29.2026367 48.5351562,29.9208008 L48.5351562,35.9797852 C48.5351562,36.3842773 48.8630859,36.712207 49.2675781,36.712207 C49.6720703,36.712207 50,36.3842773 50,35.9797852 L50,29.9208008 C50,28.5518555 49.0808594,27.3332031 47.7648438,26.9571289 Z M4.69873047,25.6634766 C3.32871094,25.1705078 2.64150391,24.5132812 2.34814453,24.1543945 C2.54814453,23.631543 2.67783203,23.0327148 2.765625,22.4005859 C3.16953125,23.369043 3.84599609,24.1958008 4.69873047,24.7856445 L4.69873047,25.6634766 Z M8.89453125,27.6457031 C8.26982422,28.2392578 7.29121094,28.2391602 6.66669922,27.6456055 L5.98554687,26.9983398 C6.10048828,26.7830078 6.16367187,26.5388672 6.16367187,26.2831055 L6.16367187,25.5024414 C6.67460938,25.6621094 7.21777344,25.7482422 7.78066406,25.7482422 C8.34287109,25.7482422 8.88574219,25.6617187 9.39755859,25.5029297 L9.39746094,26.2830078 C9.39746094,26.5388672 9.46054687,26.7831055 9.57558594,26.9985352 L8.89453125,27.6457031 Z M7.78085938,24.2833984 C5.59375,24.2833984 3.81455078,22.5041016 3.81455078,20.3170898 C3.81455078,19.9125977 3.48662109,19.584668 3.08212891,19.584668 C3.04111328,19.584668 3.00107422,19.5888672 2.96191406,19.5954102 C2.9640625,19.5324219 2.96611328,19.4693359 2.96826172,19.4069336 C2.98457031,18.9033203 3.00029297,18.4276367 3.02929688,18.0196289 C3.12285156,16.7036133 3.64873047,15.490918 4.51005859,14.6047852 C5.37910156,13.7106445 6.540625,13.2182617 7.78066406,13.2182617 C9.02070313,13.2182617 10.1821289,13.7106445 11.0512695,14.6047852 C11.9125977,15.490918 12.4384766,16.7036133 12.5320313,18.0196289 C12.5609375,18.4275391 12.5767578,18.903125 12.5933594,19.4066406 C12.5948242,19.4499023 12.5962891,19.49375 12.5977539,19.5373047 C11.8008789,18.3095703 10.5702148,17.4047852 8.98007812,16.8938477 C7.51103516,16.421875 6.24755859,16.4510742 6.19423828,16.4524414 C6.00244141,16.4578125 5.82041016,16.5380859 5.68730469,16.6761719 L4.36582031,18.0466797 C4.08505859,18.3378906 4.09345703,18.8015625 4.38466797,19.0823242 C4.67587891,19.3630859 5.13955078,19.3545898 5.4203125,19.0634766 L6.51992187,17.9231445 C7.46689453,17.9694336 10.5134766,18.3237305 11.6983398,20.9328125 C11.4001953,22.8554688 9.74765625,24.2833984 7.78085938,24.2833984 Z M10.862207,25.665918 L10.8623047,24.7923828 C11.7143555,24.2057617 12.3917969,23.3805664 12.7959961,22.4047852 C12.8837891,23.0354492 13.0133789,23.6329102 13.2129883,24.1545898 C12.9212891,24.5100586 12.2308594,25.1731445 10.862207,25.665918 Z M17.9104492,13.7836914 L17.9104492,11.9665039 C17.9104492,11.85625 17.8855469,11.7473633 17.8375977,11.6480469 C17.3663086,10.6720703 17.1273438,9.63652344 17.1273438,8.57011719 L17.1273438,7.00390625 C17.1273438,3.95322266 19.6092773,1.47138672 22.6598633,1.47138672 L32.8912109,1.47138672 L32.8912109,8.57021484 C32.8912109,9.63662109 32.6522461,10.672168 32.180957,11.6481445 C32.1330078,11.7474609 32.1081055,11.8563477 32.1081055,11.9666016 L32.1081055,14.0520508 C32.1081055,16.0355469 31.3107422,17.875293 29.8628906,19.2324219 C29.6821289,19.4017578 29.4945313,19.5605469 29.3005859,19.7084961 C29.2962891,19.7114258 29.2921875,19.7146484 29.2879883,19.7176758 C27.9316406,20.7474609 26.2703125,21.2479492 24.5353516,21.1355469 C20.8204102,20.8950195 17.9104492,17.6657227 17.9104492,13.7836914 Z M22.034375,28.5210938 C22.0292969,28.5261719 22.0174805,28.5381836 21.9935547,28.5356445 C21.9697266,28.5333008 21.9603516,28.5193359 21.9563477,28.5132813 L19.6785156,25.0964844 L20.4115234,24.3262695 L23.8670898,26.6882813 L22.034375,28.5210938 Z M25.0092773,25.6946289 L21.0429688,22.9834961 L21.0429688,21.6163086 C22.0692383,22.1710938 23.2183594,22.5180664 24.4405273,22.597168 C24.6335937,22.609668 24.8254883,22.6158203 25.0167969,22.6158203 C26.4172852,22.6158203 27.7651367,22.2810547 28.9755859,21.6456055 L28.9755859,22.9834961 L25.0092773,25.6946289 Z M28.062207,28.5134766 C28.0582031,28.5195313 28.0488281,28.5334961 28.025,28.5358398 C28.0010742,28.5388672 27.9893555,28.5262695 27.9841797,28.5212891 L26.1514648,26.6885742 L29.6070313,24.3264648 L30.3401367,25.0966797 L28.062207,28.5134766 Z M41.4363281,27.8955078 L39.7742188,26.2334961 C39.8032227,26.1017578 39.8196289,25.9575195 39.8195313,25.7984375 L39.8194336,25.4893555 C40.2806641,25.6407227 40.7667969,25.7305664 41.2698242,25.7456055 C41.3262695,25.7473633 41.3822266,25.7481445 41.4384766,25.7481445 C41.9943359,25.7481445 42.5369141,25.6641602 43.0533203,25.5039063 L43.0533203,25.7988281 C43.0533203,25.9449219 43.0716797,26.0880859 43.10625,26.2256836 L41.4363281,27.8955078 Z M44.1983398,23.1636719 C43.4220703,23.9169922 42.396582,24.3148437 41.3138672,24.2814453 C39.1943359,24.2178711 37.4700195,22.3509766 37.4700195,20.1200195 L37.4700195,18.7507812 C37.4700195,18.6370117 37.4435547,18.5249023 37.3926758,18.4232422 L36.9402344,17.5183594 C36.7745117,17.1868164 36.6869141,16.8157227 36.6869141,16.4450195 L36.6869141,16.4013672 C36.6869141,14.6460938 38.1149414,13.2181641 39.8701172,13.2181641 L46.1858398,13.2181641 L46.1858398,16.2601563 C46.1858398,16.7517578 46.0696289,17.244043 45.8498047,17.6837891 L45.4800781,18.4232422 C45.4291992,18.525 45.4027344,18.6370117 45.4027344,18.7507812 L45.4027344,20.3169922 C45.4027344,21.3990234 44.975,22.4099609 44.1983398,23.1636719 Z"
+                                        id="Shape"></path>
+                                    <path
+                                        d="M46.1350586,30.5482422 C45.7305664,30.5482422 45.4026367,30.8761719 45.4026367,31.2806641 L45.4026367,35.9793945 C45.4026367,36.3838867 45.7305664,36.7118164 46.1350586,36.7118164 C46.5395508,36.7118164 46.8674805,36.3838867 46.8674805,35.9793945 L46.8674805,31.2806641 C46.8674805,30.8762695 46.5395508,30.5482422 46.1350586,30.5482422 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M3.86494141,31.5164062 C3.46044922,31.5164062 3.13251953,31.8443359 3.13251953,32.2488281 L3.13251953,35.9793945 C3.13251953,36.3838867 3.46044922,36.7118164 3.86494141,36.7118164 C4.26943359,36.7118164 4.59736328,36.3838867 4.59736328,35.9793945 L4.59736328,32.2488281 C4.59736328,31.8444336 4.26943359,31.5164062 3.86494141,31.5164062 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M31.0089844,8.83544922 C28.2388672,6.06533203 22.4430664,6.59492187 20.0795898,6.95117188 C19.3351563,7.06337891 18.7949219,7.69335938 18.7949219,8.44912109 L18.7949219,10.1364258 C18.7949219,10.540918 19.1228516,10.8688477 19.5273438,10.8688477 C19.9318359,10.8688477 20.2597656,10.540918 20.2597656,10.1364258 L20.2597656,8.44902344 C20.2597656,8.42412109 20.2761719,8.40283203 20.2980469,8.39951172 C21.2420898,8.25722656 23.1154297,8.03769531 25.0563477,8.16708984 C27.340332,8.31914062 28.9946289,8.89248047 29.9732422,9.87119141 C30.2592773,10.1572266 30.7230469,10.1572266 31.0089844,9.87119141 C31.2950195,9.58515625 31.2950195,9.12138672 31.0089844,8.83544922 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M16.3949219,32.1145508 C15.9904297,32.1145508 15.6625,32.4424805 15.6625,32.8469727 L15.6625,35.9794922 C15.6625,36.3839844 15.9904297,36.7119141 16.3949219,36.7119141 C16.7994141,36.7119141 17.1273438,36.3839844 17.1273438,35.9794922 L17.1273438,32.8469727 C17.1273438,32.4425781 16.7994141,32.1145508 16.3949219,32.1145508 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M33.6236328,32.1145508 C33.2191406,32.1145508 32.8912109,32.4424805 32.8912109,32.8469727 L32.8912109,35.9794922 C32.8912109,36.3839844 33.2191406,36.7119141 33.6236328,36.7119141 C34.028125,36.7119141 34.3560547,36.3839844 34.3560547,35.9794922 L34.3560547,32.8469727 C34.3560547,32.4425781 34.028125,32.1145508 33.6236328,32.1145508 Z"
+                                        id="Path"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <h4>Üzvlər</h4>
+                </div>
+                <div class="members-body">
+                    <div class="tab">
+                        <button class="tablinks active" onclick="openCity(event, 'London')"
+                            id="defaultOpen">Hamısı</button>
+                        <button class="tablinks" onclick="openCity(event, 'Paris')">Dil kursları</button>
+                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Orta təhsil</button>
+                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Ali təhsil</button>
+                    </div>
+
+                    <div class="contents">
+                        <div id="London" style="display:block" class="tabcontent">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/rochester-logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="Paris" class="tabcontent">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/rochester-logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/studee.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="Tokyo" class="tabcontent">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/rochester-logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/rochester-logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="tb-crd">
+                                        <img src="img/rochester-logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 for-margin-tb-crd">
+                                    <div class="tb-crd">
+                                        <img src="img/londonist.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners section -->
+        <section id="partners-section">
+            <div class="container">
+                <div class="members-header">
+                    <svg width="50px" height="37px" viewBox="0 0 50 37" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>team</title>
+                        <desc>Created with Sketch.</desc>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="AzeriStudent-" transform="translate(-146.000000, -4120.000000)" fill="#000000"
+                                fill-rule="nonzero">
+                                <g id="team" transform="translate(146.000000, 4120.000000)">
+                                    <path
+                                        d="M44.1132813,16.5292969 C42.4119141,15.6787109 39.2219727,15.6688477 39.0870117,15.6688477 C38.6825195,15.6688477 38.3545898,15.9967773 38.3545898,16.4012695 C38.3545898,16.8057617 38.6825195,17.1336914 39.0870117,17.1336914 C39.9101563,17.1337891 42.3000977,17.2605469 43.4582031,17.8395508 C43.5633789,17.8921875 43.6750977,17.9169922 43.7851563,17.9169922 C44.0538086,17.9169922 44.3125,17.7685547 44.4408203,17.5120117 C44.6217773,17.1501953 44.4750977,16.7102539 44.1132813,16.5292969 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M47.7648438,26.9571289 L44.7399414,26.0928711 C44.609375,26.0555664 44.5181641,25.934668 44.5181641,25.7988281 L44.5181641,24.7891602 C44.7642578,24.6186523 44.9990234,24.427832 45.218457,24.2148437 C46.2819336,23.1828125 46.8675781,21.7985352 46.8675781,20.3168945 L46.8675781,18.9236328 L47.1600586,18.3387695 C47.4810547,17.6966797 47.6506836,16.977832 47.6506836,16.2600586 L47.6506836,12.4856445 C47.6506836,12.0811523 47.3227539,11.7532227 46.9182617,11.7532227 L39.8701172,11.7532227 C37.3072266,11.7532227 35.2220703,13.8383789 35.2220703,16.4012695 L35.2220703,16.4449219 C35.2220703,17.0417969 35.3631836,17.6395508 35.6300781,18.1733398 L36.0051758,18.9235352 L36.0051758,20.1198242 C36.0051758,22.0157227 36.9394531,23.7167969 38.3545898,24.7404297 L38.3547852,25.7986328 C38.3547852,25.9618164 38.3547852,26.0293945 37.75,26.2022461 L36.2740234,26.6239258 L32.0043945,25.0713867 C32.0197266,24.8699219 31.9517578,24.6650391 31.8047852,24.5106445 L30.4404297,23.0772461 L30.4404297,20.6709961 C30.584668,20.5521484 30.7268555,20.4300781 30.8646484,20.3009766 C32.5858398,18.6876953 33.5729492,16.4099609 33.5729492,14.0518555 L33.5729492,12.1301758 C34.0926758,10.9992187 34.3560547,9.80244141 34.3560547,8.56992187 L34.3560547,0.738867187 C34.3560547,0.334375 34.028125,0.0064453125 33.6236328,0.0064453125 L22.6598633,0.0064453125 C18.8014648,0.0064453125 15.6625,3.14550781 15.6625,7.00380859 L15.6625,8.57011719 C15.6625,9.80263672 15.9258789,10.9994141 16.4456055,12.1303711 L16.4456055,13.7837891 C16.4456055,16.5216797 17.6629883,18.9882812 19.578125,20.6144531 L19.578125,23.0773437 L18.2137695,24.5107422 C18.0667969,24.6651367 17.9988281,24.8700195 18.0141602,25.0714844 L13.5078125,26.7100586 C13.18125,26.8288086 12.877832,26.9896484 12.6023437,27.1844727 L11.8947266,26.8306641 C14.0011719,25.9137695 14.668457,24.6242187 14.7004883,24.5601562 C14.8036133,24.3540039 14.8036133,24.1112305 14.7004883,23.9050781 C14.1724609,22.8490234 14.1084961,20.9133789 14.0571289,19.3581055 C14.0400391,18.840332 14.0238281,18.3511719 13.9928711,17.915625 C13.7431641,14.4025391 11.0724609,11.7532227 7.78046875,11.7532227 C4.48847656,11.7532227 1.81767578,14.4024414 1.56806641,17.915625 C1.53710938,18.3512695 1.52089844,18.8404297 1.50380859,19.3583008 C1.45244141,20.9134766 1.38837891,22.8489258 0.860449219,23.9049805 C0.757324219,24.1111328 0.757324219,24.3539062 0.860449219,24.5600586 C0.892480469,24.6241211 1.55839844,25.9110352 3.66904297,26.8290039 L1.70351563,27.8117187 C0.652734375,28.3375 0,29.3936523 0,30.5683594 L0,35.9793945 C0,36.3838867 0.327929688,36.7118164 0.732421875,36.7118164 C1.13691406,36.7118164 1.46484375,36.3838867 1.46484375,35.9793945 L1.46484375,30.5683594 C1.46484375,29.9519531 1.80732422,29.3977539 2.35859375,29.1220703 L4.80615234,27.8983398 L5.65751953,28.7074219 C6.25283203,29.2731445 7.01650391,29.5558594 7.78046875,29.5558594 C8.54423828,29.5558594 9.30830078,29.2729492 9.90341797,28.7074219 L10.7546875,27.8984375 L11.5527344,28.2974609 C11.1769531,28.8987305 10.9636719,29.6038086 10.9636719,30.3423828 L10.9636719,35.9795898 C10.9636719,36.384082 11.2916016,36.712207 11.6960938,36.712207 C12.1005859,36.712207 12.4285156,36.384082 12.4285156,35.9795898 L12.4285156,30.3423828 C12.4285156,29.3369141 13.0633789,28.4304688 14.0083984,28.0868164 L18.7595703,26.3591797 L20.7374023,29.3260742 C20.9902344,29.7053711 21.3954102,29.9486328 21.8490234,29.9935547 C21.8996094,29.9985352 21.9499023,30.0009766 22.0000977,30.0009766 C22.400293,30.0009766 22.7835938,29.843457 23.0701172,29.5570313 L24.2767578,28.3503906 L24.2767578,35.9796875 C24.2767578,36.3841797 24.6046875,36.712207 25.0091797,36.712207 C25.4136719,36.712207 25.7416016,36.3841797 25.7416016,35.9796875 L25.7416016,28.3503906 L26.9482422,29.5570313 C27.234668,29.8435547 27.6179687,30.0010742 28.0182617,30.0010742 C28.0683594,30.0010742 28.11875,29.9986328 28.1692383,29.9936523 C28.6229492,29.9487305 29.028125,29.7054688 29.280957,29.3261719 L31.2588867,26.359375 L36.0099609,28.0870117 C36.9548828,28.4306641 37.5898438,29.3371094 37.5898438,30.3425781 L37.5898438,35.9797852 C37.5898438,36.3842773 37.9177734,36.712207 38.3222656,36.712207 C38.7267578,36.712207 39.0546875,36.3842773 39.0546875,35.9797852 L39.0546875,30.3425781 C39.0546875,29.3242188 38.6500977,28.3691406 37.9713867,27.662793 L38.1523438,27.6111328 C38.3348633,27.5589844 38.5838867,27.4875977 38.8338867,27.3650391 L40.7039063,29.2350586 L40.7039063,35.9797852 C40.7039063,36.3842773 41.0318359,36.712207 41.4363281,36.712207 C41.8408203,36.712207 42.16875,36.3842773 42.16875,35.9797852 L42.16875,29.2350586 L44.0257813,27.3780273 C44.1245117,27.4282227 44.2282227,27.4706055 44.3374023,27.5017578 L47.3624023,28.3660156 C48.052832,28.5632813 48.5351562,29.2026367 48.5351562,29.9208008 L48.5351562,35.9797852 C48.5351562,36.3842773 48.8630859,36.712207 49.2675781,36.712207 C49.6720703,36.712207 50,36.3842773 50,35.9797852 L50,29.9208008 C50,28.5518555 49.0808594,27.3332031 47.7648438,26.9571289 Z M4.69873047,25.6634766 C3.32871094,25.1705078 2.64150391,24.5132812 2.34814453,24.1543945 C2.54814453,23.631543 2.67783203,23.0327148 2.765625,22.4005859 C3.16953125,23.369043 3.84599609,24.1958008 4.69873047,24.7856445 L4.69873047,25.6634766 Z M8.89453125,27.6457031 C8.26982422,28.2392578 7.29121094,28.2391602 6.66669922,27.6456055 L5.98554687,26.9983398 C6.10048828,26.7830078 6.16367187,26.5388672 6.16367187,26.2831055 L6.16367187,25.5024414 C6.67460938,25.6621094 7.21777344,25.7482422 7.78066406,25.7482422 C8.34287109,25.7482422 8.88574219,25.6617187 9.39755859,25.5029297 L9.39746094,26.2830078 C9.39746094,26.5388672 9.46054687,26.7831055 9.57558594,26.9985352 L8.89453125,27.6457031 Z M7.78085938,24.2833984 C5.59375,24.2833984 3.81455078,22.5041016 3.81455078,20.3170898 C3.81455078,19.9125977 3.48662109,19.584668 3.08212891,19.584668 C3.04111328,19.584668 3.00107422,19.5888672 2.96191406,19.5954102 C2.9640625,19.5324219 2.96611328,19.4693359 2.96826172,19.4069336 C2.98457031,18.9033203 3.00029297,18.4276367 3.02929688,18.0196289 C3.12285156,16.7036133 3.64873047,15.490918 4.51005859,14.6047852 C5.37910156,13.7106445 6.540625,13.2182617 7.78066406,13.2182617 C9.02070313,13.2182617 10.1821289,13.7106445 11.0512695,14.6047852 C11.9125977,15.490918 12.4384766,16.7036133 12.5320313,18.0196289 C12.5609375,18.4275391 12.5767578,18.903125 12.5933594,19.4066406 C12.5948242,19.4499023 12.5962891,19.49375 12.5977539,19.5373047 C11.8008789,18.3095703 10.5702148,17.4047852 8.98007812,16.8938477 C7.51103516,16.421875 6.24755859,16.4510742 6.19423828,16.4524414 C6.00244141,16.4578125 5.82041016,16.5380859 5.68730469,16.6761719 L4.36582031,18.0466797 C4.08505859,18.3378906 4.09345703,18.8015625 4.38466797,19.0823242 C4.67587891,19.3630859 5.13955078,19.3545898 5.4203125,19.0634766 L6.51992187,17.9231445 C7.46689453,17.9694336 10.5134766,18.3237305 11.6983398,20.9328125 C11.4001953,22.8554688 9.74765625,24.2833984 7.78085938,24.2833984 Z M10.862207,25.665918 L10.8623047,24.7923828 C11.7143555,24.2057617 12.3917969,23.3805664 12.7959961,22.4047852 C12.8837891,23.0354492 13.0133789,23.6329102 13.2129883,24.1545898 C12.9212891,24.5100586 12.2308594,25.1731445 10.862207,25.665918 Z M17.9104492,13.7836914 L17.9104492,11.9665039 C17.9104492,11.85625 17.8855469,11.7473633 17.8375977,11.6480469 C17.3663086,10.6720703 17.1273438,9.63652344 17.1273438,8.57011719 L17.1273438,7.00390625 C17.1273438,3.95322266 19.6092773,1.47138672 22.6598633,1.47138672 L32.8912109,1.47138672 L32.8912109,8.57021484 C32.8912109,9.63662109 32.6522461,10.672168 32.180957,11.6481445 C32.1330078,11.7474609 32.1081055,11.8563477 32.1081055,11.9666016 L32.1081055,14.0520508 C32.1081055,16.0355469 31.3107422,17.875293 29.8628906,19.2324219 C29.6821289,19.4017578 29.4945313,19.5605469 29.3005859,19.7084961 C29.2962891,19.7114258 29.2921875,19.7146484 29.2879883,19.7176758 C27.9316406,20.7474609 26.2703125,21.2479492 24.5353516,21.1355469 C20.8204102,20.8950195 17.9104492,17.6657227 17.9104492,13.7836914 Z M22.034375,28.5210938 C22.0292969,28.5261719 22.0174805,28.5381836 21.9935547,28.5356445 C21.9697266,28.5333008 21.9603516,28.5193359 21.9563477,28.5132813 L19.6785156,25.0964844 L20.4115234,24.3262695 L23.8670898,26.6882813 L22.034375,28.5210938 Z M25.0092773,25.6946289 L21.0429688,22.9834961 L21.0429688,21.6163086 C22.0692383,22.1710938 23.2183594,22.5180664 24.4405273,22.597168 C24.6335937,22.609668 24.8254883,22.6158203 25.0167969,22.6158203 C26.4172852,22.6158203 27.7651367,22.2810547 28.9755859,21.6456055 L28.9755859,22.9834961 L25.0092773,25.6946289 Z M28.062207,28.5134766 C28.0582031,28.5195313 28.0488281,28.5334961 28.025,28.5358398 C28.0010742,28.5388672 27.9893555,28.5262695 27.9841797,28.5212891 L26.1514648,26.6885742 L29.6070313,24.3264648 L30.3401367,25.0966797 L28.062207,28.5134766 Z M41.4363281,27.8955078 L39.7742188,26.2334961 C39.8032227,26.1017578 39.8196289,25.9575195 39.8195313,25.7984375 L39.8194336,25.4893555 C40.2806641,25.6407227 40.7667969,25.7305664 41.2698242,25.7456055 C41.3262695,25.7473633 41.3822266,25.7481445 41.4384766,25.7481445 C41.9943359,25.7481445 42.5369141,25.6641602 43.0533203,25.5039063 L43.0533203,25.7988281 C43.0533203,25.9449219 43.0716797,26.0880859 43.10625,26.2256836 L41.4363281,27.8955078 Z M44.1983398,23.1636719 C43.4220703,23.9169922 42.396582,24.3148437 41.3138672,24.2814453 C39.1943359,24.2178711 37.4700195,22.3509766 37.4700195,20.1200195 L37.4700195,18.7507812 C37.4700195,18.6370117 37.4435547,18.5249023 37.3926758,18.4232422 L36.9402344,17.5183594 C36.7745117,17.1868164 36.6869141,16.8157227 36.6869141,16.4450195 L36.6869141,16.4013672 C36.6869141,14.6460938 38.1149414,13.2181641 39.8701172,13.2181641 L46.1858398,13.2181641 L46.1858398,16.2601563 C46.1858398,16.7517578 46.0696289,17.244043 45.8498047,17.6837891 L45.4800781,18.4232422 C45.4291992,18.525 45.4027344,18.6370117 45.4027344,18.7507812 L45.4027344,20.3169922 C45.4027344,21.3990234 44.975,22.4099609 44.1983398,23.1636719 Z"
+                                        id="Shape"></path>
+                                    <path
+                                        d="M46.1350586,30.5482422 C45.7305664,30.5482422 45.4026367,30.8761719 45.4026367,31.2806641 L45.4026367,35.9793945 C45.4026367,36.3838867 45.7305664,36.7118164 46.1350586,36.7118164 C46.5395508,36.7118164 46.8674805,36.3838867 46.8674805,35.9793945 L46.8674805,31.2806641 C46.8674805,30.8762695 46.5395508,30.5482422 46.1350586,30.5482422 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M3.86494141,31.5164062 C3.46044922,31.5164062 3.13251953,31.8443359 3.13251953,32.2488281 L3.13251953,35.9793945 C3.13251953,36.3838867 3.46044922,36.7118164 3.86494141,36.7118164 C4.26943359,36.7118164 4.59736328,36.3838867 4.59736328,35.9793945 L4.59736328,32.2488281 C4.59736328,31.8444336 4.26943359,31.5164062 3.86494141,31.5164062 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M31.0089844,8.83544922 C28.2388672,6.06533203 22.4430664,6.59492187 20.0795898,6.95117188 C19.3351563,7.06337891 18.7949219,7.69335938 18.7949219,8.44912109 L18.7949219,10.1364258 C18.7949219,10.540918 19.1228516,10.8688477 19.5273438,10.8688477 C19.9318359,10.8688477 20.2597656,10.540918 20.2597656,10.1364258 L20.2597656,8.44902344 C20.2597656,8.42412109 20.2761719,8.40283203 20.2980469,8.39951172 C21.2420898,8.25722656 23.1154297,8.03769531 25.0563477,8.16708984 C27.340332,8.31914062 28.9946289,8.89248047 29.9732422,9.87119141 C30.2592773,10.1572266 30.7230469,10.1572266 31.0089844,9.87119141 C31.2950195,9.58515625 31.2950195,9.12138672 31.0089844,8.83544922 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M16.3949219,32.1145508 C15.9904297,32.1145508 15.6625,32.4424805 15.6625,32.8469727 L15.6625,35.9794922 C15.6625,36.3839844 15.9904297,36.7119141 16.3949219,36.7119141 C16.7994141,36.7119141 17.1273438,36.3839844 17.1273438,35.9794922 L17.1273438,32.8469727 C17.1273438,32.4425781 16.7994141,32.1145508 16.3949219,32.1145508 Z"
+                                        id="Path"></path>
+                                    <path
+                                        d="M33.6236328,32.1145508 C33.2191406,32.1145508 32.8912109,32.4424805 32.8912109,32.8469727 L32.8912109,35.9794922 C32.8912109,36.3839844 33.2191406,36.7119141 33.6236328,36.7119141 C34.028125,36.7119141 34.3560547,36.3839844 34.3560547,35.9794922 L34.3560547,32.8469727 C34.3560547,32.4425781 34.028125,32.1145508 33.6236328,32.1145508 Z"
+                                        id="Path"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <h4>Partnorlar</h4>
+                </div>
+                <div class="members-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="tb-crd">
+                                <img src="img/rochester-logo.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 for-margin-tb-crd">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 for-margin-tb-crd">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 for-margin-tb-crd">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 for-margin-tb-crd">
+                            <div class="tb-crd">
+                                <img src="img/londonist.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about-section">
+            <div class="wallpaper-about" style="background-image:url('img/Group 33.png')"></div>
+            <div class="container">
+                <div class="content-about">
+                    <div class="hedaer-content-about">
+                        <h4>
+                            Lorem Ipsum is simply!
+                        </h4>
+                    </div>
+                    <div class="body-content-about">
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                            printer took a galley of type and scrambled it to make a type specimen book. It has survived
+                            not only five centuries, but also the leap into electronic typesetting, remaining
+                            essentially unchanged. </p>
+                        <h4>Lorem Ipsum is simply?</h4>
+                        <ul>
+                            <li>
+                                <span></span>
+                                <strong>Lorem Ipsum has been the industry’s.</strong>
+                                Standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                            </li>
+                            <li>
+                                <span></span>
+                                <strong>Lorem Ipsum has been the industry’s.</strong>
+                                Standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                            </li>
+                            <li>
+                                <span></span>
+                                <strong>Lorem Ipsum has been the industry’s.</strong>
+                                Standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                            </li>
+                            <li>
+                                <span></span>
+                                <strong>Lorem Ipsum has been the industry’s.</strong>
+                                Standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                            </li>
+                            <li>
+                                <span></span>
+                                <strong>Lorem Ipsum has been the industry’s.</strong>
+                                Standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                            </li>
+                        </ul>
+                        <p>
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="register-btn">
+                    <a href="">
+                        Qeydiyyat
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social -->
+        <section id="social">
+            <div class="container">
+                <div class="txt">
+                    <h4>Sosial şəbəkələrdə paylaşın:</h4>
+                </div>
+                <div class="icons">
+                    <svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>facebook (2)</title>
+                        <desc>Created with Sketch.</desc>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="AzeriStudent-" transform="translate(-842.000000, -5943.000000)" fill-rule="nonzero">
+                                <g id="Group-31" transform="translate(0.000000, 5902.000000)">
+                                    <g id="facebook-(2)" transform="translate(842.000000, 41.000000)">
+                                        <circle id="Oval" fill="#3B5998" cx="18.8648142" cy="18.8648142" r="18.8648142">
+                                        </circle>
+                                        <path
+                                            d="M23.6074159,19.603292 L20.2412212,19.603292 L20.2412212,31.935469 L15.1411504,31.935469 L15.1411504,19.603292 L12.7155398,19.603292 L12.7155398,15.2692743 L15.1411504,15.2692743 L15.1411504,12.4646726 C15.1411504,10.4590796 16.0938407,7.31853097 20.2866195,7.31853097 L24.0644248,7.33433628 L24.0644248,11.5412389 L21.3233805,11.5412389 C20.8737699,11.5412389 20.2415575,11.7658761 20.2415575,12.7226018 L20.2415575,15.2733097 L24.0529912,15.2733097 L23.6074159,19.603292 Z"
+                                            id="Path" fill="#FFFFFF"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>telegram</title>
+                        <desc>Created with Sketch.</desc>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="AzeriStudent-" transform="translate(-910.000000, -5943.000000)" fill-rule="nonzero">
+                                <g id="Group-31" transform="translate(0.000000, 5902.000000)">
+                                    <g id="telegram" transform="translate(910.000000, 41.000000)">
+                                        <circle id="Oval" fill="#039BE5" cx="19" cy="19" r="19"></circle>
+                                        <path
+                                            d="M8.69408333,18.5883333 L27.01325,11.5250833 C27.8635,11.2179167 28.6060833,11.7325 28.3305833,13.0181667 L28.3321667,13.0165833 L25.213,27.7115 C24.9818333,28.7533333 24.36275,29.0066667 23.4966667,28.5158333 L18.7466667,25.0150833 L16.4555833,27.22225 C16.20225,27.4755833 15.9885,27.6893333 15.4976667,27.6893333 L15.8349167,22.8554167 L24.63825,14.9023333 C25.0214167,14.5650833 24.55275,14.3750833 24.0476667,14.71075 L13.1685833,21.56025 L8.47875,20.09725 C7.46066667,19.77425 7.4385,19.0791667 8.69408333,18.5883333 Z"
+                                            id="Path" fill="#FFFFFF"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load i18n %}
+{% load static base_filter%}
+{% get_website_settings as settings %}
+{% for item in reserve_count %}
+<li>
+    <span>{{ item.time }}</span>
+    <button id="reserve-btn" {% if item.count >= settings.reservation_count or item.active %}class="disabled"{% endif %}>Bron edin.</button>
+    <button id="uni-reserve-btn" {% if item.count >= settings.reservation_count or item.active %}class="disabled"{% endif %}>Mütəxəssis</button>
+</li>
+{% endfor %}

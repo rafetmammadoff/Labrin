@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<!---------------------Title Icon----------------------->
+<link rel="icon" href="./assets/img/favicon-32x32.png" type="image/icon type">
+<!--------------------Fontawesome----------------------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!---------------------Bootstrap------------------------>
+    <link rel="stylesheet" href="{% static 'faq/src/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'faq/src/css/design.min.css' %}">
+    <!---------------------Local Style-------------------------------->
+    <link rel="stylesheet"" href="{% static 'faq/src/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'faq/src/css/responsive.css' %}">
+<title>FAQ</title>
+</head>
+<body>
+<!------------------------Header Start----------------------------->
+
+
+<!------------------------Header End----------------------------->
+
+
+<!-----------------------Main Section Start--------------------------->
+{% block extra_script %}
+
+<!-- Facebook Pixel Code -->
+<script> 
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3029457137373275');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent',{
+      content_name: 'All Faqs',
+      content_category: 'Faqs',
+  });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+{% endblock %}
+
+<section id="faq">
+    <div class="container main-section">
+        <img class="faq-img vector-background" src="./assets/img/main-section/Vector-background.png" alt="">
+        <img class="faq-img group-center" src="./assets/img/main-section/Group-center.png" alt="">
+        <img class="faq-img ellipsis-left" src="./assets/img/main-section/ellipsis-left.png" alt="">
+        <img class="faq-img group-left" src="./assets/img/main-section/Group-left.png" alt="">
+        <img class="faq-img ellipsis-right" src="./assets/img/main-section/ellipsis-right.png" alt="">
+        <img class="faq-img ellipsis-right-inside" src="./assets/img/main-section/ellipsis-right-inside.png" alt="">
+        <img class="faq-img circle-right" src="./assets/img/main-section/circle-right.png" alt="">
+        <img class="faq-img circle-right-inside" src="./assets/img/main-section/circle-right-inside.png" alt="">
+        <img class="faq-img vector-right" src="./assets/img/main-section/Vector-right.png" alt="">
+        <img class="faq-img vector-right-inside" src="./assets/img/main-section/Vector-right-inside.png" alt="">
+        <!--------------------------------------Main Section Text Start---------------------------->
+        <div class="text-1">
+            <p>Tez-tez soruşulan suallar</p>
+        </div>
+        <div class="text-2">
+            <h3 >Xidmətimiz haqqında daha  <br> çox məlumat əldə edin</h3>
+        </div>
+        <!--------------------------------------Main Section Text Start---------------------------->
+    </div>
+</section>
+
+<!-------------------------Main Section End--------------------------->
+
+<!-------------------------Category&Accordion Section Start--------------------------->
+<section id="tabs">
+	<div class="container category-section">
+		<div class="row categories">
+			<div class="col-xs-12 ">
+        <div class="tabs">
+  
+          <input type="radio" id="tab1" name="tab-control" checked>
+          <input type="radio" id="tab2" name="tab-control">
+          <input type="radio" id="tab3" name="tab-control">  
+          <input type="radio" id="tab4" name="tab-control">
+          <nav>
+            <ul class="nav nav_tabs  nav-fill" id="nav-tab" role="tablist">
+            </ul>
+          </nav>
+          
+          <div class="slider"><div class="indicator"></div></div>
+          
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <section class="tab-pane" id="nav-1" role="tabpanel" aria-labelledby="tab1">
+              <div class="faq-accordion" id="card-Div"><dl></dl></div>
+
+            </section>
+                
+            <section class="tab-pane" id="nav-2" role="tabpanel" aria-labelledby="tab2">
+              <div class="faq-accordion" id="card-Div"><dl></dl></div>  
+            
+            </section>
+                
+            <section class="tab-pane" id="nav-3" role="tabpanel" aria-labelledby="tab3">
+              <div class="faq-accordion" id="card-Div"><dl></dl></div>
+            
+            </section>
+            
+            <section class="tab-pane" id="nav-4" role="tabpanel" aria-labelledby="tab4">
+              <div class="faq-accordion" id="card-Div"><dl></dl></div>
+            
+            </section>
+          </div>
+        </div>
+			
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-------------------------Category&Accordion Section End--------------------------->
+
+
+
+
+
+
+
+
+
+
+
+<!-----------------------------------------------Footer Start-------------------------------------------->
+
+
+
+<!-----------------------------------------------Footer End-------------------------------------------->
+
+<script src="{% static 'faq/src/js/main.js' %}"></script>
+
+
+    <!-- inputmap js -->
+
+    
+
+
+</body>
+</html>

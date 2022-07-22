@@ -1,0 +1,37 @@
+$font-family: "Euclid Circular A";
+$font-types: (
+  "Bold": 700,
+  "Regular": 400,
+  "SemiBold": 600,
+  "Medium": 500,
+  "Light": 300,
+);
+$primary-clr: #059ff8;
+$dark-gray: #2f2f30;
+$white-clr: #fff;
+$secondary-clr: #0ab86e;
+$light-gray: #f7f7f8;
+$solid-blue: #44a1d6;
+$gray-clr: #777879;
+$solid-gray: #595a5b;
+$light-blue: #f5fafe;
+$purple-clr: #881B80;
+$indigo-clr: #454BEA;
+$orange-clr: #FF5115;
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$mobile-width: 468px;
+
+$offset-sm: 85;
+$offset-md: 190;
+$offset-lg: 300;
+
+:root {
+  --top-distance: 40px;
+  --scroll-padding: 100px;
+}
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 12px !default;
+$y: rem(20);

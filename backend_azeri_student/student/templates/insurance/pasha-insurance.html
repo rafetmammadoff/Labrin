@@ -1,0 +1,286 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    {{ insurance.title }} | {{ block.super }}
+{% endblock %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ insurance.title }}">
+    <meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta name="twitter:image:alt" content="{{ insurance.title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: '{{ insurance.title }}',
+        content_category: 'Insurance',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+{% block base_content %}
+<!-- Modal -->
+{#<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">#}
+{#  <div class="modal-dialog" role="document">#}
+{#    <div class="modal-content">#}
+{#      <div class="modal-body">#}
+{#        <div class="btn-wrap">#}
+{#          <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">#}
+{#            <img src="img/close.png" alt="">#}
+{#          </button>#}
+{#        </div>#}
+{#        <div class="content-wrap">#}
+{#          <h1 class="title">Нужна консультация?</h1>#}
+{##}
+{#          <form>#}
+{#            <input type="text" class="form-control" id="name" placeholder="Name">#}
+{#            <input type="text" class="form-control" id="phone" placeholder="Phone">#}
+{#            <input type="email" class="form-control" id="email" placeholder="Email">#}
+{#            <textarea class="form-control" name="message" rows="8" cols="80" placeholder="Message"></textarea>#}
+{#            <button data-dismiss="modal" class="btn contact-btn">To get a consultation <img src="img/right-arrow-white.png" alt=""></button>#}
+{#          </form>#}
+{##}
+{#          <small>Нажимая на кнопку, вы даете согласие на обработку своих персональных данных. Гарантируем <a href="">конфиденциальность</a>.</small>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+<section id="pasha_pg">
+    <div class="page-cover" style="background-image:url({% static 'azeristudent/img/cover.jpg' %})">
+      <div class="container">
+        <div class="cover-items">
+          <h1 class="page-title wow fadeInDown">{{ insurance.title }}</h1>
+          <ol class="breadcrumb wow fadeInUp">
+{#            <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+              <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ insurance.title }}</li>
+          </ol>
+          <p class="cover-info wow fadeIn"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pasha_pg_inner">
+        <div class="container">
+        {% for insurance_content in insurance.insurancecontenttype_set.all %}
+            {% if insurance_content.content_type == 0 %}
+                {% if insurance_content.title_1 %}
+                    <h3>
+                        {{ insurance_content.title_1 }}
+                    </h3>
+                {% endif %}
+                <p>
+                   {{ insurance_content.content_1|safe }}
+                </p>
+            {% endif %}
+
+            {% if insurance_content.content_type == 1 %}
+                {% if insurance_content.title_2 %}
+                    <h3>
+                        {{ insurance_content.title_2 }}
+                    </h3>
+                {% endif%}
+
+            <div class="flex-row">
+                <div class="col-sm-6">
+                    <div class="videoHolder" data-url="{{ insurance_content.youtube_video }}">
+                        <img src="" class="main_img">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                  {{ insurance_content.content_2|safe }}
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+
+{#        <article id="calculator">#}
+{#            <div class="container">#}
+{#                <h4>Kalkulyator</h4>#}
+{#                <h6>Ödəyəcəyiniz məbləği özünüz hesablayın</h6>#}
+{##}
+{#                <form>#}
+{#                    <div class="row justify-content-center">#}
+{#                        <div class="col-xs-12 col-md-10">#}
+{#                            <div class="row justify-content-between">#}
+{#                                <div class="col-xs-12 col-sm-6 col-md-5">#}
+{#                                    <article>#}
+{#                                        <label >Təvəllüdünüz</label>#}
+{#                                        <div class='inputHolder date'>#}
+{#                                            <input type="text" id="birthday_input">#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/calendar-icon.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Cinsiniz</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <select name="" id="">#}
+{#                                                <option value="">Kişi</option>#}
+{#                                                <option value="">Qadın</option>#}
+{#                                            </select>#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/down-arrow.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Boyunuz</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <input type="number" min="0">#}
+{#                                            <span class="iconHolder">#}
+{#                                                <span>cm</span>#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Çəkiniz</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <input type="number" min="0">#}
+{#                                            <span class="iconHolder">#}
+{#                                                <span>kq</span>#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Başlama tarixi</label>#}
+{#                                        <div class='inputHolder date'>#}
+{#                                            <input type="text" id="start_date_input">#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/calendar-icon.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Bitmə tarixi</label>#}
+{#                                        <div class='inputHolder date'>#}
+{#                                            <input type="text" id="end_date_input">#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/calendar-icon.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{#                                </div>#}
+{##}
+{#                                <div class="col-xs-12 col-sm-6 col-md-5">#}
+{#                                    <article>#}
+{#                                        <label >Ödəniş forması</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <select name="" id="">#}
+{#                                                <option value="">Birdəfəlik</option>#}
+{#                                                <option value="">Illik</option>#}
+{#                                            </select>#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/down-arrow.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Müavinətin alınma forması</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <select name="" id="">#}
+{#                                                <option value="">Birdəfəlik</option>#}
+{#                                            </select>#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/down-arrow.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Ümumi təhsil haqqınız</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <input type="number" class="full_input">#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Valyuta</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <select name="" id="">#}
+{#                                                <option value="">AZN</option>#}
+{#                                                <option value="">USD</option>#}
+{#                                            </select>#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/down-arrow.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <article>#}
+{#                                        <label >Təminat</label>#}
+{#                                        <div class='inputHolder'>#}
+{#                                            <select name="" id="">#}
+{#                                                <option value="">İstənilən səbəbdən ölüm</option>#}
+{#                                                <option value="">İstənilən səbəbdən ölüm</option>#}
+{#                                            </select>#}
+{#                                            <span class="iconHolder">#}
+{#                                                <img src="{% static 'azeristudent/img/down-arrow.svg' %}">#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{##}
+{#                                    <div class="buttonHolder">#}
+{#                                        <button type="submit">Hesabla</button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                            <p class="total">Ödəyəcəyiniz məbləğ - <strong>1803 <span class="azn">₼</span></strong></p>#}
+{##}
+{#                            <p class="w-md-65"><b>Qeyd:</b> Sığorta haqqı (Ödəyəcəyiniz vəsait) təxmini hesablanmış məbləğdir , tam ərizə formasını doldurduqdan sonra sizin üçün yekun sığorta haqqı hesablanacaq .</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </form>#}
+{#            </div>#}
+{#        </article>#}
+
+        <p class="short_info_text">Sizə uyğun sığorta məhsulu haqqında daha ətraflı məlumat almaq üçün (012) 942 nömrəsinə zəng vurun.</p>
+    </div>
+
+    {% include "partials/do_with_us.html" %}
+
+    <article id="pasha_modal">
+        <div class="layout"></div>
+
+        <div class="iframeHolder">
+            <iframe width="560" height="315" src="" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </article>
+</section>
+{% endblock base_content %}

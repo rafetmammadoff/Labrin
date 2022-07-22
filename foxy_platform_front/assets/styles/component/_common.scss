@@ -1,0 +1,247 @@
+@font-face {
+    font-family: AzeretMono;
+    src: url(../font/AzeretMono-VariableFont_wght.ttf);
+  }
+  @font-face {
+    font-family: Roboto;
+    src: url(../font/static/Roboto-Light.ttf);
+  }
+
+
+.main-container{
+    max-width: 95% !important;
+}
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p{
+        font-family: AzeretMono;
+        font-size: 40px;
+
+    }
+    .navigate{
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.swiper {
+    width: 100%;
+  }
+
+ 
+
+
+
+ .card-1{
+     width: 317px;
+     box-shadow: 0px 0px 10px rgba(152, 152, 152, 0.25);
+    .main-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        .box {
+            position: relative;
+            width: 100px;
+            height: 300px;
+            background-color:#282828;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+                    .img{
+                        position: absolute;
+                        right: 20px;
+                        top: 14px;
+                    }
+    
+                    .txt{
+                        
+                       display: flex;
+                        -webkit-box-align: center;
+                            -ms-flex-align: center;
+                                align-items: center;
+                        -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
+                        height: 100px;
+                        -webkit-transform: rotate(-90deg);
+                                transform: rotate(-90deg);
+                        width: 247px;
+                        .flex{
+                            margin-left: 90px;
+                            p{
+                                margin: 0;
+                                color: white;
+                                font-family: AzeretMono;
+                            }
+                            .bold{
+                                font-size: 20px;
+                            }
+                        }
+                      }
+        }
+        .member-box{
+            width: 90px;
+        }
+        .our-project-box{
+            width: 80px;
+        }
+    }
+    .our-service-main-box{
+        img{
+            width: 100% !important;
+            padding: 5px;
+        }
+    }
+    .card-foot{
+        .card-text-area{
+            p{
+               margin: 0;
+            }
+            .title{
+                font-family: AzeretMono;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 29px;
+
+                color: #212121;
+            }
+            .date{
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 21px;
+                color: #a0a0a0;
+            }
+            .content{
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 21px;
+                color: #212121;
+            }
+            .foot{
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 21px;
+                color: #a0a0a0;
+            }
+        }
+    }
+
+ }
+ .card-2{
+    width: 317px;
+   .main-box {
+       display: -webkit-box;
+       display: -ms-flexbox;
+       display: flex;
+       .box {
+           position: relative;
+           width: 100px;
+           height: 300px;
+           background-color:transparent;
+           display: -webkit-box;
+           display: -ms-flexbox;
+           display: flex;
+           -webkit-box-orient: vertical;
+           -webkit-box-direction: normal;
+               -ms-flex-direction: column;
+                   flex-direction: column;
+           -webkit-box-pack: end;
+               -ms-flex-pack: end;
+                   justify-content: flex-end;
+           -webkit-box-align: center;
+               -ms-flex-align: center;
+                   align-items: center;
+                   .img{
+                       position: absolute;
+                       left: 20px;
+                       top: 14px;
+                   }
+   
+                   
+        }
+        .our-project-box{
+            width: 80px;
+        }
+   }
+   
+   .card-foot{
+       .card-text-area{
+           p{
+              margin: 0;
+           }
+           .title{
+               font-family: AzeretMono;
+               font-style: normal;
+               font-weight: 600;
+               font-size: 25px;
+               line-height: 29px;
+
+               color: #212121;
+           }
+           .date{
+               font-family: Roboto;
+               font-style: normal;
+               font-weight: normal;
+               font-size: 14px;
+               line-height: 21px;
+               color: #a0a0a0;
+           }
+           .content{
+               font-family: Roboto;
+               font-style: normal;
+               font-weight: bold;
+               font-size: 14px;
+               line-height: 21px;
+               color: #212121;
+           }
+           .foot{
+               font-family: Roboto;
+               font-style: normal;
+               font-weight: normal;
+               font-size: 14px;
+               line-height: 21px;
+               color: #a0a0a0;
+           }
+       }
+   }
+
+}  
+
+
+.bluur{
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(21, 29, 30, 0.39);
+    backdrop-filter: blur(20px);
+    z-index: 9 !important;
+    transition: .3s all ease !important;
+    opacity: 1 !important;
+    
+}
+.nav-active{
+    color: red !important;
+}
+
+  
+  
+  

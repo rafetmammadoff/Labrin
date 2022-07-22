@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Suret cargo" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="Suret cargo" />
+  <meta property="og:image" content="" />
+
+  <title>Nobel Energy | Career</title>
+  <!-- <link rel="shortcut icon" href="./static/assets/svgs/logo.svg" type="image/x-icon"> -->
+  <link rel="stylesheet" href="static/styles/css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="static/styles/css/swiper/swiper.min.css">
+  <link rel="stylesheet" href="static/styles/css/main.css" />
+  <link rel="stylesheet" href="static/styles/css/nice-select/nice-select.min.css">
+</head>
+
+<body>
+
+  <!--------------------------- Navbar --------------------------->
+
+  
+
+  <nav class="g-nav">
+    <div class="g-nav__top">
+      <div class="g-container">
+        <div class="g-nav__top--wrapper">
+          <p class="g-nav__text">
+            Because we care
+          </p>
+          <div class="g-nav__top--right">
+            <select class="language-select" name="" id="">
+              <option value="en">En</option>
+              <option value="ru">Ru</option>
+              <option value="az">Az</option>
+            </select>
+            <a href="" class="g-link g-link__white g-link__sm">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="g-nav__main">
+      <div class="g-container">
+        <div class="g-nav__main--wrapper">
+          <a href="" class="navbar-brand">
+            <img class="g-fluid" src="./static/assets/svgs/logo.svg" alt="Nobel Energy Logo">
+          </a>
+          <div class="g-nav__main--right">
+            <ul class="g-nav__links">
+              <li class="g-nav__links--item">
+                <a href="" class="g-nav__links--link">Who we are</a>
+                <div class="g-nav__dropdown">
+                  <div class="g-nav__dropdown--wrapper">
+                    <ul class="g-nav__dropdown--links">
+                      <li class="g-nav__dropdown--item">
+                        <a class="g-nav__dropdown--link" href="">About us</a>
+                      </li>
+                      <li class="g-nav__dropdown--item">
+                        <a class="g-nav__dropdown--link" href="">Vision, Mission, Values</a>
+                      </li>
+                      <li class="g-nav__dropdown--item">
+                        <a class="g-nav__dropdown--link" href="">Our history</a>
+                      </li>
+                      <li class="g-nav__dropdown--item">
+                        <a class="g-nav__dropdown--link" href="">Nobel heritage</a>
+                      </li>
+                      <li class="g-nav__dropdown--item">
+                        <a class="g-nav__dropdown--link" href="">
+                          <span>
+                            Corporate governance
+                          </span>
+                          <img src="./static/assets/svgs/right-arrow-sm.svg" alt="Nobel Energy">
+                        </a>
+                        <div class="g-nav__submenu">
+                          <div class="g-nav__submenu--wrapper">
+                            <ul>
+                              <li>
+                                <a href="">Board of Directors</a>
+                              </li>
+                              <li>
+                                <a href="">Executive management</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="g-nav__links--item">
+                <a href="" class="g-nav__links--link">What we do</a>
+              </li>
+              <li class="g-nav__links--item">
+                <a href="" class="g-nav__links--link">Sustainability</a>
+              </li>
+              <li class="g-nav__links--item">
+                <a href="" class="g-nav__links--link">Media</a>
+              </li>
+              <li class="g-nav__links--item">
+                <a href="" class="g-nav__links--link">Career</a>
+              </li>
+            </ul>
+            <button class="g-link g-link__sm" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <img class="g-fluid" src="./static/assets/svgs/search.svg" alt="Nobel Energy">
+            </button>
+            <div class="visible-sm">
+              <button class="g-btn hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="responsive-navbar visible-sm">
+      <div class="g-flex justify-content-end">
+        <button class="g-btn" id="close-navbar" class="responsive-navbar-btn">
+          <img class="g-fluid" src="./static/assets/svgs/close.svg" alt="Nobel Energy">
+        </button>
+      </div>
+      <div class="responsive-navbar__wrapper">
+        <ul class="responsive-navbar__links">
+          <li class="responsive-navbar__links--item">
+            <a class="responsive-navbar__links--link" href="">Who we are</a>
+          </li>
+          <li class="responsive-navbar__links--item">
+            <a class="responsive-navbar__links--link" href="">What we do</a>
+            <div class="responsive-navbar__nested">
+              <a class="responsive-navbar__links--link" href="">Our strategy</a>
+              <a class="responsive-navbar__links--link" href="">Our businesses</a>
+              <a class="responsive-navbar__links--link" href="">Projects</a>
+            </div>
+          </li>
+          <li class="responsive-navbar__links--item">
+            <a class="responsive-navbar__links--link" href="">Our businesses</a>
+          </li>
+          <li class="responsive-navbar__links--item">
+            <a class="responsive-navbar__links--link" href="">Sustainability</a>
+          </li>
+          <li class="responsive-navbar__links--item">
+            <a class="responsive-navbar__links--link" href="">Ethics and compliance</a>
+          </li>
+          <li class="responsive-navbar__links--item">
+            <a class="responsive-navbar__links--link" href="">Media</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--------------------------- Search Modal --------------------------->
+
+  <div class="modal fade g-modal search-modal" id="searchModal" tabindex="-1" aria-labelledby="searchModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close-btn g-btn g-btn__md" data-bs-dismiss="modal">
+            <img src="./static/assets/svgs/close.svg" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="modal-search">
+            <input type="search">
+            <a href="" class="g-btn">
+              <img class="g-fluid" src="./static/assets/svgs/search-white-lg.svg" alt="Nobel Energy">
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--------------------------- Search Modal --------------------------->
+
+  <!--------------------------- Navbar --------------------------->
+
+  <!--------------------------- Introduction Banner --------------------------->
+
+  <section id="g-banner-section">
+    <button class="g-btn scroll-to scroll-to-section" data-target="g-tab-section">
+      <img class="g-fluid" src="./static/assets/svgs/double-arrow.svg" alt="Nobel Energy">
+    </button>
+    <div class="g-banner" style="background-image: url('./static/assets/svgs/career/banner.svg');">
+      <div class="g-container">
+        <h1 class="g-banner-title">Career</h1>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------- Introduction Banner --------------------------->
+
+  <!--------------------------- Tab --------------------------->
+
+
+  <div class="g-container">
+    <section id="g-tab-section">
+      <a href="/" class="g-tab-component active orange">
+        Diversity and inclusivity
+      </a>
+      <a href="/" class="g-tab-component orange">
+        Training and development
+      </a>
+      <a href="/" class="g-tab-component orange">
+        Career opportunities
+      </a>
+      <a href="/" class="g-tab-component orange">
+        Career tips
+      </a>
+    </section>
+  </div>
+
+  <!--------------------------- Tab --------------------------->
+
+  <!--------------------------- Pages Components --------------------------->
+  <div id="g-pages-component-section">
+    <div class="g-pages-component-element">
+      <div class="g-pages-component-element-wrapper">
+        <div class="g-pages-component-element-content">
+          <h2 class="g-pages-component-element-content-title">
+            Career opportunities
+          </h2>
+          <div class="g-pages-component-element-content-text">
+            <p>
+              Nobel Energy is committed to providing favorable working environment to its employees by using the best
+              employment practices, rules of business ethics and conduct, and supporting a diverse and inclusive
+              culture.
+              <br><br>
+              We appreciate that whether we can achieve good results depends on our ability to apply diversity and
+              inclusivity to our corporate culture and way of working.
+            </p>
+          </div>
+        </div>
+        <div class="g-pages-component-element-image">
+          <img src="static/assets/svgs/career/Rectangle3.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-section">
+    <div class="g-container">
+      <div class="accordion-section__wrapper">
+        <div class="accordion" id="mainAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="false" aria-controls="collapseOne">
+                Project manager
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#mainAccordion">
+              <div class="accordion-body">
+                <p class="accordion-section__wrapper--title">Full Job Description</p>
+                <p>
+                  An instrumental part of Nobel Energy, the Marketing team oversees a wide range of activities, which
+                  aim
+                  to build awareness, consideration and loyalty for our brands. As a member of this team, you will work
+                  to
+                  execute thoughtful, data-driven marketing campaigns that drive meaningful growth for the company.
+                  <br><br>
+                  We are looking for exceptional Junior Project Manager who can successfully execute strategic marketing
+                  projects. Reporting to the Project Manager and working in collaboration with key business stakeholders
+                  both internal and external, the Junior Project Manager will help drive pivotal projects from ideation
+                  to
+                  completion, ensuring deadlines and KPIs are met, all within budget. The ideal candidate is
+                  detail-oriented, highly organized and an excellent communicator.
+                </p>
+                <p class="accordion-section__wrapper--subtitle">In this role you will:</p>
+                <ul>
+                  <li>
+                    Assist in scoping, setting objectives, and aligning stakeholders for projects
+                  </li>
+                  <li>
+                    Ensure proper resource allocation, and guide partners on prioritization and schedule
+                  </li>
+                  <li>
+                    Develop comprehensive project plans, processes and workflows for efficiency and flawless execution,
+                    establishing appropriate ownership for all deliverables
+                  </li>
+                  <li>
+                    Identify project risks early and implement action plans to mitigate or eliminate risks
+                  </li>
+                  <li>
+                    Collaborate with departments across the company, key stakeholders and external vendors, facilitating
+                    meetings when necessary
+                  </li>
+                  <li>
+                    Centralize information by preparing status reports on deliverables and leading timely meetings
+                  </li>
+                  <li>
+                    Manage and deliver projects on-time and within budget, maintaining a strong understanding of
+                    deliverables across all channels
+                  </li>
+                  <li>
+                    Lead wrap-up initiatives and report on key findings, identifying opportunities for efficiency
+                  </li>
+                </ul>
+
+                <p class="accordion-section__wrapper--subtitle">We are looking for:</p>
+
+                <ul>
+                  <li>
+                    Minimum 1+ years of relevant experience in project management, marketing, and managing complex
+                    projects
+                  </li>
+                  <li>
+                    Strong presentation skills with the ability to effectively communicate cross-functionally with key
+                    stakeholders and executives
+                  </li>
+                  <li>
+                    Demonstrated ability to prioritize and work on multiple projects concurrently, with confidence to
+                    multi-task and delegate as required while still adhering to process
+                  </li>
+                  <li>
+                    Excellent written and verbal communication skills
+                  </li>
+                  <li>
+                    Prior experience in a fast-paced startup or e-commerce company is ideal
+                  </li>
+                  <li>
+                    PMP, ACP, Scrum Master, ITIL, Lean or other project management certifications with demonstrable
+                    application desired
+                  </li>
+                  <li>
+                    Proficiency in Google Suite, Microsoft Office as well as project management tools such as Asana,
+                    Jira
+                    and Confluence
+                  </li>
+                </ul>
+                <p>
+                  Nobel Energy is the global platform for the greatest products from the past, present and future. Since
+                  its founding in 2015, NObel Energy has become the leading and most trusted sneaker marketplace in the
+                  world. Through its unique positioning between the primary and resale markets, the company offers
+                  styles
+                  across various time periods on its digital platforms and in its retail locations, while delivering
+                  products to over 30 million members across 170 countries.
+                </p>
+                <p>
+                  The company is backed by strategic investor Foot Locker, Inc. as well as some of the leading names in
+                  venture capital including D1 Capital Partners, Accel, Andreessen Horowitz, Index Ventures, Matrix
+                  Partners, Upfront Ventures, Webb Investment Network and Y Combinator.
+                </p>
+                <p>
+                  We encourage you to apply even if you feel unsure about whether you meet every single requirement. We
+                  look for people who are passionate about what we do, not just those who check off all the boxes.
+                </p>
+                <p>
+                  Nobel Energy will consider for employment all qualified applicants, including those with criminal
+                  histories, in a manner consistent with the requirements of applicable state and local laws, including
+                  the City of Los Angeles' Fair Chance Initiative for Hiring Ordinance, if applicable. If you are a
+                  California resident, please review our California Privacy Rights Notice for Job Applicants.
+                </p>
+                <button class="g-btn g-btn__md g-btn__orange apply-btn" data-bs-toggle="modal"
+                  data-bs-target="#applyModal">apply now</button>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Project manager
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headinTwoe"
+              data-bs-parent="#mainAccordion">
+              <div class="accordion-body">
+                <p class="accordion-section__wrapper--title">Full Job Description</p>
+                <p>
+                  An instrumental part of Nobel Energy, the Marketing team oversees a wide range of activities, which
+                  aim
+                  to build awareness, consideration and loyalty for our brands. As a member of this team, you will work
+                  to
+                  execute thoughtful, data-driven marketing campaigns that drive meaningful growth for the company.
+                  <br><br>
+                  We are looking for exceptional Junior Project Manager who can successfully execute strategic marketing
+                  projects. Reporting to the Project Manager and working in collaboration with key business stakeholders
+                  both internal and external, the Junior Project Manager will help drive pivotal projects from ideation
+                  to
+                  completion, ensuring deadlines and KPIs are met, all within budget. The ideal candidate is
+                  detail-oriented, highly organized and an excellent communicator.
+                </p>
+                <p class="accordion-section__wrapper--subtitle">In this role you will:</p>
+                <ul>
+                  <li>
+                    Assist in scoping, setting objectives, and aligning stakeholders for projects
+                  </li>
+                  <li>
+                    Ensure proper resource allocation, and guide partners on prioritization and schedule
+                  </li>
+                  <li>
+                    Develop comprehensive project plans, processes and workflows for efficiency and flawless execution,
+                    establishing appropriate ownership for all deliverables
+                  </li>
+                  <li>
+                    Identify project risks early and implement action plans to mitigate or eliminate risks
+                  </li>
+                  <li>
+                    Collaborate with departments across the company, key stakeholders and external vendors, facilitating
+                    meetings when necessary
+                  </li>
+                  <li>
+                    Centralize information by preparing status reports on deliverables and leading timely meetings
+                  </li>
+                  <li>
+                    Manage and deliver projects on-time and within budget, maintaining a strong understanding of
+                    deliverables across all channels
+                  </li>
+                  <li>
+                    Lead wrap-up initiatives and report on key findings, identifying opportunities for efficiency
+                  </li>
+                </ul>
+
+                <p class="accordion-section__wrapper--subtitle">We are looking for:</p>
+
+                <ul>
+                  <li>
+                    Minimum 1+ years of relevant experience in project management, marketing, and managing complex
+                    projects
+                  </li>
+                  <li>
+                    Strong presentation skills with the ability to effectively communicate cross-functionally with key
+                    stakeholders and executives
+                  </li>
+                  <li>
+                    Demonstrated ability to prioritize and work on multiple projects concurrently, with confidence to
+                    multi-task and delegate as required while still adhering to process
+                  </li>
+                  <li>
+                    Excellent written and verbal communication skills
+                  </li>
+                  <li>
+                    Prior experience in a fast-paced startup or e-commerce company is ideal
+                  </li>
+                  <li>
+                    PMP, ACP, Scrum Master, ITIL, Lean or other project management certifications with demonstrable
+                    application desired
+                  </li>
+                  <li>
+                    Proficiency in Google Suite, Microsoft Office as well as project management tools such as Asana,
+                    Jira
+                    and Confluence
+                  </li>
+                </ul>
+                <p>
+                  Nobel Energy is the global platform for the greatest products from the past, present and future. Since
+                  its founding in 2015, NObel Energy has become the leading and most trusted sneaker marketplace in the
+                  world. Through its unique positioning between the primary and resale markets, the company offers
+                  styles
+                  across various time periods on its digital platforms and in its retail locations, while delivering
+                  products to over 30 million members across 170 countries.
+                </p>
+                <p>
+                  The company is backed by strategic investor Foot Locker, Inc. as well as some of the leading names in
+                  venture capital including D1 Capital Partners, Accel, Andreessen Horowitz, Index Ventures, Matrix
+                  Partners, Upfront Ventures, Webb Investment Network and Y Combinator.
+                </p>
+                <p>
+                  We encourage you to apply even if you feel unsure about whether you meet every single requirement. We
+                  look for people who are passionate about what we do, not just those who check off all the boxes.
+                </p>
+                <p>
+                  Nobel Energy will consider for employment all qualified applicants, including those with criminal
+                  histories, in a manner consistent with the requirements of applicable state and local laws, including
+                  the City of Los Angeles' Fair Chance Initiative for Hiring Ordinance, if applicable. If you are a
+                  California resident, please review our California Privacy Rights Notice for Job Applicants.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--------------------------- Pages Components --------------------------->
+
+  <!--------------------------- Apply Form Modal --------------------------->
+
+  <div class="modal fade g-modal apply-modal" id="applyModal" tabindex="-1" aria-labelledby="applyModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close-btn g-btn" data-bs-dismiss="modal">
+            <img src="./static/assets/svgs/close-black.svg" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 class="apply-title">Apply now</h2>
+          <div class="g-form apply-form__wrapper">
+            <form action="" class="apply-form">
+              <div class="g-form-group">
+                <input class="g-input" type="text" placeholder="Full Name">
+                <span class="g-error">Error will be here.</span>
+              </div>
+              <div class="g-form-group">
+                <input class="g-input" type="email" placeholder="E-mail">
+              </div>
+              <div class="g-form-group">
+                <input class="g-input" type="text" placeholder="Project manager">
+              </div>
+              <div class="g-form-group">
+                <label class="g-upload" for="cv">
+                  <input type="file" id="cv" class="visually-hidden">
+                  <p class="g-upload__label">
+                    Upload CV
+                  </p>
+                </label>
+              </div>
+              <div class="g-form-group">
+                <label class="g-upload" for="supporting-files">
+                  <input type="file" id="supporting-files" class="visually-hidden">
+                  <p class="g-upload__label">
+                    Uppload supporting files
+                  </p>
+                </label>
+              </div>
+              <a href="" class="g-btn g-btn__orange apply-form__btn">send</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--------------------------- Apply Form Modal --------------------------->
+
+  <!--------------------------- Footer Section --------------------------->
+
+  <div class="g-footer">
+    <div class="g-footer__top">
+      <div class="g-container">
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="g-footer__grid">
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">
+                    <a href="">Who we are</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">About us</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Vision, Mission, Values</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Our history</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Nobel heritage</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Corporate governance</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Board of Directors</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Executive management</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">
+                    <a href="">
+                      What we do
+                    </a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Our strategy</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Our businesses</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Projects</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">
+                    <a href="">Our businesses</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Prokon</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Glensol</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Llamrei</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">SOCAR AQS</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">SDL Nobel</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Wood Group Azerbaijan</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Turan Drilling & Engineering</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">
+                    <a href="">
+                      Sustainability
+                    </a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Sustainable development goals</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Safety</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Environment</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Our approach to human resources</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Community</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Ethics and compliance</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">Ethics and compliance</li>
+                  <li class="g-footer__links--item">
+                    <a href="">Code of Conduct and Business Ethics</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Human rights and non-discrimination</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Anti-corruption</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Information transparency</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Awareness and communication</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Ethics and Compliance Hotline</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">Media</li>
+                  <li class="g-footer__links--item">
+                    <a href="">News</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Publications and reports</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Image library</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Video library</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links">
+                  <li class="g-footer__links--title">Careers</li>
+                  <li class="g-footer__links--item">
+                    <a href="">Working at Nobel Energy Group</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Career tips</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Career opportunities</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="">Video library</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links contact-links">
+                  <li class="g-footer__links--title">Contact</li>
+                  <li class="g-footer__links--item">
+                    <address>
+                      10Q Alasgar Gayibov St AZ1029, Baku, Azerbaijan
+                    </address>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="tel:+99412 310 44 44">+99412 310 44 44</a>
+                  </li>
+                  <li class="g-footer__links--item">
+                    <a href="mailto:Contact@nobelenergy.com">Contact@nobelenergy.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="g-footer__right">
+              <button data-target="body" class="g-btn scroll-to scroll-to-top" id="scroll-top">
+                <span>
+                  Go to top
+                </span>
+                <span class="arrow-btn">
+                  <img src="./static/assets/svgs/top-arrow.svg" alt="Nobel Energy">
+                </span>
+              </button>
+              <div class="g-footer__grid--item">
+                <ul class="g-footer__links social-links">
+                  <li class="g-footer__links--title visible-md">Follow us</li>
+                  <ul>
+                    <li class="g-footer__links--item">
+                      <a href="">
+                        <img src="./static/assets/svgs/facebook.svg" alt="Nobel Polymer">
+                      </a>
+                    </li>
+                    <li class="g-footer__links--item">
+                      <a href="">
+                        <img src="./static/assets/svgs/linkedin.svg" alt="Nobel Polymer">
+                      </a>
+                    </li>
+                    <li class="g-footer__links--item">
+                      <a href="">
+                        <img src="./static/assets/svgs/twitter.svg" alt="Nobel Polymer">
+                      </a>
+                    </li>
+                    <li class="g-footer__links--item">
+                      <a href="">
+                        <img src="./static/assets/svgs/youtube.svg" alt="Nobel Polymer">
+                      </a>
+                    </li>
+                  </ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="visible-sm">
+        <ul class="additional-links">
+          <li class="g-footer__links--item">
+            <a href="">Legal notice</a>
+          </li>
+          <li class="g-footer__links--item">
+            <a href="">Privacy notices</a>
+          </li>
+          <li class="g-footer__links--item">
+            <a href="">Cookies policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="g-container">
+      <div class="g-footer__bottom">
+        <p class="copyright">
+          Nobel Energy © All rights reserved.
+        </p>
+        <ul class="g-footer__links">
+          <li class="g-footer__links--item">
+            <a href="">Legal notice</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--------------------------- Footer Section --------------------------->
+
+
+  <script src="./static/js/min/jquery.min.js"></script>
+  <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+  <script src="./static/js/min/swiper-bundle.min.js"></script>
+  <script src="./static/js/min/jquery.nice-select.min.js"></script>
+  <script src="./static/js/main.js"></script>
+
+  <script src="./static/js/scroll-to.js"></script>
+  <script src="./static/js/upload.js"></script>
+</body>
+
+</html>

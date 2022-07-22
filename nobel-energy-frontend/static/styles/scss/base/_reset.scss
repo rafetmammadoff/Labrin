@@ -1,0 +1,83 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  font-family: "Euclid Circular A", sans-serif;
+  list-style: none;
+
+  *:focus {
+    outline: none;
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  line-height: 1.3;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Euclid Circular A", sans-serif;
+  scroll-behavior: smooth;
+  color: $dark-gray;
+}
+
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: calc(100vw / 1920 * 20);
+  }
+}
+
+.btn,
+.form-control {
+  box-shadow: none;
+
+  &:focus {
+    text-shadow: none;
+  }
+}
+
+address {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+ol,
+ul {
+  padding-left: 0;
+}
+
+input[type="search"] {
+  appearance: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

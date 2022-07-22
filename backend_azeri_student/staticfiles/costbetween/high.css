@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="tags for website">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>  </title>
+    
+    <!-- injector:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="css/design.min.css"> -->
+    <link rel="stylesheet" href="./src/css/design.min.css">
+    <!-- <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/responsive.css"> -->
+    <link rel="stylesheet" href="./src/css/high.css">
+
+
+    
+    <!-- endinjector -->
+    
+    <!-- injector:js -->
+    <!-- <script src="js/min/assets/jquery.min.js"></script>
+    <script src="js/min/assets/bootstrap.min.js"></script>
+    <script src="js/min/assets/moment.min.js"></script>
+    <script src="js/min/assets/bootstrap-datetimepicker.min.js"></script> 
+    <script src="js/min/assets/owl.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/min/app.min.js"></script> -->
+
+    <script src="./src/js/jquery.min.js"></script>
+    <script src="./src/js/bootstrap.min.js"></script>
+    <script src="./src/js/moment.min.js"></script>
+    <script src=".src/js/bootstrap-datetimepicker.min.js"></script> 
+    <script src="./src/js/owl.min.js"></script>
+    <script src="./src/js/wow.js"></script>
+    <script src="./src/js/app.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-wrap">
+      <a href="index.html" class="logo">
+        <img class="img-responsive" src="img/logo.png" alt="">
+      </a>
+      <div class="header-right">
+        <ul class="header-menu">
+          <li class="dropdown"><a>Proqramlar</a></li>
+          <li><a href="">Xidmətlər</a></li>
+          <li><a href="">Rəylər</a></li>
+          <li><a href="">Tədbirlər</a></li>
+          <li><a href="">Dil kursları</a></li>
+          <li><a href="/reserve/">Görüş təyin et</a></li>
+        </ul>
+
+        <button data-toggle="modal" data-target="#myModal" class="contact-btn">Müraciət et</button>
+        <button type="button" class="mobile-menu-btn">
+          <img class="menu-img" src="img/menu.png" alt="">
+          <img class="close-img" src="img/close.png" alt="">
+        </button>
+
+        <ul class="header-menu-mobile">
+          <li class="dropdown">
+            <a>Proqramlar<span class="caret"></span></a>
+          </li>
+          <li><a href="">Xidmetler</a></li>
+          <li><a href="">Reyler</a></li>
+          <li><a href="">Tedbirler</a></li>
+          <li><a href="news.html">Yenilikler</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+  <div class="programs-menu">
+    <div class="container">
+      <div class="programs-menu-wrap">
+        <div class="countries">
+          <h2>Countries</h2>
+          <ul class="countries-items">
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/australia.svg" alt="">
+                  </span>
+                  <span class="country-title">Australia</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/austria.svg" alt="">
+                  </span>
+                  <span class="country-title">Austria</span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="country-flag">
+                    <img src="img/belgium.svg" alt="">
+                  </span>
+                  <span class="country-title">Belgium</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+        <div class="programs">
+          <h2>Programs</h2>
+          <ul class="programs-items">
+            <li>
+              <a href="language-program.html">Language Programs <img src="img/right-arrow.png" alt=""></a>
+            </li>
+            <li>
+              <a href="secondary-education.html">Secondary education <img src="img/right-arrow.png" alt=""></a>
+            </li>
+            <li>
+              <a href="higher-education.html">Higher education <img src="img/right-arrow.png" alt=""></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="btn-wrap">
+          <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+            <img src="img/close.png" alt="">
+          </button>
+        </div>
+        <div class="content-wrap">
+          <h1 class="title">Нужна консультация?</h1>
+
+          <form>
+            <input type="text" class="form-control" id="name" placeholder="Name">
+            <input type="text" class="form-control" id="phone" placeholder="Phone">
+            <input type="email" class="form-control" id="email" placeholder="Email">
+            <textarea class="form-control" name="message" rows="8" cols="80" placeholder="Message"></textarea>
+            <button data-dismiss="modal" class="btn contact-btn">To get a consultation <img src="img/right-arrow-white.png" alt=""></button>
+          </form>
+
+          <small>Нажимая на кнопку, вы даете согласие на обработку своих персональных данных. Гарантируем <a href="">конфиденциальность</a>.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="program-page">
+  <div class="page-cover" style="background-image:url('img/cover.jpg')">
+    <div class="container">
+      <div class="cover-items">
+        <h1 class="page-title wow fadeInDown">About</h1>
+        <ol class="breadcrumb wow fadeInUp">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">About</li>
+        </ol>
+        <p class="cover-info wow fadeIn"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="program-wrap section-wrap">
+      <h1 class="program-title">Search <img src="img/right-arrow.png" alt=""><span>120</span> options</h1>
+      <div class="row">
+         <div class="col-xs-12 col-xl-4 col-sm-12 col-md-3" style="background-color: #fff;">
+            <form action="" class="filtration">
+              <h4><i class="fas fa-map-marker-alt"></i> Ölkələr</h4>
+              <fieldset class="filter-group checkboxes country-filter" id="country-filter">
+                   <div class="country-list form-select">
+                     <div class="checkbox">
+                       <input type="checkbox" value=".ABŞ"/>
+                       <label>ABŞ</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Almaniya"/>
+                       <label>Almaniya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Avstriya"/>
+                       <label>Avstriya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Avstraliya"/>
+                       <label>Avstraliya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Böyük Britaniya"/>
+                       <label>Böyük Britaniya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Belçika"/>
+                       <label>Belçika</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".BƏƏ"/>
+                       <label>BƏƏ</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Çexiya"/>
+                       <label>Çexiya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Çin"/>
+                       <label>Çin</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Danimarka"/>
+                       <label>Danimarka</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Fransa"/>
+                       <label>Fransa</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Hollandiya"/>
+                       <label>Hollandiya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Türkiyə"/>
+                       <label>Türkiyə</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".İrlandiya"/>
+                       <label>İrlandiya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".İspaniya"/>
+                       <label>İspaniya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".İsveçrə"/>
+                       <label>İsveçrə</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".İsveç"/>
+                       <label>İsveç</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".İtaliya"/>
+                       <label>İtaliya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Kanada"/>
+                       <label>Kanada</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Kipr"/>
+                       <label>Kipr</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Malayziya"/>
+                       <label>Malayziya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Malta"/>
+                       <label>Malta</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Sinqapur"/>
+                       <label>Sinqapur</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Şotlandiya"/>
+                       <label>Şotlandiya</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Tailand"/>
+                       <label>Tailand</label>
+                     </div>
+                     <div class="checkbox">
+                       <input type="checkbox" value=".Yeni Zellandiya"/>
+                       <label>Yeni Zellandiya</label>
+                     </div>
+                   </div>
+               </fieldset>
+               <h4><i class="fas fa-graduation-cap"></i> Universitet proqramı</h4>
+               <fieldset class="filter-group checkboxes program-filter">
+                    <div class="programs form-select">
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Academy proqramı"/>
+                        <label>Academy proqramı</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Bakalavr"/>
+                        <label>Bakalavr</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Bakalavr"/>
+                        <label>Bakalavr</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Bakalavra hazırlıq"/>
+                        <label>Bakalavra hazırlıq</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Dil kursları"/>
+                        <label>Dil kursları</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Foundation"/>
+                        <label>Foundation</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".MBA"/>
+                        <label>MBA</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Magistratura"/>
+                        <label>Magistratura</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Magistratura"/>
+                        <label>Magistratura</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Magistraturaya hazırlıq"/>
+                        <label>Magistraturaya hazırlıq</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Pre - Master"/>
+                        <label>Pre - Master</label>
+                      </div>
+                      <div class="checkbox">
+                        <input type="checkbox" value=".Yay kursları"/>
+                        <label>Yay kursları</label>
+                      </div>
+                     </div>
+                   </fieldset>
+                   <h4><i class="fas fa-globe"></i></i> Dil</h4>
+                   <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+                          <div class="checkbox">
+                            <input type="checkbox" value=".İngilis dili"/>
+                            <label>İngilis dili</label>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" value="Alman dili"/>
+                            <label>Alman dili</label>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" value="Rus dili"/>
+                            <label>Rus dili</label>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" value="İspan"/>
+                            <label>İspan</label>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" value="Fransız dili"/>
+                            <label>Fransız dili</label>
+                          </div>
+                         </div>
+                     </fieldset>
+                      
+                     <h4><i class="fas fa-university"></i> Universitetin tipi</h4>
+                     <fieldset class="filter-group checkboxes uni-filter">
+                          <div class="university-type form-select">
+                            <div class="checkbox">
+                              <input type="checkbox" value=".Ali məktəb"/>
+                              <label>Ali məktəb</label>
+                            </div>
+                           </div>
+                       </fieldset>
+
+                       <h4><i class="fas fa-money-bill-wave-alt"></i> Ödəniş aralığı</h4>
+                       <fieldset class="filter-group checkboxes tuition-filter">
+                        <div class="range-slider">
+                          
+                          <form class="form-inline">
+                            <label class="sr-only" for="inlineFormInputGroup">Amount</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <div class="input-group-addon currency-symbol">$</div>
+                              <input type="text" class="form-control currency-amount" id="inlineFormInputGroup" placeholder="0.00" size="8">
+                              <div class="input-group-addon currency-addon">
+                        
+                                <select class="currency-selector">
+                                  <option data-symbol="$" data-placeholder="0.00" selected>USD</option>
+                                  <option data-symbol="€" data-placeholder="0.00">EUR</option>
+                                  <option data-symbol="£" data-placeholder="0.00">GBP</option>
+                                  <option data-symbol="¥" data-placeholder="0">JPY</option>
+                                  <option data-symbol="$" data-placeholder="0.00">CAD</option>
+                                  <option data-symbol="$" data-placeholder="0.00">AUD</option>
+                                </select>
+                        
+                              </div>
+                            </div>
+                          </form>
+                          <input type="number" value="25000" min="0" max="100000" step="500">
+                          <input type="number" value="75000" min="0" max="100000" step="500">
+                          
+                          <input value="25000" min="0" max="100000" step="500" type="range">
+                          <input value="50000" min="0" max="100000" step="500" type="range">
+                      </div>
+                       </fieldset>
+                      <button class="btn find-btn">Axtar</button>
+            </form>
+            
+         </div>
+
+
+
+        <div class="col-xs-12 col-sm-8 col-md-9">
+          <ul class="program-items">
+
+            <li class="program-item wow fadeIn">
+              <div class="program-item-img" style="background-image:url('img/news1.png')"></div>
+              <div class="program-item-info">
+                <h2 class="title">Istituto Marangoni Milano</h2>
+                <ul class="item-detail">
+                  <li>A country</li>
+                  <li>İtaly</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>City</li>
+                  <li>Milan</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>Language of instruction</li>
+                  <li>English, Italian</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>A type</li>
+                  <li>University</li>
+                </ul>
+                <a class="details-link" href="">Learn More <img src="img/right-arrow.png" alt=""></a>
+              </div>
+            </li>
+
+            <li class="program-item wow fadeIn">
+              <div class="program-item-img" style="background-image:url('img/news1.png')"></div>
+              <div class="program-item-info">
+                <h2 class="title">Istituto Marangoni Milano</h2>
+                <ul class="item-detail">
+                  <li>A country</li>
+                  <li>İtaly</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>City</li>
+                  <li>Milan</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>Language of instruction</li>
+                  <li>English, Italian</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>A type</li>
+                  <li>University</li>
+                </ul>
+                <a class="details-link" href="">Learn More <img src="img/right-arrow.png" alt=""></a>
+              </div>
+            </li>
+
+            <li class="program-item wow fadeIn">
+              <div class="program-item-img" style="background-image:url('img/news1.png')"></div>
+              <div class="program-item-info">
+                <h2 class="title">Istituto Marangoni Milano</h2>
+                <ul class="item-detail">
+                  <li>A country</li>
+                  <li>İtaly</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>City</li>
+                  <li>Milan</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>Language of instruction</li>
+                  <li>English, Italian</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>A type</li>
+                  <li>University</li>
+                </ul>
+                <a class="details-link" href="">Learn More <img src="img/right-arrow.png" alt=""></a>
+              </div>
+            </li>
+            
+          </ul>
+          <div class="pagination-wrap">
+            <div class="pagination-nav">
+              <a href="#" class="back"><img src="img/left-arrow.png" alt="">back</a>
+              <a href="#" class="next">next<img src="img/right-arrow.png" alt=""></a>
+            </div>
+            <ul class="pagination">
+             <li class="active"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">4</a></li>
+             <li><a href="#">5</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact section wow fadeIn">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-left">
+            <h1 class="section-title">Do with us!</h1>
+    
+            <div class="manager-avatar">
+              <img class="img-responsive" src="img/manager.png" alt="">
+            </div>
+            <div class="manager-info">
+              <div class="manager-name">Elena Blyman</div>
+              <div class="manager-preview-text">Head of the Department of Education Abroad</div>
+              <div class="manager-mail">e.bliman@iqconsultancy.ru</div>
+            </div>
+          </div>
+          <div class="contact-right">
+            <p class="contact-text">
+              Leave a request or contact us by phone. IQ Consultancy experts will help
+              you choose the right educational institution and program, issue documentsand a visa,
+              prepare for admission and training, and successfully enroll.
+            </p>
+            <form>
+              <div class="row">
+                <div class="col-xs-12 col-md-5 col-md-offset-1">
+                  <input type="text" class="form-control" id="name" placeholder="Name">
+                  <input type="text" class="form-control" id="phone" placeholder="Phone">
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="col-xs-12 col-md-5 col-md-offset-1">
+                  <textarea class="form-control" name="message" rows="8" cols="80" placeholder="Message"></textarea>
+                  <button class="btn contact-btn">To get a consultation <img src="img/right-arrow-white.png" alt=""></button>
+                </div>
+                <div class="col-xs-12 col-md-11 col-md-offset-1">
+                  <div class="contact-link">By clicking on the button, you consent to the processing of your personal data. We guarantee <a href="">confidentiality .</a></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+﻿  <div class="container">
+﻿    <div class="row">
+﻿      <div class="col-xs-12 col-md-4">
+﻿        <h2 class="footer-title">Write to us</h2>
+        <div class="social-icons">
+          <p>Join Social Networks. Learn</br>the latest innovations first!</p>
+          <ul>
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+            <li><a href=""><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+﻿      </div>
+      <div class="col-xs-12 col-md-4">
+﻿        <h2 class="footer-title">Contact</h2>
+        <ul class="contact-items">
+          <li class="contact-item">
+            <i class="fa fa-map-marker"></i>
+              Nobel prospekti 15, Azure Business</br>
+              Mərkəzi, 20-ci mərtəbə ofis 135</br>
+              AZ1025 Bakı, Azərbaycan</li>
+          <li class="contact-item">
+            <i class="fa fa-phone"></i>
+            <ul class="phone-numbers">
+              <li>+994 50 512 28 28</li>
+              <li>+994 50 291 79 91</li>
+              <li>+994 12 488 66 78</li>
+            </ul>
+          </li>
+          <li class="contact-item">
+            <i class="fa fa-globe"></i>
+            <ul>
+              <li>info@azeristudent.az</li>
+              <li>www.azeristudent.az</li>
+            </ul>
+          </li>
+        </ul>
+﻿      </div>
+      <div class="col-xs-12 col-md-4">
+﻿        <h2 class="footer-title">Menu</h2>
+        <ul class="footer-menu">
+          <li><a href="">Haqqımızda</a></li>
+          <li><a href="">Xəbərlər</a></li>
+          <li><a href="">Tədbirlər</a></li>
+          <li><a href="">Əlaqə</a></li>
+        </ul>
+﻿      </div>
+      <div class="col-xs-12 col-md-12">
+        <h2 class="footer-title">Our partners</h2>
+        <ul class="footer-partners">
+          <li><img src="img/partner1.png" alt=""></li>
+          <li><img src="img/partner2.png" alt=""></li>
+          <li><img src="img/partner3.png" alt=""></li>
+          <li><img src="img/partner4.png" alt=""></li>
+        </ul>
+      </div>
+﻿    </div>
+﻿  </div>
+﻿</footer>
+<script src="./src/js/script.js"></script>
+<script src="//localhost:35729/livereload.js"></script>
+
+</body>
+</html>

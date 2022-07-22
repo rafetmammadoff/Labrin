@@ -1,0 +1,85 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    Blog | {{ block.super }}
+{% endblock %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Blog">
+    <meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/blog-cover.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/blog-cover.jpg' %}">
+    <meta name="twitter:image:alt" content="Blog">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'All Blogs',
+        content_category: 'Blogs',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+    <section class="news-page">
+        <div class="page-cover" style="background-image:url({% static 'azeristudent/img/blog-cover.jpg' %})">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title ">Blog</h1>
+                    <ol class="breadcrumb ">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                    <p class="cover-info"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="news-wrap section-wrap">
+                {% for blog in object_list %}
+                    <a href="{{ blog.get_absolute_url }}">
+                        <div class="news-item ">
+                            <div class="news-img" style="background-image:url({{ blog.background_image.url }})"></div>
+                            <div class="news-info">
+                                <span class="date">{{ blog.publish_date|date:"d F" }} <i class="fa fa-calendar"></i></span>
+                                <h2 class="title">{{ blog.title }}</h2>
+                                <p class="content">
+                                    {{ blog.summary }}
+                                </p>
+                                <div class="details-link">Ətraflı</div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "education/partials/pagination.html" %}
+    </section>
+{% endblock %}

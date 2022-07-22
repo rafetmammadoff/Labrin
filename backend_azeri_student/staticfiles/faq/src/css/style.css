@@ -1,0 +1,472 @@
+@font-face {
+    font-family: "Gotham-Bold",sans-serif;
+    src:local("D:\MY PORTFOLIO\PROJECTS\LABRIN TECH PROJECTS\azeristudent\labclients-backend_azeri_student-2f2267265d72\_frontend\dev\fonts\Gotham");
+}
+
+
+
+:root{
+    --color-white: #fff;
+    --color-dark-gray: #3D3D3D;
+    --color-mid-gray: #7D828F;
+    --color-light-gray: #C8CCD8;
+    --color-very-light-gray: #f5f5fa;
+    --color-red: #BC2925;
+    --color-gray: rgb(156,156,156);
+    --color-black: #000;
+  
+    /* Font weights */
+    --weight-bold: 700;
+    --weight-mid: 500;
+  
+    /* Design elements */
+    --transition: 300ms ease-in-out;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+
+#faq,#tabs{
+  position: relative;
+}
+
+.faq-img{
+    position: absolute;
+    z-index: 1;
+}
+
+/************************ Base Desing End *******************/
+
+
+
+
+/************************ Main Section Start******************/
+.main-section{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.vector-background{
+    width: 1000px;
+    height: 255.45px;
+    left: 14.16%;
+    right: 0%;
+    top: 0%;
+    bottom: 49.01%;
+}
+
+.group-center{
+    height: 468.15px;
+    width: 264.35px;
+    left: 40.34%;
+    right: 35.57%;
+    top: 3.94%;
+    bottom: 0%;
+}
+
+.ellipsis-left{
+    width: 105.47px;
+    height: 67.58px;
+    left: 22.09%;
+    right: 77.1%;
+    top: 22.47%;
+    bottom: 57.04%;
+}
+
+.group-left{
+    width: 71.18px;
+    height: 124.73px;
+    left: 13%;
+    right: 92.71%;
+    top: 30.76%;
+    bottom: 36.34%;
+}
+
+.ellipsis-right{
+    width: 82.12px;
+    height: 50.39px;
+    left: 55.43%;
+    right: 35.28%;
+    top: 44.74%;
+    bottom: 31.6%;
+}
+
+.ellipsis-right-inside{
+    width: 44.14px;
+    height: 6.72px;
+    left: 56.8%;
+    right: 36.71%;
+    top: 47.5%;
+    bottom: 36.12%;
+}
+
+.circle-right{
+    width: 79.94px;
+    height: 89.79px;
+    left: 72.63%;
+    right: 13.18%;
+    top: 16.23%;
+    bottom: 59.85%;
+}
+
+.circle-right-inside{
+    width: 25.37px;
+    height: 47.92px;
+    left: 74.77%;
+    right: 13.18%;
+    top: 18.73%;
+    bottom: 59.85%;
+}
+
+.vector-right{
+    width: 52.27px;
+    height: 91.56px;
+    left: 83.66%;
+    right: 0.88%;
+    top: 33.72%;
+    bottom: 41.01%;
+}
+
+.vector-right-inside{
+    width: 23.96px;
+    height: 45.25px;
+    left: 84.86%;
+    right: 0.88%;
+    top: 36.2%;
+    bottom: 41.01%;
+}
+
+/************************ Main Section Text Start ***************/
+.main-section .text-1,
+.main-section .text-2{
+    position: absolute;
+}
+
+.main-section .text-1{
+    width: 253px;
+    height: 19px;
+    top: 340px;
+    left: 30px;
+}
+
+.main-section .text-2{
+    width: 472px;
+    height: 78px;
+    top: 380px;
+    left: 30px;
+}
+
+.main-section .text-1 p{
+    font-size: 20px;
+    line-height: 19.4px;
+    color: var(--color-red);
+}
+
+.main-section .text-2 h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 39px;
+    color: var(--color-dark-gray);
+}
+
+
+
+/************************ Main Section Text End ***************/
+
+
+
+
+
+/************************ Main Section End ******************/
+
+
+/************************ Category & Accordion Start******************/
+
+#tabs {
+    padding: 60px 0;
+}
+
+#tabs .nav_tabs .nav-item i,
+#tabs .nav_tabs .nav-item.show .nav-link i{
+  width: 14%;
+}
+
+#tabs .nav_tabs .nav-item:hover{
+  color: var(--color-red);
+}
+
+.tabs input[name=tab-control] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  .tabs nav ul li label {
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+  }
+  .tabs nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .tabs nav ul li {
+    box-sizing: border-box;
+    flex: 1;
+    width: 25%;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .tabs nav ul li label {
+    transition: all 0.3s ease-in-out;
+    color: #000;
+    padding: 5px auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .tabs .faq-slider {
+    position: relative;
+    width: 25%;
+    transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+  }
+  .tabs .faq-slider .faq-indicator {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: -4%;
+    height: 4px;
+    background: var(--color-red);
+    border-radius: 1px;
+  }
+  .tabs .tab-content {
+    margin-top: 30px;
+  }
+  .tabs .tab-content section {
+    display: none;
+    -webkit-animation-name: content;
+            animation-name: content;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    line-height: 1.4;
+  }
+  
+  .tabs input[name=tab-control]:nth-of-type(1):checked ~ nav > ul > li:nth-child(1) > label > .nav-link{
+    cursor: default;
+    color: var(--color-red);
+  }
+  .tabs input[name=tab-control]:nth-of-type(1):checked ~ .faq-slider {
+    transform: translateX(0%);
+  }
+  .tabs input[name=tab-control]:nth-of-type(1):checked ~ .tab-content > section:nth-child(1) {
+    display: block;
+  }
+  .tabs input[name=tab-control]:nth-of-type(2):checked ~ nav > ul > li:nth-child(2) > label {
+    cursor: default;
+    color: var(--color-red);
+  }
+  
+  .tabs input[name=tab-control]:nth-of-type(2):checked ~ .faq-slider {
+    transform: translateX(100%);
+  }
+  .tabs input[name=tab-control]:nth-of-type(2):checked ~ .tab-content > section:nth-child(2) {
+    display: block;
+  }
+  .tabs input[name=tab-control]:nth-of-type(3):checked ~  nav > ul > li:nth-child(3) > label {
+    cursor: default;
+    color: var(--color-red);
+  }
+  
+  .tabs input[name=tab-control]:nth-of-type(3):checked ~ .faq-slider {
+    transform: translateX(200%);
+  }
+  .tabs input[name=tab-control]:nth-of-type(3):checked ~ .tab-content > section:nth-child(3) {
+    display: block;
+  }
+  .tabs input[name=tab-control]:nth-of-type(4):checked ~ nav > ul > li:nth-child(4) > label {
+    cursor: default;
+    color: var(--color-red);
+  }
+  
+  .tabs input[name=tab-control]:nth-of-type(4):checked ~ .faq-slider {
+    transform: translateX(300%);
+  }
+  .tabs input[name=tab-control]:nth-of-type(4):checked ~ .tab-content > section:nth-child(4) {
+    display: block;
+  }
+  @-webkit-keyframes content {
+    from {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @keyframes content {
+    from {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+#tabs .nav_tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: var(--color-dark-gray);
+    font-size: 20px;
+}
+
+
+.faq-accordion dl, .accordion-list {
+    border: none;
+}
+
+.faq-accordion dd, .accordion__panel {
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 20.8px;
+    font-weight: 400;
+}
+
+
+.faq-accordion p {
+    padding: 1em 2em 1em 2em;
+}
+.faq-accordion {
+    position: relative;
+    background-color: #fcfcfc;
+}
+.accordion-section {
+    margin: 0 auto;
+    padding: 2em 0 2em 0;
+}
+.accordionTitle, .accordion__Heading {
+    background-color: #fcfcfc;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 19.14px;
+    padding: 2em;
+    display: block;
+    text-decoration: none;
+    color: var(--color-black);
+    transition: background-color 0.5s ease-in-out;
+    /* border-bottom: 1px solid var(--color-very-light-gray); */
+}
+.accordionTitle:before, .accordion__Heading:before {
+    color: var(--color-red);
+    float: right;
+    content: "+";
+    font-size: 1.5em;
+    line-height: 0.5em;
+    /* float: left; */
+    transition: transform 0.3s ease-in-out;
+}
+.accordionTitle:hover, .accordion__Heading:hover {
+    background-color: #fff;
+    text-decoration: none;
+    color: var(--color-black);
+    text-decoration: none;
+    
+}
+.accordionTitleActive, .accordionTitle.is-expanded {
+    background-color: #fff;
+    color: var(--color-red);
+    transition: 0.5s ease-in-out;
+    text-decoration: none;
+}
+.accordionTitleActive, .accordionTitle.is-expanded:hover{
+    background-color: #fcfcfc;
+    text-decoration: none;
+}
+
+.accordionTitleActive:before, .accordionTitle.is-expanded:before {
+    transform: rotate(-225deg);
+}
+.accordionItem {
+    height: auto;
+    overflow: hidden;
+    max-height: 50em;
+    transition: max-height 1s;
+    padding: 0px 30px 0 30px;
+}
+@media screen and (min-width: 48em) {
+    .accordionItem {
+        max-height: 15em;
+        transition: max-height 0.5s;
+   }
+}
+.accordionItem.is-collapsed {
+    max-height: 0;
+}
+.no-js .accordionItem.is-collapsed {
+    max-height: auto;
+}
+.animateIn {
+    animation: accordionIn 0.45s normal ease-in-out both 1;
+}
+.animateOut {
+    animation: accordionOut 0.45s alternate ease-in-out both 1;
+}
+@keyframes accordionIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(-60deg);
+        transform-origin: 50% 0;
+   }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+   }
+}
+@keyframes accordionOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+   }
+    100% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(-60deg);
+   }
+}
+
+/************************ Category & Accordion End******************/
+
+
+
+/********************** Bootstrap 4 Nav Tabs****************************/
+

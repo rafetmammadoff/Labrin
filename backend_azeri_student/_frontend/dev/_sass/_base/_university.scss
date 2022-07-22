@@ -1,0 +1,353 @@
+.university {
+  .contact {
+    border-top: 2px solid $red;
+  }
+  .header {
+    width: 100%;
+    position: relative;
+    background-color: #f0f0f0;
+    .header-items {
+      height: 600px;
+      display: flex;
+      width: 100%;
+      @include breakpoint(visible-xs) {
+        flex-direction: column-reverse;
+        height: auto;
+      }
+      .header-left {
+        padding-right: 20px;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include breakpoint(visible-xs) {
+          width: 100%;
+          height: auto;
+        }
+        .school-title {
+          font-size: 40px;
+          margin: 10px 0;
+          @include breakpoint(visible-xs) {
+            font-size: 30px;
+          }
+        }
+        .about-school {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          ul {
+            margin: 15px 0;
+            li {
+              position: relative;
+              font-size: 24px;
+              font-weight: bold;
+              padding-left: 50px;
+              line-height: 1.8;
+              @include breakpoint(visible-xs) {
+                font-size: 20px;
+              }
+              &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                background: #000;
+                left: 3px;
+                top: 21px;
+                width: 30px;
+                height: 3px;
+              }
+            }
+          }
+        }
+      }
+      .header-right {
+        position: absolute;
+        height: 600px;
+        top: 0;
+        right: 0;
+        width: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include breakpoint(visible-xs) {
+          position: relative;
+          width: 100%;
+          height: 250px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.school-content {
+  padding: 40px 0;
+  width: 100%;
+  float: left;
+  &-left {
+    float: left;
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(visible-xs) {
+      width: 100%;
+    }
+  }
+  &-right {
+    float: right;
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(visible-xs) {
+      width: 100%;
+    }
+  }
+  h1 {
+    margin: 15px 0;
+    font-size: 40px;
+    @include breakpoint(visible-xs) {
+      font-size: 30px;
+    }
+  }
+  h2 {
+    margin: 15px 0;
+    font-size: 35px;
+    @include breakpoint(visible-xs) {
+      font-size: 25px;
+    }
+  }
+  h3 {
+    margin: 15px 0;
+    font-size: 28px;
+    @include breakpoint(visible-xs) {
+      font-size: 20px;
+    }
+  }
+  h4 {
+    margin: 15px 0;
+    font-size: 22px;
+    @include breakpoint(visible-xs) {
+      font-size: 16px;
+    }
+  }
+  a {
+    color: $red;
+  }
+  p {
+    margin: 15px 0;
+    font-size: 20px;
+    line-height: 1.6;
+    @include breakpoint(visible-xs) {
+      font-size: 16px;
+    }
+  }
+  ul {
+    margin: 15px 0;
+    li {
+      position: relative;
+      font-size: 24px;
+      font-weight: bold;
+      padding-left: 50px;
+      line-height: 1.8;
+      @include breakpoint(visible-xs) {
+        font-size: 20px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        background: #000;
+        left: 3px;
+        top: 21px;
+        width: 30px;
+        height: 3px;
+      }
+    }
+  }
+}
+
+.form-section {
+  border-top: 2px solid $red;
+  border-bottom: 2px solid $red;
+  .school-form {
+    width: 100%;
+    float: left;
+    padding: 40px 0;
+    h2 {
+      font-weight: 500;
+      margin: 15px 0;
+      @include breakpoint(visible-xs) {
+        font-size: 30px;
+      }
+    }
+    span {
+      float: left;
+      font-size: 12px;
+      margin: 15px 0;
+      a {
+        color: $red;
+      }
+    }
+    .school-form-wrap {
+      display: flex;
+      justify-content: space-between;
+      @include breakpoint(visible-xs) {
+        flex-direction: column;
+      }
+      .school-form-item {
+        width: 23%;
+        @include breakpoint(visible-xs) {
+          width: 100%;
+        }
+      }
+      .form-control {
+        border-radius: 5px;
+        border: solid 1px #000000;
+        font-size: 18px;
+        margin: 25px 0;
+        box-shadow: none;
+        float: left;
+        width: 100%;
+        height: 60px;
+        @include breakpoint(visible-xs) {
+          margin: 10px 0;
+        }
+      }
+      .school-btn {
+        width: 100%;
+        color: white;
+        background-color: $red;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .2s;
+        margin: 25px 0;
+        height: 60px;
+        img {
+          width: 22px;
+          margin-left: 10px;
+        }
+        &:hover {
+          background-color: darken($red, 7%);
+        }
+      }
+    }
+  }
+}
+
+.school-map {
+  padding: 50px 0;
+  height: 600px;
+  width: 100%;
+  @include breakpoint(visible-xs) {
+    height: 450px;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.school-slider-section {
+  padding: 40px 0;
+  .slider-title {
+    font-size: 40px;
+    margin: 15px 0;
+    @include breakpoint(visible-xs) {
+      font-size: 30px;
+    }
+  }
+  .desc {
+    font-size: 20px;
+    margin: 10px 0;
+    @include breakpoint(visible-xs) {
+      font-size: 16px;
+    }
+  }
+  .school-slider {
+    margin: 30px 0;
+    .slider-item {
+      position: relative;
+      height: 450px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      @include breakpoint(visible-xs) {
+        height: 250px;
+      }
+    }
+    .owl-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      .owl-dot {
+        span {
+          width: 12px !important;
+          height: 12px !important;
+          background-color: $white !important;
+        }
+        &.active {
+          span {
+            background-color: $red !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.social-media-icons{
+    .social-media-buttons{
+      border-radius: 5px;
+      border: none;
+      height: 40px;
+      color: white;
+      font-size: 19px;
+      width: 13%;
+      margin-right: 28px;
+      margin-bottom: 37px;
+      margin-top: 37px;
+      &:hover{
+        transition: .2s;
+      }
+      span {
+        padding-left: 10px;
+        @include breakpoint(visible-till-md) {
+          display: none;
+        }
+      }
+    }
+    .linkedin-button{
+      background-color: #0077b5 !important;
+      &:hover{
+        background-color: #395999 !important;
+      }
+    }
+    .fb-button{
+      background-color: #4267b2;
+      &:hover{
+        background-color: #395999;
+      }
+    }
+    .messenger-button{
+      background-color: #0084ff;
+      &:hover{
+        background-color: #0072dd;
+      }
+    }
+    .twitter-button{
+      background-color: #1da1f2;
+      &:hover{
+        background-color: #0d90e0;
+      }
+    }
+    .whatsapp-button{
+      background-color: #01e675;
+      &:hover{
+        background-color: #01c464;
+      }
+    }
+  }

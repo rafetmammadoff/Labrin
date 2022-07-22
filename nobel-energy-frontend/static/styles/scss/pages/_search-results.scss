@@ -1,0 +1,71 @@
+.search-results {
+  @include advancedRem(margin, (120 0 150));
+
+  &__title {
+    @include font-size(34, 400);
+    color: $dark-gray;
+
+    span {
+      color: $primary-clr;
+    }
+  }
+
+  &__wrapper {
+    @include advancedRem(margin, (100 0 80));
+  }
+
+  .number-of-results {
+    @include font-size(20, 400);
+  }
+
+  .search-result {
+    padding: rem(54) 0;
+    max-width: rem(950);
+    width: 100%;
+    @include transition();
+    border-bottom: 1px solid #d7d7da;
+    display: block;
+
+    &:hover {
+      @include advancedRem(padding, (54 36));
+      background-color: $primary-clr;
+      color: $white-clr;
+      border-bottom: 1px solid $primary-clr;
+
+      * {
+        color: inherit;
+      }
+    }
+
+    &-title {
+      @include font-size(24, 400);
+      color: $primary-clr;
+      margin-bottom: rem(38);
+    }
+
+    &-text {
+      @include font-size(16, 400);
+      line-height: rem(20);
+      color: $dark-gray;
+    }
+
+    &__field {
+      @include flexbox();
+      border-bottom: 1px solid;
+      color: $dark-gray;
+      @include advancedRem(padding, (10 20));
+      width: max-content;
+
+      input {
+        border: none;
+        outline: none;
+        width: rem(250);
+        padding-right: rem(20);
+      }
+
+      button {
+        flex-shrink: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,395 @@
+{% load base_filter %}
+{% get_program_country as country_list %}
+<div class="program-wrap section-wrap">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3" style="background-color: #fff;">
+            <form method="get" enctype="multipart/form-data" data-education_type="{{ education_type }}"
+                class="filtration">
+                {% if education_type == 1 %}
+                <div class="form-select">
+                    <h4><i class="fas fa-map-marker-alt"></i> Ölkələr</h4>
+                    <fieldset class="filter-group checkboxes" id="country-filter">
+                        <div class="country-list form-select">
+                            {% for country in country_list %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{country.pk}}" name="country" />
+                                <label>{{country.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-select">
+                    <h4><i class="fas fa-graduation-cap"></i> Universitet proqramı</h4>
+                    <fieldset class="filter-group checkboxes program-filter">
+                        <div class="programs form-select">
+                            {% for prog in univercity_program %}
+                            <div class="checkbox">
+                               
+                                    <input type="checkbox" value="{{prog.pk}}" name="uniprog" />
+                                    <label>{{prog.name}}</label>
+                            
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-select">
+                    <h4><i class="fas fa-globe"></i></i> Dil</h4>
+                    <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+
+                            {% for lang in language %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{lang.id}}" name="language" />
+                                <label>{{lang.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-select">
+                    <h4><i class="fas fa-university"></i> Universitetin tipi</h4>
+                    <fieldset class="filter-group checkboxes uni-filter">
+                        <div class="university-type form-select">
+                            {% for type in scool_type %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{type.name}}" />
+                                <label>{{type.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-select">
+                    <fieldset class="payment">
+                        <h4><i class="fas fa-money-bill-wave-alt"></i>Ödəniş aralığı</h4>
+                        <div class="form-group currency">
+                            <select class="form-control">
+                                <option value="0" selected>Valyuta</option>
+                                {% for currency in currencies %}
+                                    <option data-symbol="$" data-placeholder="0.00" value="{{currency.pk}}">{{currency.currency_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="amount form-group">
+                            <div class="number-fields">
+                                <input type="number" value="0" id="minAmount" name="">
+                                <input type="number" value="100000" id="maxAmount" name="">
+                            </div>
+                            <div class="multi-range-slider">
+                                <input type="range" id="minAmountRange" min="0" max="100000" value="0" step="1">
+                                <input type="range" id="maxAmountRange" min="0" max="100000" value="100000"
+                                    step="1">
+
+                                <div class="slider-a">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <br>
+
+
+                {% elif education_type == 2 %}
+                <div class="form-select">
+
+                    <h4><i class="fas fa-map-marker-alt"></i> Ölkələr</h4>
+                    <fieldset class="filter-group checkboxes" id="country-filter">
+                        <div class="country-list form-select">
+
+                            {% for country in country_list %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{country.pk}}" name="country" />
+                                <label>{{country.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="country" id="id_country">
+                        {% if country_name %}
+                        <option value="{{ country_name.slug }}" selected hidden>{{ country_name.name }}</option>
+                        {% else %}
+                        <option value="">Ölkələr</option>
+                        {% endif %}
+                        {% for country in country_list %}
+                        <option value="{{ country.slug }}">{{ country.name }}</option>
+                        {% endfor %}
+                    </select> -->
+                </div>
+
+                <div class="form-select mt-3">
+                    <!-- <input class="input-first" style="margin-left:-35px;" type="text"> -->
+                    <input class="input-first" type="text" placeholder="Yaş" value="{{ request.GET.age }}" name="age">
+                </div>
+
+                <div class="form-select">
+
+                    <h4><i class="fas fa-graduation-cap"></i> Proqramlar</h4>
+                    <fieldset class="filter-group checkboxes program-filter">
+                        <div class="programs form-select">
+                            {% for prog in secondary_program %}
+                            <div class="checkbox">
+
+                                    <input type="checkbox" value="{{prog.pk}}" name="programs" />
+                                    <label>{{prog.name}}</label>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="programs" id="id_programs">
+                        <option value="">Proqramlar</option>
+                        {% for prog in secondary_program %}
+                        {% if prog.pk == request.GET.programs|add:"0" %}
+                        <option value="{{ prog.pk }}" selected>{{ prog.name }}</option>
+                        {% else %}
+                        <option value="{{ prog.pk }}">{{ prog.name }}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+
+                <div class="form-select">
+
+                    <h4><i class="fas fa-globe"></i></i> Dil</h4>
+                    <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+
+                            {% for lang in language %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{lang.id}}" name="language" />
+                                <label>{{lang.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="language" id="id_language">
+                        <option value="">Dil</option>
+                        {% for lang in language %}
+                        {% if lang.pk == request.GET.language|add:"0" %}
+                        <option value="{{ lang.pk }}" selected>{{ lang.name }}</option>
+                        {% else %}
+                        <option value="{{ lang.pk }}">{{ lang.name }}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+
+                <div class="form-select">
+
+                    <h4><i class="fas fa-graduation-cap"></i></i> Məktəbin tipi</h4>
+                    <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+
+                            {% for type in scool_type %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{type.id}}" name="language" />
+                                <label>{{type.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="school_type" id="id_school_type">
+                        <option value="">Məktəbin tipi</option>
+                        {% for type in scool_type %}
+                        {% if spec.pk == request.GET.school_type|add:"0" %}
+                        <option value="{{ type.pk }}" selected>{{ type.name }}</option>
+                        {% else %}
+                        <option value="{{ type.pk }}">{{ type.name }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select> -->
+                </div>
+                {% else %}
+                <div class="form-select">
+
+                    <h4><i class="fas fa-map-marker-alt"></i> Ölkələr</h4>
+                    <fieldset class="filter-group checkboxes" id="country-filter">
+                        <div class="country-list form-select">
+
+                            {% for country in country_list %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{country.pk}}" name="country" />
+                                <label>{{country.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="country" id="id_country">
+                        {% if country_name %}
+                        <option value="{{ country_name.slug }}" selected hidden>{{ country_name.name }}</option>
+                        {% else %}
+                        <option value="">Ölkələr</option>
+                        {% endif %}
+                        {% for country in country_list %}
+                        <option value="{{ country.slug }}">{{ country.name }}</option>
+                        {% endfor %}
+                    </select> -->
+                </div>
+                <div class="form-select">
+
+                    <h4><i class="fas fa-globe"></i></i> Dil</h4>
+                    <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+
+                            {% for lang in language %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{lang.id}}" name="language" />
+                                <label>{{lang.name}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="language" id="id_language">
+                        <option value="">Dil</option>
+                        {% for lang in language %}
+                        {% if lang.pk == request.GET.language|add:"0" %}
+                        <option value="{{ lang.pk }}" selected>{{ lang.name }}</option>
+                        {% else %}
+                        <option value="{{ lang.pk }}">{{ lang.name }}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+                <div class="form-select">
+                    <h4><i class="fas fa-globe"></i></i> Yaş məhdudiyyəti</h4>
+                    <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+
+                            {% for age in age_restriction %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{age.0}}" name="age_restriction" />
+                                <label>{{age.1}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="age_restriction" id="id_age_restriction">
+                        <option value="">Yaş məhdudiyyəti</option>
+                        {% for age in age_restriction %}
+                        {% if age.0 == request.GET.age_restriction|add:"0" %}
+                        <option value="{{ age.0 }}" selected>{{ age.1 }}</option>
+                        {% else %}
+                        <option value="{{ age.0 }}">{{ age.1 }}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+                <div class="form-select">
+                    <input class="input-first" type="text" placeholder="Yaş" value="{{ request.GET.age }}" name="age">
+                </div>
+                <div class="form-select">
+
+                    <h4><i class="fas fa-globe"></i></i> Fəsil</h4>
+                    <fieldset class="filter-group checkboxes language-filter">
+                        <div class="languages form-select">
+
+                            {% for s in season %}
+                            <div class="checkbox">
+                                <input type="checkbox" value="{{s.0}}" name="season" />
+                                <label>{{s.1}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="season" id="id_season">
+                        <option value="">Fəsil</option>
+                        {% for s in season %}
+                        {% if s.0 == request.GET.season|add:"0" %}
+                        <option value="{{ s.0 }}" selected>{{ s.1 }}</option>
+                        {% else %}
+                        <option value="{{ s.0 }}">{{ s.1 }}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+                <div class="form-select">
+
+                    <h4><i class="fas fa-graduation-cap"></i> Proqramlar</h4>
+                    <fieldset class="filter-group checkboxes program-filter">
+                        <div class="programs form-select">
+                            {% for lang in lang_programs %}
+                            <div class="checkbox">
+
+                                    <input type="checkbox" value="{lang.pk}}" name="program" />
+                                    <label>{{lang.name}}</label>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="program" id="id_program">
+                        <option value="">Proqramlar</option>
+                        {% for lang in lang_programs %}
+                        {% if lang.pk == request.GET.program|add:"0" %}
+                        <option value="{{ lang.pk }}" selected>{{ lang.name }}</option>
+                        {% else %}
+                        <option value="{{ lang.pk }}">{{ lang.name }}</option>
+                        {% endif %}
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+
+                <div class="form-select">
+
+                    <h4><i class="fas fa-graduation-cap"></i> Ərazi</h4>
+                    <fieldset class="filter-group checkboxes program-filter">
+                        <div class="programs form-select">
+                            {% for accom in accomondation %}
+                            <div class="checkbox">
+
+                                    <input type="checkbox" value="{accom.pk}}" name="accom" />
+                                    <label>{{accom.name}}</label>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+
+                    <!-- <select name="accom" id="id_accom">
+                        <option value="">Ərazi</option>
+                        {% for accom in accomondation %}
+                        {% if accom.pk == request.GET.accom|add:"0" %}
+                        <option value="{{ accom.pk }}" selected>{{ accom.name }}</option>
+                        {% else %}
+                        <option value="{{ accom.pk }}">{{ accom.name }}</option>
+                        {% endif %}
+                        <option value="{{ accom.pk }}">{{ accom.name }}</option>
+                        {% endfor %}
+
+                    </select> -->
+                </div>
+
+                {% endif %}
+
+                <button type="submit" class="btn find-btn search-btn-unique">Axtar</button>
+            </form>
+        </div>
+    </div>
+</div>

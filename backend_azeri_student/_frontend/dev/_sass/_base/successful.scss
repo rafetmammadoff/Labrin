@@ -1,0 +1,27 @@
+#success_page {
+  .content {
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 60px;
+    margin-bottom: 5px;
+  }
+
+  a.back{
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: #be271d;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 7px 35px;
+    display: inline-block;
+
+    &:hover{background-color: #9f2118;}
+  }
+}

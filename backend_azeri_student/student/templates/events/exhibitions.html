@@ -1,0 +1,197 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load i18n %}
+{% load base_filter %}
+{% block title %}
+    {{ object.title }} | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.title }}">
+    <meta property="og:description" content="{{ object.summary }}">
+    {% if object.background %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ object.background.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.background %}
+        <meta name="twitter:image"
+              content="https://{{ request.get_host }}{{ object.background.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: '{{ object.title }}',
+        content_category: 'Exhibitions',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+    <div id="exhibition">
+        <div class="container">
+            <div class="exhibition_header">
+                <div class="imgHolder">
+                    <img src="{{ object.cover_image.url }}" alt="{{ object.title }}">
+                </div>
+
+                <div class="content">
+                    <h2>{{ object.title }}</h2>
+
+                    <div class="d-flex">
+                        <p class="address">{{ object.address }}</p>
+                        <span></span>
+                        <p class="date">{{ object.date }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="participants">
+                <div class="row">
+                    <div class="col-sm-7 col-md-8">
+                        <h2>{{ object.participant_title }}</h2>
+
+                        <ul>
+                            {% for country_item in object.exhibitions_countries.all %}
+                                <li><a class="location" href="" data-location="location{{ country_item.id }}">{{ country_item.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <img src="{{ object.participant_image.url }}" alt="{{ object.participant_title }}"
+                             class="img-responsive">
+                    </div>
+                </div>
+            </div>
+
+            {% for country_item in object.exhibitions_countries.all %}
+                <div data-id="location{{ country_item.id }}" class="country">
+                    <div class="title">
+                        <h2>{{ country_item.title }}</h2>
+                        <hr>
+                    </div>
+                    {% for content_type in country_item.exhibition_content_type.all %}
+                        {% if content_type.content_type == 0 and content_type.collapsible %}
+                            <div class="accordion">
+                                <div class="acc_header {% if forloop.first %}active{% endif %}">
+                                    {{ content_type.title }}
+                                    <span></span>
+                                </div>
+                                <ul class="acc_body" {% if forloop.first %}style="display: block"{% endif %}>
+                                    {% for content_item in content_type.table_content.all %}
+                                        <li>
+                                            <p class="collage">{{ content_item.title }}</p>
+                                            <p class="city">{{ content_item.location }}</p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% elif content_type.content_type == 0 %}
+                            {% for content_item in content_type.table_content.all %}
+                            <div class="short_collage">
+                                <h5>{{ content_item.title }}</h5>
+                                <p>{{ content_item.location }}.</p>
+                            </div>
+                            {% endfor %}
+                        {% elif content_type.content_type == 1 %}
+                            <div class="usa_gb_edu_type">
+                                <h5>{{ content_type.title }}</h5>
+                                <h6>{{ content_type.short_text }}:</h6>
+                                {{ content_type.text |safe}}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    {% if country_item.registration_button %}
+                        <div class="text-center register-btn">
+                            <button class="register_fingerprint" data-toggle="modal" data-target="#myModal">
+                                <img src="{% static 'azeristudent/img/fingerprint.svg' %}" alt="">
+                                    Qeydiyyat
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if object.contact_form %}
+        <div class="contact-register">
+            <div class="container">
+                <form method="post" class="contact-submit-form" data-action="{% url 'consultant-form' %}" enctype="multipart/form-data">
+                    <h5>Qeydiyyatdan keçin</h5>
+                    {% csrf_token %}
+                    <input type="hidden" name="event_id" value="{{ object.event_exhibitions.first.id }}">
+                    <input type="hidden" class="phone-validation" data-valid="true">
+                    <input type="hidden" name="reference_url" value="{{ request.get_full_path }}">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" name="full_name" id="id_full_name" placeholder="Tam adınız" required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input type="tel" name="phone" id="id_phone" placeholder="Telefon" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="email" name="email" id="id_email" placeholder="Email"
+                                           required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit">Göndər</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        {% if object.event_exhibitions.first.google_map %}
+            <div class="contact-register">
+            <div id="map" style="height: 450px; width: 100%"></div>
+            <script>
+                // Initialize and add the map
+                function initMap() {
+                    // The location of Uluru
+                    var loc = {{ object.event_exhibitions.first.get_map_location|safe }};
+                    // The map, centered at Uluru
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 14, center: loc});
+                    // The marker, positioned at Uluru
+                    var marker = new google.maps.Marker({position: loc, map: map});
+                }
+            </script>
+            <!--Load the API from the specified URL
+            * The async attribute allows the browser to render the page while the API loads
+            * The key parameter will contain your own API key (which is not needed for this tutorial)
+            * The callback parameter executes the initMap() function
+            -->
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMV7F7cJwukyVCjKrwaVNV119Us1dCJw&callback=initMap">
+
+            </script>
+            </div>
+        {% endif %}
+        <div class="container">
+            {% include "partials/do_with_us.html" %}
+        </div>
+    </div>
+{% endblock %}

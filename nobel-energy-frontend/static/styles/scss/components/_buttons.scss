@@ -1,0 +1,96 @@
+.g-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: inline-block;
+  text-decoration: none !important;
+  @include transition();
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &__lg {
+    @include advancedRem(padding, (16 42));
+    @include font-size(18, 700);
+  }
+
+  &__md {
+    @include advancedRem(padding, (16 28));
+    @include font-size(14, 700);
+  }
+
+  &__green {
+    color: $white-clr;
+    background-color: $secondary-clr;
+  }
+
+  &__orange {
+    color: $white-clr;
+    background-color: $orange-clr;
+  }
+
+  &__purple {
+    color: $white-clr;
+    background-color: $purple-clr;
+  }
+}
+
+.hamburger-btn {
+  width: rem(25);
+  height: rem(19);
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  @include transition();
+  cursor: pointer;
+  margin-left: rem(24);
+}
+
+.hamburger-btn span {
+  display: block;
+  position: absolute;
+  height: rem(2);
+  width: 100%;
+  background: $dark-gray;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  @include transition();
+}
+
+.hamburger-btn span:nth-child(1) {
+  top: 0;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hamburger-btn span:nth-child(2) {
+  top: rem(8);
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hamburger-btn span:nth-child(3) {
+  top: rem(16);
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hamburger-btn.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: rem(-3);
+  left: rem(-8);
+}

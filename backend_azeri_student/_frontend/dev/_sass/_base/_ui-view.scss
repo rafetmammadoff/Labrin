@@ -1,0 +1,451 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Gotham', sans-serif;
+  overflow-x: hidden;
+}
+
+.mobile-sidebar-active {
+  overflow: hidden;
+}
+
+input, textarea {
+  outline: 0;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a, button {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  outline: 0;
+  transition: .2s;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  line-height: normal;
+}
+
+.section {
+  padding: 70px 0;
+  @include breakpoint(visible-xs) {
+    padding: 30px 0;
+  }
+}
+
+.gradient {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=1);
+  left: 50%;
+  @include breakpoint(visible-xs) {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.section-title {
+  font-size: 45px;
+  color: $black;
+  font-weight: bold;
+  margin: 30px 0;
+  @include breakpoint(visible-xs) {
+    font-size: 30px;
+  }
+}
+
+.page-cover {
+  position: relative;
+  width: 100%;
+  background-color: #d8d8d8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=1);
+  }
+
+  .cover-items {
+    height: 420px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @include breakpoint(visible-xs) {
+      height: 400px;
+    }
+    .page-title {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      z-index: 2;
+      @include breakpoint(visible-xs) {
+        font-size: 18px;
+      }
+    }
+
+    .cover-info {
+      z-index: 2;
+      color: $black;
+      width: 70%;
+      font-size: 17px;
+      @include breakpoint(visible-xs) {
+        width: 100%;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.breadcrumb {
+  z-index: 2;
+  padding: 0;
+  background: none;
+  .breadcrumb-item {
+    font-size: 17px;
+    color: $black;
+    &.active {
+      color: #292929;
+      opacity: .6;
+    }
+  }
+}
+
+blockquote {
+  padding: 20px 50px;
+  background: #f0f0f0;
+  margin-bottom: 38px;
+}
+
+.breadcrumb > li + li::before {
+  content: "> ";
+  padding: 0 5px;
+  color: $black;
+}
+
+.section-wrap {
+  padding: 40px 0;
+}
+
+.pagination-wrap {
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  .pagination-nav {
+    display: flex;
+    a {
+      display: block;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 15px;
+      @include breakpoint(visible-xs) {
+        font-size: 20px;
+      }
+      img {
+        margin: 0 10px;
+      }
+    }
+    .back {
+      color: $black;
+    }
+    .next {
+      color: $red;
+    }
+  }
+  .pagination {
+    margin: 0;
+    margin-top: 10px;
+    li {
+      a {
+        border: 1px solid $red;
+        border-left: 0;
+        border-right: 0;
+        font-size: 22px;
+        color: black;
+        padding: 5px 20px;
+        background: none;
+        @include breakpoint(visible-xs) {
+          font-size: 18px;
+        }
+        &:hover {
+          background: $red;
+          color: white;
+        }
+      }
+      &:first-child {
+        a {
+          border-left: 1px solid $red;
+        }
+      }
+      &:last-child {
+        a {
+          border-right: 1px solid $red;
+        }
+      }
+      &.active {
+        a {
+          background-color: darken($red, 7%);
+          color: white;
+          &:hover {
+            border-color: $red;
+          }
+          &:focus {
+            background-color: $red;
+            color: white;
+            border-color: $red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.reviews-wrap {
+  display: flex;
+  @include breakpoint(visible-xs) {
+    flex-direction: column;
+  }
+  .reviews-left {
+    width: 30%;
+    @include breakpoint(visible-xs) {
+      width: 100%;
+    }
+  }
+  .reviews-right {
+    width: 70%;
+    @include breakpoint(visible-xs) {
+      width: 100%;
+    }
+    li {
+      .reviews-right-item {
+        display: block;
+        text-decoration: none;
+        margin-left: -35px;
+        padding: 30px 35px;
+        position: relative;
+        border: 3px solid transparent;
+        @include breakpoint(visible-xs) {
+          padding: 20px 10px;
+          margin-left: 0px;
+        }
+        .review-item-avatar {
+          width: 125px;
+          float: left;
+          img {
+            height: 125px;
+            width: 125px;
+            object-fit: cover;
+          }
+          @include breakpoint(visible-xs) {
+            float: none;
+            margin-bottom: 15px;
+          }
+        }
+        .review-item-info {
+          margin-left: 150px;
+          @include breakpoint(visible-xs) {
+            margin-left: 0;
+          }
+          .name {
+            font-size: 30px;
+            color: $red;
+            font-weight: 500;
+            @include breakpoint(visible-xs) {
+              font-size: 24px;
+            }
+          }
+          .from {
+            color: #5b5b5b;
+            font-size: 15px;
+          }
+          p {
+            margin-top: 25px;
+            font-size: 20px;
+          }
+          .continue {
+            font-size: 25px;
+            margin-top: 15px;
+            font-weight: 500;
+            color: $red;
+            transition: .2s;
+            opacity: 0;
+            @include breakpoint(visible-xs) {
+              font-size: 20px;
+            }
+            img {
+              margin-left: 5px;
+            }
+          }
+        }
+        &:hover {
+          border-color: $red;
+          .continue {
+            opacity: 1;
+          }
+        }
+      }
+
+      .feedback-btn {
+        border: none;
+        background: $red;
+        padding: 8px 35px;
+        color: $white;
+        font-size: 23px;
+        font-weight: 500;
+        margin-top: 30px;
+        margin-left: 150px;
+        transition: .2s;
+        img {
+          width: 24px;
+          margin-left: 10px;
+        }
+        @include breakpoint(visible-xs) {
+          margin-top: 15px;
+          margin-left: 0;
+          font-size: 20px;
+        }
+        &:hover {
+          background: darken($red, 7%);
+        }
+      }
+    }
+  }
+}
+
+.form-select {
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+  select {
+    outline: none;
+    box-shadow: none;
+    border-radius: 5px;
+    border: solid 1px $black;
+    width: 100%;
+    padding: 17px 35px 17px 15px;
+    background: transparent url("../img/bg-select.png") no-repeat 92% center;
+    font-size: 15px;
+    font-weight: 500;
+    color: $black;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  input {
+    outline: none;
+    box-shadow: none;
+    border-radius: 5px;
+    border: solid 1px $black;
+    width: 100%;
+    padding: 13px 35px 17px 13px;
+    font-size: 15px;
+    font-weight: 500;
+    color: $black;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+}
+
+.find-btn {
+  color: white;
+  background-color: $orange;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 0;
+  @include breakpoint(visible-xs) {
+    margin-top: 25px;
+  }
+  &:hover, &:focus {
+    background-color: darken($orange, 7%);
+    color: white;
+  }
+}
+
+.modal.fade {
+  opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  transform: translate(0);
+}
+
+.relative-header {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+// custom css
+.data-custom-tab {
+  h3 {
+    cursor: pointer;
+  }
+  .active {
+    color: $red;
+  }
+}
+
+.data-tab-item {
+  &:first-child {
+    display: block;
+  }
+}
+
+.visible-mobile {
+  display: none;
+}
+
+@include breakpoint(visible-till-md) {
+  iframe {
+    width: 100% !important;
+  }
+  .visible-mobile {
+    display: inline-block !important;
+  }
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+}
+
+.keepfly {
+  display: inline-block;
+  margin: 30px 0;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.pt-0{padding-top: 0 !important;}

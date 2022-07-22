@@ -1,0 +1,79 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block title %}
+    {{ object.inside_title }} | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.inside_title }} ">
+    <meta property="og:description" content="{{ object.summary }}">
+    {% if object.background %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ object.background.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.background %}
+    <meta name="twitter:image"
+          content="https://{{ request.get_host }}{{ object.background.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.inside_title }} ">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: '{{ object.inside_title }}',
+        content_category: 'Services',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+
+    <section class="about-page">
+        <div class="page-cover" {% if object.background %}
+             style="background-image:url({{ object.background.url }})"{% endif %}>
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title ">{{ object.inside_title }}</h1>
+                    <ol class="breadcrumb ">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'service-list' %}">Xidmətlər</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ object.inside_title }}</li>
+                    </ol>
+                    <p class="cover-info "></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-wrap">
+                <div class="school-content">
+                    {{ object.context|safe }}
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

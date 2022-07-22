@@ -1,0 +1,40 @@
+#about_section {
+    width: 100%;
+
+    .about-list-style {
+        display: flex;
+        // justify-content: center;
+        // height: fit-content;
+        // width: 50%;
+        position: relative;
+        padding: 0 0 30px 30px;
+
+        .disk {
+            width: 10px !important;
+            height: 10px !important;
+            background: #da3636;
+            border-radius: 50%;
+            position: absolute;
+            top: 9px;
+            left: 30px;
+        }
+
+        .disk_p {
+            padding-left: 20px;
+
+            p {
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.75;
+                letter-spacing: normal;
+                color: #343434;
+
+                @media (max-width:767.9px){
+                    font-size:14px;
+                }
+            }
+        }
+    }
+}

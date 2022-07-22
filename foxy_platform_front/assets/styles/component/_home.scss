@@ -1,0 +1,1099 @@
+.togother-work{
+    width: 100%;
+    .row{
+        margin: 0;
+        .col-lg-12{
+            padding: 0;
+            .img-area{
+                height: 548px;
+                max-height: 100%;
+                background-image: url(../img/togother-work.svg);
+
+                .text-container{
+                    height: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .text-area{
+                        color: white;
+                        
+
+                    }
+                }
+                .play-zone{
+                   
+                    .main-container{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .play-icon{
+                            width: 22px;
+                            height: 22px;
+                            border-radius: 50%;
+                            background-color: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        .line{
+                            width: 90%;
+                            height: 2px;
+                            background-color: white;
+                        }
+                        .time{
+                            color: white;
+                        }
+                    }
+                }
+            }
+            .layer{
+                position: relative;
+                &::after{
+                    content: " ";
+                    background: #000;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 1;
+                    opacity: .4;
+                }
+                .text-container{
+                    position: relative;
+                    z-index: 2;
+                    .text-area{
+                        width: 100%;
+                        .text-center{
+                            margin-bottom: 70px;
+                        }
+                        .content{
+                            margin-bottom: 20px;
+                            .inputs{
+                                form{
+                                    position: relative;
+                                    width: 100%;
+                                    .submit{
+                
+                                        display: block;
+                                        width: 100%;
+                                        height: 40px;
+                                        background-color: white;
+                                        border: 1px solid #212121;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        p{
+                                            margin: 0;
+                                            color: #000;
+                                        }
+                                    }
+                                    button{
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;width: 40px;
+                                        height: 40px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border: 1px solid black;
+                                        border-left: none;
+                
+                                        background-color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                       
+                    }
+                    .about-text-area{
+                        .input{
+                            display: flex;
+                            justify-content: center;
+                            button{
+                                width: 300px;
+                                border: 1px solid black;
+                                height: 40px;
+                            }
+                        }
+                        .inputs{
+                            display: flex;
+                            justify-content: center;
+                            width: 100%;
+                            form{
+                                position: relative;
+                                width: 50%;
+                                .submit{
+            
+                                    display: flex !important;
+                                    justify-content: flex-end !important;
+                                    align-items: center;
+                                    width: 100%;
+                                    height: 40px;
+                                    background-color: white;
+                                    border: 1px solid #212121;
+                                    display: flex;
+                                    align-items: center;
+                                    outline: none;
+                                    justify-content: space-between;
+                                    p{
+                                        margin: 0;
+                                        color: #000;
+                                    }
+                                }
+                                button{
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 40px;
+                                    height: 40px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border: 1px solid black;
+                                    border-left: none;
+            
+                                    background-color: #fff;
+                                }
+                            }
+                        }
+                        .text-center{
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+                .play-zone{
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+            .our-project-img-area{
+                background-image: url(../img/our-project-1.svg);
+                h1{
+                    font-family: AzeretMono;
+                    font-size: 80px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 93px;
+                    letter-spacing: 0em;
+
+                }
+                .content{
+                    display: flex;
+                    justify-content: center;
+                    p{
+                        width: 50%;
+                    }
+                }
+            }
+            .about-img-area{
+                background-image: url(../img/about-1.svg);
+                background-size: cover;
+                background-position: center;
+                .text-container{
+                    .text-area{
+                        .main-container{
+                            margin: 0;
+                            .content{
+                                justify-content: flex-start;
+    
+                            }
+                            .title{
+                                font-family: AzeretMono;
+                                font-size: 50px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 58px;
+                                letter-spacing: 0em;
+                                text-align: left;
+    
+                            }
+                        }
+                    }
+                }
+            }
+            .contact-img-area{
+                background-image: url(../img/contact-1.svg);
+                background-size: cover;
+                background-position: center;
+            }
+
+        }
+    }
+}
+
+
+.project{
+    margin-bottom: 100px;
+}
+
+.client{
+    height: 371px;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    .text{
+        margin-bottom: 70px;
+    }
+    .swiper-wrapper{
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+.cards{
+    background-color: #f2f2f2;
+    margin-top: 70px;
+    .main-container{
+        padding-bottom: 70px;
+        .row{
+            .col-lg-4{
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .more{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+}
+
+.media{
+    background: #F2F2F2;
+    .main-container{
+        .row{
+            .media-item{
+                margin-bottom: 50px;
+                .row{
+                    display: flex;
+                    align-items: center;
+                    
+                    .item-img{
+                        .img-area{
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .item-text{
+                        text-align: left;
+                        padding-left: auto;
+                        .title{
+                            font-family: AzeretMono;
+                            font-size: 25px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 35px;
+                            letter-spacing: 0em;
+                            color: #212121;
+
+                        }
+                        .content{
+                            font-family: Roboto;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 14px;
+                            line-height: 21px;
+                            color: #212121;
+
+                        }
+                    }
+                    .align-right{
+                        text-align: right;
+                    }
+                }
+            }
+
+        }
+    }
+}
+.marketing{
+    min-height: 770px;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    font-family: AzeretMono;
+
+    .main-container{
+        .row{
+            .left-text{
+                font-size: 75px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 93px;
+                letter-spacing: 0em;
+                text-align: left;
+
+            }
+            .right-text{
+                min-height: 450px;
+                display: flex;
+                align-items: flex-end;
+                .text-area{
+                    width: 100%;
+                    .tittle{
+                        font-size: 19px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 30px;
+                        letter-spacing: 0em;
+                        text-align: left;
+    
+                    }
+                    .content{
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 24px;
+                        letter-spacing: 0em;
+                        text-align: left;
+    
+                    }
+                    .bttn{
+                        .submit{
+                            width: 100%;
+                            height: 40px;
+                            background-color: #212121;
+                            border: 1px solid #212121;
+                            display: flex;
+                            font-family: AzeretMono;
+                            align-items: center;
+                            justify-content: space-between;
+                            p{
+                                margin: 0;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.member-slide{
+  
+    .hero-slide{
+        .swiper-wrapper{
+            .swiper-slide{
+                width: 100vw;
+                
+                .row{
+                    height: 500px;
+                    .back-img{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url(../img/member-slide-1.svg);
+                        background-position: center;
+                        background-size: cover;
+                        
+                    }
+                    .back-text{
+                        .hero-img{
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .slide-text{
+                                width: 60%;
+                                height: 100%;
+                                font-family: AzeretMono;
+                                font-size: 50px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 58px;
+                                letter-spacing: 0em;
+                                text-align: center;
+                                color: #fff;
+                                display: flex;
+                                align-items: center;
+
+                            }
+                        }
+                    }
+                    .back-img-2{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url(../img/our-project-1.svg);
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    .back-img-3{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url(../img/togother-work.svg);
+                        background-position: center;
+                        background-size: cover;
+                    }
+                }
+                .slider-row{
+                    margin: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+.working{
+    margin-bottom: 100px;
+    .main-container{
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+
+        .row{
+            display: flex;
+            align-items: center;
+            .left-text{
+                min-height: 450px;
+                display: flex;
+                align-items: flex-end;
+                .text-area{
+                    width: 100%;
+                    .tittle{
+                        font-family: AzeretMono;
+                        font-size: 50px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 58px;
+                        letter-spacing: 0em;
+                        text-align: left;
+
+    
+                    }
+                    .content{
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 30px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        margin-bottom: 50px;
+
+    
+                    }
+                    .bttn{
+                        .submit{
+                            width: 100%;
+                            height: 40px;
+                            background-color: #212121;
+                            border: 1px solid #212121;
+                            display: flex;
+                            font-family: AzeretMono;
+                            align-items: center;
+                            justify-content: space-between;
+                            p{
+                                margin: 0;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .right-img{
+                .row{
+                    .col-lg-7{
+                        img{
+                            margin-bottom: 100px;
+                            width: 100%;
+                        }
+                    }
+                    .col-lg-5{
+                        display: flex;
+                        align-items: flex-end;
+                        .imgs{
+                            width: 100%;
+                            .top-img{
+                                margin-bottom: 20px;
+                                width: 100%;
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                            .bottom-img{
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.member-about{
+    margin-top: 100px;
+    .main-container{
+        .row{
+            .left-text{
+                .title-name{
+                    font-family: AzeretMono;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 35px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                    &::before{
+                        content: url("../img/left-arrow.svg");
+                    }
+
+                }
+                .mail{
+                    font-family: Roboto;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 21px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    margin-top: 10px;
+                    margin-bottom: 30px;
+
+                }
+                .title-about{
+                    font-family: AzeretMono;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 30px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                }
+                .content{
+                    font-family: Roboto;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 31px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                }
+            }
+            .right-img{
+                .row{
+                    .col-lg-7{
+                        img{
+                            margin-bottom: 40px;
+                            width: 100%;
+                        }
+                    }
+                    .col-lg-5{
+                        display: flex;
+                        align-items: flex-end;
+                        .imgs{
+                            width: 100%;
+                            
+                            .bottom-img{
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .web-icon{
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            img{
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+.history{
+    .main-container{
+        margin-bottom: 70px;
+        margin-top: 70px;
+        .row{
+            display: flex;
+            align-items: center;
+            .left-text{
+                min-height: 450px;
+                display: flex;
+                align-items: flex-end;
+                .text-area{
+                    width: 100%;
+                    .tittle{
+                        font-family: AzeretMono;
+                        font-size: 50px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 58px;
+                        letter-spacing: 0em;
+                        text-align: left;
+
+    
+                    }
+                    .content{
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 30px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        margin-bottom: 50px;
+
+    
+                    }
+                    .bttn{
+                        .submit{
+                            width: 100%;
+                            height: 40px;
+                            background-color: #212121;
+                            border: 1px solid #212121;
+                            display: flex;
+                            font-family: AzeretMono;
+                            align-items: center;
+                            justify-content: space-between;
+                            p{
+                                margin: 0;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .right-img{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.our-cause{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    .container{
+        .row{
+            display: flex;
+            justify-content: center;
+            .col-lg-8{
+                .tittle{
+                    font-family: AzeretMono;
+                    font-size: 50px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 58px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                }
+                .content{
+                    font-family: Roboto;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 31px;
+                    letter-spacing: 0em;
+                    text-align: center;
+
+                }
+            }
+        }
+    }
+}
+.about-project{
+    background: #F2F2F2;
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    .row{
+        .one-card{
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.our-team{
+    margin-top: 70px;
+    margin-bottom: 70px;
+    .main-container{
+        .team-swipper{
+            padding-bottom: 60px;
+            .swiper-wrapper{
+                .swiper-slide{
+                    display: flex;
+                    justify-content: center;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.find-platform{
+    background-image: url(../img/find.svg);
+    min-height: 500px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    .container{
+        .row{
+            .text-center{
+                font-family: AzeretMono;
+                font-size: 50px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 58px;
+                letter-spacing: 0em;
+                text-align: center;
+                color: #f2f2f2;
+                margin-bottom: 100px;
+            }
+            .col-lg-12{
+                .row{
+                    display: flex;
+                    justify-content: space-between;
+                    .contact{
+                        color: white;
+                        font-family: AzeretMono;
+                    }
+                    .col-lg-2{
+                        display: flex;
+                        align-items: flex-end;
+                        .right-web{
+                            p{
+                                color: white;
+                                font-family: AzeretMono;
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 19px;
+                                letter-spacing: 0em;
+                                text-align: left;
+
+
+                            }
+                            .web-icon{
+                                display: flex;
+                                justify-content: flex-end;
+                                .imgs{
+                                    img{
+                                        margin-right: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contact-form{
+    font-family: AzeretMono;
+    background-color: #f2f2f2;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .main-container{
+        display: flex;
+        justify-content: center;
+        .form-area{
+            width: 60%;
+
+            .tittle{
+                font-family: AzeretMono;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 35px;
+                letter-spacing: 0em;
+                text-align: left;
+                margin-bottom: 70px;
+            }
+            .one-input{
+                width: 100%;
+                margin-bottom: 30px;
+                p{
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 14px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                    
+
+
+                }
+                input{
+                    width: 100%;
+                    height: 40px;
+                    border: 1px solid black;
+                }
+                .message{
+                    height: 160px;
+                }
+                button{
+                    width: 100%;
+                    height: 60px;
+                    border: 1px solid black;
+                    .main-container{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                }
+                .black-area{
+                    width: 100%;
+                    height: 170px;
+                    background: #212121;
+                    p{
+                        color: #fff;
+                        padding-top: 10px;
+                        margin-left: 20px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+.ready{
+    height: 480px !important;
+    position: relative;
+    #blur-page{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        
+        display: flex;
+        align-items: center;
+        transition: .1s;
+        z-index: -5;
+        
+        .circle{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid white;
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .main-container{
+            display: flex;
+            justify-content: center;
+            .form-area{
+                width: 60%;
+    
+                .tittle{
+                    font-family: AzeretMono;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 35px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: #fff;
+                    
+                }
+                .one-input{
+                    width: 100%;
+                    margin-bottom: 30px;
+                    p{
+                        margin-bottom: 10px;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 14px;
+                        letter-spacing: 0em;
+                        text-align: left;
+    
+                        
+    
+    
+                    }
+                    input{
+                        width: 100%;
+                        height: 40px;
+                        border: 1px solid black;
+                    }
+                    .message{
+                        height: 160px;
+                    }
+                    button{
+                        width: 100%;
+                        height: 60px;
+                        border: 1px solid black;
+                        .main-container{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                    }
+                    .black-area{
+                        width: 100%;
+                        height: 170px;
+                        background: #212121;
+                        p{
+                            color: #fff;
+                            padding-top: 10px;
+                            margin-left: 20px;
+                        }
+    
+                    }
+                }
+                .inp{
+                    .submit{
+                        
+                        width: 100%;
+                        height: 40px;
+                        background-color: #212121;
+                        border: 1px solid #212121;
+                        display: flex;
+                        font-family: AzeretMono;
+                        align-items: center;
+                        justify-content: space-between;
+                        p{
+                            margin: 0;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
+    .row{
+        margin: 0;
+        height: 100%;
+        .left-blue{
+            background-image: url(../img/blue.svg);
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            .main-container{
+                .row{
+                    .text{
+                        .title{
+                            font-family: AzeretMono;
+                            font-size: 50px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 58px;
+                            letter-spacing: 0em;
+                            text-align: left;
+                            color: white;
+
+                        }
+                       
+                        
+                    }
+                    .inp{
+                        .submit{
+                            
+                            width: 100%;
+                            height: 40px;
+                            background-color: #212121;
+                            border: 1px solid #212121;
+                            display: flex;
+                            font-family: AzeretMono;
+                            align-items: center;
+                            justify-content: space-between;
+                            p{
+                                margin: 0;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .bttn{
+                        
+                    }
+                }
+            }
+
+        }
+        .right-yellow{
+            background-image: url(../img/yellow.svg);
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            .main-container{
+                .row{
+                    .text{
+                        .title{
+                            font-family: AzeretMono;
+                            font-size: 50px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 58px;
+                            letter-spacing: 0em;
+                            text-align: left;
+                            color: white;
+
+                        }
+                       
+                        
+                    }
+                    .inp{
+                        .submit{
+                            
+                            width: 100%;
+                            height: 40px;
+                            background-color: #212121;
+                            border: 1px solid #212121;
+                            display: flex;
+                            font-family: AzeretMono;
+                            align-items: center;
+                            justify-content: space-between;
+                            p{
+                                margin: 0;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .bttn{
+                        
+                    }
+                }
+            }
+
+        }
+        
+    }
+}

@@ -1,0 +1,29 @@
+// @import '~font-awesome/css/font-awesome.css';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "vendors/bootstrap";
+@import "molecules/sprite";
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+@import "~owl.carousel2/dist/assets/owl.carousel.css";
+
+@import "azeristudent_font/stylesheet.css";
+@import "azeristudent_style/general";
+@import "azeristudent_style/footer.scss";
+@import "azeristudent_style/header";
+@import "azeristudent_style/about";
+@import "azeristudent_style/contact";
+@import "azeristudent_style/homepage";
+@import "azeristudent_style/springfair";
+@import "azeristudent_style/snackbar";
+
+// Sprite Icons
+.icon {
+  display: inline-block;
+
+  &-hello {
+    @include sprite($hello);
+  }
+
+  &-world {
+    @include sprite($world);
+  }
+}

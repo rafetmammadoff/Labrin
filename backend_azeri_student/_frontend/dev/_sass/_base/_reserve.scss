@@ -1,0 +1,427 @@
+#reserve {
+  background: -webkit-linear-gradient(left, #212121, #b43931);
+  background: -moz-linear-gradient(left, #212121, #b43931);
+  background: -ms-linear-gradient(left, #212121, #b43931);
+  background: -o-linear-gradient(left, #212121, #b43931);
+  background: linear-gradient(left, #212121, #b43931);
+
+  .d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 84px);
+  }
+
+  .mainRow {
+    margin: 65px auto;
+    position: relative;
+    width: 100%;
+    transform: scale(0, 0);
+    transition: .6;
+
+    &.active {
+      transform: scale(1, 1);
+    }
+
+    @media screen and (min-width: 768px) {
+
+      .col-md-8 {
+        padding: 0;
+      }
+
+      .col-md-4 {
+        height: 536px;
+        padding: 10px 20px;
+      }
+    }
+
+    .col-md-4 {
+      background-color: #f3f3f3;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+
+      @media screen and (max-width: 767.98px) {
+        // margin: 0 10px;
+        padding: 10px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 10px;
+      }
+    }
+
+    .col-md-8 {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      overflow: hidden;
+
+      @media screen and (max-width: 767.97px) {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        padding: 0;
+        // margin: 0 10px;
+      }
+    }
+
+    .today {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    h6 {
+      @extend .today;
+    }
+
+    #time {
+      margin-top: 25px;
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          font-size: 17px;
+          font-weight: 500;
+        }
+
+        button {
+          border: 1px solid $red;
+          height: 26px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          background: transparent;
+
+          &.done {
+            border: none;
+
+            &::before {
+              content: "";
+              display: block;
+              width: 25px;
+              height: 25px;
+              background-image: url("../img/done-red.svg");
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+            }
+          }
+
+          &:not(.done) {
+            min-width: 115px;
+            border-radius: 13px;
+            color: $red;
+            transition: .4;
+            font-size: 17px;
+            font-weight: 500;
+            padding: 0 15px;
+
+            &:hover {
+              background: $red;
+              color: white;
+            }
+          }
+
+          &.disabled {
+            color: #a0a0a0;
+            border-color: #a0a0a0;
+            cursor: default;
+
+            &:hover {
+              background: transparent;
+              color: #a0a0a0;
+            }
+          }
+        }
+      }
+    }
+
+    // CALENDAR
+    #calendar {
+      .dhtmlxcalendar_material {
+        position: static;
+      }
+
+      // CALENDAR HEADER (MONTH)
+      .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr {
+        justify-content: center;
+        padding: 0;
+
+        // CALENDAR HEADER LEFT ARROW
+        .dhtmlxcalendar_month_arrow_left,
+        .dhtmlxcalendar_month_arrow_left_hover {
+          background-image: url("../img/back.svg");
+        }
+
+        // CALENDAR HEADER RIGHT ARROW
+        .dhtmlxcalendar_month_arrow_right,
+        .dhtmlxcalendar_month_arrow_right_hover {
+          background-image: url("../img/next.svg");
+        }
+
+        > span {
+          margin: 0 40px;
+          span {
+            font-size: 20px;
+            font-weight: 500;
+            color: black;
+          }
+        }
+      }
+
+      // WEEK DAY
+      .dhtmlxcalendar_days_cont {
+        li {
+          font-size: 17px;
+          color: black;
+        }
+      }
+
+      // MONTH DATE
+      .dhtmlxcalendar_dates_cont {
+        // max-height: 370px;
+
+        .dhtmlxcalendar_cell {
+          border-radius: 100%;
+
+          &:not([class*=month]) {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        .dhtmlxcalendar_line {
+          li {
+            width: 44px;
+            height: 44px;
+          }
+        }
+
+        [class*=month_date] {
+          border-color: $red;
+          background: $red;
+          div {
+            color: white;
+          }
+        }
+      }
+
+      .dhtmlxcalendar_line {
+        height: auto;
+        margin-top: 24px;
+
+      }
+
+      [class*=dis] {
+        background: transparent;
+        div {
+          color: #a0a0a0;
+        }
+      }
+
+      .dhtmlxcalendar_label {
+        font-size: 25px;
+        font-weight: 500;
+        color: black;
+      }
+    }
+  }
+
+  // POP UP
+  #popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0, 0);
+    min-height: 300px;
+    background: white;
+    width: 100%;
+    z-index: 5;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+    max-width: 90%;
+    margin: 0 auto;
+    transition: .5s;
+    opacity: 0;
+
+    &.active {
+      transform: translate(-50%, -50%) scale(1, 1);
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: 620px;
+    }
+
+    @media screen and (min-width: 992px) {
+      max-width: 840px
+    }
+
+    @media screen and (min-width: 1200px) {
+      max-width: 1040px;
+    }
+
+    .title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+
+      span {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: $red;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+      }
+    }
+
+    .time {
+      font-size: 15px;
+      padding: 10px;
+      min-width: 255px;
+      border: 1px solid $red;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    input {
+      display: block;
+      height: 36px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: none;
+      background: #f1f1f1;
+      color: black;
+      font-size: 15px;
+      padding: 0 10px;
+      border-radius: 3px;
+
+      ::placeholder {
+        color: #9b9b9b;
+      }
+    }
+
+    textarea {
+      @extend input;
+      min-height: 76px;
+      resize: none;
+      padding: 10px;
+    }
+    select{
+      @extend input;
+    }
+    .buttonHolder {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        small {
+          width: 70%;
+          margin-right: 5rem;
+        }
+      }
+
+      small {
+        font-size: 13px;
+      }
+
+      button {
+        min-width: 135px;
+        height: 35px;
+        border-radius: 18px;
+        background: $red;
+        color: white;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+
+        &:hover {
+          background: darken($color: $red, $amount: 13%);
+        }
+      }
+    }
+
+    &.done_popup {
+      text-align: center;
+      padding: 70px 0 100px;
+      top: calc(50% + 42px);
+
+      .main_image {
+        width: 132px;
+        height: 132px;
+        object-fit: contain;
+      }
+
+      p {
+        font-size: 15px;
+        margin: 40px 0 30px;
+      }
+
+      a:not(.close_btn) {
+        display: inline-flex;
+        min-width: 135px;
+        height: 35px;
+        background: $red;
+        color: white;
+        border-radius: 18px;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+        padding: 3px 15px;
+
+        &:hover {
+          background: darken($color: $red, $amount: 13%);
+        }
+      }
+    }
+  }
+
+  .close_btn {
+    position: absolute;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    top: -15px;
+    right: -15px;
+
+    img {
+      height: 20px;
+      object-fit: contain;
+    }
+
+    @media screen and (max-width: 767.98px) {
+      width: 25px;
+      height: 25px;
+      top: -10px;
+      right: -10px;
+
+      img {
+        height: 15px;
+      }
+    }
+  }
+}

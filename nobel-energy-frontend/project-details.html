@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Suret cargo" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content="Suret cargo" />
+    <meta property="og:image" content="" />
+
+    <title>Nobel Energy | Project Details</title>
+    <!-- <link rel="shortcut icon" href="./static/assets/svgs/logo.svg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="static/styles/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="static/styles/css/swiper/swiper.min.css">
+    <link rel="stylesheet" href="static/styles/css/main.css" />
+    <link rel="stylesheet" href="static/styles/css/nice-select/nice-select.min.css">
+</head>
+
+<body>
+    <!--------------------------- Navbar --------------------------->
+
+    <nav class="g-nav">
+        <div class="g-nav__top">
+            <div class="g-container">
+                <div class="g-nav__top--wrapper">
+                    <p class="g-nav__text">
+                        Because we care
+                    </p>
+                    <div class="g-nav__top--right">
+                        <select class="language-select" name="" id="">
+                            <option value="en">En</option>
+                            <option value="ru">Ru</option>
+                            <option value="az">Az</option>
+                        </select>
+                        <a href="" class="g-link g-link__white g-link__sm">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="g-nav__main">
+            <div class="g-container">
+                <div class="g-nav__main--wrapper">
+                    <a href="" class="navbar-brand">
+                        <img class="g-fluid" src="./static/assets/svgs/logo.svg" alt="Nobel Energy Logo">
+                    </a>
+                    <div class="g-nav__main--right">
+                        <ul class="g-nav__links">
+                            <li class="g-nav__links--item">
+                                <a href="" class="g-nav__links--link">Who we are</a>
+                                <div class="g-nav__dropdown">
+                                    <div class="g-nav__dropdown--wrapper">
+                                        <ul class="g-nav__dropdown--links">
+                                            <li class="g-nav__dropdown--item">
+                                                <a class="g-nav__dropdown--link" href="">About us</a>
+                                            </li>
+                                            <li class="g-nav__dropdown--item">
+                                                <a class="g-nav__dropdown--link" href="">Vision, Mission, Values</a>
+                                            </li>
+                                            <li class="g-nav__dropdown--item">
+                                                <a class="g-nav__dropdown--link" href="">Our history</a>
+                                            </li>
+                                            <li class="g-nav__dropdown--item">
+                                                <a class="g-nav__dropdown--link" href="">Nobel heritage</a>
+                                            </li>
+                                            <li class="g-nav__dropdown--item">
+                                                <a class="g-nav__dropdown--link" href="">
+                                                    <span>
+                                                        Corporate governance
+                                                    </span>
+                                                    <img src="./static/assets/svgs/right-arrow-sm.svg"
+                                                        alt="Nobel Energy">
+                                                </a>
+                                                <div class="g-nav__submenu">
+                                                    <div class="g-nav__submenu--wrapper">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="">Board of Directors</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">Executive management</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="g-nav__links--item">
+                                <a href="" class="g-nav__links--link">What we do</a>
+                            </li>
+                            <li class="g-nav__links--item">
+                                <a href="" class="g-nav__links--link">Sustainability</a>
+                            </li>
+                            <li class="g-nav__links--item">
+                                <a href="" class="g-nav__links--link">Media</a>
+                            </li>
+                            <li class="g-nav__links--item">
+                                <a href="" class="g-nav__links--link">Career</a>
+                            </li>
+                        </ul>
+                        <button class="g-link g-link__sm" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <img class="g-fluid" src="./static/assets/svgs/search.svg" alt="Nobel Energy">
+                        </button>
+                        <div class="visible-sm">
+                            <button class="g-btn hamburger-btn">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="responsive-navbar visible-sm">
+            <div class="g-flex justify-content-end">
+                <button class="g-btn" id="close-navbar" class="responsive-navbar-btn">
+                    <img class="g-fluid" src="./static/assets/svgs/close.svg" alt="Nobel Energy">
+                </button>
+            </div>
+            <div class="responsive-navbar__wrapper">
+                <ul class="responsive-navbar__links">
+                    <li class="responsive-navbar__links--item">
+                        <a class="responsive-navbar__links--link" href="">Who we are</a>
+                    </li>
+                    <li class="responsive-navbar__links--item">
+                        <a class="responsive-navbar__links--link" href="">What we do</a>
+                        <div class="responsive-navbar__nested">
+                            <a class="responsive-navbar__links--link" href="">Our strategy</a>
+                            <a class="responsive-navbar__links--link" href="">Our businesses</a>
+                            <a class="responsive-navbar__links--link" href="">Projects</a>
+                        </div>
+                    </li>
+                    <li class="responsive-navbar__links--item">
+                        <a class="responsive-navbar__links--link" href="">Our businesses</a>
+                    </li>
+                    <li class="responsive-navbar__links--item">
+                        <a class="responsive-navbar__links--link" href="">Sustainability</a>
+                    </li>
+                    <li class="responsive-navbar__links--item">
+                        <a class="responsive-navbar__links--link" href="">Ethics and compliance</a>
+                    </li>
+                    <li class="responsive-navbar__links--item">
+                        <a class="responsive-navbar__links--link" href="">Media</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--------------------------- Search Modal --------------------------->
+
+    <div class="modal fade g-modal search-modal" id="searchModal" tabindex="-1" aria-labelledby="searchModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close-btn g-btn g-btn__md" data-bs-dismiss="modal">
+                        <img src="./static/assets/svgs/close.svg" alt="">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-search">
+                        <input type="search">
+                        <a href="" class="g-btn">
+                            <img class="g-fluid" src="./static/assets/svgs/search-white-lg.svg" alt="Nobel Energy">
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------- Search Modal --------------------------->
+
+    <!--------------------------- Navbar --------------------------->
+
+    <!--------------------------- Introduction Banner --------------------------->
+
+    <section id="g-banner-section">
+        <button class="g-btn scroll-to scroll-to-section" data-target="g-tab-section">
+            <img class="g-fluid" src="./static/assets/svgs/double-arrow.svg" alt="Nobel Energy">
+        </button>
+        <div class="g-banner" style="background-image: url('./static/assets/svgs/Rectangle 65.svg');">
+            <div class="g-container">
+                <h1 class="g-banner-title">What we do</h1>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------- Introduction Banner --------------------------->
+
+    <!--------------------------- Tab --------------------------->
+
+    <div class="g-container">
+        <section id="g-tab-section">
+            <a href="/" class="g-tab-component active indigo">
+                Our strategy
+            </a>
+            <a href="/" class="g-tab-component indigo">
+                Our business
+            </a>
+            <a href="/" class="g-tab-component indigo">
+                Projects
+            </a>
+        </section>
+    </div>
+
+    <!--------------------------- Tab --------------------------->
+
+    <!--------------------------- Project Content --------------------------->
+
+    <section id="g-project-section">
+        <div class="g-container__md">
+            <div class="g-project">
+                <img class="g-project-image" src="./static/assets/svgs/Rectangle 100.svg">
+                <div class="g-project-content">
+                    <p>
+                        Construction and project management company operating in the energy industry and construction
+                        market in the Caspian region. Prokon, founded in 2012, provides professional services in
+                        construction, engineering, procurement and integrated management of major projects in the
+                        Azerbaijani market.
+                        Since its inception, it has earned itself the reputation of a company with &quot;experienced
+                        staff and proven systems”, which enables it to complete projects with high quality, safely, on
+                        time and within budget. Prokon is proud of its track record of high-level customer service,
+                        commitment to work, successful project implementation and conscientious employees.
+                        The company’s strengths include not only the quality and depth of knowledge and skills of its
+                        carefully selected professional and technical staff, but also the judicious and proactive
+                        approach to work. The project team always acts in the interests of the customer and exercises
+                        control over costs, demonstrating professionalism throughout the project.
+                        Prokon gains a clear understanding of the client’s vision and expectations, and approaches the
+                        project from this perspective. The company develops an understanding of the customer’s business,
+                        budget goals, delivery deadlines and decision-making process. To ensure the successful
+                        implementation of the project, Prokon selects the most appropriate project management techniques
+                        for each project, along
+                        with construction workers and consultants. The company’s management approach and the presence of
+                        qualified construction professionals contribute to the project being delivered safely, on time,
+                        within budget and above customer expectations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------- Project Content --------------------------->
+    <!--------------------------- Footer Section --------------------------->
+
+    <div class="g-footer">
+        <div class="g-footer__top">
+          <div class="g-container">
+            <div class="row">
+              <div class="col-lg-9">
+                <div class="g-footer__grid">
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">
+                        <a href="">Who we are</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">About us</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Vision, Mission, Values</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Our history</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Nobel heritage</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Corporate governance</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Board of Directors</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Executive management</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">
+                        <a href="">
+                          What we do
+                        </a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Our strategy</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Our businesses</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Projects</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">
+                        <a href="">Our businesses</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Prokon</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Glensol</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Llamrei</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">SOCAR AQS</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">SDL Nobel</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Wood Group Azerbaijan</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Turan Drilling & Engineering</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">
+                        <a href="">
+                          Sustainability
+                        </a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Sustainable development goals</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Safety</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Environment</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Our approach to human resources</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Community</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Ethics and compliance</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">Ethics and compliance</li>
+                      <li class="g-footer__links--item">
+                        <a href="">Code of Conduct and Business Ethics</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Human rights and non-discrimination</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Anti-corruption</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Information transparency</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Awareness and communication</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Ethics and Compliance Hotline</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">Media</li>
+                      <li class="g-footer__links--item">
+                        <a href="">News</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Publications and reports</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Image library</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Video library</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links">
+                      <li class="g-footer__links--title">Careers</li>
+                      <li class="g-footer__links--item">
+                        <a href="">Working at Nobel Energy Group</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Career tips</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Career opportunities</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="">Video library</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links contact-links">
+                      <li class="g-footer__links--title">Contact</li>
+                      <li class="g-footer__links--item">
+                        <address>
+                          10Q Alasgar Gayibov St AZ1029, Baku, Azerbaijan
+                        </address>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="tel:+99412 310 44 44">+99412 310 44 44</a>
+                      </li>
+                      <li class="g-footer__links--item">
+                        <a href="mailto:Contact@nobelenergy.com">Contact@nobelenergy.com</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="g-footer__right">
+                  <button data-target="body" class="g-btn scroll-to scroll-to-top" id="scroll-top">
+                    <span>
+                      Go to top
+                    </span>
+                    <span class="arrow-btn">
+                      <img src="./static/assets/svgs/top-arrow.svg" alt="Nobel Energy">
+                    </span>
+                  </button>
+                  <div class="g-footer__grid--item">
+                    <ul class="g-footer__links social-links">
+                      <li class="g-footer__links--title visible-md">Follow us</li>
+                      <ul>
+                        <li class="g-footer__links--item">
+                          <a href="">
+                            <img src="./static/assets/svgs/facebook.svg" alt="Nobel Polymer">
+                          </a>
+                        </li>
+                        <li class="g-footer__links--item">
+                          <a href="">
+                            <img src="./static/assets/svgs/linkedin.svg" alt="Nobel Polymer">
+                          </a>
+                        </li>
+                        <li class="g-footer__links--item">
+                          <a href="">
+                            <img src="./static/assets/svgs/twitter.svg" alt="Nobel Polymer">
+                          </a>
+                        </li>
+                        <li class="g-footer__links--item">
+                          <a href="">
+                            <img src="./static/assets/svgs/youtube.svg" alt="Nobel Polymer">
+                          </a>
+                        </li>
+                      </ul>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="visible-sm">
+            <ul class="additional-links">
+              <li class="g-footer__links--item">
+                <a href="">Legal notice</a>
+              </li>
+              <li class="g-footer__links--item">
+                <a href="">Privacy notices</a>
+              </li>
+              <li class="g-footer__links--item">
+                <a href="">Cookies policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="g-container">
+          <div class="g-footer__bottom">
+            <p class="copyright">
+              Nobel Energy © All rights reserved.
+            </p>
+            <ul class="g-footer__links">
+              <li class="g-footer__links--item">
+                <a href="">Legal notice</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <!--------------------------- Footer Section --------------------------->
+
+    <script src="./static/js/min/jquery.min.js"></script>
+    <script src="./static/js/min/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/min/swiper-bundle.min.js"></script>
+    <script src="./static/js/min/jquery.nice-select.min.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script src="./static/js/carousel.js"></script>
+
+    <script src="./static/js/scroll-to.js"></script>
+</body>
+
+</html>

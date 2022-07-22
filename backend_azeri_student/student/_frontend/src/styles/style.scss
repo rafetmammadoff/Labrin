@@ -1,0 +1,13 @@
+// @import '~font-awesome/css/font-awesome.css';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "vendors/bootstrap";
+@import "molecules/sprite";
+
+//Common
+@import "common/modal";
+@import "common/header";
+@import "common/footer";
+
+//Pages
+@import "pages/general";
+@import "pages/apply";

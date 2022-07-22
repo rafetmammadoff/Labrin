@@ -1,0 +1,17 @@
+pgdb/
+.idea/
+media/
+.venv
+.py3
+db.sqlite3
+*.pyc
+localhost/
+
+# unnececary files
+dump_16-08-2018_15_24_49.sql
+dump_28-08-2018_22_26_53.sql
+mig.tar.gz
+student.json
+users.json
+sendgrid.env
+

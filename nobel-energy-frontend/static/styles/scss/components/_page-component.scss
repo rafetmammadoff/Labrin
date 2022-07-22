@@ -1,0 +1,335 @@
+#g-pages-component-section {
+    .g-pages-component-element {
+        display: flex;
+        margin-bottom: rem(150);
+
+        @include breakpoint(0, $tablet-width) {
+            margin-bottom: rem(100);
+        }
+
+        @include breakpoint(0, $tablet-width) {
+            padding: 0 rem(30) !important;
+        }
+
+        &-wrapper {
+            @include flex-center();
+
+            @include breakpoint(0, $tablet-width) {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        &-content-title {
+            @include font-size(32, 500);
+            @include advancedRem(margin-bottom, (40));
+        }
+
+        &-content-text {
+            @include advancedRem(margin-bottom, (50));
+            p {
+                color: $dark-gray;
+                line-height: 1.7;
+            }
+        }
+
+        &-content-testimonial{
+            @include font-size(28, 600);
+
+            @include breakpoint($mobile-width, $tablet-width) {
+                @include font-size(22, 600);
+            }
+
+            @include breakpoint(0, $mobile-width) {
+                @include font-size(18, 600);
+            }
+
+            img {
+                margin-bottom: rem(18);
+            }
+        }
+
+        .g-pages-component-anchor-button {
+            background-color: $secondary-clr;
+            color: $white-clr;
+            @include advancedRem(padding, (15 25));
+        }
+
+        .g-pages-component-element-content {
+            flex: 0.4;
+        }
+
+        .g-pages-component-element-image {
+            flex: 0.6;
+
+            @include breakpoint(0, $tablet-width) {
+                padding: 0 !important;
+                margin-bottom: rem(30);
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &:nth-child(odd) {
+            @include advancedRem(padding-left, (85));
+
+            @include breakpoint($tablet-width, rem(1120)) {
+                @include advancedRem(padding-left, (40));
+            }
+
+            .g-pages-component-element-content {
+                order: 1;
+
+                @include breakpoint(0, $tablet-width) {
+                    order: 2;
+                }
+            }
+
+            .g-pages-component-element-image {
+                @include advancedRem(padding-left, (85));
+                order: 2;
+
+                @include breakpoint($tablet-width, rem(1120)) {
+                    @include advancedRem(padding-left, (40));
+                }
+
+                @include breakpoint(0, $tablet-width) {
+                    order: 1;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            @include advancedRem(padding-right, (85));
+
+            @include breakpoint($tablet-width, rem(1120)) {
+                @include advancedRem(padding-right, (40));
+            }
+
+            .g-pages-component-element-content {
+                order: 2;
+            }
+
+            .g-pages-component-element-image {
+                @include advancedRem(padding-right, (85));
+                order: 1;
+
+                @include breakpoint($tablet-width, rem(1120)) {
+                    @include advancedRem(padding-right, (40));
+                }
+            }
+        }
+    }
+
+    /*Board of directors and Executive Managment*/
+
+    
+  /*Board of directors and Executive Managment*/
+
+  
+    .g-pages-component-title{
+        margin-left: 2rem;
+       
+    }
+    .g-pages-component-director{
+        margin: 32px 0px 130px;
+        padding: 0px 30px;
+
+
+        .g-pages-component-director-image{
+            position: relative;
+            height: rem(603);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            .g-pages-component-director-name {
+                color: $white-clr;
+                position: absolute;
+                bottom: rem(40);
+                left: rem(10);
+                @include font-size(30, 400);
+            }
+            .g-pages-component-director-position {
+                color: $white-clr;
+                position: absolute;
+                bottom: 0;
+                left: rem(10);
+                @include font-size(20, 400);
+            }
+        }
+    }
+}
+
+#g-pages-component-section-2 {
+    .g-pages-component-element {
+        display: flex;
+        margin-bottom: rem(150);
+
+        @include breakpoint(0, $tablet-width) {
+            margin-bottom: rem(100);
+        }
+
+        @include breakpoint(0, $tablet-width) {
+            padding: 0 rem(30) !important;
+        }
+
+        &-wrapper {
+            @include flex-center();
+
+            @include breakpoint(0, $tablet-width) {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        &-content-title {
+            @include font-size(32, 500);
+            @include advancedRem(margin-bottom, (40));
+        }
+
+        &-content-text {
+            @include advancedRem(margin-bottom, (50));
+            
+            p {
+                line-height: 1.7;
+            }
+        }
+
+        &-content-testimonial{
+            @include font-size(28, 600);
+        }
+
+        .g-pages-component-anchor-button {
+            background-color: $secondary-clr;
+            color: $white-clr;
+            @include advancedRem(padding, (15 25));
+        }
+
+        .g-pages-component-element-content {
+            flex: 0.4;
+        }
+
+        .g-pages-component-element-image {
+            flex: 0.6;
+
+            @include breakpoint(0, $tablet-width) {
+                padding: 0 !important;
+                margin-bottom: rem(30);
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+        
+
+        // .g-pages-component-element-content-title {
+        //     @include font-size(32, 500);
+        //     @include advancedRem(margin-bottom, (40));
+        // }
+
+        // .g-pages-component-element-content-text {
+        //     @include advancedRem(margin-bottom, (50));
+        // }
+
+        // .g-pages-component-anchor-button {
+        //     background-color: $secondary-clr;
+        //     color: $white-clr;
+        //     @include advancedRem(padding, (15 25));
+        // }
+
+        &:nth-child(odd) {
+            // @include advancedRem(padding-right, (100));
+
+            // .g-pages-component-element-content {
+            //     order: 2;
+            // }
+
+            // .g-pages-component-element-image {
+            //     @include advancedRem(padding-right, (100));
+            //     order: 1;
+            // }
+
+            @include advancedRem(padding-right, (100));
+
+            @include breakpoint($tablet-width, rem(1120)) {
+                @include advancedRem(padding-right, (40));
+            }
+
+            .g-pages-component-element-content {
+                order: 2;
+            }
+
+            .g-pages-component-element-image {
+                @include advancedRem(padding-right, (100));
+                order: 1;
+
+                @include breakpoint($tablet-width, rem(1120)) {
+                    @include advancedRem(padding-right, (40));
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            // @include advancedRem(padding-left, (100));
+
+            // .g-pages-component-element-content {
+            //     order: 1;
+            // }
+
+            // .g-pages-component-element-image {
+            //     @include advancedRem(padding-left, (100));
+            //     order: 2;
+            // }
+
+            @include advancedRem(padding-left, (100));
+
+            @include breakpoint($tablet-width, rem(1120)) {
+                @include advancedRem(padding-left, (40));
+            }
+
+            .g-pages-component-element-content {
+                order: 1;
+
+                @include breakpoint(0, $tablet-width) {
+                    order: 2;
+                }
+            }
+
+            .g-pages-component-element-image {
+                @include advancedRem(padding-left, (100));
+                order: 2;
+
+                @include breakpoint($tablet-width, rem(1120)) {
+                    @include advancedRem(padding-left, (40));
+                }
+
+                @include breakpoint(0, $tablet-width) {
+                    order: 1;
+                }
+            }
+        }
+    }
+}
+
+.our-strategy-section{
+    .g-pages-component-element-image{
+        width: 100%;
+
+        .presentation-section__video{
+            height: 540px;
+
+            @include breakpoint(0, $tablet-width) {
+                height: 400px;
+            }
+
+            @include breakpoint(0, $mobile-width) {
+                height: 300px;
+            }
+        }
+    }
+    
+}

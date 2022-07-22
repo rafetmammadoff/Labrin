@@ -1,0 +1,65 @@
+#g-banner-section {
+    $min-height: rem(500);
+    position: relative;
+    height: calc(100% - 150px);
+
+    .scroll-to {
+        position: absolute;
+        bottom: rem(95);
+        left: rem(85);
+        z-index: 2;
+
+        @include breakpoint(0, $tablet-width) {
+            left: rem(30);
+        }
+
+        @include breakpoint(0, $mobile-width) {
+            @include font-size(32, 700);
+            bottom: rem(40);
+        }
+    }
+
+    .g-banner {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        min-height: 100%;
+
+        // @include breakpoint(0, $mobile-width) {
+        //     min-height: rem(320);
+        // }
+
+        @include pseudo() {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(50, 51, 52, 0.45) 2.08%, rgba(98, 99, 101, 0) 100%);
+            z-index: 1;
+        }
+
+        .g-banner-title {
+            color: $white-clr;
+            position: absolute;
+            bottom: rem(190);
+            left: rem(85);
+            font-family: $font-family;
+            @include font-size(72, 700);
+            z-index: 2;
+
+            @include breakpoint(0, $tablet-width) {
+                @include font-size(48, 700);
+                left: rem(30);
+            }
+
+            @include breakpoint(0, $mobile-width) {
+                @include font-size(32, 700);
+                bottom: rem(100);
+            }
+        }
+    }
+}

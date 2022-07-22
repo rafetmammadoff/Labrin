@@ -1,0 +1,75 @@
+.about-page {
+  .about-wrap {
+    display: flex;
+    flex-direction: row;
+    @include breakpoint(visible-till-md) {
+      flex-direction: column;
+    }
+
+    .about-left {
+      width: 50%;
+      @include breakpoint(visible-till-md) {
+        width: 100%;
+      }
+
+      .left-paragraphs {
+        font-weight: bold;
+        padding: 0 50px;
+        font-size: 25px;
+        @include breakpoint(visible-till-md) {
+          font-size: 18px;
+          padding-left: 0;
+        }
+
+        .about-left-paragraph {
+          padding-bottom: 15px;
+        }
+      }
+    }
+
+    .about-right {
+      width: 50%;
+      @include breakpoint(visible-till-md) {
+        width: 100%;
+      }
+
+      .about-right-paragraph {
+        font-size: 21px;
+        @include breakpoint(visible-till-md) {
+          font-size: 16px;
+        }
+      }
+
+      a {
+        display: block;
+        padding-top: 30px;
+        text-align: right;
+        color: $red;
+        font-weight: bold;
+        font-size: 20px;
+        @include breakpoint(visible-till-md) {
+          font-size: 14px;
+        }
+
+        img {
+          width: 25px;
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+  .contact {
+    border-top: 2px solid $red;
+  }
+
+  .map-wrap {
+    h1 {
+      padding: 20px 0;
+    }
+
+    iframe {
+      padding-bottom: 40px;
+    }
+  }
+}

@@ -1,0 +1,552 @@
+.scroll-to-top {
+  color: $dark-gray;
+  @include font-size(12, 400);
+  @include flex-center();
+  margin-left: auto;
+  grid-row: 1 / 2;
+  height: max-content;
+
+  .arrow-btn {
+    background-color: $purple-clr;
+    @include box(25);
+    margin-left: rem(15);
+    @include flex-center();
+  }
+}
+
+/* Introduction Section --> Banner */
+
+.intro-section {
+  $height: rem(740);
+  $height-md: rem(530);
+  position: relative;
+
+  &__swiper {
+    height: calc(100vh - #{rem(180)});
+    max-height: $height;
+    min-height: rem(380);
+    overflow: hidden;
+
+    @include breakpoint(0, $tablet-width) {
+      height: calc(100vh - #{rem(220)});
+      max-height: $height-md;
+      min-height: auto;
+    }
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    @include advancedRem(padding, (80, 185));
+    @include flexbox(column);
+    justify-content: center;
+
+    .g-title__lg {
+      line-height: 90%;
+      margin-bottom: rem(30);
+    }
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(padding, (50, 65));
+
+      .g-title__lg {
+        @include font-size(44, 700);
+      }
+    }
+
+    @include breakpoint(0, rem(572)) {
+      @include advancedRem(padding, (110, 46));
+      .g-title__lg {
+        @include font-size(34, 700);
+      }
+    }
+
+    img {
+      position: absolute;
+      width: 100% !important;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    color: $white-clr;
+  }
+
+  &__text {
+    @include font-size(20, 500);
+    max-width: rem(650);
+    margin-bottom: rem(50);
+
+    @include breakpoint(0, rem(572)) {
+      @include font-size(14, 400);
+      line-height: normal;
+    }
+  }
+
+  .scroll-to-section {
+    position: absolute;
+    bottom: rem(85);
+    left: rem(58);
+    z-index: 2;
+
+    @include breakpoint(0, $tablet-width) {
+      bottom: rem(30);
+      left: rem(35);
+    }
+  }
+
+  .swiper-pagination-bullets {
+    left: rem(60);
+    right: auto;
+
+    @include breakpoint(0, $tablet-width) {
+      top: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      @include flex-center();
+    }
+
+    .swiper-pagination-bullet {
+      border: rem(1) solid $white-clr;
+      opacity: 1;
+      @include box(10);
+      background: transparent;
+
+      @include breakpoint(0, $tablet-width) {
+        margin-right: rem(8);
+      }
+
+      &-active {
+        border-color: $secondary-clr;
+        background: $secondary-clr;
+      }
+    }
+  }
+}
+
+/* News Section */
+
+.news-section {
+  padding-top: rem(20);
+  @include advancedRem(margin, (50 0 150 0));
+
+  &.media-related & {
+    &__wrapper {
+      position: relative;
+
+      .g-navigation__sm {
+        display: block !important;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+
+      .news-section__swiper {
+        @extend .g-container;
+        overflow: hidden;
+
+        @include breakpoint($tablet-width, $desktop-width) {
+          max-width: calc(100% - 60px * 2) !important;
+        }
+
+        @include breakpoint(0, $tablet-width) {
+          max-width: calc(100% - 30px * 2) !important;
+        }
+      }
+
+      .g-navigation__prev,
+      .g-navigation__next {
+        position: absolute;
+        top: 50%;
+        width: rem(10);
+        padding: 0;
+        transform: translateY(-50%);
+        z-index: 2;
+        @include flex-center(column);
+      }
+
+      .g-navigation__prev {
+        left: rem(44);
+
+        @include breakpoint(0, $desktop-width) {
+          left: rem(20) !important;
+        }
+      }
+
+      .g-navigation__next {
+        right: rem(44);
+
+        @include breakpoint(0, $desktop-width) {
+          right: rem(20) !important;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(0, $tablet-width) {
+    @include advancedRem(margin, (70 0 144 0));
+    position: relative;
+  }
+
+  &__swiper {
+    overflow: hidden;
+  }
+
+  &__title {
+    @include advancedRem(margin, (16 0 70 0));
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(margin, (14 0 41));
+      text-align: center;
+    }
+  }
+
+  &__card {
+    background-color: $light-gray;
+    position: relative;
+
+    &:hover & {
+      &--layer {
+        opacity: 1;
+        z-index: 2;
+        visibility: visible;
+        transform: scale(1);
+      }
+    }
+
+    &--layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: -1;
+      visibility: hidden;
+      background-color: $primary-clr;
+      color: $white-clr;
+      @include transition(all, 0.4s);
+      @include justify-between(column);
+      @include advancedRem(padding, (92 48 52 48));
+      transform: scale(0.95);
+      align-items: flex-start;
+
+      @include breakpoint(0, $tablet-width) {
+        @include advancedRem(padding, (32 28 12 28));
+      }
+    }
+
+    .layer-title {
+      @include font-size(30, 500);
+      line-height: rem(41);
+
+      @include breakpoint(0, $tablet-width) {
+        @include font-size(24, 500);
+        line-height: normal;
+      }
+    }
+
+    .layer-date {
+      @include font-size(12, 500);
+    }
+
+    &--img {
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--body {
+      @include advancedRem(padding, (32 23 26 23));
+    }
+
+    &--title {
+      color: $dark-gray;
+      @include font-size(20, 500);
+      margin-bottom: rem(20);
+
+      @include breakpoint(0, $tablet-width) {
+        @include font-size(18);
+      }
+    }
+
+    &--info {
+      color: $solid-gray;
+      @include font-size(12, 300);
+      line-height: rem(17);
+
+      @include breakpoint(0, $tablet-width) {
+        @include font-size(14);
+      }
+    }
+
+    &--footer {
+      @include justify-between();
+
+      * {
+        margin-bottom: 0;
+      }
+
+      .g-btn {
+        color: $solid-blue;
+        @include font-size(12, 500);
+        text-transform: uppercase;
+      }
+    }
+
+    &--date {
+      color: $solid-gray;
+      @include font-size(12, 500);
+    }
+  }
+}
+
+/* Business Section */
+
+.business-section {
+  .g-title__md {
+    text-align: center;
+    margin-bottom: rem(80);
+  }
+
+  &__wrapper {
+    position: relative;
+    background-color: $white-clr;
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(padding, (0 56));
+    }
+  }
+
+  &__swiper {
+    overflow: hidden;
+  }
+}
+
+/* Who we are Section */
+
+.presentation-section {
+  &-img {
+    img {
+      width: 100%;
+      object-fit: cover;
+      max-height: rem(512);
+    }
+  }
+
+  &__title {
+    @include toRem(margin-bottom, 80);
+    text-align: center;
+
+    @include breakpoint(0, $tablet-width) {
+      @include toRem(margin-bottom, 40);
+    }
+  }
+
+  &__video {
+    position: relative;
+    background-image: url("../../assets/svgs/who-we-are.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - #{rem(280)});
+
+    iframe {
+      height: calc(100vh - #{rem(280)});
+    }
+
+    .play-btn {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      @include advancedRem(padding, (8 20));
+
+      img {
+        @include box(50);
+      }
+
+      @include breakpoint(0, $tablet-width) {
+        img {
+          @include box(30);
+        }
+      }
+    }
+  }
+}
+
+/* Projects Section */
+
+.projects-section {
+  @include advancedRem(margin, (150, 0));
+
+  &__title {
+    @include font-size(38, 400);
+    max-width: rem(350);
+    @include advancedRem(margin, (80 0 40 0));
+
+    @include breakpoint(0, $desktop-width) {
+      @include font-size(28, 400);
+      @include advancedRem(margin, (70 0 15 0));
+    }
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(margin, (30 0));
+    }
+  }
+
+  &__swiper {
+    overflow: hidden;
+  }
+
+  &__cover {
+    position: relative;
+  }
+
+  &__subtitle {
+    @include font-size(24, 400);
+    @include toRem(margin-bottom, 30);
+
+    @include breakpoint(0, $desktop-width) {
+      @include toRem(margin-bottom, 15);
+    }
+  }
+  &__heading {
+    @include breakpoint(0, $desktop-width) {
+      @include font-size(20, 400);
+      color: $dark-gray !important;
+    }
+  }
+
+  &__info {
+    color: $solid-gray;
+    @include font-size(16, 400);
+    line-height: rem(25);
+    @include toRem(margin-bottom, 50);
+  }
+
+  &__navigation {
+    position: absolute;
+    top: rem(30);
+    left: 0;
+    z-index: 2;
+
+    @include breakpoint(0, $tablet-width) {
+      @include flex-center();
+      margin-bottom: rem(40);
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    @include flexbox();
+
+    @include breakpoint(0, $tablet-width) {
+      flex-direction: column-reverse;
+    }
+
+    &--content {
+      @include flex-center(column);
+      align-items: flex-start;
+      padding-right: rem(80);
+      flex: 0.4;
+
+      @include breakpoint(0, $tablet-width) {
+        align-items: center;
+        text-align: center;
+        padding: 0;
+
+        .g-btn {
+          @include advancedRem(padding, (16, 28));
+          @include font-size(14, 700);
+        }
+      }
+    }
+
+    &--img {
+      flex: 0.6;
+
+      min-height: 100% !important;
+
+      img {
+        min-height: 100%;
+      }
+    }
+  }
+}
+
+#sustainable {
+  @include advancedRem(padding, (72 0));
+  color: $white-clr;
+  @include flex-center(column);
+  @include advancedRem(margin, (150 0 120 0));
+  text-align: center;
+  position: relative;
+  background: transparent url("../../assets/svgs/sustainable-1.svg") no-repeat;
+  background-size: cover;
+
+  @include pseudo() {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(83, 83, 84, 0.5);
+    z-index: 1;
+  }
+
+  .sustainable-content {
+    position: relative;
+    z-index: 2;
+    max-width: rem(750);
+    width: 100%;
+    width: 100% !important;
+  }
+
+  .sustainable-title {
+    @include font-size(60, 700);
+    @include toRem(margin-bottom, 40);
+
+    @include tablet() {
+      @include font-size(42, 700);
+      @include toRem(margin-bottom, 20);
+    }
+
+    @include breakpoint(0, $tablet-width) {
+      @include font-size(36, 700);
+    }
+  }
+
+  .sustainable-info {
+    @include font-size(18, 500);
+    @include toRem(margin-bottom, 50);
+    line-height: rem(26);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(0, $tablet-width) {
+      @include font-size(14, 700);
+      @include toRem(margin-bottom, 40);
+      line-height: normal;
+    }
+  }
+}

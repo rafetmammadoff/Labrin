@@ -1,0 +1,332 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% load i18n %}
+{% block title %}
+Rezervasyon et | {{ block.super }}
+{% endblock %}
+{% block social_headers %}
+<!-- Facebook share header -->
+<meta property="og:title" content="Rezervasyon et">
+<meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+<meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<!--Twitter header-->
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+<meta name="twitter:image:alt" content="Yeniliklər">
+<meta name="twitter:creator" content="@azeristudent01" />
+<meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'Reserve',
+        content_category: 'Reserve',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block content %}
+{% block header %}
+<header class="relative-header">
+    <div class="container-lg">
+        {% get_base_menu as menu_list %}
+        <div class="header-wrap">
+            <div style="display: flex;align-items: center;">
+                <a href="{% url 'index' %}" class="logo">
+                    <img class="img-responsive" src="{% static 'azeristudent/img/logo.png' %}" alt="">
+                </a>
+                
+            </div>
+            <div class="header-right">
+                <ul class="header-menu">
+                    {% for menu in menu_list %}
+                    {% if not menu.muraciet_button %}
+                    <li {% if menu.dropdown %}class="dropdown" {% endif %}>
+                        <a {% if not menu.dropdown %}href="{{ menu.url }}" {% endif %}>{{ menu.name }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    
+                </ul>
+                <button data-toggle="modal" data-target="#myModal" class="contact-btn hidden-xs muraciet-button">
+                    {% for menu in menu_list %}{% if menu.muraciet_button %}{{ menu.name }}
+                    {% endif %}{% endfor %}</button>
+
+                <button type="button" class="mobile-menu-btn">
+                    <img class="menu-img" src="{% static 'azeristudent/img/menu.png' %}" alt="">
+                    <img class="close-img" src="{% static 'azeristudent/img/close.png' %}" alt="">
+                </button>
+
+                <ul class="header-menu-mobile">
+                    <button data-toggle="modal" data-target="#myModal" class="contact-btn muraciet-button">
+                        {% for menu in menu_list %}{% if menu.muraciet_button %}{{ menu.name }}
+                        {% endif %}{% endfor %}</button>
+                    {% for menu in menu_list %}
+                    {% if not menu.muraciet_button %}
+                    <li {% if menu.dropdown %}class="dropdown" {% endif %}>
+                        <a {% if not menu.dropdown %}href="{{ menu.url }}" {% endif %}>
+                            {{ menu.name }}{% if menu.dropdown %}<span class="caret"></span>{% endif %}
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    <li class="logo-mobile"><a href="{% url 'index' %}" class="logo">
+                        <img class="img-responsive" src="{% static 'azeristudent/img/usa.png' %}" alt="">
+                    </a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="programs-menu">
+        <div class="container">
+            <div class="programs-menu-wrap">
+                <div class="countries">
+                    <h2>Ölkələr</h2>
+                    {% get_program_country as country_list %}
+                    <ul class="countries-items">
+                        {% for country in country_list|slice:":21" %}
+                        <li>
+                            <a href="{{ country.get_absolute_url }}">
+                                <span class="country-flag">
+                                    <img src="{{ country.icon.url }}" alt="{{ country.name|slugify }}-flag">
+                                </span>
+                                <span class="country-title">{{ country.name }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="programs">
+                    <h2>Proqramlar</h2>
+                    {% get_menu_programs as program_list %}
+                    {% if program_list %}
+                    <ul class="programs-items">
+                        {% for program in program_list %}
+                        <li>
+                            <a href="{{ program.get_absolute_url }}">{{ program.title }} <img
+                                    src="{% static 'azeristudent/img/right-arrow.png' %}" alt="{{ program.slug }}"></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% get_website_settings as settings %}
+
+<section id="reserve">
+    <div class="container">
+        <div class="d-flex">
+            <div class="row mainRow active">
+                <div class="col-sm-5 col-md-4">
+                    <h2 class="today selected_month_day">{% now "j" %}
+
+                        {% language 'az' %}
+                        {% now "F" %}
+                        {% endlanguage %}
+                    </h2>
+                    <h6>Görüş təyin edin</h6>
+
+                    <ul id="time">
+                        {% for item in reserve_count %}
+                        <li>
+                            <span>{{ item.time }}</span>
+                            <button id="reserve-btn"
+                                {% if item.count >= settings.reservation_count or item.active %}class="disabled"
+                                {% endif %}>Bron edin.</button>
+                            <button id="uni-reserve-btn"
+                                {% if item.count >= settings.reservation_count or item.active %}class="disabled"
+                                {% endif %}>Mütəxəssis</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-sm-7 col-md-8">
+                    <div id="calendar"></div>
+                </div>
+
+                <a href="{% url 'index' %}" class="close_btn">
+                    <img src="{% static 'azeristudent/img/close.svg' %}" alt="">
+                </a>
+
+                <div id="popup" class="register_popup">
+                    <form action="" id="reservation_form" method="post" enctype="multipart/form-data">
+                        <h6 class="title">
+                            <span>1</span> Informasiya
+                        </h6>
+                        <p class="time"><span class="selected_full_date">{% now "j" %}
+                                {% language 'az' %}{% now "F" %}{% endlanguage %} {% now "Y" %}</span> <span
+                                id="clock"></span></p>
+                        {% csrf_token %}
+                        <input type="hidden" id="input_clock" name="time">
+
+                        {% get_base_form as form %}
+                        <input type="hidden" class="phone-validation" data-valid="false">
+                        <input type="hidden" class="email-validation" data-valid="false">
+
+                        <input class="submit-after-url" type="hidden" value="/reserve/{% now "Y/m/j" %}/">
+                        <input type="hidden" name="reference_url" value="{{ request.get_full_path }}">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input type="text" placeholder="Ad Soyad" name="full_name" required="">
+                            </div>
+                            <div class="col-sm-6">
+                                <input id="id_email" type="email" placeholder="E-mail" name="email" required="">
+                            </div>
+                            <div class="col-sm-6">
+                                <input id="id_phone" type="number" name="phone" placeholder="Telefon" required="">
+                            </div>
+                            <div class="col-lg-3 add-option pr-half">
+                                <div class="selectHolder" id="edu-category-select">
+                                    <select name="edu-category" class="cs-select cs-skin-elastic" id="edu-category-selectbox">
+                                        <option value="1">Ali Mekteb</option>
+                                        <option value="2">Orta Mekteb</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 add-option pl-half"  id="edu-cat-country-select">
+                                <div class="selectHolder">
+                                    <select name="country" class="cs-select cs-skin-elastic" id="edu-cat-country-selectbox">
+                                        {% for country in countries %}
+                                            <option value="{{ country.id }}">{{ country.name }}</option>
+                                            {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 add-option" id="country-edu-select">
+                                <div class="my-selectHolder">
+                                    <select name="education"  >
+                                        {% for edu in educations %}
+                                            <option value="{{ edu.id }}">{{ edu.title }}</option>
+                                            {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h6 class="title">
+                            <span>2</span> Rəy
+                        </h6>
+
+                        <textarea name="message" id="id_message" rows="10" placeholder="Rəyinizi yazın"
+                            required=""></textarea>
+
+                        <div class="buttonHolder">
+                            <small>
+                                Görüş vaxtının dəqiq təyin olunması və sizinlə əlaqə saxlaya bilməyimiz üçün, bütün
+                                xanaların düzgün doldurduğunuzdan əmin olun.
+                                Bütün məlumatlarınız məxvi saxlanılır.
+                            </small>
+
+                            <button type="submit">Təsdiqlə</button>
+                        </div>
+                    </form>
+
+                    <span id="close_popup" class="close_btn">
+                        <img src="{% static 'azeristudent/img/close.svg' %}" alt="">
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{% block modals %}
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="btn-wrap">
+                    <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+                        <img src="{% static 'azeristudent/img/close.png' %}" alt="">
+                    </button>
+                </div>
+                <div class="content-wrap">
+                    <h4 class="title base-title">Məsləhət lazımdırmı?</h4>
+                    {#                            <span style="color: red">Müraciətiniz üçün təşəkkür edirik</span>#}
+                    <form method="post" class="contact-submit-form" data-action="{% url 'consultant-form' %}"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% get_base_form as form %}
+                        <input type="hidden" class="phone-validation" data-valid="false">
+                        <input type="hidden" class="email-validation" data-valid="false">
+                        {% if object.event_date %}
+                        <input type="hidden" name="event_id" value="{{ object.pk }}">
+                        {% endif %}
+                        <input type="hidden" name="reference_url" value="{{ request.get_full_path }}">
+                        {% if object.event_exhibitions.all %}
+                        <input type="hidden" name="event_id" value="{{ object.event_exhibitions.first.id }}">
+                        {% endif %}
+                        <div class="form-wrap">
+                            {% for field in form %}
+                            {% if field.html_name == 'phone' %}
+                            <div class="input-with-select">
+                                <select name="prefix">
+                                    <option value="055">055</option>
+                                    <option value="099">099</option>
+                                    <option value="050">050</option>
+                                    <option value="051">051</option>
+                                    <option value="077">077</option>
+                                    <option value="070">070</option>
+                                </select>
+                                <input type="text" name="phone" class="form-control mask-phone" placeholder="Telefon"
+                                    required="" id="id_phone" maxlength="255">
+
+                            </div>
+                            <span class="phone-err"></span>
+                            {% elif field.html_name == 'email' %}
+                            <input type="text" name="email" maxlength="254" placeholder="Email" required=""
+                                class="form-control mask-email" id="id_email">
+                            <span class="email-err"></span>
+                            {% else %}
+                            {{ field }}
+                            {% endif %}
+                            {% endfor %}
+                            <button type="submit" class="btn contact-btn">Müraciət etmək üçün <img
+                                    src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt=""></button>
+                        </div>
+                    </form>
+
+                    <small>
+                        Mesaj göndərərkən, şəxsi məlumatların emalına razılıq verirsiniz. Məxfiliyi tam təmin
+                        edirik.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="snackbar"></div>
+{% endblock %}
+
+{% endblock %}

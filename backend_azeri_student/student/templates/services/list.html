@@ -1,0 +1,71 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    {% get_website_settings as serviceconfig %}
+    {{ serviceconfig.services_title }} | {{ block.super }}
+{% endblock %}
+
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'All Services',
+        content_category: 'Services',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+
+{% block base_content %}
+    {% get_website_settings as config %}
+    <div class="services-page">
+        <div class="page-cover" style="background-image:url('{{ config.get_services_cover }}')">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title">{{ config.services_title }}</h1>
+                    <ol class="breadcrumb">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ config.services_title }}</li>
+                    </ol>
+                    <p class="cover-info "></p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="services-wrap">
+                {% for service in object_list %}
+                    <li>
+                        <div class="services-left">
+                            <h1>{{ forloop.counter }}. {{ service.name }}</h1>
+                        </div>
+                        <div class="services-right">
+                            <a href="{{ service.get_absolute_url }}">
+                                <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt="">
+                                {{ service.title }}
+                            </a>
+                            <p>{{ service.sub_description }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% include "partials/do_with_us.html" %}
+        </div>
+    </div>
+{% endblock %}

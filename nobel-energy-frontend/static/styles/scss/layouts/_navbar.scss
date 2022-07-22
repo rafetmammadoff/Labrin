@@ -1,0 +1,269 @@
+.g-nav {
+  position: relative;
+  z-index: 99;
+
+  .navbar-brand {
+    cursor: pointer;
+    max-width: rem(130);
+    flex-shrink: 0;
+
+    @include breakpoint(0, $tablet-width) {
+      max-width: rem(70);
+    }
+  }
+
+  &__top {
+    @include advancedRem(padding, (10 0));
+    background-color: $primary-clr;
+
+    &--wrapper {
+      @include justify-between();
+    }
+
+    &--right {
+      @include flex-center();
+    }
+  }
+
+  &__text {
+    color: $white-clr;
+    @include font-size(12, 700);
+    margin-bottom: 0;
+    @include advancedRem(padding, (10 0));
+  }
+
+  &__main {
+    @include advancedRem(padding, (22 0));
+    background-color: $white-clr;
+    @include transition();
+
+    // &.fixed {
+    //   position: fixed;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   z-index: 3;
+    //   @include transition();
+
+    //   @include advancedRem(padding, (10 0));
+
+    //   .navbar-brand {
+    //     max-width: rem(70);
+    //   }
+    // }
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(padding, (13 0));
+    }
+
+    &--wrapper {
+      @include justify-between();
+    }
+
+    &--right {
+      @include flex-center();
+    }
+  }
+
+  &__links {
+    @include flex-center();
+    @include advancedRem(margin, (0 80 0 0));
+
+    &--item {
+      position: relative;
+
+      @include action-css(hover) {
+        .g-nav__links--link {
+          color: $primary-clr;
+        }
+
+        > .g-nav__dropdown {
+          display: block;
+        }
+      }
+    }
+
+    &--link {
+      color: $dark-gray;
+      display: block;
+      @include font-size(16, 500);
+      @include advancedRem(padding, (10, 20));
+      @include toRem(margin-left, 10);
+      @include transition();
+      height: 100%;
+
+      &:hover,
+      &.active {
+        color: $primary-clr;
+      }
+
+      @include tablet() {
+        @include font-size(14, 500);
+        @include advancedRem(padding, 10);
+      }
+
+      @include breakpoint($tablet-width, rem(800)) {
+        @include font-size(12, 500);
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    display: none;
+    width: max-content;
+    left: rem(20);
+    min-width: rem(230);
+
+    &--wrapper {
+      @include advancedRem(padding, (45 0 20 0));
+      background-color: $white-clr;
+      animation: fade 0.2s linear;
+    }
+
+    &--links {
+      padding-left: 0;
+    }
+
+    &--item {
+      position: relative;
+
+      @include action-css(hover) {
+        .g-nav__submenu {
+          display: block;
+        }
+
+        .g-nav__dropdown--link {
+          @include toPrimary();
+        }
+      }
+    }
+    &--link,
+    a {
+      color: $dark-gray;
+      @include advancedRem(padding, (8 20 8 20));
+      @include font-size(12, 400);
+      @include transition();
+      @include justify-between();
+      width: 100%;
+
+      @include action-css((hover, active)) {
+        @include toPrimary();
+      }
+    }
+  }
+
+  &__submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: none;
+    width: max-content;
+    min-width: rem(230);
+
+    &--wrapper {
+      width: 100%;
+      background-color: $white-clr;
+      @include advancedRem(padding, (16 0));
+      animation: fade 0.2s linear;
+    }
+  }
+}
+
+.responsive-navbar {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: $primary-clr;
+  @include advancedRem(padding, (67 75));
+  overflow-y: auto;
+  @include transition(all, 0.4s);
+
+  &.open {
+    left: 0;
+  }
+
+  @include breakpoint(0, rem(520)) {
+    @include advancedRem(padding, (35 45));
+  }
+
+  &__wrapper {
+    @include flex-center(column);
+    text-align: center;
+  }
+
+  &__links {
+    @include flex-center(column);
+
+    &--item {
+      margin-bottom: rem(40);
+
+      &:hover {
+        > .responsive-navbar__nested {
+          margin-top: rem(34);
+          animation: fade-in 0.6s ease-in-out;
+          // display: block;
+          display: block;
+        }
+      }
+    }
+
+    &--link {
+      color: $white-clr;
+      display: block;
+      @include font-size(24, 400);
+      color: $white-clr;
+      @include transition();
+      @include advancedRem(padding, (10 20));
+
+      @include breakpoint(0, rem(520)) {
+        @include font-size(18, 400);
+      }
+
+      @include action-css((hover, active)) {
+        color: $dark-gray;
+      }
+    }
+  }
+
+  &__nested {
+    display: none;
+    @include transition();
+
+    .responsive-navbar__links--link {
+      @include font-size(14, 300);
+      margin-bottom: rem(15);
+      display: block;
+
+      @include breakpoint(0, rem(520)) {
+        @include font-size(12, 300);
+      }
+    }
+  }
+}
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateY(#{$y});
+    height: 0;
+  }
+
+  99% {
+    opacity: 1;
+    transform: translateY(#{$y});
+  }
+
+  100% {
+    display: block;
+    height: 100%;
+  }
+}

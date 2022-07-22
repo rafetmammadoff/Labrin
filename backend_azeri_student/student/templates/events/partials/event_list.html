@@ -1,0 +1,29 @@
+{% load static %}
+{% for event in object_list %}
+    <a href="{{ event.get_absolute_url }}">
+        <div class="innovation-item">
+            <div class="innovation-img"
+                 style="background-image:url({{ event.background.url }})"></div>
+            <div class="innovation-info">
+                                        <span class="date">{{ event.event_date|date:"d F" }} <i
+                                                class="fa fa-calendar"></i></span>
+                <h2 class="title">{{ event.title }}</h2>
+                <p class="content">
+                    {{ event.summary|truncatechars:"137" }}
+                </p>
+                
+                <div class="details-link">Daha çox <img
+                        src="{% static 'azeristudent/img/right-arrow.png' %}"
+                        alt=""></div>
+            </div>
+        </div>
+    </a>
+{% endfor %}
+{% block extra_script %}
+<script>
+    fbq('track', 'ViewContent',{
+        content_name: '{{ object.title }}',
+        content_category: 'Events',
+    });
+</script>
+{% endblock %}

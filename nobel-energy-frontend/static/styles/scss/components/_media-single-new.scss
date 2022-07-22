@@ -1,0 +1,36 @@
+.media{
+    &__image{
+        width: 100%;
+    }
+    &__date{
+        color:  rgba(89, 90, 91, 1);
+    }
+    &__title{
+        @include breakpoint(0, $mobile-width) {
+            @include font-size(25, 400);
+            @include advancedRem(line-height, (40));
+        }
+        @include font-size(35, 400);
+        @include advancedRem(line-height, (60));
+    }
+    &__content{
+        @include advancedRem(margin-top, (80))
+    }
+    &__content--description{
+        color: rgba(47, 47, 48, 1);
+    }
+
+    
+        &__share--wrapper{
+            display: flex;
+            justify-content: space-between;
+            @include advancedRem(width, (200));
+            @include advancedRem(margin, (50,0,100))
+
+            
+        }
+        &__share--link{
+            color: rgba(5, 159, 248, 1);
+        }
+    
+}

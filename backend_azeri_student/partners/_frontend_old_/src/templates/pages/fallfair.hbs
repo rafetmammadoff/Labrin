@@ -1,0 +1,259 @@
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    {{> common/head }}
+
+</head>
+
+<body>
+
+    {{> common/header }}
+
+    <section id="fallfair_pg">
+        <div class="container">
+            {{> common/video}}
+
+            <h5>Fall 2019 Fair in 4 Countries</h5>
+
+            <p>
+                Dear Lovely Team,
+                <br><br>
+                We, Azeri Student Team, take immense pleasure in inviting you to attend the Azeri Student Fall 2019
+                Fair.
+                <br><br>
+                Our Educational Fairs is most popular in the market being busy with the high quality of students.
+                <br><br>
+                Our Fairs will be held on October 19th 2019 in Lviv, on October 26-27 Tbilisi-Baku and on November 2nd
+                in Tirana.
+                <br><br>
+                As we heard talks that our fairs are most expensive in the region, this time we will just remove all
+                inclusive option and we will
+                charge only fair participation, which will be only for 1550 GBP per city.
+                <br><br>
+                We highly appreciate your support and help during our fair season and will be super happy to see you all
+                soon.
+                <br><br>
+                In the short-term, if you have any questions or need further information, please do not hesitate to
+                contact us.
+            </p>
+
+            <article id="cities">
+                <div class="row">
+                    {{!-- LVIV --}}
+                    <div class="col-md-6 col-lg-3">
+                        <div class="city">
+                            <img src="../assets/lviv.jpg">
+
+                            <div class="city_name">Lviv</div>
+
+                            <h6 class="date" style="background-color: #2c67ff">
+                                19 October 2019
+                            </h6>
+                        </div>
+                    </div>
+
+                    {{!-- TBILISI --}}
+                    <div class="col-md-6 col-lg-3">
+                        <div class="city">
+                            <img src="../assets/tbilisi.jpg">
+
+                            <div class="city_name">Tbilisi</div>
+
+                            <h6 class="date" style="background-color: #6c40a4">
+                                19 October 2019
+                            </h6>
+                        </div>
+                    </div>
+
+                    {{!-- BAKU --}}
+                    <div class="col-md-6 col-lg-3">
+                        <div class="city">
+                            <img src="../assets/baku.jpg">
+
+                            <div class="city_name">Baku</div>
+
+                            <h6 class="date" style="background-color: #344a8a">
+                                19 October 2019
+                            </h6>
+                        </div>
+                    </div>
+
+                    {{!-- TIRANA --}}
+                    <div class="col-md-6 col-lg-3">
+                        <div class="city">
+                            <img src="../assets/tirana.jpg">
+
+                            <div class="city_name">Tirana</div>
+
+                            <h6 class="date" style="background-color: #249a96">
+                                19 October 2019
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <form action="">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" placeholder="First name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Last name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input type="email" placeholder="Email address" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input type="text" placeholder="Institution name" required>
+                    </div>
+                </div>
+
+                {{!-- CITY CHECKBOXES --}}
+                <article class="checkHolder">
+                    <div class="check_header">
+                        <p>Select event (Cities)</p>
+                        <p>How many tables each city</p>
+                    </div>
+
+                    {{!-- LVIV CHECKBOX --}}
+                    <div class="check_city">
+                        <div class="input_wrapper">
+                            <input class="nonform" type="checkbox" id="lviv">
+                            <label for="lviv">Lviv 2019</label>
+                        </div>
+
+                        <input disabled value="1" class="nonform" type="number" min="1">
+                    </div>
+
+                    {{!-- TBILISI CHECKBOX --}}
+                    <div class="check_city">
+                        <div class="input_wrapper">
+                            <input class="nonform" type="checkbox" id="tbilisi">
+                            <label for="tbilisi">Tbilisi 2019</label>
+                        </div>
+
+                        <input disabled value="1" class="nonform" type="number" min="1">
+                    </div>
+
+                    {{!-- BAKU CHECKBOX --}}
+                    <div class="check_city">
+                        <div class="input_wrapper">
+                            <input class="nonform" type="checkbox" id="baku">
+                            <label for="baku">Baku 2019</label>
+                        </div>
+
+                        <input disabled value="1" class="nonform" type="number" min="1">
+                    </div>
+
+                    {{!-- TIRANA CHECKBOX --}}
+                    <div class="check_city">
+                        <div class="input_wrapper">
+                            <input class="nonform" type="checkbox" id="tirana">
+                            <label for="tirana">Tirana 2019</label>
+                        </div>
+
+                        <input disabled value="1" class="nonform" type="number" min="1">
+                    </div>
+                </article>
+
+                <div class="row">
+                    <div class="col-12">
+                        <textarea placeholder="Special comment"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <input required type="text" placeholder="Billing Address">
+                    </div>
+
+                    <div class="col-12">
+                        <input required type="text" placeholder="Signature">
+                    </div>
+                </div>
+
+                <div class="buttonHolder">
+                    <span id="today"></span>
+
+                    <button type="submit">SEND</button>
+                </div>
+            </form>
+        </div>
+
+        {{!-- PARTICIPANTS --}}
+        <article id="participants">
+            <div class="container">
+                <h5>What Participated Partners say</h5>
+            </div>
+
+            <div class="carouselHolder">
+                <div class="container">
+                    <div class="owl-carousel">
+                        {{!-- PARTICIPANT - 1 --}}
+                        <div class="participant">
+                            <img class="participant_pp" src="../assets/participant-1.jpg" alt="">
+
+                            <h5 data-id="1" class="participant_name">Ewa Zagotto</h5>
+                            <small class="participant_position">Sales Manager, Study Group</small>
+
+                            <p class="participant_quote">
+                                Azeri Student fairs is the best in the
+                                region. We get very good quality of
+                                students during the fair.
+                            </p>
+                        </div>
+
+                        {{!-- PARTICIPANT - 2 --}}
+                        <div class="participant">
+                            <img class="participant_pp" src="../assets/participant-2.jpg" alt="">
+
+                            <h5 data-id="2" class="participant_name">Ewa Zagotto</h5>
+                            <small class="participant_position">Sales Manager, Study Group</small>
+
+                            <p class="participant_quote">
+                                Azeri Student fairs are always expertly organised and very well-attended.
+                            </p>
+                        </div>
+
+                        {{!-- PARTICIPANT - 3 --}}
+                        <div class="participant">
+                            <img class="participant_pp" src="../assets/participant-3.jpg" alt="">
+
+                            <h5 data-id="3" class="participant_name">Murtza Ali Ghaznavi</h5>
+                            <small class="participant_position">Region Development Manager, Aberystwyth
+                                university</small>
+
+                            <p class="participant_quote">
+                                I have attended all the fairs of Azeri Student. They are the best!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <div class="container">
+            <div id="videoHolder" class="row megaVideo">
+                <div class="col-12">
+                    <a id="video" data-fancybox="" href="https://www.youtube.com/watch?v=_sI_Ps7JSEk">
+                        <img src="../assets/building.jpg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{> common/footer }}
+
+</body>
+
+</html>

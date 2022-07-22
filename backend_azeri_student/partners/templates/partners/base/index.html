@@ -1,0 +1,172 @@
+{% load static %}
+{% load partner_filter i18n %}
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="index, follow">
+{% block meta_tags %}
+    <meta name="keywords" content="tags for website">
+    <meta name="description" content="front-end starter">
+{% endblock %}
+    <meta name="author" content="Labrin.net">
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ config.facebook_social_title }}">
+    <meta property="og:description" content="{{ config.facebook_social_description }}">
+    {% if config.social_image %}
+        <meta property="og:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ config.social_image.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if config.social_image %}
+        <meta name="twitter:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ config.social_image.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ config.twitter_social_image_alt }}">
+    <meta name="twitter:creator" content="{{ config.twitter_social_creator }}"/>
+    <meta name="twitter:site" content="{{ config.twitter_social_site }}">
+{% endblock %}
+
+    {% block title %}
+        <title> Home - Project Title </title>
+    {% endblock title %}
+
+<link href="{% static 'partners/css/main.css' %}" rel="stylesheet"></head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="nav-header">
+                <div class="nav">
+
+                    <div class="left-sec-nav">
+                        <div class="nav_logo">
+                            <a href="{% url 'base_index' %}">
+                                <img src="{% static 'partners/assets/logo_white.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right-sec-nav">
+                        <ul class="menu">
+                            {% get_menu_list as menu_list %}
+                            {% for menu in menu_list %}
+                            <li >
+                                <a href="{{ menu.url }}" {% if menu.url == request.path %}class="border-bottom-active"{% endif %}>
+                                    {{ menu.name }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                        <button id="toggleMenuButton">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toggle_menu">
+            <div class="toggle-menu-mother">
+                 <ul class="toggle-menu-ul">
+                     {% for menu in menu_list %}
+                        <li >
+                            <a href="{{ menu.url }}">
+                                {{ menu.name }}
+                            </a>
+                        </li>
+                     {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </header>
+{#    <script>#}
+{#    function get(name) {#}
+{#        if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))#}
+{#            return decodeURIComponent(name[1]);#}
+{#    }#}
+{##}
+{#    if (get('url') !== undefined && window.localStorage.getItem('logo_url') !== get('url')) {#}
+{#        window.localStorage.setItem('logo_url', get('url'));#}
+{#    }#}
+{##}
+{#    var come_from = window.localStorage.getItem('logo_url')#}
+{#    console.log("came", come_from)#}
+{##}
+{#    if (come_from === 'az') {#}
+{#        $('#partner-logo').attr('src', "{% static 'partners/assets/logo.svg' %}");#}
+{#        console.log('az')#}
+{#    } else if (come_from === 'uk') {#}
+{#        $('#partner-logo').attr('src', "{% static 'partners/assets/logo_uk.png' %}");#}
+{#        console.log('uk')#}
+{#    } else if (come_from === 'ge') {#}
+{#        $('#partner-logo').attr('src', "{% static 'partners/assets/logo_ge.png' %}");#}
+{#        console.log('ge')#}
+{#    } else {#}
+{#        $('#partner-logo').attr('src', "{% static 'partners/assets/logo.svg' %}");#}
+{#        console.log('other')#}
+{#    }#}
+{#</script>#}
+    {% block content %}
+    {% endblock content %}
+<footer>
+        <div class="container">
+            <div class="footer-section">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="logo-mother">
+                            <img src="{% static 'partners/assets/logo_black.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pl-3">
+                        <div class="footer-menu">
+                            <ul>
+                                {% get_menu_list as menu_list %}
+                                {% for menu in menu_list %}
+                                    {% if not forloop.counter == 3 and not forloop.counter == 4  %}
+                                        <li>
+                                           <a href="{{ menu.url }}">{{ menu.name }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                            <ul>
+                                {% for menu in menu_list %}
+                                {% if not forloop.counter == 1 and not forloop.counter == 2  %}
+                                <li>
+                                    <a href="{{ menu.url }}">{{ menu.name }}</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 pl-1">
+                        <div class="footer-reserved">
+                            {% get_copyright as copyright %}
+                            <p>
+                                {{ copyright.name|safe }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script type="text/javascript" src="{% static 'partners/js/main.js' %}"></script></body>
+</html>

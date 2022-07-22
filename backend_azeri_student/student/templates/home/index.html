@@ -1,0 +1,516 @@
+{% extends "base/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% load widget_tweaks %}
+{% block extra_script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.9.5/hyperform.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.9.5/hyperform.min.css">
+
+{% endblock %}
+{% block content %}
+<!-- <div data-marquiz-id="60bdf708e99351003e7751e7"></div> -->
+<script>
+// (function(t, p) {window.Marquiz ? Marquiz.add([t, p]) : document.addEventListener('marquizLoaded', function() {Marquiz.add([t, p])})})('Button', {id: '60bdf708e99351003e7751e7', buttonText: 'Endirim Kuponu', bgColor: '#be271d', textColor: '#ffffff', rounded: true, blicked: true, fixed: 'left'})</script>
+    {% block header %}
+        <header {% block header_class %}{% endblock %}>
+            <div class="container-lg">
+                {% get_base_menu as menu_list %}
+                <div class="header-wrap">
+                    <div style="display: flex;align-items: center;">
+                        <a href="{% url 'index' %}" class="logo">
+                            <img class="img-responsive" src="{% static 'azeristudent/img/logo.png' %}" alt="">
+                        </a>
+                        
+                    </div>
+                    <div class="header-right">
+                        <ul class="header-menu">
+                            {% for menu in menu_list %}
+                                {% if not menu.muraciet_button %}
+                                    <li {% if menu.dropdown %}class="dropdown"{% endif %}>
+                                        <a {% if not menu.dropdown %}href="{{ menu.url }}"{% endif %}>{{ menu.name }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <button data-toggle="modal" data-target="#myModal"
+                                class="contact-btn hidden-xs muraciet-button">
+                            {% for menu in menu_list %}{% if menu.muraciet_button %}{{ menu.name }}
+                            {% endif %}{% endfor %}</button>
+
+                        <button type="button" class="mobile-menu-btn">
+                            <img class="menu-img" src="{% static 'azeristudent/img/menu.png' %}" alt="">
+                            <img class="close-img" src="{% static 'azeristudent/img/close.png' %}" alt="">
+                        </button>
+
+                        <ul class="header-menu-mobile">
+                            <button data-toggle="modal" data-target="#myModal" class="contact-btn muraciet-button">
+                                {% for menu in menu_list %}{% if menu.muraciet_button %}{{ menu.name }}
+                                {% endif %}{% endfor %}</button>
+                            {% for menu in menu_list %}
+                                {% if not menu.muraciet_button %}
+                                    <li {% if menu.dropdown %}class="dropdown"{% endif %}>
+                                        <a {% if not menu.dropdown %}href="{{ menu.url }}"{% endif %}>
+                                            {{ menu.name }}{% if menu.dropdown %}<span class="caret"></span>{% endif %}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            <li class="logo-mobile"><a href="{% url 'index' %}" class="logo">
+                                <img class="img-responsive" src="{% static 'azeristudent/img/usa.png' %}" alt="">
+                            </a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+            <div class="programs-menu">
+                <div class="container">
+                    <div class="programs-menu-wrap">
+                        <div class="countries">
+                            <h2>Ölkələr</h2>
+                            {% get_program_country as country_list %}
+                            <ul class="countries-items">
+                                {% for country in country_list|slice:":21" %}
+                                    <li>
+                                        <a href="{{ country.get_absolute_url }}">
+                                              <span class="country-flag">
+                                                <img src="{{ country.icon.url }}" alt="{{ country.name|slugify }}-flag">
+                                              </span>
+                                            <span class="country-title">{{ country.name }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                        <div class="programs">
+                            <h2>Proqramlar</h2>
+                            {% get_menu_programs as program_list %}
+                            {% if program_list %}
+                                <ul class="programs-items">
+                                    {% for program in program_list %}
+                                        <li>
+                                            <a href="{{ program.get_absolute_url }}">{{ program.title }} <img
+                                                    src="{% static 'azeristudent/img/right-arrow.png' %}"
+                                                    alt="{{ program.slug }}"></a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+    {% block base_content %}
+        {% get_website_settings as config %}
+        <section class="home">
+            <div class="owl-carousel owl-theme slider ">
+                {% for image in sliders %}
+                    <div class="slider-item" style='background-image: url({{ image.background_image.url }})'>
+                        <!-- <div class="gradient"></div> -->
+                        <div class="gradient1">
+                        </div>
+
+                        <div class="container" style="position: relative;z-index: 5;">
+                            <div class="row">
+                                <div class="col-md-6"></div>
+                                {% if image.title or image.desription or image.button_text %}
+                                    <div class="col-md-6">
+                                        <div class="slider-wrap">
+                                            <h2 class="slider-title">
+                                                {{ image.title }}
+                                            </h2>
+                                            <p class="slider-content">{{ image.desription }}</p>
+                                            <div class="slider-btn-container">
+                                                <button class="gradient1-button"><a href="https://www.trade.gov/education-state-consortia/?utm_source=azeristudent&utm_medium=website&utm_campaign=header_logo" target="_blank" class="logo logo-desktop">
+                                                    <img src="{% static 'azeristudent/img/usa.png' %}" alt="">
+                                                </a></button>   
+                                                <div class="slider-btn-wrap">
+                                                    {% if image.button_text %}
+    
+                                                    <button class="btn slider-btn"
+                                                                onclick="location.href = '{{ image.button_link }}'">
+                                                            {{ image.button_text }}
+                                                            <img src="{% static 'azeristudent/img/right-arrow.png' %}"
+                                                                 alt="">
+                                                            <img class="arrow-white"
+                                                                 src="{% static 'azeristudent/img/right-arrow-white.png' %}"
+                                                                 alt="">
+                                                        </button>
+                                                        
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!---<div class="container flexbox">
+                <a href="" target="_blank" class="keepfly">
+                    <img src="{% static 'Baku_MBA_728x90_Keep_Flying_static_Azeri.jpg' %}" alt="">
+                </a>
+            </div>--->
+            <div class="about section pt-0">
+                <div class="container">
+                    <h1 class="section-title">{{ about.main_page_title|safe }}</h1>
+                    <div class="about-company-wrap">
+                        <div class="about-company-info">
+                            {{ about.main_content|safe }}
+                        </div>
+                        <div class="about-company-services">
+                            <ul>
+                                {% for about_link in about.altmenuaboutus_set.all %}
+                                    <li class="">
+                                        <a href="{{ about_link.url }}">
+                                            <span class="about-company-services-title">{{ about_link.name }}</span>
+                                            <span class="about-company-services-description">{{ about_link.sub_title }}</span>
+                                            <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt="">
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-company--btn-wrap">
+                    <button class="btn about-company-btn" onclick="location.href = '{{ about.button_link }}'">
+                        {{ about.button_text }}
+                        <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt="">
+                        <img class="arrow-white" src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="insurance">
+                <div class="container">
+                    <div class="card-flex">
+                        <div class="imgHolder">
+                            <img class="main_img" src="{% static 'azeristudent/img/shutterstock_insurance.jpeg' %}">
+                            <div class="layout">
+                                <h5>Təhsiliniz yarıda qalmasın!</h5>
+                                <img src="{% static 'azeristudent/img/pasha-logo.svg' %}" class="pasha-logo">
+                            </div>
+                        </div>
+                        <div class="contentHolder">
+                            <h4>Davamlı təhsil sığortası</h4>
+
+                            <p>
+                                Övladınızın davamlı təhsilinin təminatı
+                                sizi qayğılandırırsa,
+                                <br>
+                                <br>
+                                <b>Bu sığorta məhsulu sizin üçündür!</b>
+                            </p>
+
+                            <div class="btnHolder">
+                                <a href="{% url 'insurance' %}">
+                                    Ətraflı <img src="{% static 'azeristudent/img/right-arrow-white.png' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-flex" style="margin-top: 50px;">
+                        <div class="imgHolder">
+                            <img class="main_img" src="{% static 'azeristudent/img/h3-student-club-single-website.jpg' %}">
+                            <div class="layout">
+                                <h5>Qatar Airways’dən xüsusi endirim</h5>
+                                
+                            </div>
+                        </div>
+                        <div class="contentHolder">
+                            <h4>Student Club</h4>
+                
+                            <p>
+                                Azeri Student tələbələri üçün Qatar Airways’dən xüsusi endirim.
+                                
+                                <br>
+                                <br>
+                                <b>Qatar Airways’dən uçuşlarınıza endirim qazanacaqsınız.</b>
+                            </p>
+                
+                            <div class="btnHolder">
+                                <a href=" https://azeristudent.az/page/qatar-airways/">
+                                    Ətraflı <img src="{% static 'azeristudent/img/right-arrow-white.png' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="insurance">
+                <div class="container">
+                    <div class="card-flex">
+                        <div class="imgHolder">
+                            <img class="main_img" src="{% static 'azeristudent/img/step_it_part.jpg' %}">
+                            <div class="layout">
+                                <h5>Təhsiliniz yarıda qalmasın!</h5>
+                                <img src="{% static 'azeristudent/img/stepit.png' %}" class="pasha-logo">
+                            </div>
+                        </div>
+                        <div class="contentHolder">
+                            <h4>STEP IT ACADEMY</h4>
+
+                            <p>
+                                IT sahəsinin lideri olmaq istəyirsinizsə, 
+                                <br>
+                                <br>
+                                <b>biz dostlarımızla birlikdə hər zaman yanınızdayıq.</b>
+                            </p>
+
+                            <div class="btnHolder">
+                                <a href=/news-detail/step-it-academy-15-07-2021/ target="_blank">
+                                    Ətraflı <img src="{% static 'azeristudent/img/right-arrow-white.png' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insurance">
+                <div class="container">
+                    <div class="card-flex">
+                        <div class="imgHolder">
+                            <img class="main_img" src="{% static 'azeristudent/img/bdo_ba.jpg' %}">
+                            <div class="layout">
+                                <img src="{% static 'azeristudent/img/bdo.svg' %}" class="pasha-logo">
+                            </div>
+                        </div>
+                        <div class="contentHolder">
+                            <h4>Azeri Student şirkətinin yeni tərəfdaşı BDO və tələbələrimiz üçün iş imkanları</h4>
+
+                            <p>
+                                Xaricdə təhsil almış məzunlarımız üçün karyera perspektivləri
+                                <br>
+                                <br>
+                                <b></b>
+                            </p>
+
+                            <div class="btnHolder">
+                                <a href=/news-detail/azeri-student-sirketinin-yeni-terefdasi-bdo--ve-telebelerimiz-ucun-is-imkanlari-31-07-2021/ target="_blank">
+                                    Ətraflı <img src="{% static 'azeristudent/img/right-arrow-white.png' %}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="catalog section search-section">
+                <div class="container">
+                    <h3 class="section-title">{{ config.search_title }}</h3>
+                    <form action="{% url 'country-search-view' country_slug='abs' education_slug='higher-education' %}"
+                          method="get">
+                        <div class="catalog-form-wrap">
+                            {% for field in search_form %}
+                                <div class="catalog-form-item">
+                                    <div class="form-label">{{ field.label }}</div>
+                                    <div class="form-select">
+                                        {{ field }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="catalog-form-item">
+                                <button type="submit" class="btn find-btn">Axtar <img
+                                        src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt=""></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="ask-link">
+                        Əlavə sualların var, <a data-toggle="modal" data-target="#myModal" href="#">müraciət et<i
+                            class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services section">
+                <div class="container">
+                    <h3 class="section-title">{{ config.services_title }}</h3>
+                    <ul class="services-wrap">
+                        {% for service in services %}
+                            <li>
+                                <div class="services-left">
+                                    <h3>{{ forloop.counter }}. {{ service.name }}</h3>
+                                </div>
+                                <div class="services-right">
+                                    <a href="{{ service.get_absolute_url }}">
+                                        <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt="title">
+                                        {{ service.title }}
+                                    </a>
+                                    <p>{{ service.sub_description }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="events section ">
+                <div class="container">
+                    <h3 class="section-title">{{ config.news_title }}</h3>
+                    <div class="owl-carousel owl-theme event-slider">
+                        {% for news in news_list %}
+                            <a href="{{ news.get_absolute_url }}" class="event-item">
+                                {% if news.background_image %}
+                                <div>
+                                    <img class="event-img" src="{{ news.background_image.url }}" width="100%" height="100" style="object-fit: cover;"/>
+                                </div>
+                                {% elif news.background %}
+                                <div>
+                                    <img class="event-img" src="{{ news.background.url }}" width="100%" height="100" style="object-fit: cover;"/>
+                                </div>
+                                {% endif %}
+                                <h3 class="event-item-title">{{ news.title }}</h3>
+                                <p class="event-item-content">{{ news.summary }}</p>
+                                <img class="event-arrow" src="{% static 'azeristudent/img/right-arrow.png' %}"
+                                     alt="{{ news.title|slugify }}"/>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div class="news-btn-wrap" onclick="location.href = '{% url 'news-list' %}'">
+                        <button class="btn news-btn">Daha çox <img
+                                src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt=""></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news section ">
+                <div class="container">
+                    <h3 class="section-title">{{ config.about_title }}</h3>
+                    <div class="news-content">
+                        {{ config.content|safe }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews section">
+                <div class="container">
+                    <div class="reviews-wrap">
+                        <div class="reviews-left">
+                            <h3 class="section-title">{{ config.review_title }}</h3>
+                        </div>
+                        <ul class="reviews-right">
+                            {% for review in review_list %}
+                                <li data-wow-delay="0.3s">
+                                    <a class="reviews-right-item" href="{{ review.get_absolute_url }}">
+                                        <div class="review-item-avatar">
+                                            <img class="img-responsive img-circle" src="{{ review.picture.url }}"
+                                                 alt="{{ review.name|slugify }}">
+                                        </div>
+                                        <div class="review-item-info">
+                                            <h3 class="name">{{ review.name }}</h3>
+                                            <div class="from">{{ review.university_name }}</div>
+                                            <p>"{{ review.summary }}"
+                                            </p>
+                                            <div class="continue">Davam et <img
+                                                    src="{% static 'azeristudent/img/right-arrow.png' %}"
+                                                    alt="{{ review.name|slugify }}"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            <li>
+                                <div class="btn feedback-btn" onclick="location.href='{% url 'review-list' %}'">Bütün
+                                    rəylər <img src="{% static 'azeristudent/img/right-arrow-white.png' %}"
+                                                alt="student">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include "partials/do_with_us.html" %}
+        {% endblock %}
+
+    {% block footer %}
+  {% include 'base/partners.html' %}
+        {% get_footer as footer %}
+        <footer>
+            ﻿{{ footer.context|safe }}
+        </footer>
+    {% endblock %}
+    {% block modals %}
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="btn-wrap">
+                            <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close">
+                                <img src="{% static 'azeristudent/img/close.png' %}" alt="">
+                            </button>
+                        </div>
+                        <div class="content-wrap">
+                            <h4 class="title base-title">Məsləhət lazımdırmı?</h4>
+                            {#                            <span style="color: red">Müraciətiniz üçün təşəkkür edirik</span>#}
+                            <form method="post" class="contact-submit-form" data-action="{% url 'consultant-form' %}"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% get_base_form as form %}
+                                <input type="hidden" class="phone-validation" data-valid="false">
+                                <input type="hidden" class="email-validation" data-valid="false">
+                                {% if object.event_date %}
+                                    <input type="hidden" name="event_id" value="{{ object.pk }}">
+                                {% endif %}
+                                <input type="hidden" name="reference_url" value="{{ request.get_full_path }}">
+                                {% if object.event_exhibitions.all %}
+                                    <input type="hidden" name="event_id"
+                                           value="{{ object.event_exhibitions.first.id }}">
+                                {% endif %}
+                                <div class="form-wrap">
+                                    {% for field in form %}
+                                        {% if field.html_name == 'phone' %}
+                                            <div class="input-with-select">
+                                                <select name="prefix">
+                                                    <option value="055">055</option>
+                                                    <option value="099">099</option>
+                                                    <option value="050">050</option>
+                                                    <option value="051">051</option>
+                                                    <option value="077">077</option>
+                                                    <option value="070">070</option>
+                                                </select>
+                                                <input type="text" name="phone" class="form-control mask-phone"
+                                                       placeholder="Telefon"
+                                                       required="" id="id_phone"
+                                                       maxlength="255">
+
+                                            </div>
+                                            <span class="phone-err"></span>
+                                        {% elif field.html_name == 'email' %}
+                                            <input type="text" name="email"
+                                                   maxlength="254" placeholder="Email" required=""
+                                                   class="form-control mask-email" id="id_email">
+                                            <span class="email-err"></span>
+                                        {% else %}
+                                            {{ field }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <button type="submit" class="btn contact-btn">Müraciət etmək üçün <img
+                                            src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt=""></button>
+                                </div>
+                            </form>
+
+                            <small>
+                                Mesaj göndərərkən, şəxsi məlumatların emalına razılıq verirsiniz. Məxfiliyi tam təmin
+                                edirik.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="snackbar"></div>
+    {% endblock %}
+{% endblock %}

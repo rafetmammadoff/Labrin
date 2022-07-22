@@ -1,0 +1,68 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    Testing | {{ block.super }}
+{% endblock %}
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'Testing',
+        content_category: 'Testing',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Yeniliklər">
+    <meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta name="twitter:image:alt" content="Yeniliklər">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block base_content %}
+    <section class="news-page">
+        <br><br><br><br><br><br><br><br>
+        <div>
+            <div class="container">
+                <div class="col-md-2">
+                    <div class="form-select">
+                        <select name="specials" id="id_specials">
+                            <option value="">055</option>
+                            <option value="">050</option>
+                            <option value="">051</option>
+                            <option value="">077</option>
+                            <option value="">070</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-select">
+                        <input type="text" class="mask-phone" data-inputmask="'mask': '999-99-99'" id="phoneNumber" name="phoneNumber"
+                               placeholder="___-__-__">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+    </section>
+{% endblock %}

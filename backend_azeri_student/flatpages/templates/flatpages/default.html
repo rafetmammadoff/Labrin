@@ -1,0 +1,155 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    {{ flatpage.title }}  | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ flatpage.title }}">
+    <meta property="og:description" content="{{ flatpage.content|escape }}">
+    {% if flatpage.background %}
+        <meta property="og:image"
+              content="https://{{ request.get_host }}{{ flatpage.background.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if flatpage.background %}
+        <meta name="twitter:image"
+              content="https://{{ request.get_host }}{{ flatpage.background.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ flatpage.title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+
+{% block extra_script %}
+<script>
+    fbq('track', 'ViewContent',{
+        content_name: 'Flat pages',
+        content_category: 'Flat pages',
+    });
+</script>
+{% endblock %}
+
+
+{% block base_content %}
+    <div class="university">
+        <div class="page-cover" style="{% if flatpage.background %}background-image:url({{ flatpage.background.url }}){% endif %}">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title ">{{ flatpage.title }}</h1>
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ flatpage.title }}</li>
+                    </ol>
+                    <p class="cover-info">{{ flatpage.content }}</p>
+                </div>
+            </div>
+        </div>
+
+        {% for edu_content in flatpage.flatpagedynamiccontent_set.all %}
+            {% if edu_content.edu_type == 0 %}
+                <div class="container">
+                    <div class="school-content">
+                        <h1>{{ edu_content.title|default:"" }}</h1>
+                        <div>
+                            {{ edu_content.content_1|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% elif edu_content.edu_type == 1 %}
+                <div class="container">
+                    <div class="school-content">
+                        <h1>{{ edu_content.title|default:"" }}</h1>
+                        <div class="school-content-left">
+                            {{ edu_content.content_1|safe }}
+                        </div>
+                        <div class="school-content-right">
+                            {{ edu_content.content_2|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% elif edu_content.edu_type == 2 %}
+                <div class="form-section">
+                    <div class="container">
+                        <form class="school-form" id="education-contact-form" enctype="multipart/form-data">
+                            <h2>Mənimlə əlaqə saxlayın</h2>
+                            <input type="hidden" name="education" value="{{ object.pk }}">
+                            <div class="school-form-wrap">
+                                <div class="school-form-item">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Ad"
+                                           required>
+                                </div>
+                                <div class="school-form-item">
+                                    <input type="text" class="form-control" name="phone" id="phone"
+                                           placeholder="Telefon" required>
+                                </div>
+                                <div class="school-form-item">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                           required>
+                                </div>
+                                <div class="school-form-item">
+                                    <button type="submit" class="btn school-btn">bizimlə əlaqə <img
+                                            src="{% static 'azeristudent/img/right-arrow-white.png' %}"
+                                            alt=""></button>
+                                </div>
+                            </div>
+
+                            <span>Mesaj göndərərkən, şəxsi məlumatların emalına razılıq verirsiniz. Məxfiliyi tam təmin edirik.</span>
+                        </form>
+                    </div>
+                </div>
+            {% elif edu_content.edu_type == 3 %}
+                <div class="school-map">
+                    {% if edu_content.get_map_location %}
+                        <!--The div element for the map -->
+                        <div id="map" style="height: 450px; width: 100%"></div>
+                        <script>
+                            // Initialize and add the map
+                            function initMap() {
+                                // The location of Uluru
+                                var loc = {{ edu_content.get_map_location|safe }};
+                                // The map, centered at Uluru
+                                var map = new google.maps.Map(
+                                    document.getElementById('map'), {zoom: 14, center: loc});
+                                // The marker, positioned at Uluru
+                                var marker = new google.maps.Marker({position: loc, map: map});
+                            }
+                        </script>
+                        <!--Load the API from the specified URL
+                        * The async attribute allows the browser to render the page while the API loads
+                        * The key parameter will contain your own API key (which is not needed for this tutorial)
+                        * The callback parameter executes the initMap() function
+                        -->
+                        <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMV7F7cJwukyVCjKrwaVNV119Us1dCJw&callback=initMap">
+                        </script>
+                    {% endif %}
+                </div>
+            {% elif edu_content.edu_type == 4 %}
+                <div class="school-slider-section">
+                    <div class="container">
+                        <h1 class="slider-title">{{ edu_content.title|default:"" }}</h1>
+                        {% if edu_content.content_1 %}
+                            <div class="school-content" style="float: none">
+                                {{ edu_content.content_1|safe }}
+                            </div>
+                        {% endif %}
+                        <div class="owl-carousel owl-theme school-slider">
+                            {% for img in flatpage.flatgallery_set.all %}
+                                <div class="slider-item" style='background-image: url({{ img.image.url }})'></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% elif edu_content.edu_type == 5 %}
+
+            {% endif %}
+        {% endfor %}
+        {% include 'partials/social_media_buttons.html' %}
+        {% include "partials/do_with_us.html" %}
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+// .g-form { }
+
+.apply-form {
+  &__wrapper {
+    margin-top: rem(60);
+
+    @include breakpoint(0, $tablet-width) {
+      margin-top: rem(30);
+    }
+  }
+
+  &__btn {
+    @include advancedRem(padding, (14 32));
+    text-align: center;
+  }
+
+  @include flexbox(column);
+}
+
+.g-form-group {
+  margin-bottom: rem(24);
+  @include flexbox(column);
+
+  &-t2 {
+    position: relative;
+    margin-bottom: rem(28);
+    @include flexbox(column);
+  }
+}
+
+.sustainability-form {
+  margin-top: rem(76);
+
+  @include breakpoint(0, $tablet-width) {
+    margin-top: rem(45);
+  }
+
+  textarea {
+    resize: none;
+    height: rem(125);
+  }
+
+  .g-input {
+    @include advancedRem(padding, (14 23));
+  }
+
+  .apply-form__btn {
+    width: 100%;
+  }
+}
+
+.g-error {
+  display: inline-block;
+  color: rgba(255, 1, 1, 0.623);
+  margin-top: rem(5);
+  padding-left: rem(15);
+  @include font-size(12, 400);
+}
+
+.g-label {
+  &-t2 {
+    position: absolute;
+    top: rem(8);
+    left: rem(8);
+    @include transition();
+    color: #7c7c7d;
+    @include font-size(14, 400);
+
+    span {
+      color: $orange-clr;
+    }
+
+    &.active {
+      top: rem(-8);
+      left: 0;
+    }
+  }
+}
+
+.g-input {
+  display: block;
+  width: 100%;
+  @include advancedRem(padding, (16 31));
+  border: 1px solid $dark-gray;
+  color: $dark-gray;
+  @include font-size(14, 400);
+
+  &-t2 {
+    color: $dark-gray;
+    @include font-size(14, 400);
+
+    border: none;
+    border-bottom: rem(1) solid #7c7c7d;
+    @include advancedRem(padding, (12 8));
+  }
+
+  @include breakpoint(0, $mobile-width) {
+    @include advancedRem(padding, (10 18));
+  }
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+.g-upload {
+  @extend .g-input;
+  color: transparentize($dark-gray, $amount: 0.5);
+  background: transparent url("../../assets/svgs/plus.svg") no-repeat 98% center;
+  background-size: rem(18);
+  cursor: pointer;
+
+  * {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,87 @@
+{% extends 'partners/base/index.html' %}
+{% load static %}
+{% load partner_filter i18n %}
+{% block meta_tags %}
+    <meta name="keywords" content="{{ object.meta_keywords }}">
+    <meta name="description" content="{{ object.meta_description }}">
+{% endblock meta_tags %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.facebook_social_title }}">
+    <meta property="og:description" content="{{ object.facebook_social_description }}">
+    {% if object.social_image %}
+        <meta property="og:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.social_image %}
+        <meta name="twitter:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.twitter_social_image_alt }}">
+    <meta name="twitter:creator" content="{{ object.twitter_social_creator }}"/>
+    <meta name="twitter:site" content="{{ object.twitter_social_site }}">
+{% endblock social_headers %}
+{% block content %}
+    <div id="homepage_section">
+        <div class="container">
+            <div class="homepage">
+                <div class="row">
+                    <div class="col-lg-6">
+                        {% get_home_page as home_page %}
+                        <h3>
+                            {{ home_page.homepage_title }}
+                        </h3>
+                        <p>
+                            {{ home_page.homepage_subtitle }}
+                        </p>
+                        <a href="{{ sing_up_link }}" class="button-a">Sign up</a>
+                    </div>
+                    <div class="col-lg-6">
+                        {% for slider in object.mainpageslider_set.all %}
+                            {% if slider.status %}
+                                <div class="homepage-video">
+                                {% if slider.youtube_link %}
+                                    <a data-fancybox="gallery"
+                                        href="https://www.youtube.com/embed/{{ slider.youtube_link.get_youtube_id }}?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp;autoplay=1&mute=1">
+                                        <i class="fas fa-play"></i>
+                                        <img src="{{ slider.youtube_link.get_background_image }}">
+                                    </a>
+                                {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="homepage_about">
+            <div class="container">
+                <div class="row">
+                    {% for content in object.homecontent_set.all %}
+                        <div class="col-lg-6">
+                            <h3>
+                                {{ content.title }}
+                            </h3>
+                            <div class="homepage_about_child">
+                               {% if content.home_content_type == 0 %} {# Bir kontentli #}
+                                   {{ content.content|safe }}
+                                   {% elif content.home_content_type == 1 %} {# Proqramlar #}
+                                        <ul>
+                                            {% for program in content.programs.all %}
+                                                <li>
+                                                    <div class="disk_home"></div>
+                                                    {{ program.name }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                               {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

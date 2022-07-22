@@ -1,0 +1,84 @@
+{% load partner_filter %}
+<html>
+<head>
+    <title>Django Admin</title>
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<div style="background: #ecf2f6;">
+
+    <div class="row p-5">
+        <div class="row justify-content-between w-100">
+            <div class="col-md-6">
+                <p>Registration Count: <b>{{ users_counts }}</b></p>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{% url 'admin:partners_registerfair_changelist' %}">Back to Admin Dashboard</a>
+{#                <p>Registration Count: <b>{{ users_counts }}</b></p>#}
+            </div>
+        </div>
+        <div class="col-md-12 pt-5">
+            <h5>Spring Fair</h5>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Table count</th>
+                    <th scope="col">User count</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data_spring %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        {% get_cities_name item.cities as cities %}
+                        <td>{{ cities }}</td>
+                        <td>{{ item.sum_order }}</td>
+                        {% get_user_count 3 item.cities as count_spring %}
+                        <td>{{ count_spring }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"><b>Total table count</b></td>
+                    <td>{{ data_spring_count.sum_order }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-12 pt-5">
+            <h5>Fall Fair</h5>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Table count</th>
+                    <th scope="col">User count</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data_fall %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        {% get_cities_name item.cities as cities %}
+                        <td>{{ cities }}</td>
+                        <td>{{ item.sum_order }}</td>
+                        {% get_user_count 5 item.cities as count_fall %}
+                        <td>{{ count_fall }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"><b>Total table count</b></td>
+                    <td>{{ data_fall_count.sum_order }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

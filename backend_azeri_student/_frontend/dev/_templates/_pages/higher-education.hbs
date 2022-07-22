@@ -1,0 +1,85 @@
+<div class="program-page">
+  {{>cover }}
+
+  <div class="container">
+    <div class="program-wrap section-wrap">
+      <h1 class="program-title">Search <img src="img/right-arrow.png" alt=""><span>120</span> options</h1>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <form action="">
+            <div class="form-select">
+              <select name="" id="">
+                <option value="">A country</option>
+              </select>
+            </div>
+            <div class="form-select">
+              <select name="" id="">
+                <option value="">Programs</option>
+              </select>
+            </div>
+            <div class="form-select">
+              <select name="" id="">
+                <option value="">Specialties</option>
+              </select>
+            </div>
+            <div class="form-select">
+              <select name="" id="">
+                <option value="">Language</option>
+              </select>
+            </div>
+            <div class="form-select">
+              <select name="" id="">
+                <option value="">Type of institution</option>
+              </select>
+            </div>
+            <button class="btn find-btn">To find</button>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9">
+          <ul class="program-items">
+            {{#times 3}}
+            <li class="program-item wow fadeIn">
+              <div class="program-item-img" style="background-image:url('img/news1.png')"></div>
+              <div class="program-item-info">
+                <h2 class="title">Istituto Marangoni Milano</h2>
+                <ul class="item-detail">
+                  <li>A country</li>
+                  <li>İtaly</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>City</li>
+                  <li>Milan</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>Language of instruction</li>
+                  <li>English, Italian</li>
+                </ul>
+                <ul class="item-detail">
+                  <li>A type</li>
+                  <li>University</li>
+                </ul>
+                <a class="details-link" href="">Learn More <img src="img/right-arrow.png" alt=""></a>
+              </div>
+            </li>
+            {{/times}}
+          </ul>
+          <div class="pagination-wrap">
+            <div class="pagination-nav">
+              <a href="#" class="back"><img src="img/left-arrow.png" alt="">back</a>
+              <a href="#" class="next">next<img src="img/right-arrow.png" alt=""></a>
+            </div>
+            <ul class="pagination">
+             <li class="active"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">4</a></li>
+             <li><a href="#">5</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{>contact-section}}
+  </div>
+</div>

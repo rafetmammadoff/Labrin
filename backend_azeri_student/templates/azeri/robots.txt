@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://azeristudent.az/sitemap.xml

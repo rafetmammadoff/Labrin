@@ -1,0 +1,11 @@
+_frontend/
+data/
+docker_setup/
+partners/_frontend/
+.idea/
+.venv/
+contributors.txt
+*.pyc
+.git/
+media/
+pgdb/

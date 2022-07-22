@@ -1,0 +1,12 @@
+@each $type, $weight in $font-types {
+  @font-face {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: $weight;
+    // url does not have correct directory becuase of compiled css
+    src: url("../../assets/fonts/EuclidCircularA-#{$type}.ttf") format("truetype"),
+      url("../../assets/fonts/EuclidCircularA-#{$type}.eot"),
+      url("../../assets/fonts/EuclidCircularA-#{$type}.woff") format("woff"),
+      url("../../assets/fonts/EuclidCircularA-#{$type}.woff2") format("woff2");
+  }
+}

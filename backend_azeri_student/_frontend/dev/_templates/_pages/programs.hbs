@@ -1,0 +1,53 @@
+<div class="programs-page">
+  {{>cover }}
+  <div class="container">
+    <div class="programs-wrap">
+      <div class="countries">
+        <h2>Countries</h2>
+        <ul class="countries-items">
+          {{#times 7}}
+            <li>
+              <a href="">
+                <span class="country-flag">
+                  <img src="img/australia.svg" alt="">
+                </span>
+                <span class="country-title">Australia</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="country-flag">
+                  <img src="img/austria.svg" alt="">
+                </span>
+                <span class="country-title">Austria</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="country-flag">
+                  <img src="img/belgium.svg" alt="">
+                </span>
+                <span class="country-title">Belgium</span>
+              </a>
+            </li>
+          {{/times}}
+        </ul>
+      </div>
+      <div class="programs">
+        <h2>Programs</h2>
+        <ul class="programs-items">
+          <li>
+            <a href="language-program.html">Language Programs <img src="img/right-arrow.png" alt=""></a>
+          </li>
+          <li>
+            <a href="secondary-education.html">Secondary education <img src="img/right-arrow.png" alt=""></a>
+          </li>
+          <li>
+            <a href="higher-education.html">Higher education <img src="img/right-arrow.png" alt=""></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {{>contact-section}}
+  </div>
+</div>

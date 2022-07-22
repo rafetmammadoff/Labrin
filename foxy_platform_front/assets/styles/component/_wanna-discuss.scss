@@ -1,0 +1,77 @@
+.wanna-discuss{
+    margin-bottom: 80px;
+    .main-container{
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .left-img{
+                .title{
+                    font-family: AzeretMono;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 50px;
+                    line-height: 58px;
+
+                    color: #212121;
+                }
+                .foot{
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 21px;
+                    margin-bottom: 20px;
+
+                    color: #919191;
+                }
+                .img{
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+            .right-input{
+                .title{
+                    font-family: AzeretMono;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 30px;
+                    line-height: 35px;
+                    color: #212121;
+                    margin-bottom: 30px;
+                }
+                .input-area{
+                    .small{
+                        display: block;
+                        width: 80%;
+                        height: 40px;
+                        margin-bottom: 20px;
+                        border: 1px solid #212121;
+                    }
+                    .big{
+                        width: 80%;
+                        height: 100px;
+                        margin-bottom: 20px;
+                        border: 1px solid #212121;
+                    }
+                    .submit{
+                        display: block;
+                        width: 80%;
+                        height: 40px;
+                        background-color: #212121;
+                        border: 1px solid #212121;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        p{
+                            margin: 0;
+                            color: #fff;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,295 @@
+#g-pages-component-section {
+  .g-pages-component-element-content {
+    .g-pages-component-element-content-title,
+    .g-pages-component-anchor-button {
+      margin-top: 40px;
+    }
+  }
+}
+
+.business-section {
+  margin-top: 150px;
+  .g-cards__wrapper {
+    margin-top: 80px;
+  }
+}
+
+#sustainable {
+  margin-top: 190px;
+  margin-bottom: 150px;
+}
+
+#g-pages-component-section {
+  .g-pages-component-element {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+}
+
+.presentation {
+  &-title {
+    @include font-size(34, 400);
+
+    @include breakpoint(0, $mobile-width) {
+      @include font-size(28, 400);
+    }
+  }
+
+  .presentation-text {
+    padding-top: 5rem;
+  }
+  .list-container {
+    padding-right: 0.6rem;
+    @media screen and (max-width: 768px) {
+      padding-right: 0rem;
+    }
+  }
+
+  .list-container-2 {
+    padding-right: 1.5rem;
+    @media screen and (max-width: 768px) {
+      padding-right: 0rem;
+    }
+  }
+  .group-list {
+    .list-item {
+      list-style: inside url("../../../assets/svgs/media/Vector\ 24.svg");
+      line-height: 1.5rem;
+      padding: 0 1rem;
+      font-size: 16px;
+    }
+  }
+  .list-image {
+    height: 650px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+// .presentation-text{
+//     max-width: 1052px;
+//     height: 195px;
+//     &.footer-text{
+//         height: 53px;
+//         margin-left: 35px;
+//         margin-bottom: 150px;
+//     }
+//     &.text-lg{
+//         height: 379px;
+//     }
+//     &.text-sm{
+//         height: 28px;
+//     }
+// }
+
+// .presentation-img{
+//     margin-right: 70px;
+//     width: 514px;
+//     height: 599px;
+// }
+
+// .presentation-list{
+//     max-width: 1052px;
+//     h3 {
+//         margin-bottom: rem(30);
+//     }
+//     ul{
+//         margin-left: 20px;
+//     }
+//     &.presentation-img-list{
+//         margin-right: 44px;
+//     }
+// }
+
+.mb-150 {
+  margin-bottom: 150px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-55 {
+  margin-bottom: 55px;
+}
+
+.mt-104 {
+  margin-top: 104px;
+}
+
+.list {
+  li {
+    p {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        padding: 2px;
+        border-radius: 50%;
+        background-color: #000;
+        margin-right: 10px;
+        transform: translate(-200%, 300%);
+      }
+    }
+    a {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        padding: 2px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin-right: 10px;
+        transform: translate(-200%, 300%);
+      }
+    }
+  }
+}
+
+.what-we-do-services-img {
+  .what-we-do-title{
+    h2{
+      margin-bottom: 40px;
+    }
+    p{
+      margin-bottom: 80px;
+    }
+  }
+  &.on-media {
+    .news-section__card {
+      .news-section__card--layer {
+        background-color: $primary-clr;
+      }
+    }
+  }
+  &.on-sustainability {
+    .news-section__card {
+      height: 482px;
+
+      .news-section__card--layer {
+        background-color: #881b80;
+      }
+    }
+  }
+  &.on-career {
+    .news-section__card {
+      .news-section__card--layer {
+        padding: rem(30);
+        background-color: $orange-clr;
+      }
+    }
+  }
+
+  .news-section__card {
+    // width: 622px;
+    height: 401px;
+    margin-bottom: 24px;
+    position: relative;
+    background: none !important;
+
+    .explore-btn {
+      margin-top: rem(217);
+      @include font-size(28, 400);
+
+      @include tablet() {
+        @include font-size(24, 400);
+      }
+
+      @include breakpoint(0, $tablet-width) {
+        @include font-size(18, 400);
+      }
+
+      position: relative;
+
+      @include pseudo() {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: rem(-15);
+        background: url("../../assets/svgs/what-we-do/Vector21.svg") no-repeat;
+        background-size: rem(12);
+        @include box(15);
+      }
+    }
+
+    .news-section__card--img {
+      height: 100% !important;
+      max-height: 100%;
+      position: relative;
+    }
+    .news-section__card--title-2 {
+      font-size: 24px;
+      font-weight: 600;
+      position: absolute;
+      bottom: 10px;
+      padding-right: 30px;
+      left: 20px;
+      color: #fff;
+    }
+    .news-section__card--title {
+      font-size: 38px;
+      font-weight: 400;
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      color: #fff;
+    }
+    .news-section__card--layer {
+      background-color: #454bea;
+      justify-content: space-between;
+      @media screen and (max-width: 768px) {
+        justify-content: center;
+      }
+      a {
+        color: #fff;
+      }
+
+      .layer-list {
+        li {
+          .has-triangle {
+            span {
+              position: relative;
+
+              @include pseudo() {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: rem(-15);
+                background: url("../../assets/svgs/what-we-do/Vector21.svg") no-repeat;
+                background-size: rem(12);
+                @include box(15);
+              }
+              a {
+                color: #ffffff;
+              }
+            }
+          }
+          p {
+            font-size: 20px;
+            font-weight: 400;
+            position: relative;
+            &::before {
+              background-color: #fff !important;
+            }
+            &::after {
+              cursor: "";
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              border-style: solid;
+              border-width: 0 13px 13px 0;
+              border-color: #fff;
+              background-color: #fff;
+              left: 10%;
+              top: 10%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

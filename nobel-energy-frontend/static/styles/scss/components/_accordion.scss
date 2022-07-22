@@ -1,0 +1,106 @@
+.accordion-section {
+  margin-bottom: rem(150);
+
+  @include breakpoint(0, $tablet-width) {
+    margin-bottom: rem(120);
+  }
+
+  @include breakpoint(0, $tablet-width) {
+    margin-bottom: rem(80);
+  }
+
+  &__wrapper {
+    &--title {
+      @include font-size(22, 500);
+    }
+
+    &--subtitle {
+      @include font-size(18, 500);
+    }
+
+    .apply-btn {
+      margin-top: rem(50);
+
+      @include breakpoint(0, $mobile-width) {
+        margin-top: rem(30);
+      }
+    }
+
+    .accordion {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(rem(500), 1fr));
+      grid-column-gap: rem(80);
+      grid-row-gap: rem(40);
+      border: none;
+
+      @include breakpoint(0, $tablet-width) {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      }
+
+      &-body {
+        padding-top: rem(120);
+
+        ul {
+          padding-left: rem(30);
+
+          li {
+            list-style: disc;
+          }
+        }
+
+        @include breakpoint($mobile-width, $tablet-width) {
+          padding-top: rem(80);
+        }
+
+        @include breakpoint(0, $mobile-width) {
+          padding-top: rem(40);
+        }
+      }
+
+      &-item,
+      &-button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+
+      &-button {
+        box-shadow: none;
+        @include font-size(28, 400);
+        color: $dark-gray;
+
+        @include breakpoint($mobile-width, $tablet-width) {
+          @include font-size(22, 400);
+        }
+
+        @include breakpoint(0, $mobile-width) {
+          @include font-size(18, 400);
+        }
+
+        &[aria-expanded="true"] {
+          @include pseudo() {
+            transform: translateY(-50%) rotate(45deg);
+          }
+        }
+      }
+
+      &-button {
+        @include pseudo(after) {
+          display: none;
+        }
+
+        @include pseudo() {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: rem(10);
+          transform: translateY(-50%) rotate(0);
+          background: transparent url("../../assets/svgs/plus.svg") no-repeat;
+          @include box(20);
+          z-index: 1;
+          @include transition();
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.legal-notice-section {
+    margin-top: rem(118);
+
+    @include breakpoint($mobile-width, $tablet-width) {
+        margin-top: rem(70);
+    }
+
+    @include breakpoint(0, $mobile-width) {
+        margin-top: rem(50);
+    }
+
+    .legal-notice-title {
+        text-align: center;
+        font-weight: 700 !important;
+        margin-bottom: rem(80) !important;
+
+        @include breakpoint(0, $tablet-width) {
+            margin-bottom: rem(40) !important;
+        }
+    }
+}
+
+#g-project-section {
+    margin-bottom: rem(150);
+
+    @include breakpoint($mobile-width, $tablet-width) {
+        margin-bottom: rem(120);
+    }
+
+    @include breakpoint(0, $mobile-width) {
+        margin-bottom: rem(80);
+    }
+
+    .g-project {
+        &-content {
+            &-title {
+                @include font-size(34, 400);
+                margin-bottom: rem(40);
+
+                @include breakpoint(0, $mobile-width) {
+                    margin-bottom: rem(20);
+                }
+            }
+        }
+
+        .g-project-image {
+            max-width: 100%;
+            width: 100%;
+            object-fit: cover;
+            @include advancedRem(margin-bottom, (80));
+            max-height: rem(512);
+        }
+    }
+}

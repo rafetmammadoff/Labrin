@@ -1,0 +1,43 @@
+@include breakpoint(0, $desktop-width) {
+  $offset-sm: 30;
+  $offset-md: 40;
+  $offset-lg: 80;
+
+  .g-container {
+    max-width: calc(100% - #{$offset-sm / 16 * 1rem} * 2) !important;
+  }
+
+  .g-container__md {
+    max-width: calc(100% - #{$offset-md / 16 * 1rem} * 2) !important;
+  }
+
+  .g-container__lg {
+    max-width: calc(100% - #{$offset-lg / 16 * 1rem} * 2) !important;
+  }
+}
+
+@include breakpoint(0, $mobile-width) {
+  $offset-lg: 40;
+
+  .g-container__lg {
+    max-width: calc(100% - #{$offset-lg / 16 * 1rem} * 2) !important;
+  }
+}
+
+.g-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: calc(100% - #{$offset-sm / 16 * 1rem} * 2);
+}
+
+.g-container__md {
+  width: 100%;
+  margin: 0 auto;
+  max-width: calc(100% - #{$offset-md / 16 * 1rem} * 2);
+}
+
+.g-container__lg {
+  width: 100%;
+  margin: 0 auto;
+  max-width: calc(100% - #{$offset-lg / 16 * 1rem} * 2);
+}

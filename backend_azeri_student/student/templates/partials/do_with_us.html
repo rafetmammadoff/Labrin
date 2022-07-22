@@ -1,0 +1,54 @@
+{% load static %}
+{% load base_filter %}
+{% get_do_with_us as contact_section %}
+{% get_base_form as footer_form %}
+<div class="contact section">
+    <div class="container">
+        <div class="contact-wrap">
+            <div class="contact-left">
+                <h3 class="section-title">{{ contact_section.section_title }}</h3>
+
+                <div class="manager-avatar">
+                    {% if contact_section.avatar_image %}
+                        <img class="img-responsive img-circle" src="{{ contact_section.avatar_image.url }}" alt="">
+                    {% endif %}
+                </div>
+                <div class="manager-info">
+                    <div class="manager-name">{{ contact_section.avatar_full_name }}</div>
+                    <div class="manager-preview-text">{{ contact_section.avatar_description }}</div>
+                    <div class="manager-mail">{{ contact_section.email }}</div>
+                </div>
+            </div>
+            <div class="contact-right">
+                <p class="contact-text">{{ contact_section.message_text }}
+                </p>
+                <form method="post" class="contact-submit-form" data-action="{% url 'consultant-form' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" class="phone-validation" data-valid="true">
+                    <input type="hidden" name="reference_url" value="{{ request.get_full_path }}">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5 col-md-offset-1">
+                            {% for field in footer_form %}
+                                {% if field.name != "message" %}
+                                    {{ field }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-12 col-md-5 col-md-offset-1">
+                            {% for field in footer_form %}
+                                {% if field.name == "message" %}
+                                    {{ field }}
+                                {% endif %}
+                            {% endfor %}
+                            <button type="submit" class="btn contact-btn">Mesaj göndər <img
+                                    src="{% static 'azeristudent/img/right-arrow-white.png' %}" alt=""></button>
+                        </div>
+                        <div class="col-xs-12 col-md-11 col-md-offset-1">
+                            <div class="contact-link">{{ contact_section.end_text|safe }}</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

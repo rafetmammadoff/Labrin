@@ -1,0 +1,171 @@
+{% if education_type == 1 %}
+    <div class="form-select">
+        <select name="country" id="id_country">
+            {% if country_name %}
+                <option value="{{ country_name.pk }}" selected>{{ country_name.name }}</option>
+            {% else %}
+                <option value="">Ölkələr</option>
+            {% endif %}
+            {% for country in country_list %}
+                <option value="{{ country.pk }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="univercity_program" id="id_univercity_program">
+            <option value="" selected="">Universitet proqramı</option>
+            {% for prog in univercity_program %}
+                <option value="{{ prog.pk }}">{{ prog.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="specials" id="id_specials">
+            <option value="">Xüsusiyyətləri</option>
+            {% for spec in special %}
+                <option value="{{ spec.pk }}">{{ spec.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="language" id="id_language">
+            <option value="">Dil</option>
+            {% for lang in language %}
+                <option value="{{ lang.pk }}">{{ lang.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="city" id="id_city">
+            <option value="" selected="">Şəhər</option>
+            {% for city in city_list %}
+                <option value="{{ city.pk }}">{{ city.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="school_type" id="id_school_type">
+            <option value="" selected="">Universitetin tipi</option>
+            {% for type in scool_type %}
+                <option value="{{ type.pk }}">{{ type.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+{% elif education_type == 2 %}
+    <div class="form-select">
+        <select name="country" required="" id="id_country">
+           {% if country_name %}
+                <option value="{{ country_name.pk }}" selected>{{ country_name.name }}</option>
+            {% else %}
+                <option value="">Ölkələr</option>
+            {% endif %}
+            {% for country in country_list %}
+                <option value="{{ country.pk }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-select">
+        <input type="text" placeholder="Yaş" name="yaş">
+    </div>
+
+    <div class="form-select">
+        <select name="programs" id="id_programs">
+            <option value="">Proqramlar</option>
+            {% for prog in secondary_program %}
+                <option value="{{ prog.pk }}">{{ prog.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="language" id="id_language">
+            <option value="">Dil</option>
+            {% for lang in language %}
+                <option value="{{ lang.pk }}">{{ lang.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="school_type" id="id_school_type">
+            <option value="" selected="">Məktəbin tipi</option>
+            {% for type in scool_type %}
+                <option value="{{ type.pk }}">{{ type.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+{% else %}
+    <div class="form-select">
+        <select name="country" required="" id="id_country">
+            {% if country_name %}
+                <option value="{{ country_name.pk }}" selected>{{ country_name.name }}</option>
+            {% else %}
+                <option value="">Ölkələr</option>
+            {% endif %}
+            {% for country in country_list %}
+                <option value="{{ country.pk }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-select">
+        <select name="language" id="id_language">
+            <option value="">Dil</option>
+            {% for lang in language %}
+                <option value="{{ lang.pk }}">{{ lang.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+    <div class="form-select">
+        <select name="age_restriction" id="id_age_restriction">
+            <option value="">Yaş məhdudiyyəti</option>
+            {% for age in age_restriction %}
+                <option value="{{ age.0 }}">{{ age.1 }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+    <div class="form-select">
+        <input type="text" placeholder="Yaş" name="yaş">
+    </div>
+    <div class="form-select">
+        <select name="season" id="id_season">
+            <option value="">Fəsil</option>
+            {% for s in season %}
+                <option value="{{ s.0 }}">{{ s.1 }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+    <div class="form-select">
+        <select name="program" id="id_program">
+            <option value="">Proqramlar</option>
+            {% for lang in lang_programs %}
+                <option value="{{ lang.pk }}">{{ lang.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+    <div class="form-select">
+        <select name="program" id="id_program">
+            <option value="">Ərazi</option>
+            {% for accom in accomondation %}
+                <option value="{{ accom.pk }}">{{ accom.name }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+{% endif %}
+<button type="submit" class="btn find-btn">Axtar</button>

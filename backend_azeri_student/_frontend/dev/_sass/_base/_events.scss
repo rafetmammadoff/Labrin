@@ -1,0 +1,111 @@
+.events{
+	.image-wrap{
+		width: 100%;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.events-wrap{
+		display: flex;
+		flex-direction: column;
+		margin: 60px 0px;
+		.events-top{
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			justify-content: space-between;
+			margin-bottom: 50px;
+			@include breakpoint (visible-till-md) {
+				flex-direction: column;
+				align-items: center;
+			}
+			.events-top-left{
+				margin-right: 20px;
+				width: 12%;
+				@include breakpoint (visible-till-md) {
+					margin-bottom: 30px;
+				}
+				p{
+					text-align: center;
+					font-size: 25px;
+					color: black;
+					&:first-child{
+						font-size: 31px;
+						color: $red;
+					}
+				}
+			}
+			.events-top-right{
+				width: 60%;
+				margin-left: 20px;
+				p{
+					font-size: 31px;
+					font-weight: bold;
+					color: black;
+					@include breakpoint (visible-till-md) {
+						font-size: 22px;
+					}
+
+				}
+			}
+		}
+		.events-middle{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin-bottom: 50px;
+			@include breakpoint (visible-till-md) {
+				flex-direction: column;
+			}
+			.events-middle-left{
+				width: 36%;
+				@include breakpoint (visible-till-md) {
+				width: 100%;
+				}
+				p{
+					font-size: 16px;
+					margin-bottom: 25px;
+				}
+			}
+			.events-middle-right{
+				.btn-primary{
+					background-color: $red;
+					border-color: transparent;
+					width: 160px;
+					height: 41px;
+					font-size: 20px;
+					transition: .2s;
+					&:hover{
+						background-color: darken($red,7%);
+					}
+				}
+
+			}
+
+		}
+		.events-bottom{
+
+			@include breakpoint (visible-till-md) {
+				width: 100%;
+				height: auto;
+			}
+			p{
+				font-size: 20px;
+				line-height: 2.2;
+				@include breakpoint (visible-till-md) {
+				font-size: 16px;
+				}
+			}
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+		}
+	}
+	.events-map{
+		width: 100%;
+		margin: 60px 0px;
+	}
+}

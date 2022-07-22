@@ -1,0 +1,147 @@
+{% load static %}
+{% load partner_filter i18n %}
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="index, follow">
+    {% block meta_tags %}
+        <meta name="keywords" content="tags for website">
+        <meta name="description" content="front-end starter">
+    {% endblock %}
+    <meta name="author" content="Labrin.net">
+
+    {% block social_headers %}
+        <!-- Facebook share header -->
+        <meta property="og:title" content="{{ config.facebook_social_title }}">
+        <meta property="og:description" content="{{ config.facebook_social_description }}">
+        {% if config.social_image %}
+            <meta property="og:image"
+                  content="{{ request.build_absolute_uri|slice:":-1" }}{{ config.social_image.url }}">
+        {% endif %}
+        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+        <!--Twitter header-->
+        <meta name="twitter:card" content="summary_large_image">
+        {% if config.social_image %}
+            <meta name="twitter:image"
+                  content="{{ request.build_absolute_uri|slice:":-1" }}{{ config.social_image.url }}">
+        {% endif %}
+        <meta name="twitter:image:alt" content="{{ config.twitter_social_image_alt }}">
+        <meta name="twitter:creator" content="{{ config.twitter_social_creator }}"/>
+        <meta name="twitter:site" content="{{ config.twitter_social_site }}">
+    {% endblock %}
+
+    {% block title %}
+        <title> Home - Project Title </title>
+    {% endblock title %}
+    <link href="{% static 'partners/css/main.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<header>
+    <div class="container">
+        <div class="header_wrapper">
+            <a href="{% url 'base_index' %}" class="logo">
+                <img id="partner-logo" src="" alt="Azeri Student">
+            </a>
+
+            <ul class="menu">
+                <li class="d-block d-md-none text-right">
+                    <svg id="close_menu" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.642 15.642"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 15.642 15.642">
+                        <path fill-rule="evenodd"
+                              d="M8.882,7.821l6.541-6.541c0.293-0.293,0.293-0.768,0-1.061 c-0.293-0.293-0.768-0.293-1.061,0L7.821,6.76L1.28,0.22c-0.293-0.293-0.768-0.293-1.061,0c-0.293,0.293-0.293,0.768,0,1.061 l6.541,6.541L0.22,14.362c-0.293,0.293-0.293,0.768,0,1.061c0.147,0.146,0.338,0.22,0.53,0.22s0.384-0.073,0.53-0.22l6.541-6.541 l6.541,6.541c0.147,0.146,0.338,0.22,0.53,0.22c0.192,0,0.384-0.073,0.53-0.22c0.293-0.293,0.293-0.768,0-1.061L8.882,7.821z"/>
+                    </svg>
+                </li>
+                {% for menu in menu_list %}
+                    <li><a href="{{ menu.url }}"
+                           {% if menu.url == request.path %}class='active'{% endif %}>{{ menu.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <svg id="menu_icon" class="d-block d-md-none" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+            style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <g>
+              <g>
+                <path
+                  d="M491.318,235.318H20.682C9.26,235.318,0,244.577,0,256s9.26,20.682,20.682,20.682h470.636c11.423,0,20.682-9.259,20.682-20.682C512,244.578,502.741,235.318,491.318,235.318z" />
+              </g>
+            </g>
+            <g>
+              <g>
+                <path
+                  d="M491.318,78.439H20.682C9.26,78.439,0,87.699,0,99.121c0,11.422,9.26,20.682,20.682,20.682h470.636c11.423,0,20.682-9.26,20.682-20.682C512,87.699,502.741,78.439,491.318,78.439z" />
+              </g>
+            </g>
+            <g>
+              <g>
+                <path
+                  d="M491.318,392.197H20.682C9.26,392.197,0,401.456,0,412.879s9.26,20.682,20.682,20.682h470.636c11.423,0,20.682-9.259,20.682-20.682S502.741,392.197,491.318,392.197z" />
+              </g>
+            </g>
+          </svg>
+
+        </div>
+    </div>
+</header>
+<script>
+    function get(name) {
+        if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+    }
+
+    if (get('url') !== undefined && window.localStorage.getItem('logo_url') !== get('url')) {
+        window.localStorage.setItem('logo_url', get('url'));
+    }
+
+    var come_from = window.localStorage.getItem('logo_url')
+    console.log("came", come_from)
+
+    if (come_from === 'az') {
+        $('#partner-logo').attr('src', "{% static 'partners/assets/logo.svg' %}");
+        console.log('az')
+    } else if (come_from === 'uk') {
+        $('#partner-logo').attr('src', "{% static 'partners/assets/logo_uk.png' %}");
+        console.log('uk')
+    } else if (come_from === 'ge') {
+        $('#partner-logo').attr('src', "{% static 'partners/assets/logo_ge.png' %}");
+        console.log('ge')
+    } else {
+        $('#partner-logo').attr('src', "{% static 'partners/assets/logo.svg' %}");
+        console.log('other')
+    }
+</script>
+
+<img src="{% static 'partners/assets/bg.svg' %}" id="body_bg">
+
+{% block content %}
+{% endblock content %}
+
+{% get_copyright as copyright %}
+<footer>
+    {{ copyright.name|safe }}
+</footer>
+
+<script type="text/javascript" src="{% static 'partners/js/main.js' %}"></script>
+
+{# For changing logo based on url came from #}
+{#<script>#}
+{#    {% if logo_url %}#}
+{#        window.localStorage.setItem('logo_url', '{{ logo_url }}');#}
+{#    {% endif %}#}
+{#</script>#}
+</body>
+</html>

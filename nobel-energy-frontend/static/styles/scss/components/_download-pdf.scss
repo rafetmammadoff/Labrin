@@ -1,0 +1,144 @@
+.download__pdf {
+  .has-triangle-2 {
+    .pdf-name {
+      position: relative;
+
+      @include pseudo() {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 11rem;
+        right: rem(-15);
+        background: url("../../assets/svgs/sustainability/Vector1111.svg") no-repeat;
+        background-size: rem(12);
+        @include box(15);
+      }
+    }
+  }
+  .download__pdf--link {
+    color: #2f2f30;
+    position: relative;
+    @include transition();
+    display: flex !important;
+    align-items: center;
+    @include advancedRem(padding, (10, 20));
+    @include font-size(18, 400);
+
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include breakpoint(0, $mobile-width) {
+      @include font-size(14, 400);
+    }
+    .size {
+      font-size: 16px;
+      color: $white-clr;
+    }
+    &.has-triangle {
+      .pdf-name {
+        position: relative;
+
+        @include pseudo() {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: rem(-15);
+          background: url("../../assets/svgs/media/Vector\ 24.svg") no-repeat;
+          background-size: rem(12);
+          @include box(15);
+        }
+      }
+    }
+
+    i {
+      color: $primary-clr;
+      @include font-size(22, 400);
+      margin-right: rem(18);
+
+      @include breakpoint(0, $mobile-width) {
+        margin-right: rem(8);
+      }
+    }
+
+    &:hover {
+      background: $primary-clr;
+      color: $white-clr;
+
+      i {
+        color: $white-clr;
+      }
+
+      span {
+        @include pseudo {
+          @include toWhite();
+        }
+      }
+    }
+  }
+
+  .download__pdf--link-2 {
+    color: #2f2f30;
+    position: relative;
+    @include transition();
+    display: flex !important;
+    align-items: center;
+    @include advancedRem(padding, (10, 20));
+    @include font-size(18, 400);
+
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include breakpoint(0, $mobile-width) {
+      @include font-size(14, 400);
+    }
+    .size {
+      font-size: 16px;
+      margin-left: auto;
+      color: $white-clr;
+    }
+    &.has-triangle {
+      .pdf-name {
+        position: relative;
+
+        @include pseudo() {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: rem(-15);
+          background: url("../../assets/svgs/sustainability/Vector1111.svg") no-repeat;
+          background-size: rem(12);
+          @include box(15);
+        }
+      }
+    }
+
+    i {
+      color: #881b80;
+      @include font-size(22, 400);
+      margin-right: rem(18);
+
+      @include breakpoint(0, $mobile-width) {
+        margin-right: rem(8);
+      }
+    }
+
+    &:hover {
+      background: #881b80;
+      color: $white-clr;
+
+      i {
+        color: $white-clr;
+      }
+
+      span {
+        @include pseudo {
+          @include toWhite();
+        }
+      }
+    }
+  }
+}

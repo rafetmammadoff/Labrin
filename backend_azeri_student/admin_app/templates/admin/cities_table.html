@@ -1,0 +1,39 @@
+{% load i18n admin_urls static partner_filter %}
+<div class="js-inline-admin-formset inline-group"
+     id="{{ inline_admin_formset.formset.prefix }}-group"
+     data-inline-type="stacked"
+     data-inline-formset="{{ inline_admin_formset.inline_formset_data }}">
+    <fieldset class="module {{ inline_admin_formset.classes }}">
+        <h2>{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
+        {{ inline_admin_formset.formset.management_form }}
+        {{ inline_admin_formset.formset.non_form_errors }}
+        <table style="width:100%">
+            <tr>
+                <th>Cities</th>
+                <th>How many tables each city:</th>
+            </tr>
+
+                {% for inline_admin_form in inline_admin_formset %}
+                    {#                    {{ inline_admin_form }}#}
+                    {% for fieldset in inline_admin_form %}
+{#                        {{ fieldset }}#}
+                        {% for line in fieldset %}
+                            {{ fieldset.classes }}
+                            {#                            {{ line }}#}
+                            <tr>
+                            {% for field in line %}
+                                {% if field.field.name == 'cities' and field.field.value %}
+                                    {% get_cities_if_value original.id field.field.value as get_cities %}
+
+                                    <td>{{ get_cities.cities }}</td>
+                                    <td>{{ get_cities.table_count }}</td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+
+        </table>
+    </fieldset>
+</div>

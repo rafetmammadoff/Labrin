@@ -1,0 +1,391 @@
+{% extends 'partners/base/index.html' %}
+{% load static %}
+{% load partner_filter i18n %}
+{% block meta_tags %}
+    <meta name="keywords" content="{{ object.meta_keywords }}">
+    <meta name="description" content="{{ object.meta_description }}">
+{% endblock meta_tags %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ object.facebook_social_title }}">
+    <meta property="og:description" content="{{ object.facebook_social_description }}">
+    {% if object.social_image %}
+        <meta property="og:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if object.social_image %}
+        <meta name="twitter:image"
+              content="{{ request.build_absolute_uri|slice:":-1" }}{{ object.social_image.url }}">
+    {% endif %}
+    <meta name="twitter:image:alt" content="{{ object.twitter_social_image_alt }}">
+    <meta name="twitter:creator" content="{{ object.twitter_social_creator }}"/>
+    <meta name="twitter:site" content="{{ object.twitter_social_site }}">
+{% endblock social_headers %}
+
+{% block title %}
+    <title>{{ object.website_title }}</title>
+{% endblock title %}
+
+
+
+{% block content %}
+    <div id="springfair_section">
+        <div class="container">
+            {% for content in object.homecontent_set.all %}
+                {% if content.home_content_type == 0 %} {# Bir kontentli #}
+                    <div class="title">
+                        {{ content.title }}
+                    </div>
+                    <div class="spring-fair-text">
+                        {{ content.content|safe }}
+                    </div>
+                {% elif content.home_content_type == 2 %} {# Events #}
+                    <div class="spring-fair-layer-image">
+                        <p>{{ content.content|safe }}</p>
+
+                        <div class="row">
+                            {% for event in content.events.all %}
+                                <div class="col-lg-3">
+                                    <div class="spring-fair-layer-img-child">
+                                        <img src="{% if event.image %}{{ event.image.url }}{% endif %}" alt="">
+                                        <div class="springfair-layer">
+                                            <p>{{ event.event_date|default_if_none:'' }}</p>
+                                        </div>
+                                    </div>
+                                    <div id="spring-fair-image-text">
+                                        <h6>
+                                            {{ event.name }}
+                                        </h6>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="spring-register">
+            <div class="container">
+                {% for content in object.homecontent_set.all %}
+                    {% if content.home_content_type == 3 %} {# Contact form  #}
+                        <div class="spring-register-header">
+                            <h3 class="spring-register-h3">
+                                {{ content.title }}
+                            </h3>
+                            <h2>Registered {{ register_count }} person
+                                <span>-</span>
+                                <a class="fancybox" rel="group" href="{% static 'partners/assets/bg.jpg' %}"><img
+                                        alt=""/>Program</a>
+                            </h2>
+                            <p>{{ content.content|safe }}</p>
+                        </div>
+                        {% if content.register_form %}
+                            <div class="spring-form">
+                                <form class="register-submit-form" method="post"
+                                      data-action="{% url 'register_view' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="reg_loc" value="{{ base_menu_object }}">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-12 col-md-11 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-lg-7">
+                                                    <div class="form-section">
+                                                        {% for field in form %}
+                                                            {% if field.name == 'full_name' or field.name == 'email' or field.name == 'institution' %}
+                                                                <div class="form-inp">
+                                                                    <label>
+                                                                        {{ field.label }}
+                                                                    </label>
+                                                                    {{ field }}
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        <div class="form-inp">
+                                                            <label>
+                                                                Select event ( cities)
+                                                            </label>
+                                                            {{ form_table.management_form }}
+                                                            <div  class="col-sm-12" id="button-spring-register">
+                                                                {% for form in form_table %}
+                                                                    {% with form_count=forloop.counter0 %}
+                                                                        {% for event_item in events %}
+                                                                            {% if forloop.counter0 == form_count %}
+                                                                                {#                                                                    <button type='button' data-city="city-{{ event_item.id }}" data-id="{{ form_count }}" id="{{ event_item.id }}"#}
+                                                                                {#                                                                        class="button-spring">{{ event_item.name }}</button>#}
+
+                                                                                <label class="dsd">
+                                                                                    <input type="checkbox"
+                                                                                           value="{{ event_item.id }}"
+                                                                                           id="id_table-{{ form_count }}-cities"
+                                                                                           name="table-{{ form_count }}-cities"
+                                                                                           data-city="city-{{ event_item.id }}"
+                                                                                           class=" button-spring">
+
+                                                                                    <span class="checkmark button-spring">{{ event_item.name }}</span>
+                                                                                </label>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    {% endwith %}
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-inp">
+                                                            <label>
+                                                                How many tables each city
+                                                            </label>
+                                                            <div class="button-select">
+                                                                {% for form in form_table %}
+                                                                    {% with form_count=forloop.counter0 %}
+                                                                        {% for event_item in events %}
+                                                                            {% if forloop.counter0 == form_count %}
+                                                                                <div class="selected-cart-item"
+                                                                                     data-city="city-{{ event_item.id }}">
+                                                                                    <button type="button"
+                                                                                            disabled="disabled"
+                                                                                            class="increase accept">+
+                                                                                    </button>
+                                                                                    {#                                                                            <input type="number" id="amount" value="0" min="0">#}
+                                                                                    {{ form.table_count }}
+                                                                                    <button type="button"
+                                                                                            disabled="disabled"
+                                                                                            class="decrease accept">-
+                                                                                    </button>
+                                                                                </div>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    {% endwith %}
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="form-section">
+                                                        {% for field in form %}
+                                                            {% if field.name == 'message' or field.name == 'billing_address' or field.name == 'signature' %}
+                                                                <div class="form-inp">
+                                                                    <label>
+                                                                        {{ field.label }}
+                                                                    </label>
+                                                                    {{ field }}
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        <div id="form-data-section">
+                                                            <p>{{ today }}</p>
+                                                            <input type="submit" class="button-a form-section-button"
+                                                                   value="Sign up" placeholder="Signature">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% for content in object.homecontent_set.all %}
+            {% if content.home_content_type == 5 %} {# Universities #}
+                <div id="previous-exhibitions">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-11 col-md-12">
+                                <h3>
+                                    {{ content.title }}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="previous-exhibitions-image">
+                            <div class="owl-carousel owl-theme">
+                                {% for university in content.universities_from_previous_exhibtions.all %}
+                                    <div>
+                                        <img src="{{ university.university_logo.url }}"
+                                             style=" width: 143px; height: 47px; object-fit: contain;" alt="">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif content.home_content_type == 4 %} {# Partners section #}
+                <div class="spring-fair-comment">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-11 col-md-12">
+                                <h3>
+                                    {{ content.title }}
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="owl-carousel owl-theme">
+                            {% for partner in content.partner_says.all %}
+                                <div class="owl-item-card">
+                                    <div class="row">
+                                        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                            <div class="owl-item-card-image">
+                                                <img src="{{ partner.picture.url }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <img src="{% static 'partners/assets/dott.png' %}"
+                                                 class="owl-items-card-img" alt="">
+                                            <p>
+                                                {{ partner.text }}
+                                            </p>
+                                            <div class="owl-item-card-text-span">
+                                    <span>
+                                       {{ partner.full_name }}
+                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% if images.count > 0 %}
+            <div class="spring-fair-gallery">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-11 col-md-12">
+                            <div class="spring-fair-gallery-header">
+                                <h3>
+                                    Gallery
+                                </h3>
+                                <p>All photos and videos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for item in images %}
+                            {% if item.order == 1 %}
+                                <div class="col-lg-3">
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery" rel="group"
+                                       href="{{ item.image.url }}">
+                                        <img src="{{ item.image.url }}" style="height: 284px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/search.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                    {% elif item.order == 2 %}
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery" rel="group"
+                                       href="{{ item.image.url }}">
+                                        <img src="{{ item.image.url }}" style="height: 298px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/search.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            {% elif item.order == 3 %}
+                                <div class="col-lg-3">
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery" rel="group"
+                                       href="{{ item.image.url }}">
+                                        <img src="{{ item.image.url }}" style="height: 362px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/play.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                    {% elif item.order == 4 %}
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery" rel="group"
+                                       href="{{ item.image.url }}">
+                                        <img src="{{ item.image.url }}" style="height: 218px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/play.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6">
+                                    {% elif item.order == 5 %}
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery" rel="group"
+                                       href="{{ item.image.url }}">
+                                        <img src="{{ item.image.url }}" style="height: 284px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/search.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                    {% elif item.order == 6 %}
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery" rel="group"
+                                       href="{{ item.image.url }}">
+                                        <img src="{{ item.image.url }}" style="height: 298px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/search.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        {% endif %}
+        {% if images.count > 0 %}
+            <div class="spring-fair-gallery">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-11 col-md-12">
+                            <div class="spring-fair-gallery-header">
+                                <h3>
+                                    Videos
+                                </h3>
+                                <p>All videos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for item in videos %}
+                            {% if item.order == 1 %}
+                                <div class="col-lg-6">
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery"
+                                       href="https://www.youtube.com/embed/{{ item.youtube_link.get_youtube_id }}?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp;autoplay=1&mute=1" rel="group"
+                                       href="{% static 'partners/assets/rect.png' %}">
+                                        <img src="{{ item.youtube_link.get_background_image }}" style="height: 200px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/play.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            {% elif item.order == 2 %}
+                                <div class="col-lg-3">
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery"
+                                       href="https://www.youtube.com/embed/{{ item.youtube_link.get_youtube_id }}?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp;autoplay=1&mute=1" rel="group"
+                                       href="{% static 'partners/assets/rect.png' %}">
+                                        <img src="{{ item.youtube_link.get_background_image }}" style="height: 200px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/play.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            {% elif item.order == 3 %}
+                                <div class="col-lg-3">
+                                    <a class="fancybox spring-fair-gallery-img" data-fancybox="gallery"
+                                       href="https://www.youtube.com/embed/{{ item.youtube_link.get_youtube_id }}?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp;autoplay=1&mute=1" rel="group"
+                                       href="{% static 'partners/assets/rect.png' %}">
+                                        <img src="{{ item.youtube_link.get_background_image }}" style="height: 200px;" alt="">
+                                        <div class="overlay-spring">
+                                            <img src="{% static 'partners/assets/play.png' %}" class="sdsd" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div id="snackbar"></div>
+    </div>
+{% endblock content %}

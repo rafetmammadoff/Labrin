@@ -1,0 +1,169 @@
+.g-timeline {
+  margin: rem(120) 0;
+
+  @include breakpoint($mobile-width, $tablet-width) {
+    margin: rem(100) 0 !important;
+  }
+
+  @include breakpoint(0, $mobile-width) {
+    margin: rem(60) 0 !important;
+  }
+
+  &__content {
+    position: relative;
+    @include advancedRem(padding, (60 93 60 86));
+    @include flexbox();
+    max-width: rem(1100);
+    width: 100%;
+    @include transition(all, 0.3s, ease-in-out);
+
+    @include tablet() {
+      @include advancedRem(padding, (40 53 40 46));
+    }
+
+    @include breakpoint(0, $tablet-width) {
+      @include advancedRem(padding, (40 30 40 20));
+    }
+
+    &:nth-child(odd) & {
+      &--year {
+        margin-left: rem(170);
+
+        @include tablet() {
+          margin-left: rem(150);
+        }
+
+        @include breakpoint(0, $tablet-width) {
+          margin-left: rem(130);
+        }
+
+        @include breakpoint(0, $tablet-width) {
+          margin-left: rem(100);
+        }
+      }
+
+      &--history {
+        margin-left: rem(100);
+
+        @include tablet() {
+          margin-left: rem(60);
+        }
+
+        @include breakpoint(0, $tablet-width) {
+          margin-left: rem(40);
+        }
+      }
+    }
+
+    &:nth-child(even) & {
+      &--history {
+        margin-left: rem(155);
+
+        @include tablet() {
+          margin-left: rem(125);
+        }
+
+        @include breakpoint(0, $tablet-width) {
+          margin-left: rem(80);
+        }
+      }
+    }
+
+    &--item {
+      list-style: disc;
+      margin-bottom: rem(30);
+      @include font-size(24, 400);
+
+      @include breakpoint($mobile-width, $tablet-width) {
+        @include font-size(20, 400);
+      }
+
+      @include breakpoint(0, $mobile-width) {
+        @include font-size(16, 400);
+      }
+    }
+
+    &:nth-child(1) {
+      @include pseudo((before, after)) {
+        top: rem(80);
+      }
+    }
+
+    &:nth-child(1) & {
+      @include action-css(hover) {
+        background-color: $white-clr;
+        color: $secondary-clr;
+        @include pseudo((after, before)) {
+          background-color: $secondary-clr;
+        }
+      }
+    }
+
+    &--year {
+      @include font-size(44, 400);
+
+      @include breakpoint($mobile-width, $tablet-width) {
+        @include font-size(32, 400);
+      }
+
+      @include breakpoint(0, $mobile-width) {
+        @include font-size(24, 400);
+      }
+    }
+
+    @include action-css() {
+      background-color: $secondary-clr;
+      color: $white-clr;
+
+      @include pseudo((after, before)) {
+        background-color: $white-clr;
+      }
+    }
+
+    @include pseudo((before, after)) {
+      content: "";
+      position: absolute;
+      background-color: $secondary-clr;
+      @include transition(all, 0.4s);
+    }
+
+    @include pseudo(after) {
+      left: rem(227);
+      top: 0;
+      bottom: 0;
+      width: rem(5);
+      z-index: 2;
+
+      @include tablet() {
+        left: rem(167);
+      }
+
+      @include breakpoint($mobile-width, $tablet-width) {
+        left: rem(117);
+      }
+      
+      @include breakpoint(0, $mobile-width) {
+        left: rem(87);
+      }
+    }
+
+    @include pseudo(before) {
+      top: rem(80);
+      @include box(22);
+      left: rem(218);
+      z-index: 3;
+
+      @include tablet() {
+        left: rem(158);
+      }
+
+      @include breakpoint($mobile-width, $tablet-width) {
+        left: rem(110);
+      }
+
+      @include breakpoint(0, $mobile-width) {
+        left: rem(80);
+      }
+    }
+  }
+}

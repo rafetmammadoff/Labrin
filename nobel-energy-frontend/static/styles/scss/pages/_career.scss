@@ -1,0 +1,7 @@
+.on-career {
+  margin-bottom: rem(150);
+
+  @include breakpoint(0, $tablet-width) {
+    margin-bottom: rem(100);
+  }
+}

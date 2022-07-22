@@ -1,0 +1,66 @@
+:root {
+  --dark-blue: #285CFC;
+  --light-blue: #285CFC;
+  --gray: #B7B7B6;
+}
+
+@font-face {
+  font-family: Suisse-Init-regular;
+  src: url(../font/SuisseIntl-Regular_0.otf);
+}
+
+@font-face {
+  font-family: SpaceMono-Bold;
+  src: url(../font/SpaceMono-Bold.ttf);
+}
+
+body{
+  font-family: Suisse-Init-regular;
+  background-color: #ECECEC;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: SpaceMono-Bold;
+}
+
+h1,h2{
+  font-size: 52px;
+  line-height: 80px;
+}
+
+.button {
+  font-size: 14px;
+  padding: 10px 40px;
+  background-color: var(--dark-blue);
+  color: white;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.button:hover {
+  color: white;
+  background-color:  var(--light-blue);
+}
+
+.section-gap{
+  margin-bottom: 100px;
+}
+
+.bg{
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .navbar-brand img {
+    width: 8.125rem !important;
+    
+  }
+}
+

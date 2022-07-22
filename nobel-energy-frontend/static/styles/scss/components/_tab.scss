@@ -1,0 +1,114 @@
+#g-tab-section {
+    margin: rem(70) auto;
+    overflow-x: auto;
+    width: 100%;
+    @include advancedRem(padding, (10 0));
+    @include justify-between();
+    max-width: max-content;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    @include transition();
+
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar {
+        height: rem(5);
+    }
+
+    &:hover {
+        scrollbar-color: rgba(0, 0, 0, 0.158) transparent;
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.158);
+        }
+    }
+
+    &.g-tab-section__sm {
+        .g-tab-component {
+            padding: rem(15) rem(12);
+            @include font-size(16, 400);
+            margin-right: rem(4);
+
+            @include breakpoint($tablet-width, rem(1250)) {
+                padding: rem(15) rem(8);
+                @include font-size(14, 400);
+            }
+        }
+    }
+
+    .g-tab-component {
+        display: block;
+        text-align: center;
+        color: $dark-gray;
+        @include font-size(20, 500);
+        @include advancedRem(padding, (10 20));
+        @include advancedRem(margin-right, (30));
+        @include transition();
+        flex-shrink: 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @include action-css((hover, active)) {
+            background-color: $secondary-clr;
+            color: $white-clr;
+        }
+    }
+
+    .g-tab-component.blue {
+        @include action-css((hover, active)) {
+            background-color: $primary-clr;
+            color: $white-clr;
+        }
+    }
+
+    .g-tab-component.indigo {
+        @include action-css((hover, active)) {
+            background-color: $indigo-clr;
+            color: $white-clr;
+        }
+    }
+
+    .g-tab-component.orange {
+        @include action-css((hover, active)) {
+            background-color: $orange-clr;
+            color: $white-clr;
+        }
+    }
+
+    .g-tab-component.purple {
+        @include action-css((hover, active)) {
+            background-color: $purple-clr;
+            color: $white-clr;
+        }
+    }
+
+    .g-tab-component.active {
+        background-color: $secondary-clr;
+        color: $white-clr;
+    }
+
+    .g-tab-component.active.blue {
+        background-color: $primary-clr;
+        color: $white-clr;
+    }
+
+    .g-tab-component.active.indigo {
+        background-color: $indigo-clr;
+        color: $white-clr;
+    }
+
+    .g-tab-component.active.orange {
+        background-color: $orange-clr;
+        color: $white-clr;
+    }
+
+    .g-tab-component.active.purple {
+        background-color: $purple-clr;
+        color: $white-clr;
+    }
+}

@@ -1,0 +1,66 @@
+.g-page-banner {
+    @include advancedRem(margin-bottom, (150));
+    position: relative;
+
+    .g-page-banner-cover {
+        @include flex-center(column);
+        background: url("../../../static/assets/svgs/Rectangle\ 31.svg");
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        @include advancedRem(padding, (87 30));
+
+        @include pseudo() {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        @include breakpoint(0, $tablet-width) {
+            @include advancedRem(padding, (47 30));
+        }
+
+        .g-page-banner-content {
+            width: 100%;
+            @include flex-center(column);
+            text-align: center;
+            color: $white-clr;
+            position: relative;
+            z-index: 3;
+
+            .g-page-banner-title {
+                @include font-size(60, 400);
+                @include advancedRem(margin-bottom, (30));
+
+                @include breakpoint(0, $tablet-width) {
+                    @include font-size(38, 400);
+                }
+            }
+
+            .g-page-banner-text {
+                @include font-size(18, 400);
+                @include advancedRem(margin-bottom, (40));
+                max-width: rem(615);
+                width: 100%;
+            }
+
+            .g-page-banner-anchor-button {
+                background-color: $secondary-clr;
+                color: $white-clr;
+                @include advancedRem(padding, (15 25));
+            }
+        }
+    }
+
+    .g-page-banner-background {
+        height: 483px;
+        background-position: center;
+        background-size: cover;
+    }
+}

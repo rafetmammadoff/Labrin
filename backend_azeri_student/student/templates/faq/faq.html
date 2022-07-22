@@ -1,0 +1,129 @@
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block title %}
+    Faq | {{ block.super }}
+{% endblock %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Yeniliklər">
+    <meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta name="twitter:image:alt" content="Yeniliklər">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+    <link rel="icon" href="{% static  'faq/assets/img/favicon-32x32.png' %}" type="image/icon type">
+<!--------------------Fontawesome----------------------->
+    
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!---------------------Bootstrap------------------------>
+    <link rel="stylesheet" href="{% static 'faq/src/css/bootstrap.min.css' %}">
+
+    <!---------------------Local Style-------------------------------->
+    <link rel="stylesheet"" href="{% static 'faq/src/css/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'faq/src/css/responsive.css' %}">
+
+  
+{% endblock %}
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'All Faqs',
+        content_category: 'Faqs',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+<section class="news-page">
+    <div class="page-cover" style="background-image:url({{ coverUrl }})">
+        <div class="container">
+            <div class="cover-items">
+                <h1 class="page-title ">Suallar və Cavablar</h1>
+                <ol class="breadcrumb ">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Faq</li>
+                </ol>
+                <p class="cover-info"></p>
+            </div>
+        </div>
+    </div>
+
+
+<section id="tabs">
+    <div class="container category-section">
+        <div class="row categories">
+            <div class="col-xs-12 ">
+        <div class="tabs">
+    
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">  
+            <input type="radio" id="tab4" name="tab-control">
+            <nav>
+            <ul class="nav nav_tabs  nav-fill" id="nav-tab" role="tablist">
+            </ul>
+            </nav>
+            
+            <div class="faq-slider"><div class="faq-indicator"></div></div>
+            
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <section class="tab-pane" id="nav-1" role="tabpanel" aria-labelledby="tab1">
+                <div class="faq-accordion" id="card-Div"><dl></dl></div>
+
+            </section>
+                
+            <section class="tab-pane" id="nav-2" role="tabpanel" aria-labelledby="tab2">
+                <div class="faq-accordion" id="card-Div"><dl></dl></div>  
+            
+            </section>
+                
+            <section class="tab-pane" id="nav-3" role="tabpanel" aria-labelledby="tab3">
+                <div class="faq-accordion" id="card-Div"><dl></dl></div>
+            
+            </section>
+            
+            <section class="tab-pane" id="nav-4" role="tabpanel" aria-labelledby="tab4">
+                <div class="faq-accordion" id="card-Div"><dl></dl></div>
+            
+            </section>
+            </div>
+        </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+       
+       
+  
+
+</section>
+     <script src="{% static 'faq/src/js/main.js' %}"></script>
+
+{% endblock %}

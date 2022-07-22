@@ -1,0 +1,24 @@
+{% if 'edu-cat' in request.GET and 'country' not in request.GET%}
+    <div class="my-selectHolder" id="country-select">
+
+        <select name="country">
+            {% for country in countries %}
+                <option value="{{ country.id }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+
+     
+    </div>
+
+{% elif 'country' in request.GET and 'edu-cat' in request.GET %}
+
+    <div class="my-selectHolder" id="uni-select">
+
+        <select name="education">
+            {% for edu in educations %}
+                <option value="{{ edu.id }}">{{ edu.title }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+{% endif %}

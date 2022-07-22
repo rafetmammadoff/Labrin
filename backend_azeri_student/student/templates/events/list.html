@@ -1,0 +1,160 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    Tədbirlər | {{ block.super }}
+{% endblock %}
+{% block social_headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Tədbirlər">
+    <meta property="og:description"
+          content="Bizimlə məsləhətləşin. AzeriStudent mütəxəssisləri doğru təhsil müəssisəsini və proqramını seçməyə, sənədlər və viza ilə bağlı sənədləşməyə, qəbul və hazırlığa və uğurla qeydiyyatdan keçməyə kömək edəcəkdir. ">
+    <meta property="og:image"
+          content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image"
+          content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+
+    <meta name="twitter:image:alt" content="Tədbirlər">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+
+{% block extra_script %}
+    <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/dhtmlxcalendar.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'calendar/js/dhtmlxcalendar.js' %}"></script>
+    <style>
+        .dhtmlxcalendar_material {
+            left: 50% !important;
+            transform: translateX(-50%);
+        }
+    </style>
+    <script>
+
+        var myCalendar;
+
+        function doOnLoad() {
+            myCalendar = new dhtmlXCalendarObject("calendarHere");
+            {% if day %}
+                myCalendar.setDate(new Date("{{ day|date:'Y-m-d' }}T00:00:00.198Z"));
+            {% else %}
+                myCalendar.setDate(new Date());
+            {% endif %}
+            myCalendar.show();
+            {% for event in event_titles %}
+                myCalendar.setTooltip("{{ event.event_date|date:'Y-m-d' }}", "{{ event.title }}", true, true);
+            {% endfor %}
+        }
+
+        function make_date(date) {
+            var day = date.getDate();
+            var month = date.getMonth() + Number(1);
+            var year = date.getFullYear();
+            return year + "/" + month + "/" + day;
+        }
+
+        $(document).ready(function (e) {
+            doOnLoad();
+            myCalendar.attachEvent("onClick", function (date) {
+                var mydate = new Date(date);
+                var senddate = make_date(mydate);
+                console.log(mydate.getDate());
+                window.location.href = '/events/' + senddate;
+            });
+
+            {% if day %}
+               $('html, body').animate({
+                   scrollTop: ($('.page-scroll').offset().top)
+               }, 1);
+            {% endif %}
+        });
+    </script>
+{% endblock %}
+
+{% block base_content %}
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'All Events',
+        content_category: 'Events',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    {% get_website_settings as config %}
+    <section class="innovation">
+        <div class="page-cover" style="background-image:url({% static 'azeristudent/img/cover.jpg' %})">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title " style="position: relative;z-index: 1;">Tədbirlər</h1>
+                    <ol class="breadcrumb ">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tədbirlər</li>
+                    </ol>
+                    <p class="cover-info"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container page-scroll">
+            <div class="innovation-section section-wrap">
+                <div class="innovation-left">
+                    <p style="text-align: center;margin-top: 15px;">Təqvim</p>
+                    <div id="calendarHere" style="position:relative;height:350px;"></div>
+
+                </div>
+                <div class="innovation-right">
+                    <p>Tədbirlər</p>
+                    <div class="innovation-wrap">
+                        {% for event in object_list %}
+                            <a href="{{ event.get_absolute_url }}">
+                                <div class="innovation-item">
+                                    <div class="innovation-img"
+                                         style="background-image:url({{ event.background.url }})"></div>
+                                    <div class="innovation-info">
+                                        <span class="date">{{ event.event_date|date:"d F" }} <i
+                                                class="fa fa-calendar"></i></span>
+                                        <h2 class="title" style="position:relative;z-index:1">{{ event.title }}</h2>
+                                        <p class="content">
+                                            {{ event.summary|truncatechars:"137" }}
+                                        </p>
+                                        <div class="details-link">Daha çox <img
+                                                src="{% static 'azeristudent/img/right-arrow.png' %}"
+                                                alt=""></div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% empty %}
+                            <div>
+                                <h3>{{ day }} bu tarixə uyğun tədbir tapılmadı</h3>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+            {% include "education/partials/pagination.html" %}
+
+            {% include "partials/do_with_us.html" %}
+        </div>
+
+
+    </section>
+{% endblock %}

@@ -1,0 +1,59 @@
+.contact-section {
+  @include advancedRem(margin, (140 0 210));
+
+  @include breakpoint($mobile-width, $tablet-width) {
+    @include advancedRem(margin, (80 0 150));
+  }
+
+  @include breakpoint(0, $mobile-width) {
+    @include advancedRem(margin, (50 0 100));
+  }
+
+  &__wrapper {
+    margin-top: rem(53);
+  }
+
+  &__btn {
+    @include toRem(margin-top, 10);
+    width: 100%;
+    text-align: center;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    max-width: rem(300);
+    width: 100%;
+    margin: 0 auto;
+
+    @include breakpoint(0, $tablet-width) {
+      margin: rem(40) 0 0;
+    }
+
+    * {
+      @include font-size(20, 400);
+      color: $dark-gray;
+    }
+
+    address,
+    &--link {
+      margin-bottom: rem(34);
+    }
+
+    a {
+      @include transition();
+    }
+
+    a:hover {
+      @include toPrimary();
+    }
+
+    &--title {
+      @include font-size(24, 500);
+      margin-bottom: rem(40);
+    }
+  }
+}

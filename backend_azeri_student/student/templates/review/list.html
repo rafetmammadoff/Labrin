@@ -1,0 +1,107 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block title %}
+    {% get_website_settings as config_review %}
+    {{ config_review.review_title }} | {{ block.super }}
+{% endblock %}
+
+{% block social_headers %}
+    {% get_website_settings as social %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="{{ social.review_title }}">
+    <meta property="og:description" content="Sosial media hesablarımızı izləyin
+və yeniliklərdən ilk siz xəbərdar olun!">
+    <meta property="og:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'azeristudent/img/cover.jpg' %}">
+    <meta name="twitter:image:alt" content="{{ social.review_title }}">
+    <meta name="twitter:creator" content="@azeristudent01"/>
+    <meta name="twitter:site" content="@azeristudent01">
+{% endblock %}
+{% block extra_script %}
+<!-- Facebook Pixel Code -->
+<script> 
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3029457137373275');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent',{
+        content_name: 'Reviews',
+        content_category: 'Reviews',
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3029457137373275&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+{% endblock %}
+
+{% block base_content %}
+    {% get_website_settings as config %}
+    <section class="reviews-page">
+        <div class="page-cover" style="background-image: url('{{ config.get_review_cover }}')">
+            <div class="container">
+                <div class="cover-items">
+                    <h1 class="page-title ">{{ config.review_title }}</h1>
+                    <ol class="breadcrumb ">
+{#                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Ana səhifə</a></li>#}
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">AzeriStudent</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ config.review_title }}</li>
+                    </ol>
+                    <p class="cover-info "></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="reviews-wrap section-wrap">
+                <div class="reviews-left">
+                    <h2>Bütün rəylər</h2>
+                    <ul>
+                        <li><a href="?status=parent">Valideynlər <img
+                                src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></a></li>
+                        <li><a href="?status=student">Tələbələr <img
+                                src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></a></li>
+                    </ul>
+                </div>
+                <ul class="reviews-right">
+                    {% for review in object_list %}
+                        <li class="">
+                            <a class="reviews-right-item" href="{{ review.get_absolute_url }}">
+                                <div class="review-item-avatar">
+                                    <img class="img-responsive img-circle" src="{{ review.picture.url }}" alt="">
+                                </div>
+                                <div class="review-item-info">
+                                    <h1 class="name">{{ review.name }}</h1>
+                                    <div class="from">{{ review.university_name }}</div>
+                                    <p>"{{ review.summary }}"
+                                    </p>
+                                    <div class="continue">Davam et <img src="{% static 'azeristudent/img/right-arrow.png' %}" alt=""></div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        {% include "education/partials/pagination.html" %}
+
+        <div class="container">
+            <div class="myClassforPartial">
+            {% include "partials/do_with_us.html" %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

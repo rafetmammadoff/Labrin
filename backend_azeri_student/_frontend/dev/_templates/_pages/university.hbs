@@ -1,0 +1,114 @@
+<div class="university">
+  <div class="header">
+    <div class="container">
+      <div class="header-items">
+        <div class="header-left">
+          <h1 class="school-title">The University of Kansas</h1>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">The University of Kansas</li>
+          </ol>
+
+          <ul class="about-school">
+            <li>
+              <span>A country</span>
+              <span>İtaly</span>
+            </li>
+            <li>
+              <span>City</span>
+              <span>Milan</span>
+            </li>
+            <li>
+              <span>Language of instruction</span>
+              <span>English, Italian</span>
+            </li>
+            <li>
+              <span>A type</span>
+              <span>University</span>
+            </li>
+          </ul>
+
+        </div>
+        <div class="header-right" style="background-image: url('img/school.jpg')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="school-content">
+      <h1>About University</h1>
+      <div class="school-content-left">
+        <p>The Australian continent is unique: pristine nature and rich fauna coexist with skyscrapers,
+          business quarters and prestigious universities. The education system in Australia is built according
+          to the British model. At the same time, the cost of training in Australian universities is significantly
+          lower than in the US and European countries (30-40%). Universities of the country occupy high positions in
+          international educational ratings. According to one of the most famous and respected editions of the
+          Times Higher Education, the three largest Australian universities entered the first hundred of the World University
+          Reputation Rankings for 2016. </p>
+
+          <p>The Australian continent is unique: pristine nature and rich fauna coexist with skyscrapers,
+            business quarters and prestigious universities. The education system in Australia is built according
+            to the British model. At the same time, the cost of training in Australian universities is significantly
+            lower than in the US and European countries (30-40%). Universities of the country occupy high positions in
+            international educational ratings. According to one of the most famous and respected editions of the
+            Times Higher Education, the three largest Australian universities entered the first hundred of the World University
+            Reputation Rankings for 2016. </p>
+      </div>
+      <div class="school-content-right">
+        <ul>
+          <li>Более 28 000 студентов</li>
+          <li>15% учащихся — иностранные студенты</li>
+          <li>#53 среди лучших государственных вузов США (U.S. News & World Report, 2018)</li>
+          <li>Более 28 000 студентов</li>
+          <li>15% учащихся — иностранные студенты</li>
+          <li>#53 среди лучших государственных вузов США (U.S. News & World Report, 2018)</li>
+          <li>Более 28 000 студентов</li>
+          <li>15% учащихся — иностранные студенты</li>
+          <li>#53 среди лучших государственных вузов США (U.S. News & World Report, 2018)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="container">
+      <form class="school-form wow fadeIn">
+        <h2>Поступайте с нами!</h2>
+
+        <div class="school-form-wrap">
+          <div class="school-form-item">
+            <input type="text" class="form-control" id="name" placeholder="Name">
+          </div>
+          <div class="school-form-item">
+            <input type="text" class="form-control" id="phone" placeholder="Phone">
+          </div>
+          <div class="school-form-item">
+            <input type="email" class="form-control" id="email" placeholder="Email">
+          </div>
+          <div class="school-form-item">
+            <button class="btn school-btn">To get a consultation <img src="img/right-arrow-white.png" alt=""></button>
+          </div>
+        </div>
+
+        <span>Нажимая на кнопку, вы даете согласие на обработку своих персональных данных. Гарантируем <a href="">конфиденциальность</a>.</span>
+      </form>
+    </div>
+  </div>
+
+  <div class="school-map wow slideInLeft">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.41782076333!2d49.851908550640495!3d40.3774314792685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d077c61fef3%3A0xfa4594c97092ca01!2sAF+Business+House!5e0!3m2!1saz!2s!4v1533039294226" style="border:0" allowfullscreen="" width="100%" height="450" frameborder="0">
+    </iframe>
+  </div>
+  <div class="school-slider-section">
+    <div class="container">
+      <h1 class="slider-title">Проживание</h1>
+      <p class="desc">Студенты живут в комфортабельных резиденциях на кампусе, которые предлагают несколько вариантов размещения: комнаты с разным оснащением, рассчитанные на 2 или 4 проживающих. Во всех комнатах есть доступ к wi-fi. </p>
+      <div class="owl-carousel owl-theme school-slider wow fadeIn">
+        {{#times 3}}
+        <div class="slider-item" style='background-image: url("../img/school-gallery.jpg")'></div>
+        {{/times}}
+      </div>
+    </div>
+  </div>
+  {{>contact-section}}
+</div>

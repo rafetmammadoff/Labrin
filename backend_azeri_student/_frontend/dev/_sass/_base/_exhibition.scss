@@ -1,0 +1,523 @@
+#exhibition {
+  * {
+    box-sizing: border-box;
+  }
+
+  // HEADER OF THE EXHIBITION
+  .exhibition_header {
+    min-height: 300px;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 992px) {
+      padding: 100px 0;
+      width: 90%;
+      margin: 0 auto;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .imgHolder {
+      width: 250px;
+      height: 250px;
+      border-radius: 100%;
+      background-color: $red;
+
+      @media screen and (min-width: 768px) {
+        width: 335px;
+        height: 335px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+      }
+    }
+
+    .content {
+      margin-top: 20px;
+
+      h2 {
+        color: $red;
+        font-size: 40px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .d-flex {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          font-size: 22px;
+          color: rgba($color: black, $alpha: .6);
+          line-height: 25px;
+          padding: 10px 0;
+          font-weight: 500;
+          text-align: center;
+
+          &.address {
+            border: 2px solid rgba($color: $red, $alpha: .8);
+            border-style: hidden hidden solid hidden;
+          }
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        width: calc(100% - 345px);
+        padding: 0 50px;
+        margin-top: 0;
+
+        h2 {
+          font-size: 60px;
+          text-align: left;
+        }
+
+        .d-flex {
+          flex-direction: row;
+          margin: 0 -30px;
+
+          p {
+            padding: 10px 30px;
+            text-align: left;
+          }
+
+          .address {
+            border-style: hidden solid hidden hidden !important;
+          }
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        padding: 0 113px;
+      }
+    }
+  }
+
+  // PARTICIPANTS
+  .participants {
+    margin-bottom: 80px;
+
+    h2 {
+      font-size: 35px;
+      font-weight: 500;
+      color: $red;
+      line-height: 40px;
+      margin-bottom: 20px;
+
+      @media screen and (min-width: 768px) {
+        width: 70%;
+      }
+    }
+
+    ul {
+      li {
+        padding-left: 20px;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 6px;
+          height: 6px;
+          background: $red;
+          border-radius: 100%;
+          position: absolute;
+          left: 0;
+          top: 13px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 13px;
+        }
+
+        a {
+          font-size: 22px;
+          color: #0045ac;
+          transition: .5s;
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+
+    .col-sm-5 {
+      display: flex;
+      margin-top: 20px;
+      @media screen and (min-width: 768px) {
+        justify-content: flex-end;
+        margin-top: 0;
+      }
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+
+  // SECTION TITLE
+  .title {
+    margin-bottom: 40px;
+
+    @media screen and (min-width: 768px) {
+      width: 80%;
+    }
+
+    h2 {
+      font-size: 35px;
+      font-family: 'Libre Baskerville', serif;
+      color: $red;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 0;
+      border-top: 2px solid $red;
+      width: 240px;
+    }
+  }
+
+  .register-btn{
+    margin-top: 50px;
+  }
+
+  //ACCORDION
+  .accordion {
+    margin-bottom: 50px;
+
+    // ACCORDION HEADER
+    .acc_header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 27px;
+      height: 65px;
+      font-weight: 500;
+      padding: 10px 25px;
+      color: white;
+      background: $red;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      cursor: pointer;
+
+      span {
+        width: 15px;
+        height: 15px;
+        position: relative;
+
+        &::before, &::after {
+          content: "";
+          background: white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+        }
+
+        &::before {
+          width: 15px;
+          height: 4px;
+          transform: translate(-50%, -50%);
+        }
+
+        &::after {
+          transition: .5s;
+          width: 4px;
+          height: 15px;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      }
+
+      &.active {
+        span::after {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+      }
+    }
+
+    // ACCORDION BODY
+    .acc_body {
+      display: none;
+
+      li {
+        display: flex;
+        min-height: 65px;
+        padding: 10px 25px;
+        border: 2px solid transparent;
+        border-bottom-color: #cdcdcd;
+        align-items: center;
+        font-size: 22px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: .5s;
+
+        .collage {
+          width: calc(100% / 12 * 8);
+          padding-right: 10px;
+        }
+        .city {
+          width: calc(100% / 12 * 4);
+        }
+
+        &:hover {
+          border: 2px solid $red;
+        }
+      }
+    }
+  }
+
+  //REGISTER BUTTON
+  .register_fingerprint {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    min-width: 285px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 27px;
+    font-weight: 500;
+    background: #d0021b;
+    transition: .5s;
+    color: white;
+    margin-bottom: 70px;
+    border:none;
+
+    &:hover {
+      background: $red;
+    }
+
+    img {
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+  }
+
+  // USA & GREAT BRITAIN EDUCATION LIST
+  .usa_gb_edu_type {
+    padding: 20px;
+    border: 2px solid transparent;
+    transition: .5s;
+    border-bottom-color: #c8c8c8;
+
+    @media screen and (min-width: 768px) {
+      padding: 20px 35px 30px;
+    }
+
+    @media screen and (min-width: 992px) {
+      padding: 20px 70px 30px;
+    }
+
+    &:hover {
+      border-color: $red !important;
+    }
+
+    h5 {
+      font-size: 27px;
+      margin: 0;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    h6 {
+      font-size: 25px;
+      margin: 25px 0;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      li {
+        width: 100%;
+        font-size: 22px;
+        margin-bottom: 10px;
+        font-weight: normal;
+        list-style-type: disc;
+
+        &:not(:last-child)::after {
+          content: ";"
+        }
+        &:last-child::after {
+          content: "."
+        }
+
+        @media screen and (min-width: 768px) {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  .mt-50 {
+    margin-top: 50px;
+  }
+
+  .greatbritain .usa_gb_edu_type {
+    border-bottom-color: transparent;
+  }
+
+  // SHORT COLLAGE DESCRIPTION ON GREAT BRITAIN SECTION
+  .short_collage_gb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    transition: .5s;
+    border: 2px solid transparent;
+    border-bottom-color: #c8c8c8;
+    margin-bottom: 30px;
+
+    &:hover {
+      border-color: $red;
+    }
+
+    h5 {
+      width: calc(100% / 12 * 4);
+      font-size: 27px;
+      font-weight: 500;
+    }
+
+    p {
+      width: calc(100% / 12 * 8);
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      p, h5 {
+        width: 100%;
+      }
+
+      h5 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .short_collage {
+    padding: 20px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 2px solid transparent;
+    border-bottom-color: #cdcdcd;
+    transition: .5s;
+
+    &:hover {
+      border-color: $red;
+    }
+
+    h5, p {
+      width: 100%;
+      font-size: 22px;
+
+      @media screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    h5 {
+      font-weight: 500;
+
+      @media screen and (max-width: 767.9px) {
+        margin-bottom: 10px;
+      }
+    }
+
+    p {
+      @media screen and (max-width: 767.9px) {
+        color: #5d5d5d;
+      }
+    }
+  }
+
+  .contact-register {
+    background: #ebebeb;
+    margin-bottom: 60px;
+
+    form {
+      margin: 30px 0;
+
+      h5 {
+        font-size: 30px;
+        margin-bottom: 35px;
+        text-align: center;
+        color: $red;
+      }
+
+      input {
+        width: 100%;
+        height: 60px;
+        border: 1px solid rgba($color: black, $alpha: .5);
+        border-radius: 5px;
+        font-size: 22px;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background: transparent;
+        color: black;
+
+        &::placeholder {
+          color: rgba($color: black, $alpha: .5);
+        }
+
+        &:focus {
+          border-color: rgba($color: black, $alpha: .85);
+        }
+      }
+
+      button {
+        min-width: calc(100% - 20px);
+        max-width: 100%;
+        height: 60px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 27px;
+        color: white;
+        background: $red;
+        transition: .5s;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+
+        &:hover {
+          background: darken($color: $red, $amount: 7%);
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        margin: 60px auto;
+        width: 70%;
+
+        h5 {
+          font-size: 50px;
+        }
+
+        button {
+          min-width: 220px;
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        width: 50%;
+      }
+    }
+  }
+
+  .contact {
+    border-top: 2px solid $red;
+  }
+}

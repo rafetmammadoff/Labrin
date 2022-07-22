@@ -1,0 +1,93 @@
+.news-page{
+  .news-wrap{
+    .news-item{
+      width: 100%;
+      height: 370px;
+      display: flex;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+      transition: .2s;
+      margin:25px 0;
+      float: left;
+      border-radius: 10px;
+      overflow: hidden;
+      @include breakpoint(visible-xs){
+        flex-direction: column;
+        height: auto;
+      }
+      &:hover{
+        box-shadow: none;
+        .news-info{
+          border-color: $red;
+          .title{
+            color: $red;
+          }
+          .details-link{
+            opacity: 1;
+          }
+        }
+      }
+      &>div{
+        width: 50%;
+        @include breakpoint(visible-xs){
+          width: 100%;
+        }
+      }
+      .news-img{
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include breakpoint(visible-xs){
+          height: 250px;
+        }
+      }
+      .news-info{
+        position: relative;
+        padding: 45px 30px;
+        border: 2px solid transparent;
+        transition: .2s;
+        border-left: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        @include breakpoint(visible-xs){
+          padding: 40px 25px;
+          border:2px solid transparent;
+          border-radius:10px;
+          border-top-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-top: 0;
+        }
+        .date {
+          margin-bottom: 9px;
+          font-size: 16px;
+          color: gray;
+          position: absolute;
+          right: 30px;
+          top: 20px;
+          i{
+            margin-left: 4px;
+          }
+        }
+        .title{
+          font-size: 23px;
+          font-weight: 500;
+          margin-bottom:35px;
+        }
+        .content{
+          font-size: 18px;
+        }
+        .details-link{
+          display: block;
+          position: absolute;
+          bottom:26px;
+          right: 30px;
+          color: $red;
+          font-size: 18px;
+          opacity: 0;
+          @include breakpoint(visible-xs){
+            bottom: 10px;
+            right: 20px;
+          }
+        }
+      }
+    }
+  }
+}

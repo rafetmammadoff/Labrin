@@ -1,0 +1,9 @@
+{% extends "admin/change_list.html" %}
+{% load i18n static %}
+
+{% block object-tools-items %}
+{{ block.super }}
+<li>
+    <a href="{% url 'data_analysis' %}" class="btn btn-high btn-success">{% trans 'Data Report' %} <img src="{% static 'favicon/statistics.png' %}" height="10px" width="10px"> </a>
+</li>
+{% endblock %}
